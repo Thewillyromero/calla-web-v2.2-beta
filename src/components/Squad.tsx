@@ -71,7 +71,7 @@ const Squad = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           transition={{ staggerChildren: 0.12 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6 mb-14"
+          className="flex flex-wrap justify-center gap-3 md:gap-6 mb-14"
         >
           {agents.map((agent, idx) => {
             const glow =
