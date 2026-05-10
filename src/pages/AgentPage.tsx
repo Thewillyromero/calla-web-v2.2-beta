@@ -9,24 +9,12 @@ import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
 import { TrustpilotStars } from "@/components/TrustpilotStars";
 import { BOOKING_URL } from "@/lib/constants";
-import PeekingCharacter from "@/components/PeekingCharacter";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import novaRunning from "@/assets/characters/nova-running.webp";
-import byteMagnifying from "@/assets/characters/byte-magnifying.webp";
-import ariaCalling from "@/assets/characters/aria-calling.webp";
-import lumiWriting from "@/assets/characters/lumi-writing.webp";
 
 // Which character peeks on each agent's page (a different teammate, curious)
-const peekingCharacterMap: Record<string, { src: string; alt: string; side: "left" | "right"; color: string }> = {
-  aria: { src: novaRunning, alt: "NOVA", side: "right", color: "hsl(260 50% 65%)" },
-  nova: { src: byteMagnifying, alt: "BYTE", side: "left", color: "hsl(35 70% 58%)" },
-  lumi: { src: ariaCalling, alt: "ARIA", side: "right", color: "hsl(190 60% 55%)" },
-  byte: { src: lumiWriting, alt: "LUMI", side: "left", color: "hsl(160 50% 48%)" },
-  care: { src: ariaCalling, alt: "ARIA", side: "right", color: "hsl(190 60% 55%)" },
-};
 
 const DemoCall = lazy(() => import("@/components/DemoCall"));
 const CallSimulator = lazy(() => import("@/components/CallSimulator"));
@@ -287,15 +275,7 @@ const AgentPage = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="py-12 md:py-20 px-5 md:px-6 relative overflow-hidden">
-        {peekingCharacterMap[agentSlug] && (
-          <PeekingCharacter
-            src={peekingCharacterMap[agentSlug].src}
-            alt={peekingCharacterMap[agentSlug].alt}
-            side={peekingCharacterMap[agentSlug].side}
-            color={peekingCharacterMap[agentSlug].color}
-          />
-        )}
+      <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
