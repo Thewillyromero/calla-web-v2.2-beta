@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, ArrowRight, CheckCircle2, Quote } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, CheckCircle2, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,6 +13,7 @@ import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
+import agentSupport from "@/assets/characters/agent-support.webp";
 
 // Which character peeks on each agent's page (a different teammate, curious)
 
@@ -159,6 +160,35 @@ const agentData: Record<string, AgentData> = {
       { quote: "Antes dedicaba 3 horas al día al teléfono. Ahora CALLA atiende, filtra y solo me pasa las llamadas que realmente importan. Recuperé mi agenda.", name: "David Martínez", role: "Director Comercial, Instalaciones Martínez", company: "Instalaciones Martínez", result: "3h/día recuperadas" },
       { quote: "Gestionamos 200 llamadas al día entre 3 sedes. CALLA unificó todo: atiende, deriva a la sede correcta y agenda. Ahorramos 2 puestos de recepción.", name: "Miguel Santos", role: "Director de Operaciones, Edommo Energía", company: "Edommo Energía", result: "2 puestos ahorrados" },
       { quote: "Tenemos 12 técnicos en la calle y las llamadas de clientes para avisos de avería eran un caos. CALLA las recoge, prioriza y asigna al técnico más cercano.", name: "Antonio Ruiz", role: "Jefe de Operaciones, Climatizaciones Ruiz", company: "Climatizaciones Ruiz", result: "Averías priorizadas al instante" },
+    ],
+  },
+  care: {
+    slug: "care",
+    name: "CARE",
+    role: "Atención y Satisfacción del Cliente",
+    tagline: "Convierte clientes en fans para toda la vida",
+    description:
+      "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
+    image: agentSupport,
+    icon: HeartHandshake,
+    useCases: [
+      { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien y resolver dudas." },
+      { title: "Encuestas de satisfacción (NPS)", description: "Mide la satisfacción de cada cliente y te alerta cuando alguien puntúa bajo, antes de que se queje públicamente." },
+      { title: "Gestión de reclamaciones", description: "Recoge la incidencia, la clasifica por urgencia y la escala al responsable adecuado con todo el contexto." },
+      { title: "Fidelización y reactivación", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y campañas para recuperar clientes inactivos." },
+    ],
+    features: [
+      "Seguimiento automático por llamada y WhatsApp tras cada venta o servicio",
+      "Encuestas de satisfacción y NPS con análisis automático",
+      "Detección temprana de clientes insatisfechos y alerta a tu equipo",
+      "Gestión de reclamaciones con escalado inteligente por gravedad",
+      "Recordatorios de revisiones, renovaciones y citas periódicas",
+      "Programa de fidelización: felicitaciones, ofertas y reactivación de inactivos",
+    ],
+    testimonials: [
+      { quote: "Antes perdíamos clientes y no sabíamos por qué. CARE llama 3 días después de cada reparación. Ahora detectamos los problemas al momento y los arreglamos antes de que escriban una reseña mala.", name: "Roberto Gil", role: "Gerente, Taller Gil & Hijos", company: "Taller Gil & Hijos", result: "0 reseñas negativas en 4 meses" },
+      { quote: "Implementamos CARE para las encuestas post-tratamiento. La tasa de respuesta pasó del 8% (email) al 64% (llamada). Ahora sabemos qué mejorar de verdad.", name: "Lucía Ramos", role: "Directora, Clínica Estética Lumière", company: "Clínica Estética Lumière", result: "Respuesta NPS x8" },
+      { quote: "CARE recupera clientes que llevaban más de un año sin venir. El primer mes nos trajo 23 citas de gente que dábamos por perdida. Se paga sola.", name: "Iván Cortés", role: "Propietario, Centro Auditivo Cortés", company: "Centro Auditivo Cortés", result: "23 clientes recuperados/mes" },
     ],
   },
 };
