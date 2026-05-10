@@ -25,6 +25,11 @@ import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
+import ariaPresentingImg from "@/assets/characters/aria-presenting.webp";
+import novaPresentingImg from "@/assets/characters/nova-presenting.webp";
+import lumiPresentingImg from "@/assets/characters/lumi-presenting.webp";
+import bytePresentingImg from "@/assets/characters/byte-presenting.webp";
+import careWavingImg from "@/assets/characters/care-waving.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Data ── */
@@ -306,20 +311,51 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 4. THE TEAM — 4 agents ─── */}
+      {/* ─── 4. THE TEAM — Squad completo ─── */}
       <SectionFade>
-        <section id="equipo" className="py-16 md:py-20">
+        <section id="equipo" className="py-16 md:py-24">
           <div className="container mx-auto px-6">
-            <motion.div className="text-center mb-12" {...fade}>
+            <motion.div className="text-center mb-10" {...fade}>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
                 Conoce a tu nuevo equipo
               </h2>
               <p className="text-foreground/80 text-lg max-w-xl mx-auto">
-                Cuatro asistentes especializados que trabajan juntos para tu
-                empresa
+                Cinco asistentes especializados que trabajan juntos para tu empresa
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+            {/* Squad photo — all characters together */}
+            <motion.div
+              className="flex items-end justify-center gap-2 sm:gap-4 md:gap-6 mb-14 py-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Link to="/nova" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
+                <img src={novaPresentingImg} alt="NOVA" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+                <p className="text-center text-xs sm:text-sm font-bold text-brand-lavender mt-2">NOVA</p>
+              </Link>
+              <Link to="/lumi" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
+                <img src={lumiPresentingImg} alt="LUMI" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+                <p className="text-center text-xs sm:text-sm font-bold text-brand-emerald mt-2">LUMI</p>
+              </Link>
+              <Link to="/aria" className="transition-transform hover:scale-110 hover:-translate-y-3 duration-300">
+                <img src={ariaPresentingImg} alt="ARIA" className="w-28 sm:w-36 md:w-48 lg:w-56 object-contain drop-shadow-2xl" loading="lazy" />
+                <p className="text-center text-sm sm:text-base font-bold text-brand-teal mt-2">ARIA</p>
+              </Link>
+              <Link to="/byte" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
+                <img src={bytePresentingImg} alt="BYTE" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+                <p className="text-center text-xs sm:text-sm font-bold text-brand-amber mt-2">BYTE</p>
+              </Link>
+              <Link to="/resultados" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
+                <img src={careWavingImg} alt="CARE" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+                <p className="text-center text-xs sm:text-sm font-bold text-brand-rose mt-2">CARE</p>
+              </Link>
+            </motion.div>
+
+            {/* Individual agent cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
               {agents.map((agent, i) => {
                 const Icon = agent.icon;
                 return (
@@ -330,29 +366,26 @@ const Index = () => {
                   >
                     <Link
                       to={agent.link}
-                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 transition-all group"
+                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group h-full"
                     >
-                      <img
-                        src={agent.image}
-                        alt={agent.name}
-                        className="w-28 h-28 object-contain mb-4"
-                        width={112}
-                        height={112}
-                      />
-                      <div className="flex items-center gap-2 mb-1">
-                        <Icon className="h-4 w-4 text-primary" />
-                        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                          {agent.name}
-                        </span>
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-bold text-primary uppercase tracking-wider block">
+                            {agent.name}
+                          </span>
+                          <span className="text-sm font-bold text-foreground">
+                            {agent.role}
+                          </span>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-foreground mb-1">
-                        {agent.role}
-                      </h3>
-                      <p className="text-sm text-foreground/80 mb-3">
+                      <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
                         {agent.description}
                       </p>
                       <span className="text-sm text-primary font-medium group-hover:underline inline-flex items-center gap-1">
-                        Conocer más <ArrowRight className="h-3.5 w-3.5" />
+                        Ver capacidades <ArrowRight className="h-3.5 w-3.5" />
                       </span>
                     </Link>
                   </motion.div>
