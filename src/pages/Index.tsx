@@ -208,7 +208,7 @@ const Index = () => {
 
       {/* ─── 1. HERO — What we do ─── */}
       <SectionFade>
-        <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
+        <section ref={heroRef} className="relative pt-24 pb-12 md:pt-36 md:pb-20 overflow-hidden">
           {/* Aurora background */}
           <div className="absolute inset-0 overflow-hidden">
             <div
@@ -219,39 +219,40 @@ const Index = () => {
                 animation: 'aurora 60s ease-in-out infinite',
               }}
             />
+            {/* Aurora blobs — hidden on mobile to save GPU */}
             <div
-              className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px] rounded-full blur-[150px]"
+              className="hidden md:block absolute -top-1/4 -left-1/4 w-[800px] h-[800px] rounded-full blur-[150px]"
               style={{ background: 'radial-gradient(circle, hsl(190 60% 50% / 0.15), transparent 70%)', animation: 'aurora-pulse 15s ease-in-out infinite' }}
             />
             <div
-              className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full blur-[130px]"
+              className="hidden md:block absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full blur-[130px]"
               style={{ background: 'radial-gradient(circle, hsl(260 50% 50% / 0.12), transparent 70%)', animation: 'aurora-pulse 20s ease-in-out infinite 5s' }}
             />
             <div
-              className="absolute top-1/3 left-1/3 w-[600px] h-[600px] rounded-full blur-[120px]"
+              className="hidden md:block absolute top-1/3 left-1/3 w-[600px] h-[600px] rounded-full blur-[120px]"
               style={{ background: 'radial-gradient(circle, hsl(217 91% 45% / 0.1), transparent 70%)', animation: 'aurora-pulse 25s ease-in-out infinite 10s' }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
           </div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <div className="container mx-auto px-5 md:px-6 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
               {/* Left: text */}
               <motion.div
-                className="flex-1 max-w-2xl"
+                className="flex-1 max-w-2xl text-center lg:text-left"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-[1.08] mb-5 tracking-tight text-foreground">
+                <h1 className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
                   Automatizamos la atención telefónica de tu empresa
                 </h1>
-                <p className="text-lg md:text-xl text-foreground/80 mb-8 leading-relaxed max-w-xl">
+                <p className="text-base md:text-xl text-foreground/80 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Tus clientes llaman, nuestro asistente contesta, agenda citas
                   y resuelve dudas con voz natural. Sin que notes la diferencia.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 text-base shadow-lg shadow-primary/20"
@@ -277,20 +278,19 @@ const Index = () => {
 
               {/* Right: robot with parallax + glow */}
               <motion.div
-                className="flex-1 flex justify-center lg:justify-end relative"
+                className="flex-1 flex justify-center lg:justify-end relative order-first lg:order-last"
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Glow behind robot */}
                 <div
-                  className="absolute inset-0 scale-[2.5] rounded-full blur-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.15), transparent 70%)" }}
+                  className="absolute inset-0 scale-[1.8] md:scale-[2.5] rounded-full blur-3xl pointer-events-none"
+                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.18), transparent 70%)" }}
                 />
                 <motion.img
                   src={heroRobot}
                   alt="CALLA Asistente Virtual"
-                  className="w-64 sm:w-80 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl relative z-10"
+                  className="w-44 sm:w-72 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl relative z-10"
                   width={1024}
                   height={1024}
                   style={{ rotateX, y: heroY, transformOrigin: "center bottom" }}
