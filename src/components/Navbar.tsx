@@ -6,6 +6,10 @@ import heroRobot from "@/assets/hero-robot.webp";
 import { sectors } from "@/data/sectors";
 import { BOOKING_URL } from "@/lib/constants";
 
+interface NavbarProps {
+  onContact?: () => void;
+}
+
 const agentLinks = [
   { name: "ARIA", subtitle: "Recepcionista", icon: Phone, path: "/aria" },
   { name: "NOVA", subtitle: "Ventas", icon: PhoneOutgoing, path: "/nova" },
@@ -14,7 +18,7 @@ const agentLinks = [
   { name: "CARE", subtitle: "Post-Venta", icon: HeartHandshake, path: "/care" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ onContact }: NavbarProps = {}) => {
   const [open, setOpen] = useState(false);
   const [teamOpen, setTeamOpen] = useState(false);
   const [sectorsOpen, setSectorsOpen] = useState(false);
@@ -45,7 +49,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openBooking = () => window.open(BOOKING_URL, "_blank");
+  const openBooking = () => {
+    if (onContact) {
+      onContact();
+      return;
+    }
+
+    window.open(BOOKING_URL, "_blank");
+  };
 
   return (
     <nav
