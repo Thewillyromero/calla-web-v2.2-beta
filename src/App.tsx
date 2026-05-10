@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Chatbot from "./components/Chatbot.tsx";
 import SideNav from "./components/SideNav.tsx";
+import ScrollProgress from "./components/ScrollProgress.tsx";
 
 const Pricing = lazy(() => import("./pages/Pricing.tsx"));
 const SectorPage = lazy(() => import("./pages/SectorPage.tsx"));
@@ -47,6 +48,7 @@ const App = () => (
 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ScrollProgress />
         <Chatbot />
       </BrowserRouter>
     </TooltipProvider>

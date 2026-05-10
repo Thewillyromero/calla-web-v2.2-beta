@@ -227,13 +227,21 @@ const AgentPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="shrink-0">
-              <img
+            <div className="shrink-0 relative">
+              {/* Glow behind character */}
+              <div
+                className="absolute inset-0 scale-[2.5] rounded-full blur-3xl pointer-events-none"
+                style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.15), transparent 70%)" }}
+              />
+              <motion.img
                 src={agent.image}
                 alt={agent.name}
-                className="w-48 md:w-64 object-contain"
+                className="w-48 md:w-64 object-contain relative z-10 animate-float-gentle"
                 width={256}
                 height={256}
+                initial={{ opacity: 0, scale: 0, rotate: -12 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.3 }}
               />
             </div>
           </motion.div>

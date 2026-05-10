@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialProof from "@/components/SocialProof";
@@ -19,17 +20,13 @@ import {
   Bot,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import heroRobot from "@/assets/hero-robot.webp";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import ariaPresentingImg from "@/assets/characters/aria-presenting.webp";
-import novaPresentingImg from "@/assets/characters/nova-presenting.webp";
-import lumiPresentingImg from "@/assets/characters/lumi-presenting.webp";
-import bytePresentingImg from "@/assets/characters/byte-presenting.webp";
-import careWavingImg from "@/assets/characters/care-waving.webp";
+import agentSupport from "@/assets/characters/agent-support.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Data ── */
@@ -157,16 +154,45 @@ const fade = {
   transition: { duration: 0.5 },
 };
 
+/* ── Staggered container variants (Task 5) ── */
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 /* ── Page ── */
 
 const Index = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const [hoveredAgent, setHoveredAgent] = useState<number | null>(null);
+
+  /* Task 2: Hero robot scroll-based parallax */
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const rawRotateX = useTransform(scrollYProgress, [0, 0.3], [0, 15]);
+  const rawY = useTransform(scrollYProgress, [0, 0.4], [0, 40]);
+  const rotateX = useSpring(rawRotateX, { stiffness: 60, damping: 20 });
+  const heroY = useSpring(rawY, { stiffness: 60, damping: 20 });
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* ─── 1. HERO — What we do ─── */}
       <SectionFade>
-        <section className="pt-28 pb-16 md:pt-36 md:pb-20">
+        <section ref={heroRef} className="pt-28 pb-16 md:pt-36 md:pb-20">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
               {/* Left: text */}
@@ -207,19 +233,25 @@ const Index = () => {
                 </div>
               </motion.div>
 
-              {/* Right: robot */}
+              {/* Right: robot with parallax + glow */}
               <motion.div
-                className="flex-1 flex justify-center lg:justify-end"
+                className="flex-1 flex justify-center lg:justify-end relative"
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
-                <img
+                {/* Glow behind robot */}
+                <div
+                  className="absolute inset-0 scale-[2.5] rounded-full blur-3xl pointer-events-none"
+                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.15), transparent 70%)" }}
+                />
+                <motion.img
                   src={heroRobot}
                   alt="CALLA Asistente Virtual"
-                  className="w-64 sm:w-80 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl"
+                  className="w-64 sm:w-80 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl relative z-10"
                   width={1024}
                   height={1024}
+                  style={{ rotateX, y: heroY, transformOrigin: "center bottom" }}
                 />
               </motion.div>
             </div>
@@ -237,15 +269,20 @@ const Index = () => {
             >
               ¿Qué hacemos por tu empresa?
             </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {valueProps.map((vp, i) => {
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {valueProps.map((vp) => {
                 const Icon = vp.icon;
                 return (
                   <motion.div
                     key={vp.title}
                     className="bg-card/40 border border-border/20 rounded-2xl p-7"
-                    {...fade}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    variants={itemVariants}
                   >
                     <Icon className="h-8 w-8 text-primary mb-4" />
                     <h3 className="text-lg font-bold text-foreground mb-2">
@@ -263,7 +300,7 @@ const Index = () => {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
       </SectionFade>
@@ -278,15 +315,20 @@ const Index = () => {
             >
               ¿Por qué CALLA y no otra solución?
             </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {differentiators.map((d, i) => {
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {differentiators.map((d) => {
                 const Icon = d.icon;
                 return (
                   <motion.div
                     key={d.title}
                     className="bg-card/40 border border-border/20 rounded-2xl p-7"
-                    {...fade}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    variants={itemVariants}
                   >
                     <Icon className="h-7 w-7 text-primary mb-3" />
                     <h3 className="text-lg font-bold text-foreground mb-1">
@@ -306,7 +348,7 @@ const Index = () => {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
       </SectionFade>
@@ -324,7 +366,7 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Squad photo — all characters together */}
+            {/* Squad photo — all characters together with breathing animations */}
             <motion.div
               className="flex items-end justify-center gap-2 sm:gap-4 md:gap-6 mb-14 py-8"
               initial={{ opacity: 0, y: 30 }}
@@ -332,45 +374,114 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Link to="/nova" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
-                <img src={novaPresentingImg} alt="NOVA" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+              <Link to="/nova" className="transition-transform duration-300">
+                <motion.img
+                  src={agentOutbound}
+                  alt="NOVA"
+                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-character-bounce"
+                  loading="lazy"
+                  style={{ animationDelay: "0.5s" }}
+                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                />
                 <p className="text-center text-xs sm:text-sm font-bold text-brand-lavender mt-2">NOVA</p>
               </Link>
-              <Link to="/lumi" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
-                <img src={lumiPresentingImg} alt="LUMI" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+              <Link to="/lumi" className="transition-transform duration-300">
+                <motion.img
+                  src={agentScheduler}
+                  alt="LUMI"
+                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-float-gentle"
+                  loading="lazy"
+                  style={{ animationDelay: "1s" }}
+                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                />
                 <p className="text-center text-xs sm:text-sm font-bold text-brand-emerald mt-2">LUMI</p>
               </Link>
-              <Link to="/aria" className="transition-transform hover:scale-110 hover:-translate-y-3 duration-300">
-                <img src={ariaPresentingImg} alt="ARIA" className="w-28 sm:w-36 md:w-48 lg:w-56 object-contain drop-shadow-2xl" loading="lazy" />
+              <Link to="/aria" className="transition-transform duration-300">
+                <motion.img
+                  src={agentInbound}
+                  alt="ARIA"
+                  className="w-28 sm:w-36 md:w-48 lg:w-56 object-contain drop-shadow-2xl animate-nod"
+                  loading="lazy"
+                  style={{ animationDelay: "0s" }}
+                  whileHover={{ scale: 1.1, y: -12, rotate: [-2, 2, 0] }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                />
                 <p className="text-center text-sm sm:text-base font-bold text-brand-teal mt-2">ARIA</p>
               </Link>
-              <Link to="/byte" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
-                <img src={bytePresentingImg} alt="BYTE" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+              <Link to="/byte" className="transition-transform duration-300">
+                <motion.img
+                  src={agentAnalytics}
+                  alt="BYTE"
+                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-wiggle"
+                  loading="lazy"
+                  style={{ animationDelay: "1.5s" }}
+                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                />
                 <p className="text-center text-xs sm:text-sm font-bold text-brand-amber mt-2">BYTE</p>
               </Link>
-              <Link to="/resultados" className="transition-transform hover:scale-105 hover:-translate-y-2 duration-300">
-                <img src={careWavingImg} alt="CARE" className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl" loading="lazy" />
+              <Link to="/resultados" className="transition-transform duration-300">
+                <motion.img
+                  src={agentSupport}
+                  alt="CARE"
+                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-float-gentle"
+                  loading="lazy"
+                  style={{ animationDelay: "2s" }}
+                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                />
                 <p className="text-center text-xs sm:text-sm font-bold text-brand-rose mt-2">CARE</p>
               </Link>
             </motion.div>
 
-            {/* Individual agent cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {/* Individual agent cards with stagger + sparkles */}
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {agents.map((agent, i) => {
                 const Icon = agent.icon;
                 return (
                   <motion.div
                     key={agent.name}
-                    {...fade}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    variants={itemVariants}
+                    onMouseEnter={() => setHoveredAgent(i)}
+                    onMouseLeave={() => setHoveredAgent(null)}
                   >
                     <Link
                       to={agent.link}
-                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group h-full"
+                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group h-full relative overflow-hidden"
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center relative">
                           <Icon className="h-5 w-5 text-primary" />
+                          {/* Sparkle particles on hover */}
+                          <AnimatePresence>
+                            {hoveredAgent === i && (
+                              <>
+                                {[...Array(3)].map((_, j) => (
+                                  <motion.div
+                                    key={j}
+                                    initial={{ opacity: 0, scale: 0, y: 0 }}
+                                    animate={{
+                                      opacity: [0, 1, 0],
+                                      scale: [0, 1, 0.5],
+                                      y: [-10, -30 - j * 12],
+                                      x: [0, (j - 1) * 15],
+                                    }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 1.2, delay: j * 0.15, ease: "easeOut" }}
+                                    className="absolute top-4 left-1/2 w-1.5 h-1.5 rounded-full bg-primary"
+                                  />
+                                ))}
+                              </>
+                            )}
+                          </AnimatePresence>
                         </div>
                         <div>
                           <span className="text-xs font-bold text-primary uppercase tracking-wider block">
@@ -391,7 +502,7 @@ const Index = () => {
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
       </SectionFade>
@@ -406,13 +517,18 @@ const Index = () => {
             >
               Así de fácil es empezar
             </motion.h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {steps.map((step, i) => (
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {steps.map((step) => (
                 <motion.div
                   key={step.number}
                   className="bg-card/40 border border-border/20 rounded-2xl p-7 text-center"
-                  {...fade}
-                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  variants={itemVariants}
                 >
                   <div className="text-4xl font-extrabold text-primary mb-3">
                     {step.number}
@@ -425,7 +541,7 @@ const Index = () => {
                   </p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
       </SectionFade>

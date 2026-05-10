@@ -218,6 +218,12 @@
    Add these to the END of src/index.css (after existing styles)
    ══════════════════════════════════════════════════════════════ */
 
+/* ── Animation utility classes ── */
+.animate-float-gentle { animation: float-gentle 4s ease-in-out infinite; }
+.animate-character-bounce { animation: character-bounce 3s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 5s ease-in-out infinite; }
+.animate-nod { animation: nod 4.5s ease-in-out infinite; }
+
 /* ── Stop-motion character keyframes ── */
 @keyframes character-bounce {
   0%, 100% { transform: translateY(0) rotate(0deg); }
