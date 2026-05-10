@@ -584,3 +584,79 @@ html {
   color: hsl(var(--foreground));
 }
 
+/* ══════════════════════════════════════════════════════════════
+   MOBILE PERFORMANCE & LAYOUT OPTIMIZATIONS
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Kill heavy backdrop-blur on mobile (massive GPU cost) */
+  .glass,
+  .glass-warm,
+  .glass-elevated,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Reduce blur radius on aurora blobs (was 120-150px) */
+  [class*="blur-[150px]"],
+  [class*="blur-[140px]"],
+  [class*="blur-[160px]"],
+  [class*="blur-[130px]"],
+  [class*="blur-[120px]"] {
+    filter: blur(60px);
+  }
+
+  /* Slow down infinite aurora animations on mobile to reduce repaints */
+  [style*="aurora"] {
+    animation-duration: 120s !important;
+  }
+
+  /* Smaller pulse-slow scale on mobile (was scale 3) */
+  .animate-pulse-slow {
+    animation: pulse-slow-mobile 6s ease-in-out infinite;
+  }
+
+  /* Disable rotating glow border conic-gradient (very expensive) */
+  .glow-border::before,
+  .glow-border::after {
+    animation: none !important;
+  }
+
+  /* Disable text shimmer sweep on mobile */
+  .shimmer-text,
+  .shimmer-border::before {
+    animation: none !important;
+  }
+
+  /* Tighter body background gradients (less repaint area) */
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Headings: reduce decorative text-shadow layers */
+  h1, h2, h3, h4, h5, h6 {
+    text-shadow:
+      0 1px 0 hsl(0 0% 100% / 0.1),
+      0 2px 4px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Prevent horizontal overflow from oversized decorative elements */
+  section {
+    overflow-x: clip;
+  }
+}
+
+@keyframes pulse-slow-mobile {
+  0%, 100% { opacity: 0.7; transform: scale(1.8); }
+  50% { opacity: 0.9; transform: scale(2); }
+}
+
+/* Respect reduced motion universally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
