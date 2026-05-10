@@ -73,21 +73,43 @@ const Squad = () => {
           transition={{ staggerChildren: 0.12 }}
           className="flex flex-wrap justify-center gap-4 md:gap-6 mb-14"
         >
-          {agents.map((agent, idx) => (
-            <motion.div key={agent.name} variants={cardVariants()} className="flex flex-col items-center group cursor-pointer">
-              <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-card/60 border border-border/30 flex items-center justify-center mb-2 group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/5 transition-all duration-300 group-hover:-translate-y-1">
-                <CharacterReveal
-                  src={agent.image}
-                  alt={agent.name}
-                  className="w-18 h-18 md:w-22 md:h-22"
-                  glowColor={agent.accentColor === "text-brand-teal" ? "hsl(190 60% 55%)" : agent.accentColor === "text-brand-lavender" ? "hsl(260 50% 65%)" : agent.accentColor === "text-brand-emerald" ? "hsl(160 50% 48%)" : agent.accentColor === "text-brand-amber" ? "hsl(35 70% 58%)" : "hsl(340 55% 60%)"}
-                  revealOffset={[0.05 + idx * 0.03, 0.35 + idx * 0.03]}
-                />
-              </div>
-              <span className={`text-[11px] font-display font-bold ${agent.accentColor} tracking-wider`}>{agent.name}</span>
-              <span className="text-[10px] text-muted-foreground/60">{agent.role}</span>
-            </motion.div>
-          ))}
+          {agents.map((agent, idx) => {
+            const glow =
+              agent.accentColor === "text-brand-teal" ? "hsl(190 60% 55%)" :
+              agent.accentColor === "text-brand-lavender" ? "hsl(260 50% 65%)" :
+              agent.accentColor === "text-brand-emerald" ? "hsl(160 50% 48%)" :
+              agent.accentColor === "text-brand-amber" ? "hsl(35 70% 58%)" : "hsl(340 55% 60%)";
+            return (
+              <motion.div key={agent.name} variants={cardVariants()} className="flex flex-col items-center group">
+                <Link
+                  to={`/${agent.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ver página de ${agent.name}`}
+                  className="flex flex-col items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-2xl"
+                >
+                  <div
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-card/60 border border-border/30 flex items-center justify-center mb-2 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent"
+                    style={{
+                      boxShadow: `0 0 0 1px ${glow}00`,
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = `0 0 30px ${glow}55, 0 0 60px ${glow}22, inset 0 0 20px ${glow}11`; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.boxShadow = `0 0 0 1px ${glow}00`; }}
+                  >
+                    <CharacterReveal
+                      src={agent.image}
+                      alt={agent.name}
+                      className="w-18 h-18 md:w-22 md:h-22"
+                      glowColor={glow}
+                      revealOffset={[0.05 + idx * 0.03, 0.35 + idx * 0.03]}
+                    />
+                  </div>
+                  <span className={`text-[11px] font-display font-bold ${agent.accentColor} tracking-wider`}>{agent.name}</span>
+                  <span className="text-[10px] text-muted-foreground/60">{agent.role}</span>
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div
