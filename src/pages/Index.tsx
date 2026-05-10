@@ -1,11 +1,15 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Features from "@/components/Features";
 import SocialProof from "@/components/SocialProof";
 import LogoMarquee from "@/components/LogoMarquee";
 import PressQuotes from "@/components/PressQuotes";
 import PressBar from "@/components/PressBar";
 import SectionFade from "@/components/SectionFade";
+import FOMONotifications from "@/components/FOMONotifications";
+import LiveViewers from "@/components/LiveViewers";
+import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -23,10 +27,6 @@ import {
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import heroRobot from "@/assets/hero-robot.webp";
-import agentInbound from "@/assets/characters/agent-inbound.webp";
-import agentOutbound from "@/assets/characters/agent-outbound.webp";
-import agentScheduler from "@/assets/characters/agent-scheduler.webp";
-import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
@@ -197,6 +197,7 @@ const Index = () => {
   const heroY = useSpring(rawY, { stiffness: 60, damping: 20 });
 
   return (
+    <LiveMetricsProvider>
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
@@ -363,167 +364,8 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 4. THE TEAM — Squad completo ─── */}
-      <SectionFade>
-        <section id="equipo" className="py-16 md:py-24">
-          <div className="container mx-auto px-6">
-            <motion.div className="text-center mb-10" {...fade}>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
-                Conoce a tu nuevo equipo
-              </h2>
-              <p className="text-foreground/80 text-lg max-w-xl mx-auto">
-                Cinco asistentes especializados que trabajan juntos para tu empresa
-              </p>
-            </motion.div>
-
-            {/* Squad photo — all characters together with breathing animations */}
-            <motion.div
-              className="flex items-end justify-center gap-2 sm:gap-4 md:gap-6 mb-14 py-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Link to="/nova" className="transition-transform duration-300">
-                <motion.img
-                  src={agentOutbound}
-                  alt="NOVA"
-                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-character-bounce"
-                  loading="lazy"
-                  style={{ animationDelay: "0.5s" }}
-                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                />
-                <p className="text-center text-xs sm:text-sm font-bold text-brand-lavender mt-2">NOVA</p>
-              </Link>
-              <Link to="/lumi" className="transition-transform duration-300">
-                <motion.img
-                  src={agentScheduler}
-                  alt="LUMI"
-                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-float-gentle"
-                  loading="lazy"
-                  style={{ animationDelay: "1s" }}
-                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                />
-                <p className="text-center text-xs sm:text-sm font-bold text-brand-emerald mt-2">LUMI</p>
-              </Link>
-              <Link to="/aria" className="transition-transform duration-300">
-                <motion.img
-                  src={agentInbound}
-                  alt="ARIA"
-                  className="w-28 sm:w-36 md:w-48 lg:w-56 object-contain drop-shadow-2xl animate-nod"
-                  loading="lazy"
-                  style={{ animationDelay: "0s" }}
-                  whileHover={{ scale: 1.1, y: -12, rotate: [-2, 2, 0] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                />
-                <p className="text-center text-sm sm:text-base font-bold text-brand-teal mt-2">ARIA</p>
-              </Link>
-              <Link to="/byte" className="transition-transform duration-300">
-                <motion.img
-                  src={agentAnalytics}
-                  alt="BYTE"
-                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-wiggle"
-                  loading="lazy"
-                  style={{ animationDelay: "1.5s" }}
-                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                />
-                <p className="text-center text-xs sm:text-sm font-bold text-brand-amber mt-2">BYTE</p>
-              </Link>
-              <Link to="/care" className="transition-transform duration-300">
-                <motion.img
-                  src={agentSupport}
-                  alt="CARE"
-                  className="w-20 sm:w-28 md:w-36 lg:w-44 object-contain drop-shadow-xl animate-float-gentle"
-                  loading="lazy"
-                  style={{ animationDelay: "2s" }}
-                  whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, 0] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                />
-                <p className="text-center text-xs sm:text-sm font-bold text-brand-rose mt-2">CARE</p>
-              </Link>
-            </motion.div>
-
-            {/* Individual agent cards with stagger + sparkles */}
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              {agents.map((agent, i) => {
-                const Icon = agent.icon;
-                return (
-                  <motion.div
-                    key={agent.name}
-                    variants={itemVariants}
-                    onMouseEnter={() => setHoveredAgent(i)}
-                    onMouseLeave={() => setHoveredAgent(null)}
-                  >
-                    <Link
-                      to={agent.link}
-                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group h-full relative overflow-hidden"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center relative">
-                          <Icon className="h-5 w-5 text-primary" />
-                          {/* Sparkle particles on hover */}
-                          <AnimatePresence>
-                            {hoveredAgent === i && (
-                              <>
-                                {[...Array(3)].map((_, j) => (
-                                  <motion.div
-                                    key={j}
-                                    initial={{ opacity: 0, scale: 0, y: 0 }}
-                                    animate={{
-                                      opacity: [0, 1, 0],
-                                      scale: [0, 1, 0.5],
-                                      y: [-10, -30 - j * 12],
-                                      x: [0, (j - 1) * 15],
-                                    }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 1.2, delay: j * 0.15, ease: "easeOut" }}
-                                    className="absolute top-4 left-1/2 w-1.5 h-1.5 rounded-full bg-primary"
-                                  />
-                                ))}
-                              </>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                        <div>
-                          <span className="text-xs font-bold text-primary uppercase tracking-wider block">
-                            {agent.name}
-                          </span>
-                          <span className="text-sm font-bold text-foreground">
-                            {agent.role}
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
-                        {agent.description}
-                      </p>
-                      <span className="text-sm text-primary font-medium group-hover:underline inline-flex items-center gap-1">
-                        Ver capacidades <ArrowRight className="h-3.5 w-3.5" />
-                      </span>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-
-            <div className="text-center mt-10">
-              <Link to="/equipo">
-                <Button size="lg" variant="outline" className="rounded-full px-8 text-base">
-                  Conocer al equipo <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </SectionFade>
+      {/* ─── 4. THE TEAM — V1 Features grid with all effects ─── */}
+      <SectionFade><Features /></SectionFade>
 
       {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
       <SectionFade>
@@ -640,7 +482,10 @@ const Index = () => {
       </SectionFade>
 
       <Footer />
+      <FOMONotifications />
+      <LiveViewers />
     </div>
+    </LiveMetricsProvider>
   );
 };
 
