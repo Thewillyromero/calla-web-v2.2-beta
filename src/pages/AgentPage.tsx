@@ -268,25 +268,25 @@ const AgentPage = () => {
                   agent.slug === "byte" ? "35 80% 60%" : "340 65% 60%";
                 return (
                   <>
-                    {/* Outer aura */}
+                    {/* Outer aura — smaller scale on mobile */}
                     <div
-                      className="absolute inset-0 scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+                      className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
                       style={{ background: `radial-gradient(circle, hsl(${glow} / 0.32), hsl(${glow} / 0.08) 45%, transparent 70%)` }}
                     />
                     {/* Inner halo */}
                     <div
-                      className="absolute inset-0 scale-[1.6] rounded-full blur-2xl pointer-events-none"
+                      className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
                       style={{ background: `radial-gradient(circle, hsl(${glow} / 0.45), transparent 65%)` }}
                     />
                     {/* Soft ring */}
                     <div
-                      className="absolute inset-0 scale-[1.15] rounded-full pointer-events-none"
+                      className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
                       style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
                     />
                     <motion.img
                       src={agent.image}
                       alt={agent.name}
-                      className="w-72 md:w-[26rem] lg:w-[32rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                      className="w-56 sm:w-72 md:w-[26rem] lg:w-[32rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                       width={512}
                       height={512}
                       initial={{ opacity: 0, scale: 0, rotate: -12 }}
