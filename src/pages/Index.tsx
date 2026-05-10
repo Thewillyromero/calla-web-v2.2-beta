@@ -6,7 +6,18 @@ import PressQuotes from "@/components/PressQuotes";
 import PressBar from "@/components/PressBar";
 import SectionFade from "@/components/SectionFade";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, PhoneOutgoing, CalendarCheck, BarChart3, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Phone,
+  PhoneOutgoing,
+  CalendarCheck,
+  BarChart3,
+  ShieldCheck,
+  Clock,
+  PhoneForwarded,
+  Lock,
+  Bot,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import heroRobot from "@/assets/hero-robot.webp";
@@ -16,11 +27,67 @@ import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
+/* ── Data ── */
+
+const valueProps = [
+  {
+    icon: Phone,
+    title: "Atendemos TODAS tus llamadas",
+    description:
+      "24 horas, 7 días, festivos y noches. Nunca pierdes una llamada de un cliente.",
+    link: "/aria",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Agendamos citas automáticamente",
+    description:
+      "Tu calendario se llena solo, sin errores ni dobles reservas.",
+    link: "/lumi",
+  },
+  {
+    icon: BarChart3,
+    title: "Analizamos cada conversación",
+    description:
+      "Sabes exactamente qué pasa con tu atención telefónica y dónde mejorar.",
+    link: "/byte",
+  },
+];
+
+const differentiators = [
+  {
+    icon: Bot,
+    title: "No somos un chatbot",
+    description:
+      "Voz natural que tus clientes no distinguen de una persona real.",
+  },
+  {
+    icon: PhoneForwarded,
+    title: "Se instala en tu número actual",
+    description:
+      "Sin cambiar nada en tu empresa. Tu número, tu marca.",
+  },
+  {
+    icon: Clock,
+    title: "Funcionando en 30 minutos",
+    description:
+      "No son meses de implementación. En media hora, operativo.",
+  },
+  {
+    icon: Lock,
+    title: "Tus datos, protegidos",
+    description:
+      "Cumplimiento RGPD, grabaciones encriptadas, servidores en Europa.",
+    link: "/seguridad",
+    linkLabel: "Ver seguridad",
+  },
+];
+
 const agents = [
   {
     name: "ARIA",
     role: "Recepcionista Virtual",
-    description: "Atiende llamadas entrantes, resuelve dudas y transfiere cuando es necesario.",
+    description:
+      "Atiende llamadas entrantes, resuelve dudas y transfiere cuando es necesario.",
     image: agentInbound,
     icon: Phone,
     link: "/aria",
@@ -28,7 +95,8 @@ const agents = [
   {
     name: "NOVA",
     role: "Agente de Ventas",
-    description: "Realiza llamadas salientes para captar leads y cerrar oportunidades.",
+    description:
+      "Realiza llamadas salientes para captar leads y cerrar oportunidades.",
     image: agentOutbound,
     icon: PhoneOutgoing,
     link: "/nova",
@@ -36,7 +104,8 @@ const agents = [
   {
     name: "LUMI",
     role: "Coordinador de Citas",
-    description: "Agenda, confirma y reagenda citas automáticamente sin intervención humana.",
+    description:
+      "Agenda, confirma y reagenda citas automáticamente sin intervención humana.",
     image: agentScheduler,
     icon: CalendarCheck,
     link: "/lumi",
@@ -44,10 +113,29 @@ const agents = [
   {
     name: "BYTE",
     role: "Analista de Datos",
-    description: "Analiza cada llamada y genera reportes accionables para tu negocio.",
+    description:
+      "Analiza cada llamada y genera reportes accionables para tu negocio.",
     image: agentAnalytics,
     icon: BarChart3,
     link: "/byte",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: "Conectamos tu número",
+    description: "Vinculamos tu línea actual. Sin cambiar nada.",
+  },
+  {
+    number: "2",
+    title: "Configuramos tu asistente",
+    description: "Lo adaptamos a tu negocio en una sesión.",
+  },
+  {
+    number: "3",
+    title: "Empieza a funcionar",
+    description: "En 30 minutos, tu asistente atiende llamadas.",
   },
 ];
 
@@ -64,157 +152,325 @@ const fade = {
   transition: { duration: 0.5 },
 };
 
+/* ── Page ── */
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      {/* ── Hero ── */}
-      <section className="pt-28 pb-16 md:pt-36 md:pb-20">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto"
-            {...fade}
-          >
-            <img
-              src={heroRobot}
-              alt="CALLA robot"
-              className="w-32 md:w-48"
-              width={192}
-              height={192}
-            />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
-              Automatizamos la atención telefónica de tu empresa
-            </h1>
-            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl">
-              Nuestros asistentes de voz con IA atienden llamadas, agendan citas y gestionan tu comunicación. 24 horas, 7 días.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mt-2">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20"
-                onClick={() => window.open(BOOKING_URL, "_blank")}
+      {/* ─── 1. HERO — What we do ─── */}
+      <SectionFade>
+        <section className="pt-28 pb-16 md:pt-36 md:pb-20">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+              {/* Left: text */}
+              <motion.div
+                className="flex-1 max-w-2xl"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                Solicitar demo
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8"
-                onClick={() =>
-                  document.querySelector("#equipo")?.scrollIntoView({ behavior: "smooth" })
-                }
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-[1.08] mb-5 tracking-tight text-foreground">
+                  Automatizamos la atención telefónica de tu empresa
+                </h1>
+                <p className="text-lg md:text-xl text-foreground/80 mb-8 leading-relaxed max-w-xl">
+                  Tus clientes llaman, nuestro asistente contesta, agenda citas
+                  y resuelve dudas con voz natural. Sin que notes la diferencia.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 text-base shadow-lg shadow-primary/20"
+                    onClick={() => window.open(BOOKING_URL, "_blank")}
+                  >
+                    Solicitar demo
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-8 text-base"
+                    onClick={() =>
+                      document
+                        .querySelector("#como-funciona")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
+                  >
+                    Ver cómo funciona
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </motion.div>
+
+              {/* Right: robot */}
+              <motion.div
+                className="flex-1 flex justify-center lg:justify-end"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
-                Conocer al equipo <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+                <img
+                  src={heroRobot}
+                  alt="CALLA Asistente Virtual"
+                  className="w-64 sm:w-80 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl"
+                  width={1024}
+                  height={1024}
+                />
+              </motion.div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-foreground/70 mt-2">
-              <ShieldCheck className="h-4 w-4 text-primary" />
-              <span>Más de 200 empresas confían en nosotros</span>
+          </div>
+        </section>
+      </SectionFade>
+
+      {/* ─── 2. WHAT WE DO — 3 value props ─── */}
+      <SectionFade>
+        <section className="py-16 md:py-20">
+          <div className="container mx-auto px-6">
+            <motion.h2
+              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
+              {...fade}
+            >
+              ¿Qué hacemos por tu empresa?
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {valueProps.map((vp, i) => {
+                const Icon = vp.icon;
+                return (
+                  <motion.div
+                    key={vp.title}
+                    className="bg-card/40 border border-border/20 rounded-2xl p-7"
+                    {...fade}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Icon className="h-8 w-8 text-primary mb-4" />
+                    <h3 className="text-lg font-bold text-foreground mb-2">
+                      {vp.title}
+                    </h3>
+                    <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
+                      {vp.description}
+                    </p>
+                    <Link
+                      to={vp.link}
+                      className="text-sm text-primary font-medium inline-flex items-center gap-1 hover:underline"
+                    >
+                      Saber más <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </SectionFade>
 
-      {/* ── Social Proof ── */}
-      <SocialProof />
+      {/* ─── 3. WHY US — Differentiators ─── */}
+      <SectionFade>
+        <section className="py-16 md:py-20">
+          <div className="container mx-auto px-6">
+            <motion.h2
+              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
+              {...fade}
+            >
+              ¿Por qué CALLA y no otra solución?
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {differentiators.map((d, i) => {
+                const Icon = d.icon;
+                return (
+                  <motion.div
+                    key={d.title}
+                    className="bg-card/40 border border-border/20 rounded-2xl p-7"
+                    {...fade}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Icon className="h-7 w-7 text-primary mb-3" />
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      {d.title}
+                    </h3>
+                    <p className="text-sm text-foreground/80 leading-relaxed">
+                      {d.description}
+                    </p>
+                    {d.link && (
+                      <Link
+                        to={d.link}
+                        className="text-sm text-primary font-medium inline-flex items-center gap-1 mt-3 hover:underline"
+                      >
+                        {d.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </SectionFade>
 
-      {/* ── Logo Marquee ── */}
-      <LogoMarquee />
+      {/* ─── 4. THE TEAM — 4 agents ─── */}
+      <SectionFade>
+        <section id="equipo" className="py-16 md:py-20">
+          <div className="container mx-auto px-6">
+            <motion.div className="text-center mb-12" {...fade}>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
+                Conoce a tu nuevo equipo
+              </h2>
+              <p className="text-foreground/80 text-lg max-w-xl mx-auto">
+                Cuatro asistentes especializados que trabajan juntos para tu
+                empresa
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {agents.map((agent, i) => {
+                const Icon = agent.icon;
+                return (
+                  <motion.div
+                    key={agent.name}
+                    {...fade}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Link
+                      to={agent.link}
+                      className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 transition-all group"
+                    >
+                      <img
+                        src={agent.image}
+                        alt={agent.name}
+                        className="w-28 h-28 object-contain mb-4"
+                        width={112}
+                        height={112}
+                      />
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon className="h-4 w-4 text-primary" />
+                        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+                          {agent.name}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-foreground mb-1">
+                        {agent.role}
+                      </h3>
+                      <p className="text-sm text-foreground/80 mb-3">
+                        {agent.description}
+                      </p>
+                      <span className="text-sm text-primary font-medium group-hover:underline inline-flex items-center gap-1">
+                        Conocer más <ArrowRight className="h-3.5 w-3.5" />
+                      </span>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </SectionFade>
 
-      {/* ── Team Grid ── */}
-      <section id="equipo" className="py-16 md:py-20">
-        <div className="container mx-auto px-6">
-          <motion.h2
-            className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
-            {...fade}
-          >
-            Nuestro equipo de asistentes IA
-          </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {agents.map((agent, i) => {
-              const Icon = agent.icon;
-              return (
+      {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
+      <SectionFade>
+        <section id="como-funciona" className="py-16 md:py-20">
+          <div className="container mx-auto px-6">
+            <motion.h2
+              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
+              {...fade}
+            >
+              Así de fácil es empezar
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {steps.map((step, i) => (
                 <motion.div
-                  key={agent.name}
+                  key={step.number}
+                  className="bg-card/40 border border-border/20 rounded-2xl p-7 text-center"
+                  {...fade}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                >
+                  <div className="text-4xl font-extrabold text-primary mb-3">
+                    {step.number}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
+                    {step.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionFade>
+
+      {/* ─── 6. PROOF — Social proof ─── */}
+      <SectionFade>
+        <PressQuotes />
+      </SectionFade>
+
+      <SectionFade>
+        <PressBar />
+      </SectionFade>
+
+      <SectionFade>
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+              {metrics.map((m, i) => (
+                <motion.div
+                  key={i}
+                  className="bg-card/30 border border-border/20 rounded-2xl p-6 text-center"
                   {...fade}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <Link
-                    to={agent.link}
-                    className="block bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/30 transition-all group"
-                  >
-                    <img
-                      src={agent.image}
-                      alt={agent.name}
-                      className="w-20 h-20 object-contain mb-4"
-                      width={80}
-                      height={80}
-                    />
-                    <div className="flex items-center gap-2 mb-1">
-                      <Icon className="h-4 w-4 text-primary" />
-                      <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                        {agent.name}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">{agent.role}</h3>
-                    <p className="text-sm text-foreground/80 mb-3">{agent.description}</p>
-                    <span className="text-sm text-primary font-medium group-hover:underline inline-flex items-center gap-1">
-                      Conocer más <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </Link>
+                  <div className="text-3xl font-bold text-foreground">
+                    {m.value}
+                  </div>
+                  <div className="text-sm text-foreground/80 mt-1">
+                    {m.label}
+                  </div>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </SectionFade>
 
-      {/* ── Press Quotes ── */}
-      <PressQuotes />
+      <SectionFade>
+        <LogoMarquee />
+      </SectionFade>
 
-      {/* ── Press Bar ── */}
-      <PressBar />
+      <SectionFade>
+        <SocialProof />
+      </SectionFade>
 
-      {/* ── Metrics ── */}
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
-            {metrics.map((m, i) => (
-              <motion.div
-                key={i}
-                className="bg-card/30 border border-border/20 rounded-2xl p-6 text-center backdrop-blur-sm"
-                {...fade}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div className="text-3xl font-bold text-foreground">{m.value}</div>
-                <div className="text-sm text-foreground/70 mt-1">{m.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="bg-card/40 border border-border/20 rounded-2xl p-10 md:p-14 text-center max-w-2xl mx-auto"
-            {...fade}
+      <SectionFade>
+        <div className="text-center py-6">
+          <Link
+            to="/resultados"
+            className="text-primary font-medium inline-flex items-center gap-1 hover:underline"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
-              ¿Quieres ver cómo funciona para tu empresa?
-            </h2>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 mt-4"
-              onClick={() => window.open(BOOKING_URL, "_blank")}
-            >
-              Solicitar una demostración
-            </Button>
-          </motion.div>
+            Ver todos los resultados <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-      </section>
+      </SectionFade>
+
+      {/* ─── 7. CTA FINAL ─── */}
+      <SectionFade>
+        <section className="py-16 md:py-20">
+          <div className="container mx-auto px-6">
+            <motion.div
+              className="bg-card/40 border border-border/20 rounded-2xl p-10 md:p-14 text-center max-w-2xl mx-auto"
+              {...fade}
+            >
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
+                ¿Listo para automatizar tu atención telefónica?
+              </h2>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 mt-4 text-base"
+                onClick={() => window.open(BOOKING_URL, "_blank")}
+              >
+                Solicitar una demostración
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+      </SectionFade>
 
       <Footer />
     </div>

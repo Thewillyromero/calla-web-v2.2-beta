@@ -52,6 +52,7 @@ const Footer = () => {
             <ul className="space-y-2.5">
               <li><Link to="/legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Aviso legal</Link></li>
               <li><Link to="/legal#privacidad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de privacidad</Link></li>
+              <li><Link to="/seguridad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Seguridad</Link></li>
               <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contacto</a></li>
             </ul>
           </div>

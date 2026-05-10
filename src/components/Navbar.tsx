@@ -142,6 +142,9 @@ const Navbar = () => {
           <Link to="/precios" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50">
             Precios
           </Link>
+          <Link to="/seguridad" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50">
+            Seguridad
+          </Link>
         </div>
 
         {/* Desktop CTA */}
@@ -223,6 +226,9 @@ const Navbar = () => {
           </Link>
           <Link to="/precios" className="py-2.5 text-sm text-muted-foreground" onClick={() => setOpen(false)}>
             Precios
+          </Link>
+          <Link to="/seguridad" className="py-2.5 text-sm text-muted-foreground" onClick={() => setOpen(false)}>
+            Seguridad
           </Link>
           <Button
             size="sm"

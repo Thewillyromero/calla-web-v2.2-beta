@@ -18,6 +18,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
 const AgentPage = lazy(() => import("./pages/AgentPage.tsx"));
 const Results = lazy(() => import("./pages/Results.tsx"));
 const Questions = lazy(() => import("./pages/Questions.tsx"));
+const Security = lazy(() => import("./pages/Security.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/byte" element={<Suspense fallback={<div className="py-20" />}><AgentPage /></Suspense>} />
           <Route path="/resultados" element={<Suspense fallback={<div className="py-20" />}><Results /></Suspense>} />
           <Route path="/preguntas" element={<Suspense fallback={<div className="py-20" />}><Questions /></Suspense>} />
+          <Route path="/seguridad" element={<Suspense fallback={<div className="py-20" />}><Security /></Suspense>} />
 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

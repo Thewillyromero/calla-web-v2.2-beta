@@ -1,4 +1,4 @@
-import { House, Phone, PhoneOutgoing, CalendarCheck, BarChart3, CreditCard, Mail } from "lucide-react";
+import { House, Phone, PhoneOutgoing, CalendarCheck, BarChart3, CreditCard, Shield, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { BOOKING_URL } from "@/lib/constants";
 
@@ -9,6 +9,7 @@ const links = [
   { label: "LUMI", icon: CalendarCheck, path: "/lumi" },
   { label: "BYTE", icon: BarChart3, path: "/byte" },
   { label: "Precios", icon: CreditCard, path: "/precios" },
+  { label: "Seguridad", icon: Shield, path: "/seguridad" },
   { label: "Contacto", icon: Mail, path: BOOKING_URL, external: true },
 ] as const;
 
