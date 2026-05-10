@@ -29,6 +29,10 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import heroRobot from "@/assets/hero-robot.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
+import agentInbound from "@/assets/characters/agent-inbound.webp";
+import agentOutbound from "@/assets/characters/agent-outbound.webp";
+import agentScheduler from "@/assets/characters/agent-scheduler.webp";
+import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Data ── */
