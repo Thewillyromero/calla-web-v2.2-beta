@@ -162,6 +162,35 @@ const agentData: Record<string, AgentData> = {
       { quote: "Tenemos 12 técnicos en la calle y las llamadas de clientes para avisos de avería eran un caos. CALLA las recoge, prioriza y asigna al técnico más cercano.", name: "Antonio Ruiz", role: "Jefe de Operaciones, Climatizaciones Ruiz", company: "Climatizaciones Ruiz", result: "Averías priorizadas al instante" },
     ],
   },
+  care: {
+    slug: "care",
+    name: "CARE",
+    role: "Atención y Satisfacción del Cliente",
+    tagline: "Convierte clientes en fans para toda la vida",
+    description:
+      "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
+    image: agentSupport,
+    icon: HeartHandshake,
+    useCases: [
+      { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien y resolver dudas." },
+      { title: "Encuestas de satisfacción (NPS)", description: "Mide la satisfacción de cada cliente y te alerta cuando alguien puntúa bajo, antes de que se queje públicamente." },
+      { title: "Gestión de reclamaciones", description: "Recoge la incidencia, la clasifica por urgencia y la escala al responsable adecuado con todo el contexto." },
+      { title: "Fidelización y reactivación", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y campañas para recuperar clientes inactivos." },
+    ],
+    features: [
+      "Seguimiento automático por llamada y WhatsApp tras cada venta o servicio",
+      "Encuestas de satisfacción y NPS con análisis automático",
+      "Detección temprana de clientes insatisfechos y alerta a tu equipo",
+      "Gestión de reclamaciones con escalado inteligente por gravedad",
+      "Recordatorios de revisiones, renovaciones y citas periódicas",
+      "Programa de fidelización: felicitaciones, ofertas y reactivación de inactivos",
+    ],
+    testimonials: [
+      { quote: "Antes perdíamos clientes y no sabíamos por qué. CARE llama 3 días después de cada reparación. Ahora detectamos los problemas al momento y los arreglamos antes de que escriban una reseña mala.", name: "Roberto Gil", role: "Gerente, Taller Gil & Hijos", company: "Taller Gil & Hijos", result: "0 reseñas negativas en 4 meses" },
+      { quote: "Implementamos CARE para las encuestas post-tratamiento. La tasa de respuesta pasó del 8% (email) al 64% (llamada). Ahora sabemos qué mejorar de verdad.", name: "Lucía Ramos", role: "Directora, Clínica Estética Lumière", company: "Clínica Estética Lumière", result: "Respuesta NPS x8" },
+      { quote: "CARE recupera clientes que llevaban más de un año sin venir. El primer mes nos trajo 23 citas de gente que dábamos por perdida. Se paga sola.", name: "Iván Cortés", role: "Propietario, Centro Auditivo Cortés", company: "Centro Auditivo Cortés", result: "23 clientes recuperados/mes" },
+    ],
+  },
 };
 
 const fade = {
