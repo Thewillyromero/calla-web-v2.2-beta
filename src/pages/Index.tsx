@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
@@ -203,8 +203,34 @@ const Index = () => {
 
       {/* ─── 1. HERO — What we do ─── */}
       <SectionFade>
-        <section ref={heroRef} className="pt-28 pb-16 md:pt-36 md:pb-20">
-          <div className="container mx-auto px-6">
+        <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
+          {/* Aurora background */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{
+                background: 'linear-gradient(135deg, hsl(217 91% 20% / 0.8), hsl(260 50% 15% / 0.6), hsl(190 60% 15% / 0.5), hsl(340 55% 15% / 0.3))',
+                backgroundSize: '300% 300%',
+                animation: 'aurora 60s ease-in-out infinite',
+              }}
+            />
+            <div
+              className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px] rounded-full blur-[150px]"
+              style={{ background: 'radial-gradient(circle, hsl(190 60% 50% / 0.15), transparent 70%)', animation: 'aurora-pulse 15s ease-in-out infinite' }}
+            />
+            <div
+              className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] rounded-full blur-[130px]"
+              style={{ background: 'radial-gradient(circle, hsl(260 50% 50% / 0.12), transparent 70%)', animation: 'aurora-pulse 20s ease-in-out infinite 5s' }}
+            />
+            <div
+              className="absolute top-1/3 left-1/3 w-[600px] h-[600px] rounded-full blur-[120px]"
+              style={{ background: 'radial-gradient(circle, hsl(217 91% 45% / 0.1), transparent 70%)', animation: 'aurora-pulse 25s ease-in-out infinite 10s' }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+          </div>
+
+          <div className="container mx-auto px-6 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
               {/* Left: text */}
               <motion.div
