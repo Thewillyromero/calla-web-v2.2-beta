@@ -123,7 +123,7 @@ function personalizeMessages(msgs: Message[], name: string): Message[] {
   return msgs.map(m => {
     let text = m.text;
     for (const full of CLIENT_NAMES) text = text.replace(full, name);
-    for (const first of CLIENT_FIRST) text = text.replaceAll(first, firstName);
+    for (const first of CLIENT_FIRST) text = text.split(first).join(firstName);
     return { ...m, text };
   });
 }
