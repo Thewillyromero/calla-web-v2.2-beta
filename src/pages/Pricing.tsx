@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Zap, Crown, Building2 } from "lucide-react";
+
+const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 
 const tiers = [
   {
@@ -26,7 +28,7 @@ const tiers = [
       "Soporte por email",
       "Panel de métricas básico",
     ],
-    cta: "Reservar consulta gratuita",
+    cta: "Solicitar demo",
     popular: false,
     paymentLinks: {
       monthly: "https://buy.stripe.com/28E5kD9ZR0Mwf1fa2yfEk00",
@@ -53,7 +55,7 @@ const tiers = [
       "Personalización de voz y tono",
       "Webhook e integraciones API",
     ],
-    cta: "Reservar consulta gratuita",
+    cta: "Solicitar demo",
     popular: true,
     paymentLinks: {
       monthly: "https://buy.stripe.com/3cI7sL1tlfHq6uJ2A6fEk01",
@@ -153,6 +155,13 @@ const Pricing = () => {
               )}
             </div>
           </motion.div>
+
+          {/* ROI Calculator */}
+          <div className="mb-16 md:mb-20">
+            <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
+              <ROICalculator />
+            </Suspense>
+          </div>
 
           {/* Pricing cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start">

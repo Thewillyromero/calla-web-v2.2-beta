@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Quote, ArrowRight, TrendingUp, Building2, CheckCircle2, ShieldCheck } from "lucide-react";
@@ -7,7 +7,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
+import SocialProof from "@/components/SocialProof";
+import LogoMarquee from "@/components/LogoMarquee";
 import { BOOKING_URL } from "@/lib/constants";
+
+const CampaignResults = lazy(() => import("@/components/CampaignResults"));
+const CallPlayer = lazy(() => import("@/components/CallPlayer"));
+const Stats = lazy(() => import("@/components/Stats"));
 
 import avatarTim from "@/assets/avatars/tim-bissonnette.webp";
 import avatarCarin from "@/assets/avatars/carin-cowell.webp";
@@ -112,6 +118,27 @@ const Results = () => {
           </SectionFade>
         </div>
       </section>
+
+      {/* Social Proof */}
+      <SocialProof />
+
+      {/* Logo Marquee */}
+      <LogoMarquee />
+
+      {/* Animated Stats */}
+      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando estadísticas...</div>}>
+        <Stats />
+      </Suspense>
+
+      {/* Campaign Results Dashboard */}
+      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando resultados...</div>}>
+        <CampaignResults />
+      </Suspense>
+
+      {/* Call Recordings */}
+      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando llamadas...</div>}>
+        <CallPlayer />
+      </Suspense>
 
       {/* Stats — simplified 4 numbers */}
       <section className="py-12 md:py-20 px-5 md:px-6">

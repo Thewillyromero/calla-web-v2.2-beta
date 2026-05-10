@@ -1,5 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SocialProof from "@/components/SocialProof";
+import LogoMarquee from "@/components/LogoMarquee";
+import PressQuotes from "@/components/PressQuotes";
+import PressBar from "@/components/PressBar";
+import SectionFade from "@/components/SectionFade";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, PhoneOutgoing, CalendarCheck, BarChart3, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -111,6 +116,12 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── Social Proof ── */}
+      <SocialProof />
+
+      {/* ── Logo Marquee ── */}
+      <LogoMarquee />
+
       {/* ── Team Grid ── */}
       <section id="equipo" className="py-16 md:py-20">
         <div className="container mx-auto px-6">
@@ -158,6 +169,12 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Press Quotes ── */}
+      <PressQuotes />
+
+      {/* ── Press Bar ── */}
+      <PressBar />
 
       {/* ── Metrics ── */}
       <section className="py-12 md:py-16">
