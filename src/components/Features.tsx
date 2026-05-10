@@ -134,12 +134,12 @@ const Features = () => {
       {/* Subtle background accents */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full bg-accent/[0.02] blur-[140px] pointer-events-none" />
-      {/* Background character — NOVA with reveal (visible on all screens) */}
-      <div className="absolute -right-10 top-1/2 -translate-y-1/2 pointer-events-none select-none">
+      {/* Background character — NOVA with reveal (hidden on mobile to save GPU) */}
+      <div className="hidden sm:block absolute -right-10 top-1/2 -translate-y-1/2 pointer-events-none select-none">
         <CharacterReveal
           src={agentOutbound}
           alt=""
-          className="w-[200px] sm:w-[300px] md:w-[400px] lg:w-[500px] opacity-[0.08] sm:opacity-[0.10] lg:opacity-[0.12]"
+          className="w-[300px] md:w-[400px] lg:w-[500px] opacity-[0.10] lg:opacity-[0.12]"
           glowColor="hsl(260 50% 65%)"
           revealOffset={[0.05, 0.3]}
         />
@@ -204,11 +204,11 @@ const Features = () => {
                   transform: isHovered ? "translateY(-4px)" : "translateY(0)",
                 }}
               >
-                <div className="p-6 md:p-8 flex items-start gap-5 md:gap-6 bg-card/80 backdrop-blur-sm rounded-2xl">
+                <div className="p-5 md:p-8 flex items-start gap-4 md:gap-6 bg-card/80 backdrop-blur-sm rounded-2xl">
                   {/* Character container with stop-motion pop-in — oversized, peeking above card */}
                   <motion.div
                     variants={characterVariants}
-                    className="shrink-0 relative -mt-16"
+                    className="shrink-0 relative -mt-12 md:-mt-16"
                   >
                     {/* Glow behind character */}
                     <div
@@ -223,7 +223,7 @@ const Features = () => {
                     <motion.img
                       src={f.image}
                       alt={f.agent}
-                      className="w-32 h-32 md:w-44 md:h-44 object-contain relative z-10 drop-shadow-2xl"
+                      className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 object-contain relative z-10 drop-shadow-2xl"
                       width={512}
                       height={512}
                       loading="lazy"
