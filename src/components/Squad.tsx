@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
@@ -8,11 +9,11 @@ import CharacterReveal from "@/components/CharacterReveal";
 import { ArrowRight, Phone, PhoneOutgoing, CalendarCheck, BarChart3, Heart } from "lucide-react";
 
 const agents = [
-  { name: "ARIA", image: agentInbound, icon: Phone, accentColor: "text-brand-teal", role: "Recibe la llamada" },
-  { name: "NOVA", image: agentOutbound, icon: PhoneOutgoing, accentColor: "text-brand-lavender", role: "Llama al lead" },
-  { name: "LUMI", image: agentScheduler, icon: CalendarCheck, accentColor: "text-brand-emerald", role: "Agenda la cita" },
-  { name: "BYTE", image: agentAnalytics, icon: BarChart3, accentColor: "text-brand-amber", role: "Analiza datos" },
-  { name: "CARE", image: agentSupport, icon: Heart, accentColor: "text-brand-rose", role: "Seguimiento" },
+  { name: "ARIA", slug: "aria", image: agentInbound, icon: Phone, accentColor: "text-brand-teal", role: "Recibe la llamada" },
+  { name: "NOVA", slug: "nova", image: agentOutbound, icon: PhoneOutgoing, accentColor: "text-brand-lavender", role: "Llama al lead" },
+  { name: "LUMI", slug: "lumi", image: agentScheduler, icon: CalendarCheck, accentColor: "text-brand-emerald", role: "Agenda la cita" },
+  { name: "BYTE", slug: "byte", image: agentAnalytics, icon: BarChart3, accentColor: "text-brand-amber", role: "Analiza datos" },
+  { name: "CARE", slug: "care", image: agentSupport, icon: Heart, accentColor: "text-brand-rose", role: "Seguimiento" },
 ];
 
 const workflows = [
