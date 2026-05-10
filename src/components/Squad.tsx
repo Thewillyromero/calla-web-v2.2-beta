@@ -89,7 +89,7 @@ const Squad = () => {
                   className="flex flex-col items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded-2xl"
                 >
                   <div
-                    className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-card/60 border border-border/30 flex items-center justify-center mb-2 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent"
+                    className="w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-card/60 border border-border/30 flex items-center justify-center mb-2 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-transparent"
                     style={{
                       boxShadow: `0 0 0 1px ${glow}00`,
                     }}
