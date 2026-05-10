@@ -229,22 +229,43 @@ const AgentPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="shrink-0 relative">
-              {/* Glow behind character */}
-              <div
-                className="absolute inset-0 scale-[2.5] rounded-full blur-3xl pointer-events-none"
-                style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.15), transparent 70%)" }}
-              />
-              <motion.img
-                src={agent.image}
-                alt={agent.name}
-                className="w-48 md:w-64 object-contain relative z-10 animate-float-gentle"
-                width={256}
-                height={256}
-                initial={{ opacity: 0, scale: 0, rotate: -12 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.3 }}
-              />
+            <div className="shrink-0 relative flex items-center justify-center">
+              {(() => {
+                const glow =
+                  agent.slug === "aria" ? "190 70% 55%" :
+                  agent.slug === "nova" ? "260 60% 65%" :
+                  agent.slug === "lumi" ? "160 60% 50%" :
+                  agent.slug === "byte" ? "35 80% 60%" : "340 65% 60%";
+                return (
+                  <>
+                    {/* Outer aura */}
+                    <div
+                      className="absolute inset-0 scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+                      style={{ background: `radial-gradient(circle, hsl(${glow} / 0.32), hsl(${glow} / 0.08) 45%, transparent 70%)` }}
+                    />
+                    {/* Inner halo */}
+                    <div
+                      className="absolute inset-0 scale-[1.6] rounded-full blur-2xl pointer-events-none"
+                      style={{ background: `radial-gradient(circle, hsl(${glow} / 0.45), transparent 65%)` }}
+                    />
+                    {/* Soft ring */}
+                    <div
+                      className="absolute inset-0 scale-[1.15] rounded-full pointer-events-none"
+                      style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
+                    />
+                    <motion.img
+                      src={agent.image}
+                      alt={agent.name}
+                      className="w-72 md:w-[26rem] lg:w-[32rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                      width={512}
+                      height={512}
+                      initial={{ opacity: 0, scale: 0, rotate: -12 }}
+                      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.3 }}
+                    />
+                  </>
+                );
+              })()}
             </div>
           </motion.div>
         </div>
