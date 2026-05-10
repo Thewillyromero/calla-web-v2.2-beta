@@ -223,7 +223,7 @@ const Features = () => {
                     <motion.img
                       src={f.image}
                       alt={f.agent}
-                      className="w-32 h-32 md:w-44 md:h-44 object-contain relative z-10 drop-shadow-2xl"
+                      className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 object-contain relative z-10 drop-shadow-2xl"
                       width={512}
                       height={512}
                       loading="lazy"
