@@ -242,7 +242,7 @@ const AgentPage = () => {
                 <Icon className="h-5 w-5 text-primary" />
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider">{agent.name}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {agent.tagline}
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6">
