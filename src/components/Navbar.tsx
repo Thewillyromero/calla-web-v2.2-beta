@@ -1,4 +1,4 @@
-import { Menu, X, ChevronDown, Phone, PhoneOutgoing, CalendarCheck, BarChart3 } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ const agentLinks = [
   { name: "NOVA", subtitle: "Ventas", icon: PhoneOutgoing, path: "/nova" },
   { name: "LUMI", subtitle: "Citas", icon: CalendarCheck, path: "/lumi" },
   { name: "BYTE", subtitle: "Analítica", icon: BarChart3, path: "/byte" },
+  { name: "CARE", subtitle: "Post-Venta", icon: HeartHandshake, path: "/care" },
 ];
 
 const Navbar = () => {

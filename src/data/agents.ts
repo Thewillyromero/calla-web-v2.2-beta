@@ -1,8 +1,9 @@
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3 } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake } from "lucide-react";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
+import agentSupport from "@/assets/characters/agent-support.webp";
 
 export type Agent = {
   slug: string;
@@ -148,6 +149,38 @@ export const agents: Agent[] = [
       { sector: "Calidad", example: "BYTE marca las llamadas con sentimiento negativo para que el equipo las revise." },
     ],
     cta: "Ver el panel de BYTE",
+    hasDemo: false,
+  },
+  {
+    slug: "care",
+    name: "CARE",
+    icon: HeartHandshake,
+    image: agentSupport,
+    personality: "Tu servicio post-venta",
+    title: "Cuida a tus clientes después de la venta",
+    description: "CARE gestiona el seguimiento post-venta, encuestas de satisfacción, recordatorios y fidelización. Convierte clientes puntuales en clientes de por vida.",
+    color: "brand-rose",
+    hsl: "340 55% 60%",
+    features: [
+      "Seguimiento post-venta automatizado por WhatsApp y llamada",
+      "Encuestas de satisfacción después de cada servicio",
+      "Recordatorios de revisiones, renovaciones y citas periódicas",
+      "Detecta clientes insatisfechos y alerta a tu equipo antes de perderlos",
+      "Programa de fidelización: felicitaciones, ofertas personalizadas",
+      "Gestión de reclamaciones con escalado inteligente",
+    ],
+    howItWorks: [
+      { step: "Se activa después de cada venta", description: "CARE detecta automáticamente cuándo un cliente ha completado un servicio o compra." },
+      { step: "Hace seguimiento personalizado", description: "Contacta al cliente por WhatsApp o llamada para comprobar su satisfacción." },
+      { step: "Fideliza y recupera", description: "Programa recordatorios, ofertas y detecta riesgo de pérdida antes de que ocurra." },
+    ],
+    useCases: [
+      { sector: "Talleres", example: "CARE llama al cliente 3 días después de la reparación para comprobar que todo va bien." },
+      { sector: "Clínicas", example: "CARE envía recordatorio de revisión anual por WhatsApp. El paciente confirma y LUMI agenda la cita." },
+      { sector: "Seguros", example: "CARE contacta a clientes 30 días antes del vencimiento. El 70% renueva sin intervención humana." },
+      { sector: "Inmobiliarias", example: "CARE hace seguimiento post-escritura y genera referidos de clientes satisfechos." },
+    ],
+    cta: "Ver cómo funciona CARE",
     hasDemo: false,
   },
 ];

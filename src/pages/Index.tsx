@@ -13,6 +13,7 @@ import {
   PhoneOutgoing,
   CalendarCheck,
   BarChart3,
+  HeartHandshake,
   ShieldCheck,
   Clock,
   PhoneForwarded,
@@ -28,6 +29,12 @@ import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
 import { BOOKING_URL } from "@/lib/constants";
+import PeekingCharacter from "@/components/PeekingCharacter";
+import ariaCalling from "@/assets/characters/aria-calling.webp";
+import novaRunning from "@/assets/characters/nova-running.webp";
+import lumiWriting from "@/assets/characters/lumi-writing.webp";
+import byteMagnifying from "@/assets/characters/byte-magnifying.webp";
+import careWaving from "@/assets/characters/care-waving.webp";
 
 /* ── Data ── */
 
@@ -120,6 +127,15 @@ const agents = [
     image: agentAnalytics,
     icon: BarChart3,
     link: "/byte",
+  },
+  {
+    name: "CARE",
+    role: "Servicio Post-Venta",
+    description:
+      "Seguimiento, satisfacción y fidelización de tus clientes automáticamente.",
+    image: agentSupport,
+    icon: HeartHandshake,
+    link: "/care",
   },
 ];
 
@@ -261,7 +277,10 @@ const Index = () => {
 
       {/* ─── 2. WHAT WE DO — 3 value props ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 relative overflow-hidden">
+          <PeekingCharacter src={ariaCalling} alt="ARIA" side="right" color="hsl(190 60% 55%)" />
+          <div className="absolute -right-40 top-1/3 w-[500px] h-[500px] rounded-full blur-[150px] pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.04), transparent 70%)" }} />
           <div className="container mx-auto px-6">
             <motion.h2
               className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
@@ -307,7 +326,10 @@ const Index = () => {
 
       {/* ─── 3. WHY US — Differentiators ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 relative overflow-hidden">
+          <PeekingCharacter src={novaRunning} alt="NOVA" side="left" color="hsl(260 50% 65%)" />
+          <div className="absolute -left-40 top-1/4 w-[500px] h-[500px] rounded-full blur-[150px] pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(260 50% 65% / 0.04), transparent 70%)" }} />
           <div className="container mx-auto px-6">
             <motion.h2
               className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
@@ -422,7 +444,7 @@ const Index = () => {
                 />
                 <p className="text-center text-xs sm:text-sm font-bold text-brand-amber mt-2">BYTE</p>
               </Link>
-              <Link to="/resultados" className="transition-transform duration-300">
+              <Link to="/care" className="transition-transform duration-300">
                 <motion.img
                   src={agentSupport}
                   alt="CARE"
@@ -438,7 +460,7 @@ const Index = () => {
 
             {/* Individual agent cards with stagger + sparkles */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -503,13 +525,24 @@ const Index = () => {
                 );
               })}
             </motion.div>
+
+            <div className="text-center mt-10">
+              <Link to="/equipo">
+                <Button size="lg" variant="outline" className="rounded-full px-8 text-base">
+                  Conocer al equipo <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
       </SectionFade>
 
       {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
       <SectionFade>
-        <section id="como-funciona" className="py-16 md:py-20">
+        <section id="como-funciona" className="py-16 md:py-20 relative overflow-hidden">
+          <PeekingCharacter src={lumiWriting} alt="LUMI" side="right" color="hsl(160 50% 48%)" />
+          <div className="absolute -right-40 bottom-1/4 w-[400px] h-[400px] rounded-full blur-[150px] pointer-events-none"
+            style={{ background: "radial-gradient(circle, hsl(160 50% 48% / 0.04), transparent 70%)" }} />
           <div className="container mx-auto px-6">
             <motion.h2
               className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
@@ -556,7 +589,8 @@ const Index = () => {
       </SectionFade>
 
       <SectionFade>
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 relative overflow-hidden">
+          <PeekingCharacter src={byteMagnifying} alt="BYTE" side="left" color="hsl(35 70% 58%)" />
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
               {metrics.map((m, i) => (
@@ -600,7 +634,8 @@ const Index = () => {
 
       {/* ─── 7. CTA FINAL ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 relative overflow-hidden">
+          <PeekingCharacter src={careWaving} alt="CARE" side="right" color="hsl(340 55% 60%)" />
           <div className="container mx-auto px-6">
             <motion.div
               className="bg-card/40 border border-border/20 rounded-2xl p-10 md:p-14 text-center max-w-2xl mx-auto"
