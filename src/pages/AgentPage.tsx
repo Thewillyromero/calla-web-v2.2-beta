@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, ArrowRight, CheckCircle2, Quote } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, CheckCircle2, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,6 +13,7 @@ import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
+import agentSupport from "@/assets/characters/agent-support.webp";
 
 // Which character peeks on each agent's page (a different teammate, curious)
 
