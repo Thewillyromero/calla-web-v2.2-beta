@@ -111,7 +111,17 @@ const Pricing = () => {
   const [annual, setAnnual] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const tryScroll = (attempt = 0) => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        else if (attempt < 20) setTimeout(() => tryScroll(attempt + 1), 100);
+      };
+      tryScroll();
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   return (
