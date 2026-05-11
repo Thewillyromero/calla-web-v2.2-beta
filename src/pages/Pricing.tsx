@@ -139,15 +139,15 @@ const Pricing = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mb-10 md:mb-14"
+            className="text-center mb-6 md:mb-8"
           >
-            <p className="text-primary/80 font-display text-xs sm:text-sm tracking-[0.2em] uppercase font-medium">
+            <p className="text-primary font-display text-base sm:text-lg md:text-xl tracking-[0.25em] uppercase font-bold drop-shadow-[0_0_20px_hsl(var(--primary)/0.4)]">
               Planes y precios
             </p>
           </motion.div>
 
           {/* ROI Calculator */}
-          <div id="calculadora" className="mb-16 md:mb-24 scroll-mt-24">
+          <div id="calculadora" className="mb-12 md:mb-16 scroll-mt-24">
             <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
               <ROICalculator />
             </Suspense>
