@@ -304,16 +304,28 @@ const SquadWorkflow = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                  <div className="absolute inset-0 rounded-full blur-3xl opacity-60"
-                    style={{ background: "radial-gradient(circle, hsl(220 100% 70% / 0.45), transparent 70%)" }} />
-                  <motion.img
-                    src={heroRobot}
-                    alt="HALO — orquestador del equipo"
-                    className="relative z-10 w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                </motion.div>
+                  <div className="relative">
+                    {/* Circular halo glow — HALO color (220 90% 65%) */}
+                    <div
+                      className="absolute inset-0 rounded-full blur-3xl"
+                      style={{
+                        background: "radial-gradient(circle, hsl(220 90% 65% / 0.55) 0%, hsl(220 90% 65% / 0.2) 40%, transparent 72%)",
+                        transform: "scale(1.6)",
+                      }}
+                    />
+                    {/* Inner ring */}
+                    <div
+                      className="absolute inset-0 rounded-full border border-[hsl(220_90%_65%/0.35)]"
+                      style={{ transform: "scale(1.15)", boxShadow: "inset 0 0 60px hsl(220 90% 65% / 0.25)" }}
+                    />
+                    <motion.img
+                      src={heroRobot}
+                      alt="HALO — orquestador del equipo"
+                      className="relative z-10 w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  </div>
 
                 {/* HALO copy */}
                 <motion.div
