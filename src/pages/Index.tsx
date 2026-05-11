@@ -323,7 +323,7 @@ const Index = () => {
               ¿Qué hacemos por tu empresa?
             </motion.h2>
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto pt-20 sm:pt-24"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto pt-16 sm:pt-20"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -334,12 +334,12 @@ const Index = () => {
                 return (
                   <motion.div
                     key={vp.title}
-                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-20 sm:pt-24 transition-all duration-300 hover:-translate-y-1`}
+                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-24 sm:pt-28 transition-all duration-500 hover:-translate-y-1`}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 40px ${vp.color}33, 0 0 80px ${vp.color}1a, inset 0 0 20px ${vp.color}0d`;
-                      e.currentTarget.style.borderColor = `${vp.color}66`;
+                      e.currentTarget.style.boxShadow = `0 0 60px ${vp.color}40, 0 25px 60px rgba(0,0,0,0.25)`;
+                      e.currentTarget.style.borderColor = `${vp.color}99`;
                       const img = e.currentTarget.querySelector('img');
-                      if (img) (img as HTMLElement).style.filter = `drop-shadow(0 0 22px ${vp.color}cc) drop-shadow(0 8px 16px ${vp.color}55)`;
+                      if (img) (img as HTMLElement).style.filter = `drop-shadow(0 0 28px ${vp.color}ee) drop-shadow(0 0 12px ${vp.color}aa) drop-shadow(0 8px 16px ${vp.color}66)`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.boxShadow = '';
@@ -349,18 +349,20 @@ const Index = () => {
                     }}
                     variants={itemVariants}
                   >
-                    {/* Color glow behind character */}
+                    {/* Color glow behind character — wraps it like Features */}
                     <div
-                      className="absolute -top-12 right-4 sm:right-6 w-40 h-40 rounded-full blur-3xl opacity-50 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"
-                      style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)` }}
+                      className="absolute -top-8 right-0 sm:right-2 w-52 h-52 rounded-full blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)`, transform: 'scale(1.4)' }}
                     />
-                    {/* Character peeking out — no box, partly above the card */}
-                    <img
+                    {/* Character peeking out — bigger, closer to text */}
+                    <motion.img
                       src={vp.image}
                       alt={vp.agentName}
                       loading="lazy"
-                      className="absolute -top-16 sm:-top-20 right-2 sm:right-4 w-32 h-32 sm:w-36 sm:h-36 object-contain group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500 pointer-events-none select-none z-10"
-                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease, transform 500ms ease' }}
+                      className="absolute -top-10 sm:-top-12 right-2 sm:right-4 w-40 h-40 sm:w-48 sm:h-48 object-contain pointer-events-none select-none z-10"
+                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease' }}
+                      whileHover={{ scale: 1.06, y: -4 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     />
                     <div className="relative">
                       <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
