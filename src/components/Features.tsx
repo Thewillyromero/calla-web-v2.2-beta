@@ -18,7 +18,7 @@ const features = [
     personality: "La que siempre contesta",
     color: "brand-teal",
     hsl: "190 60% 55%",
-    gradient: "linear-gradient(135deg, hsl(190 95% 60%), hsl(175 85% 65%), hsl(210 90% 72%))",
+    gradient: "linear-gradient(135deg, hsl(190 100% 75%), hsl(175 95% 72%), hsl(210 100% 80%))",
     expandedDetails: [
       "Responde llamadas 24/7, incluyendo festivos y fuera de horario",
       "Identifica la intención del llamante y deriva a la persona correcta",
@@ -36,7 +36,7 @@ const features = [
     personality: "La que no para de llamar",
     color: "brand-lavender",
     hsl: "260 50% 65%",
-    gradient: "linear-gradient(135deg, hsl(245 90% 72%), hsl(285 80% 70%), hsl(325 85% 70%))",
+    gradient: "linear-gradient(135deg, hsl(245 100% 82%), hsl(285 95% 80%), hsl(325 95% 80%))",
     expandedDetails: [
       "Campañas de appointment setting automatizadas",
       "Marca hasta 3 llamadas simultáneas por línea",
@@ -54,7 +54,7 @@ const features = [
     personality: "La organizadora perfecta",
     color: "brand-emerald",
     hsl: "160 50% 48%",
-    gradient: "linear-gradient(135deg, hsl(175 85% 55%), hsl(155 80% 58%), hsl(95 75% 65%))",
+    gradient: "linear-gradient(135deg, hsl(170 100% 70%), hsl(150 95% 72%), hsl(95 90% 75%))",
     expandedDetails: [
       "Sincroniza con Google Calendar, Calendly y CRMs",
       "Confirma citas y envía recordatorios automáticos",
@@ -72,7 +72,7 @@ const features = [
     personality: "El cerebro del equipo",
     color: "brand-amber",
     hsl: "35 70% 58%",
-    gradient: "linear-gradient(135deg, hsl(48 95% 62%), hsl(28 90% 62%), hsl(355 85% 68%))",
+    gradient: "linear-gradient(135deg, hsl(48 100% 75%), hsl(28 100% 72%), hsl(355 100% 78%))",
     expandedDetails: [
       "Dashboard de métricas en tiempo real",
       "Transcripción y análisis de sentimiento de cada llamada",
@@ -316,7 +316,7 @@ const Features = () => {
                       className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
                       style={{
                         backgroundImage: f.gradient,
-                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.45)) drop-shadow(0 6px 16px hsl(0 0% 0% / 0.2)) drop-shadow(0 0 18px hsl(${f.hsl} / 0.3))`,
+                        filter: `drop-shadow(0 1px 2px hsl(0 0% 0% / 0.25)) drop-shadow(0 0 24px hsl(${f.hsl} / 0.45))`,
                       }}
                     >
                       {f.title}
