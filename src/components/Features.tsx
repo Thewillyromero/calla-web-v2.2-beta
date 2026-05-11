@@ -213,7 +213,6 @@ const Features = () => {
         >
           {features.map((f, i) => {
             const isHovered = hoveredIdx === i;
-            const isLastOdd = i === features.length - 1 && features.length % 2 === 1;
             return (
               <motion.div
                 key={i}
@@ -221,7 +220,7 @@ const Features = () => {
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
-                className={`group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500 ${isLastOdd ? "md:col-span-2 md:max-w-[calc(50%-10px)] md:mx-auto md:w-full" : ""}`}
+                className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
                 style={{
                   background: isHovered
                     ? `linear-gradient(135deg, hsl(${f.hsl} / 0.06) 0%, hsl(var(--card) / 0.5) 60%)`
