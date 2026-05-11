@@ -325,6 +325,13 @@ const AgentPage = () => {
         </div>
       </section>
 
+      {/* ARIA-specific: DemoCall (moved before Use Cases for visibility) */}
+      {agent.showDemoCall && (
+        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
+          <DemoCall />
+        </Suspense>
+      )}
+
       {/* Use Cases */}
       <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
@@ -387,12 +394,6 @@ const AgentPage = () => {
         </div>
       </section>
 
-      {/* ARIA-specific: DemoCall + CallSimulator */}
-      {agent.showDemoCall && (
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
-          <DemoCall />
-        </Suspense>
-      )}
       {agent.showCallSimulator && (
         <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
           <CallSimulator />
