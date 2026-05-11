@@ -46,7 +46,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
   }, [staffCost, ownHours]);
 
   return (
-    <section id="calculadora" className="py-20 md:py-32 px-5 md:px-6 relative overflow-hidden">
+    <section id="calculadora" className="px-5 md:px-6 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border/10 to-transparent" />
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-brand-emerald/[0.03] blur-[180px] pointer-events-none" />
       {/* Background character — LUMI (right) */}
