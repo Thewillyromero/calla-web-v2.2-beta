@@ -278,12 +278,10 @@ const AgentPage = () => {
                       className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
                       style={{ background: `radial-gradient(circle, hsl(${glow} / 0.45), transparent 65%)` }}
                     />
-                    {agent.slug !== "lumi" && (
-                      <div
-                        className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
-                        style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
-                      />
-                    )}
+                    <div
+                      className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
+                      style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
+                    />
                     <motion.img
                       src={agent.image}
                       alt={agent.name}
