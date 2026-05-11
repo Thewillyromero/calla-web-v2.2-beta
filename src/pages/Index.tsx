@@ -62,8 +62,8 @@ const valueProps = [
     link: "/lumi",
     image: lumiWriting,
     agentName: "LUMI",
-    color: "hsl(217 91% 60%)", // primary blue
-    gradient: "from-[hsl(217_91%_55%)]/10 via-card/40 to-card/40",
+    color: "hsl(160 55% 50%)", // brand-emerald (LUMI is green)
+    gradient: "from-[hsl(160_55%_45%)]/10 via-card/40 to-card/40",
   },
   {
     icon: BarChart3,
@@ -73,8 +73,8 @@ const valueProps = [
     link: "/byte",
     image: byteMagnifying,
     agentName: "BYTE",
-    color: "hsl(260 60% 65%)", // brand-lavender
-    gradient: "from-[hsl(260_60%_60%)]/10 via-card/40 to-card/40",
+    color: "hsl(28 80% 55%)", // amber/orange (BYTE is orange)
+    gradient: "from-[hsl(28_80%_50%)]/10 via-card/40 to-card/40",
   },
 ];
 
