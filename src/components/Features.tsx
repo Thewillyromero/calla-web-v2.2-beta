@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import agentSupport from "@/assets/characters/care-waving.webp";
+import agentSupport from "@/assets/characters/care-waving-transparent.png";
 import heroRobot from "@/assets/hero-robot.webp";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, Sparkles, ChevronDown, Check, Wand2 } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight, ChevronDown, Check } from "lucide-react";
 
 const features = [
   {
