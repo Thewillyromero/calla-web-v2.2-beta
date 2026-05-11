@@ -39,7 +39,16 @@ const SideNav = () => {
         py-3 gap-0.5
         group/nav"
     >
-      <Link to="/" className={itemClass(isActive("/"))}>
+      <Link
+        to="/"
+        onClick={(e) => {
+          if (location.pathname === "/") {
+            e.preventDefault();
+          }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className={itemClass(isActive("/"))}
+      >
         <House className="h-5 w-5 shrink-0" />
         <span className="truncate">Home</span>
       </Link>
