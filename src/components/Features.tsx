@@ -36,7 +36,7 @@ const features = [
     personality: "La que no para de llamar",
     color: "brand-lavender",
     hsl: "260 50% 65%",
-    gradient: "linear-gradient(135deg, hsl(260 70% 75%), hsl(285 65% 78%))",
+    gradient: "linear-gradient(135deg, hsl(240 80% 78%), hsl(275 75% 76%), hsl(310 70% 75%))",
     expandedDetails: [
       "Campañas de appointment setting automatizadas",
       "Marca hasta 3 llamadas simultáneas por línea",
