@@ -394,13 +394,11 @@ const AgentPage = () => {
         </div>
       </section>
 
-      {/* ARIA-specific: DemoCall + CallSimulator */}
-      {agent.showDemoCall && (
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
-          <DemoCall />
+      {agent.showCallSimulator && (
+        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
+          <CallSimulator />
         </Suspense>
       )}
-      {agent.showCallSimulator && (
         <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
           <CallSimulator />
         </Suspense>
