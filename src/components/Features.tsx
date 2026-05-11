@@ -18,7 +18,7 @@ const features = [
     personality: "La que siempre contesta",
     color: "brand-teal",
     hsl: "190 60% 55%",
-    gradient: "linear-gradient(135deg, hsl(190 100% 75%), hsl(175 95% 72%), hsl(210 100% 80%))",
+    gradient: "linear-gradient(135deg, hsl(190 100% 60%), hsl(175 100% 55%), hsl(210 100% 65%))",
     expandedDetails: [
       "Responde llamadas 24/7, incluyendo festivos y fuera de horario",
       "Identifica la intención del llamante y deriva a la persona correcta",
@@ -36,7 +36,7 @@ const features = [
     personality: "La que no para de llamar",
     color: "brand-lavender",
     hsl: "260 50% 65%",
-    gradient: "linear-gradient(135deg, hsl(245 100% 82%), hsl(285 95% 80%), hsl(325 95% 80%))",
+    gradient: "linear-gradient(135deg, hsl(245 100% 70%), hsl(285 100% 65%), hsl(325 100% 65%))",
     expandedDetails: [
       "Campañas de appointment setting automatizadas",
       "Marca hasta 3 llamadas simultáneas por línea",
@@ -54,7 +54,7 @@ const features = [
     personality: "La organizadora perfecta",
     color: "brand-emerald",
     hsl: "160 50% 48%",
-    gradient: "linear-gradient(135deg, hsl(170 100% 70%), hsl(150 95% 72%), hsl(95 90% 75%))",
+    gradient: "linear-gradient(135deg, hsl(170 100% 55%), hsl(150 100% 55%), hsl(95 100% 60%))",
     expandedDetails: [
       "Sincroniza con Google Calendar, Calendly y CRMs",
       "Confirma citas y envía recordatorios automáticos",
@@ -72,7 +72,7 @@ const features = [
     personality: "El cerebro del equipo",
     color: "brand-amber",
     hsl: "35 70% 58%",
-    gradient: "linear-gradient(135deg, hsl(48 100% 75%), hsl(28 100% 72%), hsl(355 100% 78%))",
+    gradient: "linear-gradient(135deg, hsl(48 100% 62%), hsl(28 100% 60%), hsl(355 100% 65%))",
     expandedDetails: [
       "Dashboard de métricas en tiempo real",
       "Transcripción y análisis de sentimiento de cada llamada",
