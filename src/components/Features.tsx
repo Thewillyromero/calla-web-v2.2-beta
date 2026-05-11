@@ -82,6 +82,24 @@ const features = [
       "Informes semanales automáticos",
     ],
   },
+  {
+    image: agentSupport,
+    agent: "CARE",
+    icon: HeartHandshake,
+    title: "Cuida la relación post-venta",
+    description:
+      "Hace seguimiento, mide satisfacción y detecta clientes en riesgo antes de que se vayan.",
+    personality: "La que fideliza",
+    color: "brand-rose",
+    hsl: "340 55% 60%",
+    gradient: "linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))",
+    expandedDetails: [
+      "Seguimiento post-venta automatizado por voz y WhatsApp",
+      "Encuestas NPS y de satisfacción tras cada interacción",
+      "Detecta señales de churn y avisa a tu equipo",
+      "Recordatorios de renovación y cross-sell",
+    ],
+  },
 ];
 
 /* ── stop-motion / reveal animation variants ── */
