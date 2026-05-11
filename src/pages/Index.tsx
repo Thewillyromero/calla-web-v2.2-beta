@@ -33,11 +33,11 @@ import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import ariaCalling from "@/assets/characters/aria-calling.webp";
-import lumiWriting from "@/assets/characters/lumi-writing.webp";
-import byteMagnifying from "@/assets/characters/byte-magnifying.webp";
-import novaPointing from "@/assets/characters/nova-pointing.webp";
-import careWaving from "@/assets/characters/care-waving.webp";
+import ariaCalling from "@/assets/characters/aria-calling-cut.png";
+import lumiWriting from "@/assets/characters/lumi-writing-cut.png";
+import byteMagnifying from "@/assets/characters/byte-magnifying-cut.png";
+import novaPointing from "@/assets/characters/nova-pointing-cut.png";
+import careWaving from "@/assets/characters/care-waving-cut.png";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Data ── */
