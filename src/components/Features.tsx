@@ -313,10 +313,10 @@ const Features = () => {
                     </motion.div>
 
                     <h3
-                      className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
+                      className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent animate-gradient"
                       style={{
                         backgroundImage: f.gradient,
-                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.4)) drop-shadow(0 0 12px hsl(${f.hsl} / 0.18))`,
+                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.4)) drop-shadow(0 0 16px hsl(${f.hsl} / 0.25))`,
                       }}
                     >
                       {f.title}
