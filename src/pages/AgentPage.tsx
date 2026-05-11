@@ -399,10 +399,6 @@ const AgentPage = () => {
           <CallSimulator />
         </Suspense>
       )}
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
-          <CallSimulator />
-        </Suspense>
-      )}
 
       {/* CTA */}
       <section className="py-16 md:py-24 px-5 md:px-6">
