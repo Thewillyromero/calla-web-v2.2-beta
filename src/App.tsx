@@ -31,6 +31,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <LiveMetricsProvider>
         <div className="hidden lg:block"><SideNav /></div>
         <Routes>
           <Route path="/" element={<Index />} />
