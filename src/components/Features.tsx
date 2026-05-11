@@ -54,7 +54,7 @@ const features = [
     personality: "La organizadora perfecta",
     color: "brand-emerald",
     hsl: "160 50% 48%",
-    gradient: "linear-gradient(135deg, hsl(160 60% 65%), hsl(145 55% 72%))",
+    gradient: "linear-gradient(135deg, hsl(170 70% 65%), hsl(150 65% 68%), hsl(125 60% 72%))",
     expandedDetails: [
       "Sincroniza con Google Calendar, Calendly y CRMs",
       "Confirma citas y envía recordatorios automáticos",
