@@ -1,25 +1,24 @@
 ## Objetivo
+Mejorar la sección "Tu equipo de IA que nunca duerme" en home (`src/components/Features.tsx`):
+1. Bajar y centrar verticalmente los personajes dentro de cada tarjeta.
+2. Hacer el texto descriptivo más legible (más claro).
+3. Aplicar al título en negrita un degradado con los colores del personaje correspondiente.
 
-Integrar mejor el personaje LUMI en la cabecera de `/lumi`: quitar el fondo negro recortado y refinar el calendario para que "JUNIO" y "16" sean más sutiles y discretos.
+## Cambios en `src/components/Features.tsx`
 
-## Cambios
+### 1. Reposicionar los personajes
+- Cambiar el contenedor del personaje (línea 211): quitar `-mt-12 md:-mt-16` (que hace que sobresalgan por arriba) y alinear con `self-center` para que queden centrados verticalmente respecto al bloque de texto.
+- Cambiar el contenedor padre (línea 207) de `items-start` a `items-center` para alinear personaje y texto en el medio.
 
-### 1. Recortar fondo negro del personaje
-- Generar una versión sin fondo de `src/assets/characters/agent-scheduler.webp` aplicando `rembg` (mismo flujo ya usado en `byte-analyzing-cut.png` y `lumi-writing-cut.png`).
-- Guardar como `src/assets/characters/agent-scheduler-cut.png` (transparente).
+### 2. Texto descriptivo más legible
+- Línea 315: cambiar `text-muted-foreground/80` por `text-foreground/85` (o similar) para mayor contraste y legibilidad.
 
-### 2. Refinar el calendario
-Antes de recortar el fondo, editar el asset con `imagegen--edit_image` para:
-- Reducir el tamaño del texto "JUNIO" y usar una tipografía más fina/sutil (peso ligero, menor contraste).
-- Reducir el tamaño del número "16" para que el círculo rojo discreto siga siendo una señal sutil, no protagonista.
-- Mantener todo lo demás idéntico (personaje, pose, iluminación, calendario en sí).
-
-### 3. Actualizar el import
-En `src/data/agents.ts`:
-- Cambiar `import agentScheduler from "@/assets/characters/agent-scheduler.webp"` por la nueva versión `agent-scheduler-cut.png`.
-- El personaje pasará a flotar limpio sobre el fondo de la página (con su drop-shadow ya existente) sin la caja negra.
+### 3. Título con degradado del color del personaje
+- Línea 311-313: aplicar `background-image: linear-gradient(135deg, hsl({hsl}) 0%, hsl({hsl} / 0.6) 100%)` con `bg-clip-text text-transparent` solo al `<h3>`.
+- Cada agente tendrá su propio degradado (teal para ARIA, lavender para NOVA, emerald para LUMI, amber para BYTE) usando el `f.hsl` ya definido en cada feature.
+- Mantener `font-display font-bold` y tamaños actuales.
 
 ## Detalles técnicos
-
-- Orden de operaciones: primero refinar el calendario (edit_image), luego pasar `rembg` sobre el resultado para obtener PNG transparente.
-- No se toca el layout ni el componente `AgentPage.tsx`; el `<img>` ya hace `object-contain` y respeta transparencia.
+- No se cambian los assets de personajes ni el layout de la grid.
+- No se tocan animaciones (hover, partículas, pop-in).
+- Solo edición visual/CSS dentro del componente Features.tsx.

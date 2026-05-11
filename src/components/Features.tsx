@@ -204,11 +204,11 @@ const Features = () => {
                   transform: isHovered ? "translateY(-4px)" : "translateY(0)",
                 }}
               >
-                <div className="p-5 md:p-8 flex items-start gap-4 md:gap-6 bg-card/80 backdrop-blur-sm rounded-2xl">
-                  {/* Character container with stop-motion pop-in — oversized, peeking above card */}
+                <div className="p-5 md:p-8 flex items-center gap-4 md:gap-6 bg-card/80 backdrop-blur-sm rounded-2xl">
+                  {/* Character container with stop-motion pop-in */}
                   <motion.div
                     variants={characterVariants}
-                    className="shrink-0 relative -mt-12 md:-mt-16"
+                    className="shrink-0 relative self-center"
                   >
                     {/* Glow behind character */}
                     <div
