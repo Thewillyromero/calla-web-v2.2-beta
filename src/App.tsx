@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Chatbot from "./components/Chatbot.tsx";
 import SideNav from "./components/SideNav.tsx";
 import ScrollProgress from "./components/ScrollProgress.tsx";
+import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
 
 const Pricing = lazy(() => import("./pages/Pricing.tsx"));
 const SectorPage = lazy(() => import("./pages/SectorPage.tsx"));
