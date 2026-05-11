@@ -18,7 +18,7 @@ const features = [
     personality: "La que siempre contesta",
     color: "brand-teal",
     hsl: "190 60% 55%",
-    gradient: "linear-gradient(135deg, hsl(180 85% 70%), hsl(195 90% 72%), hsl(215 85% 75%))",
+    gradient: "linear-gradient(120deg, hsl(180 100% 65%), hsl(195 100% 70%), hsl(220 100% 75%), hsl(195 100% 70%))",
     expandedDetails: [
       "Responde llamadas 24/7, incluyendo festivos y fuera de horario",
       "Identifica la intención del llamante y deriva a la persona correcta",
@@ -36,7 +36,7 @@ const features = [
     personality: "La que no para de llamar",
     color: "brand-lavender",
     hsl: "260 50% 65%",
-    gradient: "linear-gradient(135deg, hsl(240 80% 78%), hsl(275 75% 76%), hsl(310 70% 75%))",
+    gradient: "linear-gradient(120deg, hsl(245 100% 78%), hsl(280 95% 75%), hsl(320 95% 75%), hsl(280 95% 75%))",
     expandedDetails: [
       "Campañas de appointment setting automatizadas",
       "Marca hasta 3 llamadas simultáneas por línea",
@@ -54,7 +54,7 @@ const features = [
     personality: "La organizadora perfecta",
     color: "brand-emerald",
     hsl: "160 50% 48%",
-    gradient: "linear-gradient(135deg, hsl(170 70% 65%), hsl(150 65% 68%), hsl(125 60% 72%))",
+    gradient: "linear-gradient(120deg, hsl(170 95% 60%), hsl(150 90% 65%), hsl(110 85% 70%), hsl(150 90% 65%))",
     expandedDetails: [
       "Sincroniza con Google Calendar, Calendly y CRMs",
       "Confirma citas y envía recordatorios automáticos",
@@ -72,7 +72,7 @@ const features = [
     personality: "El cerebro del equipo",
     color: "brand-amber",
     hsl: "35 70% 58%",
-    gradient: "linear-gradient(135deg, hsl(50 95% 72%), hsl(35 95% 68%), hsl(20 90% 70%))",
+    gradient: "linear-gradient(120deg, hsl(50 100% 68%), hsl(30 100% 65%), hsl(15 100% 68%), hsl(30 100% 65%))",
     expandedDetails: [
       "Dashboard de métricas en tiempo real",
       "Transcripción y análisis de sentimiento de cada llamada",
@@ -313,10 +313,10 @@ const Features = () => {
                     </motion.div>
 
                     <h3
-                      className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
+                      className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent animate-gradient"
                       style={{
                         backgroundImage: f.gradient,
-                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.4)) drop-shadow(0 0 12px hsl(${f.hsl} / 0.18))`,
+                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.4)) drop-shadow(0 0 16px hsl(${f.hsl} / 0.25))`,
                       }}
                     >
                       {f.title}
