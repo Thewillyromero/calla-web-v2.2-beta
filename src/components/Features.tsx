@@ -18,7 +18,7 @@ const features = [
     personality: "La que siempre contesta",
     color: "brand-teal",
     hsl: "190 60% 55%",
-    gradient: "linear-gradient(135deg, hsl(190 95% 60%), hsl(175 85% 65%), hsl(210 90% 72%))",
+    gradient: "linear-gradient(135deg, hsl(190 100% 75%), hsl(175 95% 72%), hsl(210 100% 80%))",
     expandedDetails: [
       "Responde llamadas 24/7, incluyendo festivos y fuera de horario",
       "Identifica la intención del llamante y deriva a la persona correcta",
