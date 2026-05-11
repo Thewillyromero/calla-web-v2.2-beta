@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
@@ -169,6 +170,7 @@ const badgeVariants = {
 const Features = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <section id="features" className="py-20 md:py-32 px-5 md:px-6 relative overflow-hidden">
@@ -219,7 +221,14 @@ const Features = () => {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => {
+                  const slug = f.agent.toLowerCase();
+                  if (slug === "halo") {
+                    navigate("/equipo");
+                  } else {
+                    navigate(`/${slug}`);
+                  }
+                }}
                 className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
                 style={{
                   background: isHovered
