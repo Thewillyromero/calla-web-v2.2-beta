@@ -221,7 +221,14 @@ const Features = () => {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => {
+                  const slug = f.agent.toLowerCase();
+                  if (slug === "halo") {
+                    navigate("/equipo");
+                  } else {
+                    navigate(`/${slug}`);
+                  }
+                }}
                 className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
                 style={{
                   background: isHovered
