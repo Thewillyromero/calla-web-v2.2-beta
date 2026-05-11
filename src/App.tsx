@@ -55,6 +55,7 @@ const App = () => (
         </Routes>
         <ScrollProgress />
         <Chatbot />
+        </LiveMetricsProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
