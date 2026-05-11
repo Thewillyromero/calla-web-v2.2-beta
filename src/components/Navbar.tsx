@@ -1,4 +1,4 @@
-import { Menu, X, ChevronDown, Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
