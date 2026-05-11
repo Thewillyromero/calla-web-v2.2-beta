@@ -62,8 +62,8 @@ const valueProps = [
     link: "/lumi",
     image: lumiWriting,
     agentName: "LUMI",
-    color: "hsl(217 91% 60%)", // primary blue
-    gradient: "from-[hsl(217_91%_55%)]/10 via-card/40 to-card/40",
+    color: "hsl(160 55% 50%)", // brand-emerald (LUMI is green)
+    gradient: "from-[hsl(160_55%_45%)]/10 via-card/40 to-card/40",
   },
   {
     icon: BarChart3,
@@ -73,8 +73,8 @@ const valueProps = [
     link: "/byte",
     image: byteMagnifying,
     agentName: "BYTE",
-    color: "hsl(260 60% 65%)", // brand-lavender
-    gradient: "from-[hsl(260_60%_60%)]/10 via-card/40 to-card/40",
+    color: "hsl(28 80% 55%)", // amber/orange (BYTE is orange)
+    gradient: "from-[hsl(28_80%_50%)]/10 via-card/40 to-card/40",
   },
 ];
 
@@ -354,15 +354,20 @@ const Index = () => {
                       className="absolute -top-8 right-0 sm:right-2 w-52 h-52 rounded-full blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                       style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)`, transform: 'scale(1.4)' }}
                     />
-                    {/* Character peeking out — bigger, closer to text */}
+                    {/* Character peeking out — idle bob + hover head wobble */}
                     <motion.img
                       src={vp.image}
                       alt={vp.agentName}
                       loading="lazy"
-                      className="absolute -top-10 sm:-top-12 right-2 sm:right-4 w-40 h-40 sm:w-48 sm:h-48 object-contain pointer-events-none select-none z-10"
-                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease' }}
-                      whileHover={{ scale: 1.06, y: -4 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute -top-10 sm:-top-12 right-2 sm:right-4 w-40 h-40 sm:w-48 sm:h-48 object-contain select-none z-10"
+                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease', transformOrigin: 'center bottom' }}
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{
+                        rotate: [0, -6, 5, -3, 0],
+                        scale: 1.08,
+                        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+                      }}
                     />
                     <div className="relative">
                       <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
