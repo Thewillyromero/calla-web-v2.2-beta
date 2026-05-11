@@ -212,8 +212,8 @@ const Pricing = () => {
                     }}
                   >
                     {tier.badge && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                        <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                        <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap inline-block leading-none">
                           {tier.badge}
                         </span>
                       </div>
