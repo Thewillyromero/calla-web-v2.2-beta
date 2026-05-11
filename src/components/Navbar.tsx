@@ -16,6 +16,7 @@ const agentLinks = [
   { name: "LUMI", subtitle: "Citas", icon: CalendarCheck, path: "/lumi" },
   { name: "BYTE", subtitle: "Analítica", icon: BarChart3, path: "/byte" },
   { name: "CARE", subtitle: "Post-Venta", icon: HeartHandshake, path: "/care" },
+  { name: "HALO", subtitle: "Orquestación", icon: Sparkles, path: "/equipo" },
 ];
 
 const Navbar = ({ onContact }: NavbarProps = {}) => {
