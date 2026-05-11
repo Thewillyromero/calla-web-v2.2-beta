@@ -134,15 +134,33 @@ const Pricing = () => {
 
         <div className="container mx-auto relative z-10">
           {/* Header */}
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-10 md:mb-14"
+          >
+            <p className="text-primary/80 font-display text-xs sm:text-sm tracking-[0.2em] uppercase font-medium">
+              Planes y precios
+            </p>
+          </motion.div>
+
+          {/* ROI Calculator */}
+          <div id="calculadora" className="mb-16 md:mb-24 scroll-mt-24">
+            <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
+              <ROICalculator />
+            </Suspense>
+          </div>
+
+          {/* Title + toggle */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-12 md:mb-16 max-w-2xl mx-auto"
           >
-            <p className="text-primary/80 font-display text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 font-medium">
-              Planes y precios
-            </p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-5 tracking-tight leading-[1.1]">
               Elige tu <span className="text-gradient">plan perfecto</span>
             </h1>
@@ -166,15 +184,8 @@ const Pricing = () => {
             </div>
           </motion.div>
 
-          {/* ROI Calculator */}
-          <div className="mb-16 md:mb-20">
-            <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
-              <ROICalculator />
-            </Suspense>
-          </div>
-
           {/* Pricing cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start pt-6">
             {tiers.map((tier, i) => {
               const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * 0.8).toString() : tier.price;
 

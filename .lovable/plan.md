@@ -1,22 +1,31 @@
-## Objetivo
+# Reordenar página de Precios y arreglar badge
 
-Hacer que HALO destaque visualmente sobre el resto de agentes en la sección "Equipo" del home (`src/components/Features.tsx`) aumentando su personaje un 15%, sin romper el layout de la tarjeta.
+## Cambios en `src/pages/Pricing.tsx`
 
-## Cambio
+**1. Nuevo orden de la sección:**
+   1. Eyebrow "PLANES Y PRECIOS" (se queda arriba como entrada)
+   2. Calculadora ROI ("¿Cuánto te cuesta gestionar el teléfono?") — sube justo debajo del eyebrow
+   3. Título "Elige tu plan perfecto" + subtítulo "Sin permanencia..."
+   4. Toggle Mensual / Anual
+   5. Cards de planes (Starter / Pro / Enterprise)
 
-En la `motion.img` del personaje (línea ~262 de `Features.tsx`):
+   Esto agrupa visualmente el título con su toggle y sus cards (que es lo que describe), y mete la calculadora arriba pegada al header de sección.
 
-- Detectar si `f.agent === "HALO"` y aplicar un `scale: 1.15` extra:
-  - En el estado base: `scale: isHalo ? 1.15 : 1`
-  - En el hover, mantener proporción: `scale: isHalo ? [1.15, 1.24, 1.20] : [1, 1.08, 1.04]`
-- Mantener las mismas clases de tamaño (`w-24 ... md:w-44`) para que la tarjeta no cambie de altura — el escalado se hace por transform, así el +15% es puramente visual y se desborda ligeramente sobre el halo/glow, reforzando la sensación de "líder" sin desalinear la grilla.
-- `transformOrigin: "center bottom"` para que el aumento empuje hacia arriba y no recorte la cabeza.
+**2. Arreglar el recorte del badge "Más popular":**
 
-## Archivos tocados
+   El badge usa `absolute -top-3` dentro de la card, pero la card Pro tiene `md:-mt-4` (sube la card) y la grilla padre tiene `items-start`, por lo que el badge queda cortado por el borde superior del contenedor de la grilla / por overflow del scroll-margin.
 
-- `src/components/Features.tsx` (solo el bloque de la imagen del personaje)
+   Soluciones a aplicar:
+   - Añadir `pt-4` (o `pt-6`) al contenedor de la grilla de cards para reservar espacio para el badge que sobresale.
+   - Subir el badge un poco más (`-top-4`) y asegurar `z-20` para que quede por encima.
+   - Quitar `whitespace-nowrap` no es necesario; el problema es de espacio vertical, no horizontal.
 
-## No se toca
+**3. Mantener intacto:**
+   - Lógica de precios anuales (-20%)
+   - FAQ al final
+   - Animaciones existentes
+   - Hash scroll a `#calculadora` (el `id="calculadora"` debe seguir en el wrapper de `ROICalculator`, ahora arriba)
 
-- Tamaño de tarjeta, tipografías, copy, animaciones de las otras 5 cards.
-- Sección `/equipo` (HALO ya está en grande allí).
+## Notas técnicas
+- No tocar `ROICalculator.tsx` ni el resto de componentes.
+- Sin cambios de lógica de negocio, sólo orden de JSX y padding/posicionamiento del badge.
