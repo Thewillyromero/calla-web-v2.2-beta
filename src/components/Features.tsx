@@ -315,7 +315,8 @@ const Features = () => {
                     <h3
                       className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
                       style={{
-                        backgroundImage: `linear-gradient(135deg, hsl(${f.hsl}) 0%, hsl(${f.hsl} / 0.65) 100%)`,
+                        backgroundImage: f.gradient,
+                        filter: `drop-shadow(0 0 24px hsl(${f.hsl} / 0.35))`,
                       }}
                     >
                       {f.title}
