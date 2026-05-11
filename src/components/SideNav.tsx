@@ -19,7 +19,7 @@ const SideNav = () => {
 
   return (
     <nav
-      className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col
+      className="fixed left-0 top-4 z-40 hidden lg:flex flex-col
         w-12 hover:w-48 overflow-hidden
         bg-background/60 backdrop-blur-lg border border-border/20 border-l-0
         rounded-r-xl shadow-lg shadow-black/10
