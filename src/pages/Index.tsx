@@ -361,12 +361,12 @@ const Index = () => {
                       loading="lazy"
                       className="absolute -top-10 sm:-top-12 right-2 sm:right-4 w-40 h-40 sm:w-48 sm:h-48 object-contain select-none z-10"
                       style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease', transformOrigin: 'center bottom' }}
-                      animate={{ y: [0, -4, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      animate={{ y: [0, -1.2, 0] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                       whileHover={{
-                        rotate: [0, -6, 5, -3, 0],
-                        scale: 1.08,
-                        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+                        rotate: [0, -1.8, 1.5, -0.9, 0],
+                        scale: 1.024,
+                        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
                       }}
                     />
                     <div className="relative">
