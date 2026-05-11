@@ -259,6 +259,7 @@ const Features = () => {
                     />
 
                     {/* Character image */}
+                    {(() => { const isHalo = f.agent === "HALO"; return (
                     <motion.img
                       src={f.image}
                       alt={f.agent}
@@ -266,14 +267,15 @@ const Features = () => {
                       width={512}
                       height={512}
                       loading="lazy"
+                      style={{ transformOrigin: "center bottom" }}
                       animate={
                         isHovered
                           ? {
-                              scale: [1, 1.08, 1.04],
+                              scale: isHalo ? [1.15, 1.24, 1.20] : [1, 1.08, 1.04],
                               rotate: [0, -3, 2, 0],
                               y: [0, -6, -4],
                             }
-                          : { scale: 1, rotate: 0, y: 0 }
+                          : { scale: isHalo ? 1.15 : 1, rotate: 0, y: 0 }
                       }
                       transition={
                         isHovered
@@ -284,6 +286,7 @@ const Features = () => {
                           : { duration: 0.4 }
                       }
                     />
+                    ); })()}
 
                     {/* Floating particles on hover */}
                     <AnimatePresence>
