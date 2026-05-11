@@ -308,11 +308,16 @@ const Features = () => {
                       </div>
                     </motion.div>
 
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 text-foreground leading-tight">
+                    <h3
+                      className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: `linear-gradient(135deg, hsl(${f.hsl}) 0%, hsl(${f.hsl} / 0.65) 100%)`,
+                      }}
+                    >
                       {f.title}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground/80 leading-relaxed mb-3">
+                    <p className="text-sm text-foreground/85 leading-relaxed mb-3">
                       {f.description}
                     </p>
 
