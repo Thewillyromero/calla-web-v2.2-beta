@@ -316,7 +316,7 @@ const Features = () => {
                       className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
                       style={{
                         backgroundImage: f.gradient,
-                        filter: `drop-shadow(0 2px 4px hsl(0 0% 0% / 0.45)) drop-shadow(0 6px 16px hsl(0 0% 0% / 0.2)) drop-shadow(0 0 18px hsl(${f.hsl} / 0.3))`,
+                        filter: `drop-shadow(0 1px 2px hsl(0 0% 0% / 0.25)) drop-shadow(0 0 24px hsl(${f.hsl} / 0.45))`,
                       }}
                     >
                       {f.title}
