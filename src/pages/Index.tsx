@@ -49,6 +49,10 @@ const valueProps = [
     description:
       "24 horas, 7 días, festivos y noches. Nunca pierdes una llamada de un cliente.",
     link: "/aria",
+    image: ariaCalling,
+    agentName: "ARIA",
+    color: "hsl(190 60% 55%)", // brand-teal
+    gradient: "from-[hsl(190_60%_50%)]/10 via-card/40 to-card/40",
   },
   {
     icon: CalendarCheck,
@@ -56,6 +60,10 @@ const valueProps = [
     description:
       "Tu calendario se llena solo, sin errores ni dobles reservas.",
     link: "/lumi",
+    image: lumiWriting,
+    agentName: "LUMI",
+    color: "hsl(217 91% 60%)", // primary blue
+    gradient: "from-[hsl(217_91%_55%)]/10 via-card/40 to-card/40",
   },
   {
     icon: BarChart3,
@@ -63,16 +71,14 @@ const valueProps = [
     description:
       "Sabes exactamente qué pasa con tu atención telefónica y dónde mejorar.",
     link: "/byte",
+    image: byteMagnifying,
+    agentName: "BYTE",
+    color: "hsl(260 60% 65%)", // brand-lavender
+    gradient: "from-[hsl(260_60%_60%)]/10 via-card/40 to-card/40",
   },
 ];
 
 const differentiators = [
-  {
-    icon: Bot,
-    title: "No somos un chatbot",
-    description:
-      "Voz natural que tus clientes no distinguen de una persona real.",
-  },
   {
     icon: PhoneForwarded,
     title: "Se instala en tu número actual",
