@@ -326,6 +326,7 @@ const SquadWorkflow = () => {
                       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                     />
                   </div>
+                </motion.div>
 
                 {/* HALO copy */}
                 <motion.div
