@@ -405,7 +405,7 @@ const Index = () => {
             <div className="max-w-5xl mx-auto space-y-6">
               {/* Hero diff card with NOVA */}
               <motion.div
-                className="relative bg-gradient-to-br from-[hsl(260_60%_55%)]/15 via-card/50 to-[hsl(190_60%_50%)]/10 border border-[hsl(260_60%_60%)]/30 rounded-2xl p-7 md:p-10 overflow-hidden"
+                className="relative bg-gradient-to-br from-[hsl(260_60%_55%)]/15 via-card/50 to-[hsl(190_60%_50%)]/10 border border-[hsl(260_60%_60%)]/30 rounded-2xl p-7 md:p-10 overflow-visible"
                 variants={itemVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -415,27 +415,37 @@ const Index = () => {
                   className="absolute -top-32 -left-20 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-50 pointer-events-none"
                   style={{ background: 'radial-gradient(circle, hsl(260 60% 55% / 0.4), transparent 70%)' }}
                 />
-                <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
-                  <div>
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(260_60%_55%)] to-[hsl(190_60%_50%)] mb-4 shadow-lg shadow-[hsl(260_60%_55%)]/30">
-                      <Bot className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-                      No somos un chatbot
-                    </h3>
-                    <p className="text-base text-foreground/85 leading-relaxed max-w-xl">
-                      Voz natural, conversación fluida y matices humanos. Tus clientes
-                      no distinguen a CALLA de una persona real.
-                    </p>
+                {/* NOVA glow behind */}
+                <div
+                  className="hidden md:block absolute -top-10 right-0 w-64 h-64 rounded-full blur-3xl opacity-60 pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, hsl(260 60% 55% / 0.45), transparent 70%)' }}
+                />
+                {/* NOVA peeking out from the right edge of the card */}
+                <img
+                  src={novaPointing}
+                  alt="NOVA"
+                  loading="lazy"
+                  className="hidden md:block absolute -top-16 -right-6 w-56 lg:w-64 object-contain drop-shadow-[0_16px_36px_rgba(0,0,0,0.55)] pointer-events-none select-none z-10"
+                />
+                <div className="relative max-w-xl">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(260_60%_55%)] to-[hsl(190_60%_50%)] mb-4 shadow-lg shadow-[hsl(260_60%_55%)]/30">
+                    <Bot className="h-6 w-6 text-white" />
                   </div>
-                  <div className="flex justify-center md:justify-end">
-                    <img
-                      src={novaPointing}
-                      alt="NOVA"
-                      loading="lazy"
-                      className="w-40 sm:w-48 md:w-56 drop-shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
-                    />
-                  </div>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
+                    No somos un chatbot
+                  </h3>
+                  <p className="text-base text-foreground/85 leading-relaxed">
+                    Voz natural, conversación fluida y matices humanos. Tus clientes
+                    no distinguen a CALLA de una persona real.
+                  </p>
+                  {/* Mobile NOVA, smaller, below the text */}
+                  <img
+                    src={novaPointing}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="md:hidden mt-4 w-32 mx-auto drop-shadow-[0_12px_28px_rgba(0,0,0,0.5)]"
+                  />
                 </div>
               </motion.div>
 
