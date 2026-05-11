@@ -170,6 +170,7 @@ const badgeVariants = {
 const Features = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <section id="features" className="py-20 md:py-32 px-5 md:px-6 relative overflow-hidden">
