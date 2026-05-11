@@ -323,7 +323,7 @@ const Index = () => {
               ¿Qué hacemos por tu empresa?
             </motion.h2>
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto pt-20 sm:pt-24"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -334,23 +334,21 @@ const Index = () => {
                 return (
                   <motion.div
                     key={vp.title}
-                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-24 overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-1`}
+                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-20 sm:pt-24 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1`}
                     variants={itemVariants}
                   >
-                    {/* Color blob */}
+                    {/* Color glow behind character */}
                     <div
-                      className="absolute -top-20 -right-12 w-56 h-56 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none"
+                      className="absolute -top-12 right-4 sm:right-6 w-40 h-40 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity pointer-events-none"
                       style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)` }}
                     />
-                    {/* Character */}
-                    <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-24 h-24 sm:w-28 sm:h-28 pointer-events-none">
-                      <img
-                        src={vp.image}
-                        alt={vp.agentName}
-                        loading="lazy"
-                        className="w-full h-full object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+                    {/* Character peeking out — no box, partly above the card */}
+                    <img
+                      src={vp.image}
+                      alt={vp.agentName}
+                      loading="lazy"
+                      className="absolute -top-16 sm:-top-20 right-2 sm:right-4 w-32 h-32 sm:w-36 sm:h-36 object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)] group-hover:-translate-y-1 transition-transform duration-300 pointer-events-none select-none z-10"
+                    />
                     <div className="relative">
                       <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
                       <h3 className="text-lg font-bold text-foreground mb-2 leading-tight">
