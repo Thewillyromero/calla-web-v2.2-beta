@@ -316,6 +316,8 @@ const Features = () => {
                       className="font-display font-bold text-lg sm:text-xl md:text-2xl mb-2.5 leading-tight bg-clip-text text-transparent"
                       style={{
                         backgroundImage: f.gradient,
+                        textShadow: "none",
+                        WebkitTextStroke: "0",
                         filter: `drop-shadow(0 1px 2px hsl(0 0% 0% / 0.25)) drop-shadow(0 0 24px hsl(${f.hsl} / 0.45))`,
                       }}
                     >
