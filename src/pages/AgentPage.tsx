@@ -11,7 +11,7 @@ import { TrustpilotStars } from "@/components/TrustpilotStars";
 import { BOOKING_URL } from "@/lib/constants";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
-import agentScheduler from "@/assets/characters/agent-scheduler.webp";
+import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
 
