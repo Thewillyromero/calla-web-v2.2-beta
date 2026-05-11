@@ -1,99 +1,28 @@
+## Ajustes a las tarjetas de "¿Qué hacemos por tu empresa?"
 
-# Rediseño de "¿Qué hacemos?" y "¿Por qué CALLA?" + personaje de fondo
+Tres cambios puntuales en `src/pages/Index.tsx` (sección 2, alrededor de las líneas 325–371):
 
-## Diagnóstico
+### 1. Personajes más grandes
+- Desktop: `w-36 h-36` → **`w-48 h-48`** (de 144px a 192px).
+- Móvil: `w-32 h-32` → **`w-40 h-40`**.
 
-Hoy ambas secciones son **3 + 4 cards genéricas** con fondo plano (`bg-card/40`), borde gris e icono lucide pequeño. Cero presencia de marca y, en móvil, 7 cards apiladas = scroll monótono.
+### 2. Personajes más cerca del texto (cerrar el gap)
+- Bajar la posición vertical: `-top-16 sm:-top-20` → **`-top-10 sm:-top-12`**.
+- Reducir el padding superior de la card para que el cuerpo "abrace" al personaje: `pt-20 sm:pt-24` → **`pt-24 sm:pt-28`** (compensa el tamaño mayor) y bajar el `pt` del grid contenedor: `pt-20 sm:pt-24` → **`pt-16 sm:pt-20`**.
+- Resultado: el personaje queda asomando ~⅓ por encima de la card en lugar de flotar separado.
 
-## Propuesta visual
+### 3. Glow más intenso al hover (estilo Features.tsx)
+Replicar el patrón de `src/components/Features.tsx` (líneas 194–220):
 
-### Sección 2 — "¿Qué hacemos por tu empresa?"
+- **Card** — `boxShadow` al hover: `0 0 50px ${color}40, 0 25px 60px rgba(0,0,0,0.25)` (más amplio y saturado que el actual `${color}33`).
+- **Borde** al hover: `${color}99` (en lugar de `${color}66`, más opaco).
+- **Aura del personaje** — Subir el blob de color: `opacity-50 group-hover:opacity-90` → **`opacity-40 group-hover:opacity-100`** y agrandar a `w-52 h-52` con `scale-[1.8]` para que el halo lo envuelva entero como en Features.
+- **Filter del personaje** al hover: subir intensidad de los `drop-shadow` de `${color}cc` → **`${color}ee`** y duplicar el segundo glow para más "pop": `drop-shadow(0 0 28px ${color}ee) drop-shadow(0 0 12px ${color}aa) drop-shadow(0 8px 16px ${color}66)`.
+- **Microanimación**: añadir un sutil `scale: [1, 1.06, 1.03]` con framer-motion en el personaje al hover (idéntico a Features línea 233), opcional pero remata la sensación de "vida".
 
-3 cards "showcase" con personaje 3D del agente correspondiente (ARIA / LUMI / BYTE):
+### Archivos tocados
+- `src/pages/Index.tsx` — únicamente el bloque del map sobre `valueProps` (líneas 325–371). Sin cambios en CSS global, sin nuevos imports.
 
-```text
-┌──────────────────────────────┐
-│  [ARIA 3D, aura teal suave]  │
-│                              │
-│  Atendemos TODAS             │
-│  tus llamadas                │
-│  ─────                       │
-│  24/7, festivos y noches.    │
-│  → Conoce a ARIA             │
-└──────────────────────────────┘
-```
-
-- Personaje 3D recortado arriba (~120px desktop, ~80px móvil) sobre blob de color del agente.
-- Fondo card: `bg-gradient-to-br` muy sutil con color del agente (`teal/10 → background`).
-- Borde `border-primary/20`, hover lift sutil.
-- Card vinculada a la subpágina del agente.
-
-### Sección 3 — "¿Por qué CALLA y no otra solución?"
-
-Layout asimétrico tipo "feature spotlight":
-
-```text
-┌─────────────┬───────────────────┐
-│  No somos   │   [NOVA peeking,  │
-│  un chatbot │    aura lavender] │
-│  Voz natural│                   │
-├─────────────┼─────────┬─────────┤
-│ En tu nº    │ 30 min  │ RGPD    │
-│ actual      │ activo  │ Europa  │
-└─────────────┴─────────┴─────────┘
-```
-
-- 1 card grande "diferenciador hero" (No somos un chatbot) con NOVA peeking lateral y degradado lavender.
-- 3 cards compactas con icono sobre círculo con gradiente.
-- Móvil: card grande mantiene personaje; las 3 pequeñas en fila horizontal con scroll-snap (3 visibles ≈ 1 pantalla) → reduce scroll.
-
-## NUEVO — Personaje de fondo desvanecido + aurora
-
-Añadir **un personaje 3D decorativo** detrás de una de las dos secciones (propongo **Sección 3**, que es más densa y se beneficia más):
-
-- Personaje en pose nueva (ej. CARE o LUMI) anclado en la esquina inferior-derecha.
-- Tamaño grande (~480px desktop, oculto o ~240px móvil para no comer GPU).
-- `opacity: 0.12-0.18`, `blur-[1px]`, `mix-blend-luminosity` para que se funda con el fondo.
-- Detrás: blob de **aurora** con degradado lavender→teal (`blur-[120px]`, `opacity-30`) animado lento (`aurora-pulse 25s`).
-- `pointer-events-none`, `z-0`, contenido encima en `z-10`.
-- En móvil: aurora sí, personaje oculto (`hidden md:block`) para mantener performance.
-
-```text
-              ┌─────────────────────────┐
-              │  Sección 3 (cards)      │
-              │                         │
-              │              [aurora]   │
-              │            ╱            │
-              │     [3D char fade 15%]  │
-              └─────────────────────────┘
-```
-
-## Sistema de color (tokens existentes)
-
-| Card | Token aura |
-|---|---|
-| ARIA | `brand-teal` |
-| LUMI | `primary` (azul) |
-| BYTE | `brand-lavender` |
-| NOVA (sec.3 hero) | `brand-lavender` |
-| Diferenciadores | gradientes `from-primary to-brand-teal` |
-| Personaje fondo | aurora `lavender → teal` |
-
-Sin nuevos tokens.
-
-## Performance móvil
-
-- Personajes card: `loading="lazy"`, ancho máx 80px móvil.
-- Personaje fondo: `hidden md:block` (no se renderiza en móvil).
-- Aurora fondo: `blur-[120px]` único, animación 25s (no infinita rápida).
-- Sin nuevas animaciones globales.
-
-## Archivos a tocar
-
-- `src/pages/Index.tsx` — JSX de las dos secciones; arrays con `image`/`color`.
-- Posible `src/components/ValueCard.tsx` para mantener Index.tsx limpio.
-- Sin cambios en `index.css` (reusa `aurora-pulse`).
-
----
-
-**¿Apruebo? Si quieres, puedo elegir yo el personaje de fondo (sugiero CARE en pose acogedora para reforzar el mensaje de confianza), o dime cuál prefieres.**
+### No se toca
+- Sección 3 ("¿Por qué CALLA?") y NOVA — el usuario no las menciona.
+- Tamaños/gaps en móvil quedan proporcionales al cambio desktop.
