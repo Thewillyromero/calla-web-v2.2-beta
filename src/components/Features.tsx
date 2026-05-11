@@ -286,6 +286,7 @@ const Features = () => {
                           : { duration: 0.4 }
                       }
                     />
+                    ); })()}
 
                     {/* Floating particles on hover */}
                     <AnimatePresence>
