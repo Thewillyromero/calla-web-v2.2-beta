@@ -312,10 +312,10 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 2. WHAT WE DO — 3 value props ─── */}
+      {/* ─── 2. WHAT WE DO — 3 value props with characters ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-6">
+        <section className="py-16 md:py-20 relative overflow-hidden">
+          <div className="container mx-auto px-6 relative z-10">
             <motion.h2
               className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
               {...fade}
@@ -334,22 +334,39 @@ const Index = () => {
                 return (
                   <motion.div
                     key={vp.title}
-                    className="bg-card/40 border border-border/20 rounded-2xl p-7"
+                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-24 overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-1`}
                     variants={itemVariants}
                   >
-                    <Icon className="h-8 w-8 text-primary mb-4" />
-                    <h3 className="text-lg font-bold text-foreground mb-2">
-                      {vp.title}
-                    </h3>
-                    <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
-                      {vp.description}
-                    </p>
-                    <Link
-                      to={vp.link}
-                      className="text-sm text-primary font-medium inline-flex items-center gap-1 hover:underline"
-                    >
-                      Saber más <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    {/* Color blob */}
+                    <div
+                      className="absolute -top-20 -right-12 w-56 h-56 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity pointer-events-none"
+                      style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)` }}
+                    />
+                    {/* Character */}
+                    <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-24 h-24 sm:w-28 sm:h-28 pointer-events-none">
+                      <img
+                        src={vp.image}
+                        alt={vp.agentName}
+                        loading="lazy"
+                        className="w-full h-full object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="relative">
+                      <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
+                      <h3 className="text-lg font-bold text-foreground mb-2 leading-tight">
+                        {vp.title}
+                      </h3>
+                      <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
+                        {vp.description}
+                      </p>
+                      <Link
+                        to={vp.link}
+                        className="text-sm font-medium inline-flex items-center gap-1 hover:underline"
+                        style={{ color: vp.color }}
+                      >
+                        Conoce a {vp.agentName} <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -358,55 +375,114 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 3. WHY US — Differentiators ─── */}
+      {/* ─── 3. WHY US — Differentiators with NOVA hero card + bg character ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-6">
+        <section className="py-16 md:py-20 relative overflow-hidden">
+          {/* Aurora bg */}
+          <div
+            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-30 pointer-events-none"
+            style={{
+              background: 'radial-gradient(circle, hsl(260 60% 55% / 0.5), hsl(190 60% 50% / 0.3) 50%, transparent 70%)',
+              animation: 'aurora-pulse 25s ease-in-out infinite',
+            }}
+          />
+          {/* Background character (desktop only) */}
+          <img
+            src={careWaving}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="hidden md:block absolute bottom-0 right-[-4rem] w-[28rem] lg:w-[32rem] opacity-[0.13] pointer-events-none select-none mix-blend-luminosity"
+            style={{ filter: 'blur(0.5px)' }}
+          />
+
+          <div className="container mx-auto px-6 relative z-10">
             <motion.h2
               className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
               {...fade}
             >
               ¿Por qué CALLA y no otra solución?
             </motion.h2>
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              {differentiators.map((d) => {
-                const Icon = d.icon;
-                return (
-                  <motion.div
-                    key={d.title}
-                    className="bg-card/40 border border-border/20 rounded-2xl p-7"
-                    variants={itemVariants}
-                  >
-                    <Icon className="h-7 w-7 text-primary mb-3" />
-                    <h3 className="text-lg font-bold text-foreground mb-1">
-                      {d.title}
+
+            <div className="max-w-5xl mx-auto space-y-6">
+              {/* Hero diff card with NOVA */}
+              <motion.div
+                className="relative bg-gradient-to-br from-[hsl(260_60%_55%)]/15 via-card/50 to-[hsl(190_60%_50%)]/10 border border-[hsl(260_60%_60%)]/30 rounded-2xl p-7 md:p-10 overflow-hidden"
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <div
+                  className="absolute -top-32 -left-20 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-50 pointer-events-none"
+                  style={{ background: 'radial-gradient(circle, hsl(260 60% 55% / 0.4), transparent 70%)' }}
+                />
+                <div className="relative grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
+                  <div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(260_60%_55%)] to-[hsl(190_60%_50%)] mb-4 shadow-lg shadow-[hsl(260_60%_55%)]/30">
+                      <Bot className="h-6 w-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
+                      No somos un chatbot
                     </h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">
-                      {d.description}
+                    <p className="text-base text-foreground/85 leading-relaxed max-w-xl">
+                      Voz natural, conversación fluida y matices humanos. Tus clientes
+                      no distinguen a CALLA de una persona real.
                     </p>
-                    {d.link && (
-                      <Link
-                        to={d.link}
-                        className="text-sm text-primary font-medium inline-flex items-center gap-1 mt-3 hover:underline"
-                      >
-                        {d.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+                  </div>
+                  <div className="flex justify-center md:justify-end">
+                    <img
+                      src={novaPointing}
+                      alt="NOVA"
+                      loading="lazy"
+                      className="w-40 sm:w-48 md:w-56 drop-shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 3 compact diff cards */}
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                {differentiators.map((d) => {
+                  const Icon = d.icon;
+                  return (
+                    <motion.div
+                      key={d.title}
+                      className="bg-card/40 border border-border/30 rounded-2xl p-5 md:p-6 hover:border-primary/40 transition-colors"
+                      variants={itemVariants}
+                    >
+                      <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-primary/20 to-[hsl(190_60%_50%)]/20 border border-primary/20 mb-3">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="text-base font-bold text-foreground mb-1">
+                        {d.title}
+                      </h3>
+                      <p className="text-sm text-foreground/75 leading-relaxed">
+                        {d.description}
+                      </p>
+                      {d.link && (
+                        <Link
+                          to={d.link}
+                          className="text-sm text-primary font-medium inline-flex items-center gap-1 mt-3 hover:underline"
+                        >
+                          {d.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
         </section>
       </SectionFade>
 
-      {/* ─── 4. THE TEAM — V1 Features grid with all effects ─── */}
       <SectionFade><Features /></SectionFade>
 
       {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
