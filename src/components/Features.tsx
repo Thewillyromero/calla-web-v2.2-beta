@@ -72,7 +72,7 @@ const features = [
     personality: "El cerebro del equipo",
     color: "brand-amber",
     hsl: "35 70% 58%",
-    gradient: "linear-gradient(135deg, hsl(35 85% 68%), hsl(45 90% 75%))",
+    gradient: "linear-gradient(135deg, hsl(50 95% 72%), hsl(35 95% 68%), hsl(20 90% 70%))",
     expandedDetails: [
       "Dashboard de métricas en tiempo real",
       "Transcripción y análisis de sentimiento de cada llamada",
