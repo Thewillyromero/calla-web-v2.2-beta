@@ -272,86 +272,63 @@ const SquadWorkflow = () => {
       <SectionFade>
         <section className="pb-12 md:pb-20">
           <div className="container mx-auto px-6 max-w-5xl">
-            <div className="relative rounded-3xl border border-border/20 bg-card/30 backdrop-blur-sm overflow-hidden px-6 py-12 md:px-12 md:py-16">
-              {/* Aurora background */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <motion.div
-                  className="absolute -top-1/4 -left-1/4 w-[60%] h-[120%] rounded-full blur-3xl opacity-40"
-                  style={{ background: "radial-gradient(circle, hsl(190 100% 70% / 0.55), transparent 65%)" }}
-                  animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
-                  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="absolute top-1/4 -right-1/4 w-[55%] h-[110%] rounded-full blur-3xl opacity-40"
-                  style={{ background: "radial-gradient(circle, hsl(280 100% 75% / 0.5), transparent 65%)" }}
-                  animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
-                  transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="absolute bottom-0 left-1/3 w-[50%] h-[80%] rounded-full blur-3xl opacity-30"
-                  style={{ background: "radial-gradient(circle, hsl(220 100% 70% / 0.5), transparent 65%)" }}
-                  animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </div>
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+              {/* HALO image — same triple-halo treatment as AgentPage */}
+              <motion.div
+                className="relative flex justify-center order-2 md:order-1"
+                initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <div className="relative">
+                  {/* Outer aura */}
+                  <div
+                    className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+                    style={{ background: `radial-gradient(circle, hsl(220 90% 65% / 0.32), hsl(220 90% 65% / 0.08) 45%, transparent 70%)` }}
+                  />
+                  {/* Inner halo */}
+                  <div
+                    className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
+                    style={{ background: `radial-gradient(circle, hsl(220 90% 65% / 0.45), transparent 65%)` }}
+                  />
+                  {/* Ring */}
+                  <div
+                    className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
+                    style={{ boxShadow: `0 0 60px hsl(220 90% 65% / 0.5), inset 0 0 40px hsl(220 90% 65% / 0.2)` }}
+                  />
+                  <motion.img
+                    src={heroRobot}
+                    alt="HALO — orquestador del equipo"
+                    className="relative z-10 w-64 sm:w-72 md:w-[22rem] lg:w-[26rem] object-contain animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                  />
+                </div>
+              </motion.div>
 
-              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                {/* HALO image */}
-                <motion.div
-                  className="relative flex justify-center"
-                  initial={{ opacity: 0, scale: 0.85, y: 20 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  <div className="relative">
-                    {/* Circular halo glow — HALO color (220 90% 65%) */}
-                    <div
-                      className="absolute inset-0 rounded-full blur-3xl"
-                      style={{
-                        background: "radial-gradient(circle, hsl(220 90% 65% / 0.55) 0%, hsl(220 90% 65% / 0.2) 40%, transparent 72%)",
-                        transform: "scale(1.6)",
-                      }}
-                    />
-                    {/* Inner ring */}
-                    <div
-                      className="absolute inset-0 rounded-full border border-[hsl(220_90%_65%/0.35)]"
-                      style={{ transform: "scale(1.15)", boxShadow: "inset 0 0 60px hsl(220 90% 65% / 0.25)" }}
-                    />
-                    <motion.img
-                      src={heroRobot}
-                      alt="HALO — orquestador del equipo"
-                      className="relative z-10 w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                  </div>
-                </motion.div>
-
-                {/* HALO copy */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.15 }}
-                >
-                  <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full mb-4">
-                    <Sparkles className="h-3.5 w-3.5 text-primary" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary">Conoce a HALO</span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight">
-                    El hilo invisible que mantiene<br />al equipo en sincronía
-                  </h2>
-                  <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-5">
-                    HALO es el sexto miembro del equipo. No habla con tus clientes, pero hace que ARIA, NOVA, LUMI, BYTE y CARE trabajen como un solo cerebro: pasa contexto, decide quién entra y escala a humano cuando hace falta.
-                  </p>
-                  <ul className="space-y-2 text-foreground/80 text-sm md:text-base">
-                    <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Pasa el contexto del cliente entre agentes en tiempo real</li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Decide qué agente entra en cada momento</li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Detecta cuándo escalar a un humano y lo hace al instante</li>
-                  </ul>
-                </motion.div>
-              </div>
+              {/* HALO copy */}
+              <motion.div
+                className="order-1 md:order-2"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+              >
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full mb-4">
+                  <Sparkles className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">Conoce a HALO</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight">
+                  El hilo invisible que mantiene<br />al equipo en sincronía
+                </h2>
+                <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-5">
+                  HALO es el sexto miembro del equipo. No habla con tus clientes, pero hace que ARIA, NOVA, LUMI, BYTE y CARE trabajen como un solo cerebro: pasa contexto, decide quién entra y escala a humano cuando hace falta.
+                </p>
+                <ul className="space-y-2 text-foreground/80 text-sm md:text-base">
+                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Pasa el contexto del cliente entre agentes en tiempo real</li>
+                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Decide qué agente entra en cada momento</li>
+                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Detecta cuándo escalar a un humano y lo hace al instante</li>
+                </ul>
+              </motion.div>
             </div>
           </div>
         </section>
