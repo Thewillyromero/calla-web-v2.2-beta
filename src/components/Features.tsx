@@ -158,16 +158,6 @@ const Features = () => {
       {/* Subtle background accents */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full bg-accent/[0.02] blur-[140px] pointer-events-none" />
-      {/* Background character — NOVA with reveal (hidden on mobile to save GPU) */}
-      <div className="hidden sm:block absolute -right-10 top-1/2 -translate-y-1/2 pointer-events-none select-none">
-        <CharacterReveal
-          src={agentOutbound}
-          alt=""
-          className="w-[300px] md:w-[400px] lg:w-[500px] opacity-[0.10] lg:opacity-[0.12]"
-          glowColor="hsl(260 50% 65%)"
-          revealOffset={[0.05, 0.3]}
-        />
-      </div>
 
       <div className="container mx-auto relative z-10">
         {/* Section header */}
