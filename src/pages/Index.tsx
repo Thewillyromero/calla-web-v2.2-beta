@@ -334,12 +334,24 @@ const Index = () => {
                 return (
                   <motion.div
                     key={vp.title}
-                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-20 sm:pt-24 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1`}
+                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-20 sm:pt-24 transition-all duration-300 hover:-translate-y-1`}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = `0 0 40px ${vp.color}33, 0 0 80px ${vp.color}1a, inset 0 0 20px ${vp.color}0d`;
+                      e.currentTarget.style.borderColor = `${vp.color}66`;
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) (img as HTMLElement).style.filter = `drop-shadow(0 0 22px ${vp.color}cc) drop-shadow(0 8px 16px ${vp.color}55)`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '';
+                      e.currentTarget.style.borderColor = '';
+                      const img = e.currentTarget.querySelector('img');
+                      if (img) (img as HTMLElement).style.filter = '';
+                    }}
                     variants={itemVariants}
                   >
                     {/* Color glow behind character */}
                     <div
-                      className="absolute -top-12 right-4 sm:right-6 w-40 h-40 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity pointer-events-none"
+                      className="absolute -top-12 right-4 sm:right-6 w-40 h-40 rounded-full blur-3xl opacity-50 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"
                       style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)` }}
                     />
                     {/* Character peeking out — no box, partly above the card */}
@@ -347,7 +359,8 @@ const Index = () => {
                       src={vp.image}
                       alt={vp.agentName}
                       loading="lazy"
-                      className="absolute -top-16 sm:-top-20 right-2 sm:right-4 w-32 h-32 sm:w-36 sm:h-36 object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)] group-hover:-translate-y-1 transition-transform duration-300 pointer-events-none select-none z-10"
+                      className="absolute -top-16 sm:-top-20 right-2 sm:right-4 w-32 h-32 sm:w-36 sm:h-36 object-contain group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-500 pointer-events-none select-none z-10"
+                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease, transform 500ms ease' }}
                     />
                     <div className="relative">
                       <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
