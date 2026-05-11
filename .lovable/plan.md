@@ -1,24 +1,29 @@
-## Objetivo
-Mejorar la sección "Tu equipo de IA que nunca duerme" en home (`src/components/Features.tsx`):
-1. Bajar y centrar verticalmente los personajes dentro de cada tarjeta.
-2. Hacer el texto descriptivo más legible (más claro).
-3. Aplicar al título en negrita un degradado con los colores del personaje correspondiente.
+## Problema
+Los títulos de los agentes en `Features.tsx` quedaron oscuros porque uso el mismo HSL del agente con opacidad reducida. El efecto deseado es como `text-gradient text-glow-lavender` de "nunca duerme": colores **brillantes** (lightness alta ~65-75%) y multi-stop, con un glow sutil.
 
-## Cambios en `src/components/Features.tsx`
+## Solución
 
-### 1. Reposicionar los personajes
-- Cambiar el contenedor del personaje (línea 211): quitar `-mt-12 md:-mt-16` (que hace que sobresalgan por arriba) y alinear con `self-center` para que queden centrados verticalmente respecto al bloque de texto.
-- Cambiar el contenedor padre (línea 207) de `items-start` a `items-center` para alinear personaje y texto en el medio.
+### 1. Añadir gradientes brillantes por agente
+En `src/components/Features.tsx`, añadir a cada feature un campo `gradient` con 2 paradas brillantes en la familia cromática del personaje:
 
-### 2. Texto descriptivo más legible
-- Línea 315: cambiar `text-muted-foreground/80` por `text-foreground/85` (o similar) para mayor contraste y legibilidad.
+- **ARIA (teal)**: `linear-gradient(135deg, hsl(190 75% 70%), hsl(200 80% 78%))`
+- **NOVA (lavender)**: `linear-gradient(135deg, hsl(260 70% 75%), hsl(285 65% 78%))`
+- **LUMI (emerald)**: `linear-gradient(135deg, hsl(160 60% 65%), hsl(145 55% 72%))`
+- **BYTE (amber)**: `linear-gradient(135deg, hsl(35 85% 68%), hsl(45 90% 75%))`
 
-### 3. Título con degradado del color del personaje
-- Línea 311-313: aplicar `background-image: linear-gradient(135deg, hsl({hsl}) 0%, hsl({hsl} / 0.6) 100%)` con `bg-clip-text text-transparent` solo al `<h3>`.
-- Cada agente tendrá su propio degradado (teal para ARIA, lavender para NOVA, emerald para LUMI, amber para BYTE) usando el `f.hsl` ya definido en cada feature.
-- Mantener `font-display font-bold` y tamaños actuales.
+### 2. Aplicar gradiente + glow al `<h3>`
+Sustituir el style actual:
+```
+backgroundImage: `linear-gradient(135deg, hsl(${f.hsl}) 0%, hsl(${f.hsl} / 0.65) 100%)`
+```
+Por:
+```
+backgroundImage: f.gradient,
+filter: `drop-shadow(0 0 24px hsl(${f.hsl} / 0.35))`
+```
+Manteniendo `bg-clip-text text-transparent` para el efecto de texto degradado luminoso, replicando el patrón de `.text-gradient` + `.text-glow-lavender`.
 
 ## Detalles técnicos
-- No se cambian los assets de personajes ni el layout de la grid.
-- No se tocan animaciones (hover, partículas, pop-in).
-- Solo edición visual/CSS dentro del componente Features.tsx.
+- Solo se edita `src/components/Features.tsx`.
+- No se tocan animaciones, layout, ni el resto de tipografía.
+- Los HSL del badge/icono (`f.hsl`) se mantienen para no romper la coherencia visual del resto de la tarjeta.
