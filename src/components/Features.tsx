@@ -318,7 +318,7 @@ const Features = () => {
                         backgroundImage: f.gradient,
                         textShadow: "none",
                         WebkitTextStroke: "0",
-                        filter: `drop-shadow(0 1px 2px hsl(0 0% 0% / 0.25)) drop-shadow(0 0 24px hsl(${f.hsl} / 0.45))`,
+                        filter: `drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.15)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 3px 5px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 10px hsl(${f.hsl} / 0.18))`,
                       }}
                     >
                       {f.title}
