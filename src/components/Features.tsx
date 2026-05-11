@@ -99,6 +99,24 @@ const features = [
       "Recordatorios de renovación y cross-sell",
     ],
   },
+  {
+    image: heroRobot,
+    agent: "HALO",
+    icon: Sparkles,
+    title: "Mantiene todo en sincronía",
+    description:
+      "El hilo invisible que pasa contexto entre agentes. Cuando ARIA recibe una llamada, LUMI ya conoce al cliente; cuando NOVA cierra una venta, CARE inicia el seguimiento. Sin huecos, sin repeticiones.",
+    personality: "La que conecta el equipo",
+    color: "brand-primary",
+    hsl: "220 90% 65%",
+    gradient: "linear-gradient(135deg, hsl(190 100% 70%), hsl(220 100% 70%), hsl(280 100% 75%))",
+    expandedDetails: [
+      "Pasa el contexto del cliente entre agentes en tiempo real",
+      "Decide qué agente entra en cada momento sin que nadie tropiece",
+      "Detecta si hay que escalar a un humano y lo hace al instante",
+      "Es nuestra salsa secreta — por eso CALLA funciona como un solo cerebro",
+    ],
+  },
 ];
 
 /* ── stop-motion / reveal animation variants ── */
