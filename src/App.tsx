@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Chatbot from "./components/Chatbot.tsx";
 import SideNav from "./components/SideNav.tsx";
 import ScrollProgress from "./components/ScrollProgress.tsx";
+import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
 
 const Pricing = lazy(() => import("./pages/Pricing.tsx"));
 const SectorPage = lazy(() => import("./pages/SectorPage.tsx"));
@@ -30,6 +31,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <LiveMetricsProvider>
         <div className="hidden lg:block"><SideNav /></div>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -53,6 +55,7 @@ const App = () => (
         </Routes>
         <ScrollProgress />
         <Chatbot />
+        </LiveMetricsProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
