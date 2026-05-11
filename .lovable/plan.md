@@ -1,67 +1,51 @@
 ## Objetivo
 
-Cerrar la sección "Empleados IA 24/7" con CARE como 5º agente y, debajo de todos, una tarjeta-banner protagonizada por el robot original del Hero presentado como **director de orquesta** que coordina a ARIA, NOVA, LUMI, BYTE y CARE. Así el lector entiende cómo se conectan todos los puntos justo después de leerlos.
+Cerrar la sección con un 6º personaje propio: **HALO**, "la que mantiene a todo el equipo en sincronía". Misma estética de tarjeta que las demás (no banner aparte). El robot del Hero se reutiliza como representación visual de HALO. Y se arregla el fondo blanco de CARE.
+
+## Posicionamiento de HALO
+
+Sexto personaje del equipo, NO un jefe. Su rol: orquestación invisible que conecta a los otros 5. Mantenemos misterio sobre el "cómo" interno (es nuestra salsa secreta) pero mostramos los **resultados visibles** que aporta.
+
+- **agent**: `HALO`
+- **personality**: "La que conecta el equipo"
+- **title**: "Mantiene todo en sincronía"
+- **description**: "El hilo invisible que pasa contexto entre agentes. Cuando ARIA recibe una llamada, LUMI ya conoce al cliente; cuando NOVA cierra una venta, CARE inicia el seguimiento. Sin huecos, sin repeticiones."
+- **hsl** sugerido: `220 90% 65%` (azul primary — cohesiona con la marca y se diferencia visualmente del resto que son colores cálidos/fríos diversos).
+- **gradient**: `linear-gradient(135deg, hsl(190 100% 70%), hsl(220 100% 70%), hsl(280 100% 75%))` — un degradado que evoca a todos los demás.
+- **icon**: `Sparkles` (o `Zap`) de lucide.
+- **expandedDetails** (sin revelar el cómo, mostrando el qué):
+  1. "Pasa el contexto del cliente entre agentes en tiempo real"
+  2. "Decide qué agente entra en cada momento sin que nadie tropiece"
+  3. "Detecta si hay que escalar a un humano y lo hace al instante"
+  4. "Es nuestra salsa secreta — por eso CALLA funciona como un solo cerebro"
 
 ## Cambios en `src/components/Features.tsx`
 
-### 1. Añadir CARE al array `features`
-Quinta entrada con la misma estructura visual que las demás:
-- `image`: `care-waving.webp` (importado desde `@/assets/characters/care-waving.webp`)
-- `agent`: `"CARE"`
-- `icon`: `HeartHandshake` (lucide)
-- `title`: "Cuida la relación post-venta"
-- `personality`: "La que fideliza"
-- `hsl`: `340 55% 60%` (rosa, coherente con SquadWorkflow)
-- `gradient`: `linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))`
-- `description`: "Hace seguimiento, mide satisfacción y detecta clientes en riesgo antes de que se vayan."
-- `expandedDetails`: 4 bullets (seguimiento post-venta, encuestas NPS automáticas, detección de churn, recordatorios de renovación)
+### 1. Añadir HALO como 6ª entrada del array `features`
+- `image`: usar `heroRobot` (`@/assets/hero-robot.webp`) — el ya importado.
+- Resto según especificación arriba.
 
-### 2. Ajustar la grilla para 5 tarjetas
-La grilla actual es `grid md:grid-cols-2 gap-4 md:gap-5`. Con 5 elementos quedaría una tarjeta huérfana. Solución:
-- Mantener `md:grid-cols-2`.
-- A la 5ª tarjeta (CARE) aplicarle `md:col-span-2` y un wrapper interno `max-w-[calc(50%-10px)] mx-auto` para que ocupe el ancho de una sola columna pero quede **centrada** en la fila inferior.
-- En mobile sigue apilando normal.
+### 2. Quitar el banner "Director de orquesta"
+Eliminar el bloque `motion.div` "El director de orquesta" añadido en la iteración anterior. HALO ya cierra la sección como 6ª tarjeta dentro de la misma grilla.
 
-### 3. Nueva tarjeta "Director de orquesta" debajo de la grilla
-Fuera del `motion.div` de la grilla, dentro del mismo `container`, añadir un bloque ancho:
+### 3. Limpiar el ajuste `isLastOdd`
+Con 6 tarjetas la grilla 2 columnas queda perfecta. Quitar la lógica `isLastOdd` y la clase `md:col-span-2 md:max-w-[calc(50%-10px)]` para que CARE recupere ancho de columna normal y no haya gap.
 
-```text
-┌──────────────────────────────────────────────────────────┐
-│  [robot Hero grande]   EL DIRECTOR                       │
-│   batuta / glow         Coordina a todo el equipo        │
-│                         Texto explicando cómo ARIA →     │
-│                         LUMI/NOVA → BYTE → CARE trabajan │
-│                         en sincronía, sin que tú muevas  │
-│                         un dedo.                         │
-│                         [chips: ARIA · NOVA · LUMI ·     │
-│                          BYTE · CARE]                    │
-└──────────────────────────────────────────────────────────┘
-```
+### 4. Imports — limpiar
+Quitar `Wand2`, `Link` (ya no hay banner). `heroRobot` se mantiene porque ahora es la imagen de HALO. Añadir `Sparkles` ya está; añadir `Zap` si lo elegimos como icono (el plan usa `Sparkles`, ya importado).
 
-Detalles de implementación:
-- Importar `heroRobot from "@/assets/hero-robot.webp"`.
-- `motion.div` con `whileInView`, mismas curvas de easing del resto (`[0.22, 1, 0.36, 1]`).
-- Margen superior `mt-6 md:mt-8` para integrarse con la grilla.
-- Fondo: gradiente sutil multicolor que mezcle los 5 hsl de los agentes a baja opacidad (≈0.06) sobre `hsl(var(--card)/0.5)` — refuerza visualmente "los une a todos".
-- Borde `border-primary/25`, glow azul suave (color primary) más una capa multicolor muy tenue.
-- Layout: flex `md:flex-row flex-col` con imagen a la izquierda (`w-40 md:w-56`) y contenido a la derecha.
-- Animación de la imagen: `animate-float-gentle` + drop-shadow azul para que parezca "iluminado dirigiendo".
-- 3-4 partículas/orbes decorativos pequeños alrededor del robot, cada uno con el `hsl` de un agente, animados con `motion` (loop suave).
-- Headline (h3) con el mismo tratamiento gradient + relieve que las otras cards, usando un gradiente azul→lavanda→teal que evoque los 5 colores. Texto: **"El director de orquesta"**.
-- Subtítulo/eyebrow encima: chip pequeño con icono `Sparkles` y texto "Coordinación total".
-- Párrafo: "Mientras cada agente hace su trabajo, el sistema central los mantiene sincronizados. ARIA pasa la llamada a LUMI o NOVA, BYTE lo analiza y CARE cuida el seguimiento. Tú solo ves los resultados."
-- Fila de chips clicables (los 5 agentes) reusando los `hsl` y `icon` de cada feature; al hacer click hace scroll a `#demo` (igual que las cards) o nada — estáticos visuales.
-- CTA opcional al final: link "Ver cómo trabajan juntos →" hacia `/equipo` (página `SquadWorkflow` ya existente). Recomendado incluirlo porque conecta con la página de flujo.
+## Arreglar fondo blanco de CARE
 
-### 4. Quitar el `CharacterReveal` de fondo (NOVA)
-El robot del Hero como director sustituye conceptualmente al NOVA fantasma del fondo. Eliminar el bloque `absolute -right-10 top-1/2` con `CharacterReveal` para no competir visualmente con el nuevo director.
+El asset `care-waving.webp` actual tiene un fondo blanco visible. Ejecuto `imagegen--edit_image` sobre `src/assets/characters/care-waving.webp` con prompt para eliminar el fondo y entregar PNG transparente. Lo guardo como `src/assets/characters/care-waving-transparent.png` y actualizo el import en `Features.tsx`.
+
+Prompt: "Remove the white/light background completely, output the character on a fully transparent background. Keep the character's pose, colors and details intact." Aspect ratio 1:1.
 
 ## Archivos tocados
 
-- `src/components/Features.tsx` (único archivo)
+- `src/components/Features.tsx` (añadir HALO, quitar banner, limpiar `isLastOdd`, actualizar import de CARE)
+- `src/assets/characters/care-waving-transparent.png` (nuevo, generado)
 
 ## No se toca
 
-- Tipografía, colores globales, `index.css`, ni el Hero original.
-- El resto de secciones de la home.
-- Lógica/animaciones existentes de las 4 tarjetas actuales.
+- `index.css`, `tailwind.config.ts`, Hero, otras secciones.
+- Animaciones/comportamiento de las 5 tarjetas existentes.
