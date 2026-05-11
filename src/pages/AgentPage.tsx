@@ -11,7 +11,7 @@ import { TrustpilotStars } from "@/components/TrustpilotStars";
 import { BOOKING_URL } from "@/lib/constants";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
-import agentScheduler from "@/assets/characters/agent-scheduler.webp";
+import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
 
@@ -278,11 +278,12 @@ const AgentPage = () => {
                       className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
                       style={{ background: `radial-gradient(circle, hsl(${glow} / 0.45), transparent 65%)` }}
                     />
-                    {/* Soft ring */}
-                    <div
-                      className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
-                      style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
-                    />
+                    {agent.slug !== "lumi" && (
+                      <div
+                        className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
+                        style={{ boxShadow: `0 0 60px hsl(${glow} / 0.5), inset 0 0 40px hsl(${glow} / 0.2)` }}
+                      />
+                    )}
                     <motion.img
                       src={agent.image}
                       alt={agent.name}
