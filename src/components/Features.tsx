@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import CharacterReveal from "@/components/CharacterReveal";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, ArrowRight, Sparkles, ChevronDown, Check } from "lucide-react";
+import agentSupport from "@/assets/characters/care-waving.webp";
+import heroRobot from "@/assets/hero-robot.webp";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, Sparkles, ChevronDown, Check, Wand2 } from "lucide-react";
 
 const features = [
   {
@@ -80,6 +82,24 @@ const features = [
       "Informes semanales automáticos",
     ],
   },
+  {
+    image: agentSupport,
+    agent: "CARE",
+    icon: HeartHandshake,
+    title: "Cuida la relación post-venta",
+    description:
+      "Hace seguimiento, mide satisfacción y detecta clientes en riesgo antes de que se vayan.",
+    personality: "La que fideliza",
+    color: "brand-rose",
+    hsl: "340 55% 60%",
+    gradient: "linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))",
+    expandedDetails: [
+      "Seguimiento post-venta automatizado por voz y WhatsApp",
+      "Encuestas NPS y de satisfacción tras cada interacción",
+      "Detecta señales de churn y avisa a tu equipo",
+      "Recordatorios de renovación y cross-sell",
+    ],
+  },
 ];
 
 /* ── stop-motion / reveal animation variants ── */
@@ -138,16 +158,6 @@ const Features = () => {
       {/* Subtle background accents */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-primary/[0.02] blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full bg-accent/[0.02] blur-[140px] pointer-events-none" />
-      {/* Background character — NOVA with reveal (hidden on mobile to save GPU) */}
-      <div className="hidden sm:block absolute -right-10 top-1/2 -translate-y-1/2 pointer-events-none select-none">
-        <CharacterReveal
-          src={agentOutbound}
-          alt=""
-          className="w-[300px] md:w-[400px] lg:w-[500px] opacity-[0.10] lg:opacity-[0.12]"
-          glowColor="hsl(260 50% 65%)"
-          revealOffset={[0.05, 0.3]}
-        />
-      </div>
 
       <div className="container mx-auto relative z-10">
         {/* Section header */}
@@ -186,7 +196,7 @@ const Features = () => {
         >
           {features.map((f, i) => {
             const isHovered = hoveredIdx === i;
-
+            const isLastOdd = i === features.length - 1 && features.length % 2 === 1;
             return (
               <motion.div
                 key={i}
@@ -194,7 +204,7 @@ const Features = () => {
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
-                className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
+                className={`group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500 ${isLastOdd ? "md:col-span-2 md:max-w-[calc(50%-10px)] md:mx-auto md:w-full" : ""}`}
                 style={{
                   background: isHovered
                     ? `linear-gradient(135deg, hsl(${f.hsl} / 0.06) 0%, hsl(var(--card) / 0.5) 60%)`
@@ -408,7 +418,140 @@ const Features = () => {
             );
           })}
         </motion.div>
+
+        {/* ── El director de orquesta ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mt-6 md:mt-8 rounded-3xl border border-primary/25 overflow-hidden"
+          style={{
+            background:
+              "linear-gradient(135deg, hsl(190 100% 60% / 0.06) 0%, hsl(260 100% 65% / 0.06) 35%, hsl(160 100% 55% / 0.05) 65%, hsl(340 100% 65% / 0.06) 100%), hsl(var(--card) / 0.5)",
+            boxShadow:
+              "0 0 60px hsl(var(--primary) / 0.12), 0 30px 80px hsl(0 0% 0% / 0.35)",
+          }}
+        >
+          {/* Soft glow blobs behind */}
+          <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-accent/10 blur-[100px] pointer-events-none" />
+
+          <div className="relative p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            {/* Director character */}
+            <div className="relative shrink-0">
+              <div
+                className="absolute inset-0 rounded-full blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, hsl(var(--primary) / 0.35) 0%, transparent 70%)",
+                  transform: "scale(1.8)",
+                }}
+              />
+              <motion.img
+                src={heroRobot}
+                alt="Director de orquesta"
+                className="relative z-10 w-44 md:w-56 lg:w-64 object-contain drop-shadow-2xl"
+                animate={{ y: [0, -8, 0], rotate: [-1.5, 1.5, -1.5] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Orbiting agent-color particles */}
+              {features.map((f, idx) => {
+                const angle = (idx / features.length) * Math.PI * 2;
+                return (
+                  <motion.div
+                    key={f.agent}
+                    className="absolute top-1/2 left-1/2 w-2.5 h-2.5 rounded-full z-20"
+                    style={{
+                      background: `hsl(${f.hsl})`,
+                      boxShadow: `0 0 12px hsl(${f.hsl} / 0.8)`,
+                    }}
+                    animate={{
+                      x: [
+                        Math.cos(angle) * 90 - 5,
+                        Math.cos(angle + Math.PI) * 90 - 5,
+                        Math.cos(angle + Math.PI * 2) * 90 - 5,
+                      ],
+                      y: [
+                        Math.sin(angle) * 90 - 5,
+                        Math.sin(angle + Math.PI) * 90 - 5,
+                        Math.sin(angle + Math.PI * 2) * 90 - 5,
+                      ],
+                      opacity: [0.4, 1, 0.4],
+                    }}
+                    transition={{
+                      duration: 8 + idx,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: idx * 0.3,
+                    }}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-3 py-1 mb-4">
+                <Wand2 className="w-3.5 h-3.5 text-primary" />
+                <span className="text-[11px] text-primary font-display font-semibold tracking-wider uppercase">
+                  Coordinación total
+                </span>
+              </div>
+
+              <h3
+                className="font-display font-extrabold text-2xl md:text-3xl lg:text-4xl mb-3 leading-tight bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, hsl(190 100% 70%), hsl(220 100% 75%), hsl(280 100% 75%), hsl(340 100% 75%))",
+                  textShadow: "none",
+                  WebkitTextStroke: "0",
+                  filter:
+                    "drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.18)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 4px 8px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 18px hsl(var(--primary) / 0.25))",
+                }}
+              >
+                El director de orquesta
+              </h3>
+
+              <p className="text-sm md:text-base text-foreground/85 leading-relaxed mb-5 max-w-2xl">
+                Mientras cada agente hace su trabajo, el sistema central los mantiene
+                sincronizados. ARIA pasa la llamada a LUMI o NOVA, BYTE lo analiza
+                y CARE cuida el seguimiento. Tú solo ves los resultados.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start mb-5">
+                {features.map((f) => (
+                  <div
+                    key={f.agent}
+                    className="flex items-center gap-1.5 rounded-full px-2.5 py-1 border"
+                    style={{
+                      background: `hsl(${f.hsl} / 0.08)`,
+                      borderColor: `hsl(${f.hsl} / 0.3)`,
+                    }}
+                  >
+                    <f.icon className="h-3 w-3" style={{ color: `hsl(${f.hsl})` }} />
+                    <span
+                      className="text-[10px] font-display font-bold tracking-[0.12em] uppercase"
+                      style={{ color: `hsl(${f.hsl})` }}
+                    >
+                      {f.agent}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                to="/equipo"
+                className="inline-flex items-center gap-1.5 text-sm font-display font-semibold text-primary hover:opacity-80 transition-opacity"
+              >
+                Ver cómo trabajan juntos
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
+
     </section>
   );
 };
