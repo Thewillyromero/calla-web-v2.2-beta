@@ -557,33 +557,6 @@ const Index = () => {
         <PressQuotes />
       </SectionFade>
 
-      <SectionFade>
-        <PressBar />
-      </SectionFade>
-
-      <SectionFade>
-        <section className="py-12 md:py-16 relative overflow-hidden">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
-              {metrics.map((m, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-card/30 border border-border/20 rounded-2xl p-6 text-center"
-                  {...fade}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <div className="text-3xl font-bold text-foreground">
-                    {m.value}
-                  </div>
-                  <div className="text-sm text-foreground/80 mt-1">
-                    {m.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionFade>
 
       <SectionFade>
         <LogoMarquee />
