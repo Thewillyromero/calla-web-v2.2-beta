@@ -257,7 +257,7 @@ const Index = () => {
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <h1 className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
-                  Automatizamos la atención telefónica de tu empresa
+                  Digitalizamos la atención telefónica de tu empresa
                 </h1>
                 <p className="text-base md:text-xl text-foreground/80 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Tus clientes llaman, nuestro asistente contesta, agenda citas
