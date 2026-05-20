@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -232,6 +232,8 @@ const StationCard = ({
 
 const SquadWorkflow = () => {
   const [activeStation, setActiveStation] = useState<number | null>(null);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   // Indices for the split layout
   const ariaStation = stations[0]; // ARIA
