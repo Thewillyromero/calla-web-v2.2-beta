@@ -53,12 +53,6 @@ const callFlow = [
   { icon: Database,  label: "Almacenamiento",     hsl: "340 55% 60%" },
 ];
 
-const badges = [
-  { icon: ShieldCheck, title: "RGPD Compliant",     subtitle: "Cumplimiento total",           hsl: "190 60% 55%" },
-  { icon: Lock,        title: "AES-256 Encryption", subtitle: "Cifrado de grado militar",      hsl: "260 50% 65%" },
-  { icon: Globe,       title: "European Servers",   subtitle: "Frankfurt, Alemania",           hsl: "160 50% 48%" },
-  { icon: FileText,    title: "ISO 27001",           subtitle: "En proceso de certificación",  hsl: "35 70% 58%"  },
-];
 
 const metrics = [
   { value: "2M+",  label: "Llamadas procesadas de forma segura" },
@@ -140,7 +134,7 @@ const Security = () => {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight leading-[1.08]"
           >
             Tu empresa,{" "}
-            <span className="text-gradient">protegida por diseño</span>
+            <span className="text-gradient">protegida del inicio</span>
           </motion.h1>
 
           <motion.p
@@ -317,49 +311,72 @@ const Security = () => {
         </div>
       </section>
 
-      {/* ── Certifications ── */}
+      {/* ── Never list ── */}
       <section className="py-16 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10"
+            className="rounded-2xl border border-border/20 overflow-hidden"
+            style={{ background: "hsl(var(--card) / 0.35)" }}
           >
-            <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground tracking-tight mb-3">
-              Certificaciones y garantías
-            </h2>
-          </motion.div>
+            {/* Header bar */}
+            <div className="px-8 md:px-12 py-7 border-b border-border/15 flex items-center gap-4">
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                style={{ background: "hsl(340 55% 60% / 0.1)", border: "1.5px solid hsl(340 55% 60% / 0.25)" }}
+              >
+                <Shield className="h-5 w-5" style={{ color: "hsl(340 55% 60%)" }} />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-display font-extrabold text-foreground tracking-tight">
+                  Lo que CALLA nunca hará
+                </h2>
+                <p className="text-sm text-foreground/55 font-light mt-0.5">Compromisos contractuales, no solo palabras.</p>
+              </div>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {badges.map((badge, i) => {
-              const Icon = badge.icon;
-              return (
+            {/* Commitments list */}
+            <div className="divide-y divide-border/10">
+              {[
+                { text: "Vender los datos de tus clientes a terceros, bajo ningún concepto.", note: "Tu base de datos es solo tuya." },
+                { text: "Acceder a tus grabaciones sin autorización explícita y documentada.", note: "Acceso auditado y trazable." },
+                { text: "Procesar ni almacenar datos fuera de la Unión Europea.", note: "Frankfurt, Alemania. Sin excepciones." },
+                { text: "Conservar conversaciones más allá del período que tú configures.", note: "Retención bajo tu control." },
+                { text: "Compartir información con otras empresas sin un DPA firmado.", note: "Cumplimiento legal garantizado." },
+              ].map((item, i) => (
                 <motion.div
-                  key={badge.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="rounded-2xl p-6 text-center relative overflow-hidden hover:-translate-y-1 transition-all duration-500"
-                  style={{
-                    background: `hsl(${badge.hsl} / 0.06)`,
-                    border: `1.5px solid hsl(${badge.hsl} / 0.25)`,
-                  }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="flex items-start gap-5 px-8 md:px-12 py-5 hover:bg-white/[0.015] transition-colors"
                 >
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
-                    style={{ background: `hsl(${badge.hsl} / 0.12)` }}
+                  <span
+                    className="text-xl font-display font-black shrink-0 mt-0.5 select-none"
+                    style={{ color: "hsl(340 55% 60%)" }}
                   >
-                    <Icon className="h-7 w-7" style={{ color: `hsl(${badge.hsl})` }} />
+                    ✕
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm md:text-base text-foreground/85 font-medium leading-relaxed">{item.text}</p>
+                    <p className="text-xs text-foreground/45 font-light mt-0.5">{item.note}</p>
                   </div>
-                  <h3 className="text-sm font-display font-bold text-foreground mb-1">{badge.title}</h3>
-                  <p className="text-xs font-light" style={{ color: `hsl(${badge.hsl} / 0.8)` }}>{badge.subtitle}</p>
                 </motion.div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+
+            {/* Footer note */}
+            <div className="px-8 md:px-12 py-5 border-t border-border/10 flex items-center gap-2">
+              <FileText className="h-3.5 w-3.5 text-foreground/30 shrink-0" />
+              <p className="text-xs text-foreground/40 font-light">
+                Estos compromisos forman parte del Acuerdo de Procesamiento de Datos (DPA) disponible para todos los clientes.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
