@@ -456,31 +456,6 @@ const Index = () => {
                 ))}
               </motion.div>
 
-              {/* Metrics strip */}
-              <motion.div
-                className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {[
-                  { value: "2M+", label: "llamadas gestionadas" },
-                  { value: "+200", label: "empresas activas" },
-                  { value: "24/7", label: "disponibilidad real" },
-                  { value: "< 30 min", label: "tiempo de activación" },
-                ].map((m) => (
-                  <div
-                    key={m.value}
-                    className="text-center bg-card/30 rounded-xl border border-border/15 px-4 py-4"
-                  >
-                    <div className="text-xl md:text-2xl font-display font-extrabold text-foreground mb-0.5">
-                      {m.value}
-                    </div>
-                    <p className="text-[11px] text-foreground/50 font-light">{m.label}</p>
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </div>
         </section>
