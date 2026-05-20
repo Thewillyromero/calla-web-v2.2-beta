@@ -109,9 +109,9 @@ const features = [
     description:
       "El hilo invisible que pasa contexto entre agentes. Cuando ARIA recibe una llamada, LUMI ya conoce al cliente; cuando NOVA cierra una venta, CARE inicia el seguimiento. Sin huecos, sin repeticiones.",
     personality: "La que conecta el equipo",
-    color: "brand-primary",
-    hsl: "220 90% 65%",
-    gradient: "linear-gradient(135deg, hsl(190 100% 70%), hsl(220 100% 70%), hsl(280 100% 75%))",
+    color: "brand-silver",
+    hsl: "220 12% 62%",
+    gradient: "linear-gradient(135deg, hsl(220 10% 45%), hsl(220 12% 62%), hsl(220 18% 75%))",
     expandedDetails: [
       "Pasa el contexto del cliente entre agentes en tiempo real",
       "Decide qué agente entra en cada momento sin que nadie tropiece",

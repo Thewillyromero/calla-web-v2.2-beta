@@ -286,17 +286,17 @@ const SquadWorkflow = () => {
                   {/* Outer aura */}
                   <div
                     className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
-                    style={{ background: `radial-gradient(circle, hsl(220 90% 65% / 0.32), hsl(220 90% 65% / 0.08) 45%, transparent 70%)` }}
+                    style={{ background: `radial-gradient(circle, hsl(220 12% 62% / 0.32), hsl(220 12% 62% / 0.08) 45%, transparent 70%)` }}
                   />
                   {/* Inner halo */}
                   <div
                     className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
-                    style={{ background: `radial-gradient(circle, hsl(220 90% 65% / 0.45), transparent 65%)` }}
+                    style={{ background: `radial-gradient(circle, hsl(220 12% 62% / 0.45), transparent 65%)` }}
                   />
                   {/* Ring */}
                   <div
                     className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
-                    style={{ boxShadow: `0 0 60px hsl(220 90% 65% / 0.5), inset 0 0 40px hsl(220 90% 65% / 0.2)` }}
+                    style={{ boxShadow: `0 0 60px hsl(220 12% 62% / 0.5), inset 0 0 40px hsl(220 12% 62% / 0.2)` }}
                   />
                   <motion.img
                     src={haloConductor}
@@ -314,9 +314,9 @@ const SquadWorkflow = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.15 }}
               >
-                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full mb-4">
-                  <Sparkles className="h-3.5 w-3.5 text-primary" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-primary">Conoce a HALO</span>
+                <div className="inline-flex items-center gap-2 bg-foreground/10 border border-foreground/20 px-3 py-1.5 rounded-full mb-4">
+                  <Sparkles className="h-3.5 w-3.5 text-foreground/60" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-foreground/60">Conoce a HALO</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight">
                   El hilo invisible que mantiene<br />al equipo en sincronía
