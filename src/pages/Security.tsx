@@ -1,255 +1,409 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Shield, Lock, Server, CheckCircle2, ArrowRight, Globe, ShieldCheck, Database, Eye } from "lucide-react";
+import {
+  Shield, Lock, Server, CheckCircle2, ArrowRight,
+  Globe, ShieldCheck, Database, Eye, Activity, FileText,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import { BOOKING_URL } from "@/lib/constants";
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-};
+const pillars = [
+  {
+    icon: ShieldCheck,
+    title: "RGPD & Normativa",
+    hsl: "190 60% 55%",
+    items: [
+      "Cumplimiento total del Reglamento General de Protección de Datos",
+      "Acuerdo de procesamiento de datos (DPA) disponible para clientes Enterprise",
+      "Responsable del tratamiento identificado y documentado",
+      "Registro de actividades de tratamiento siempre actualizado",
+    ],
+  },
+  {
+    icon: Lock,
+    title: "Cifrado & Privacidad",
+    hsl: "260 50% 65%",
+    items: [
+      "Cifrado extremo a extremo en todas las comunicaciones de voz",
+      "Grabaciones almacenadas con cifrado AES-256 en reposo",
+      "Acceso restringido por roles — solo tu equipo autorizado",
+      "Retención de datos configurable según tus necesidades legales",
+    ],
+  },
+  {
+    icon: Server,
+    title: "Infraestructura",
+    hsl: "35 70% 58%",
+    items: [
+      "Servidores en Oracle Cloud, región Frankfurt (Alemania)",
+      "SSL/TLS en todas las conexiones sin excepción",
+      "Backups diarios automatizados con verificación de integridad",
+      "Monitorización 24/7 con alertas automáticas en tiempo real",
+    ],
+  },
+];
+
+const callFlow = [
+  { icon: Activity,  label: "Llamada entrante", hsl: "190 60% 55%" },
+  { icon: Lock,      label: "Cifrado TLS",       hsl: "260 50% 65%" },
+  { icon: Globe,     label: "Servidores UE",      hsl: "160 50% 48%" },
+  { icon: Eye,       label: "Acceso por roles",   hsl: "35 70% 58%"  },
+  { icon: Database,  label: "Almacenamiento",     hsl: "340 55% 60%" },
+];
 
 const badges = [
-  { icon: ShieldCheck, title: "RGPD Compliant", subtitle: "Cumplimiento total" },
-  { icon: Lock, title: "SSL Encryption", subtitle: "Cifrado extremo a extremo" },
-  { icon: Globe, title: "European Servers", subtitle: "Frankfurt, Alemania" },
-  { icon: Shield, title: "ISO 27001", subtitle: "En proceso" },
+  { icon: ShieldCheck, title: "RGPD Compliant",     subtitle: "Cumplimiento total",           hsl: "190 60% 55%" },
+  { icon: Lock,        title: "AES-256 Encryption", subtitle: "Cifrado de grado militar",      hsl: "260 50% 65%" },
+  { icon: Globe,       title: "European Servers",   subtitle: "Frankfurt, Alemania",           hsl: "160 50% 48%" },
+  { icon: FileText,    title: "ISO 27001",           subtitle: "En proceso de certificación",  hsl: "35 70% 58%"  },
+];
+
+const metrics = [
+  { value: "2M+",  label: "Llamadas procesadas de forma segura" },
+  { value: "99.9%", label: "Uptime garantizado" },
+  { value: "0",    label: "Brechas de seguridad" },
+  { value: "100%", label: "Datos en servidores europeos" },
 ];
 
 const Security = () => {
   const [contactOpen, setContactOpen] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-background noise-overlay">
       <Navbar onContact={() => setContactOpen(true)} />
 
-      {/* Hero */}
-      <section className="pt-28 sm:pt-36 pb-16 md:pb-24 px-5 md:px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full bg-brand-teal/[0.06] blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-lavender/[0.04] blur-[100px]" />
+      {/* ── Hero ── */}
+      <section className="pt-28 sm:pt-36 pb-20 md:pb-28 px-5 md:px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-[700px] h-[500px] rounded-full bg-brand-teal/[0.05] blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full bg-brand-lavender/[0.04] blur-[120px] pointer-events-none" />
 
         <div className="container mx-auto relative z-10 text-center max-w-4xl">
-          <motion.div {...fadeUp}>
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
-              <Shield className="h-4 w-4 text-primary" />
-              <span className="text-xs font-display font-semibold text-primary tracking-wide uppercase">Seguridad</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-6 tracking-tight leading-[1.08]">
-              Tu seguridad es nuestra{" "}
-              <span className="text-gradient">prioridad</span>
-            </h1>
-            <p className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
-              Protegemos los datos de tu empresa y de tus clientes con los m&aacute;s altos est&aacute;ndares europeos.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* RGPD Compliance */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
+          {/* Animated shield with radar rings */}
+          <div className="flex justify-center mb-10">
+            <div className="relative flex items-center justify-center">
+              {[0, 1, 2].map((i) => (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full"
+                  style={{
+                    width: 96 + i * 56,
+                    height: 96 + i * 56,
+                    border: "1px solid hsl(190 60% 55% / 0.25)",
+                  }}
+                  animate={{ opacity: [0.5, 0, 0.5], scale: [1, 1.07, 1] }}
+                  transition={{ duration: 3 + i, repeat: Infinity, delay: i * 0.9, ease: "easeInOut" }}
+                />
+              ))}
+              <motion.div
+                className="relative z-10 w-24 h-24 rounded-full flex items-center justify-center"
+                style={{
+                  background: "hsl(190 60% 55% / 0.1)",
+                  border: "1.5px solid hsl(190 60% 55% / 0.35)",
+                }}
+                animate={{
+                  boxShadow: [
+                    "0 0 20px hsl(190 60% 55% / 0.15)",
+                    "0 0 50px hsl(190 60% 55% / 0.35)",
+                    "0 0 20px hsl(190 60% 55% / 0.15)",
+                  ],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Shield className="h-11 w-11" style={{ color: "hsl(190 60% 55%)" }} />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Live status badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 border"
+            style={{ background: "hsl(160 50% 48% / 0.08)", borderColor: "hsl(160 50% 48% / 0.25)" }}
+          >
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(160 50% 48%)" }} />
+            <span className="text-xs font-display font-bold uppercase tracking-widest" style={{ color: "hsl(160 50% 55%)" }}>
+              Sistema activo · Todo seguro
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight leading-[1.08]"
+          >
+            Tu empresa,{" "}
+            <span className="text-gradient">protegida por diseño</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-10"
+          >
+            Protegemos los datos de tu empresa y de tus clientes con los más altos estándares europeos. Sin excepciones.
+          </motion.p>
+
+          {/* Chips */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap items-center justify-center gap-2.5"
           >
-            <div className="bg-card/40 rounded-2xl border border-border/30 p-6 sm:p-8 lg:p-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <ShieldCheck className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-foreground tracking-tight">
-                    Cumplimiento RGPD
-                  </h2>
-                </div>
+            {["RGPD Compliant", "Servidores en Europa", "Cifrado AES-256", "Monitorización 24/7"].map((chip) => (
+              <div key={chip} className="flex items-center gap-1.5 bg-card/50 border border-border/30 rounded-full px-4 py-1.5">
+                <CheckCircle2 className="h-3.5 w-3.5 text-brand-teal shrink-0" />
+                <span className="text-xs font-medium text-foreground/80">{chip}</span>
               </div>
-              <p className="text-lg text-foreground/80 font-light leading-relaxed mb-6">
-                Cumplimos con el Reglamento General de Protecci&oacute;n de Datos (RGPD) en todos nuestros procesos.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3 bg-secondary/30 rounded-xl p-4 border border-border/20">
-                  <CheckCircle2 className="h-5 w-5 text-brand-emerald mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-1">Servidores europeos</p>
-                    <p className="text-sm text-foreground/60 font-light">Todos los datos se procesan y almacenan en servidores ubicados en Europa.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 bg-secondary/30 rounded-xl p-4 border border-border/20">
-                  <CheckCircle2 className="h-5 w-5 text-brand-emerald mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-1">DPA disponible</p>
-                    <p className="text-sm text-foreground/60 font-light">Acuerdo de procesamiento de datos (Data Processing Agreement) disponible para clientes enterprise.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Call Security */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
-                Seguridad en las llamadas
-              </h2>
-              <p className="text-foreground/60 font-light max-w-xl mx-auto">
-                Cada llamada gestionada por CALLA est&aacute; protegida de principio a fin.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-5">
-              <div className="bg-card/40 rounded-2xl border border-border/30 p-6 text-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-500">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Lock className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-base font-display font-bold text-foreground mb-2">Encriptaci&oacute;n total</h3>
-                <p className="text-sm text-foreground/60 font-light leading-relaxed">
-                  Grabaciones encriptadas en reposo y en tr&aacute;nsito.
-                </p>
-              </div>
-
-              <div className="bg-card/40 rounded-2xl border border-border/30 p-6 text-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-500">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Eye className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-base font-display font-bold text-foreground mb-2">Acceso por roles</h3>
-                <p className="text-sm text-foreground/60 font-light leading-relaxed">
-                  Acceso restringido por roles &mdash; solo tu equipo autorizado.
-                </p>
-              </div>
-
-              <div className="bg-card/40 rounded-2xl border border-border/30 p-6 text-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-500">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Database className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="text-base font-display font-bold text-foreground mb-2">Retenci&oacute;n configurable</h3>
-                <p className="text-sm text-foreground/60 font-light leading-relaxed">
-                  T&uacute; decides cu&aacute;nto tiempo se guardan las grabaciones.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Infrastructure */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="bg-card/40 rounded-2xl border border-border/30 p-6 sm:p-8 lg:p-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Server className="h-6 w-6 text-primary" />
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-foreground tracking-tight">
-                  Infraestructura
-                </h2>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { text: "Servidores en Europa (Oracle Cloud, regi\u00F3n Frankfurt)", icon: Globe },
-                  { text: "SSL/TLS en todas las comunicaciones", icon: Lock },
-                  { text: "Backups diarios automatizados", icon: Database },
-                  { text: "Monitorizaci\u00F3n 24/7", icon: Eye },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.text} className="flex items-center gap-3 bg-secondary/30 rounded-xl p-4 border border-border/20">
-                      <Icon className="h-5 w-5 text-primary shrink-0" />
-                      <p className="text-sm font-medium text-foreground">{item.text}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Certifications / Badges */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
-                Certificaciones y garant&iacute;as
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {badges.map((badge) => {
-                const Icon = badge.icon;
-                return (
-                  <div
-                    key={badge.title}
-                    className="glass rounded-2xl border border-border/30 p-6 text-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-500"
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-7 w-7 text-primary" />
-                    </div>
-                    <h3 className="text-sm font-display font-bold text-foreground mb-1">{badge.title}</h3>
-                    <p className="text-xs text-foreground/50 font-light">{badge.subtitle}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* ── Three pillars ── */}
       <section className="py-16 md:py-24 px-5 md:px-6">
-        <div className="container mx-auto text-center max-w-3xl">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
+              Tres capas de protección
+            </h2>
+            <p className="text-foreground/60 font-light">Cada dato cubierto desde múltiples frentes.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {pillars.map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <motion.div
+                  key={pillar.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.6, delay: i * 0.12 }}
+                  className="relative bg-card/40 rounded-2xl p-6 md:p-8 overflow-hidden hover:-translate-y-1 transition-all duration-500"
+                  style={{ border: `1.5px solid hsl(${pillar.hsl} / 0.2)` }}
+                >
+                  {/* Corner glow */}
+                  <div
+                    className="absolute top-0 right-0 w-48 h-48 rounded-full blur-[80px] pointer-events-none"
+                    style={{ background: `hsl(${pillar.hsl} / 0.25)`, transform: "translate(40%, -40%)" }}
+                  />
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative z-10"
+                    style={{ background: `hsl(${pillar.hsl} / 0.12)` }}
+                  >
+                    <Icon className="h-6 w-6" style={{ color: `hsl(${pillar.hsl})` }} />
+                  </div>
+                  <h3
+                    className="text-xl font-display font-extrabold mb-5 relative z-10"
+                    style={{ color: `hsl(${pillar.hsl})` }}
+                  >
+                    {pillar.title}
+                  </h3>
+                  <ul className="space-y-3 relative z-10">
+                    {pillar.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" style={{ color: `hsl(${pillar.hsl})` }} />
+                        <span className="text-sm text-foreground/75 font-light leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Bottom line */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[2px]"
+                    style={{ background: `linear-gradient(90deg, transparent, hsl(${pillar.hsl} / 0.5), transparent)` }}
+                  />
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Call security flow ── */}
+      <section className="py-16 md:py-20 px-5 md:px-6">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground tracking-tight mb-3">
+              Cómo protegemos cada llamada
+            </h2>
+            <p className="text-foreground/60 font-light">El ciclo completo de seguridad, de principio a fin.</p>
+          </motion.div>
+
+          <div className="flex flex-wrap md:flex-nowrap items-start justify-center gap-3 md:gap-0">
+            {callFlow.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.label} className="flex flex-col md:flex-row items-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="flex flex-col items-center text-center px-3 md:px-5"
+                  >
+                    <div
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-3"
+                      style={{
+                        background: `hsl(${step.hsl} / 0.1)`,
+                        border: `1.5px solid hsl(${step.hsl} / 0.28)`,
+                      }}
+                    >
+                      <Icon className="h-7 w-7 md:h-8 md:w-8" style={{ color: `hsl(${step.hsl})` }} />
+                    </div>
+                    <span className="text-xs font-display font-semibold text-foreground/70 leading-tight max-w-[80px]">
+                      {step.label}
+                    </span>
+                  </motion.div>
+                  {i < callFlow.length - 1 && (
+                    <ArrowRight className="h-4 w-4 text-foreground/20 shrink-0 hidden md:block mt-[-20px]" />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Metrics ── */}
+      <section className="py-12 md:py-16 px-5 md:px-6">
+        <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="rounded-2xl border border-border/20 p-8 md:p-12 relative overflow-hidden"
+            style={{ background: "hsl(var(--card) / 0.3)" }}
           >
-            <Shield className="h-10 w-10 text-primary mx-auto mb-5" />
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">
-              &iquest;Tienes preguntas sobre seguridad?
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] rounded-full bg-brand-teal/[0.03] blur-[100px] pointer-events-none" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+              {metrics.map((m, i) => (
+                <motion.div
+                  key={m.label}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <div className="text-4xl md:text-5xl font-display font-extrabold text-foreground mb-2">{m.value}</div>
+                  <p className="text-xs text-foreground/55 font-light leading-tight">{m.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Certifications ── */}
+      <section className="py-16 md:py-20 px-5 md:px-6">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground tracking-tight mb-3">
+              Certificaciones y garantías
             </h2>
-            <p className="text-foreground/70 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
-              Nuestro equipo est&aacute; disponible para resolver cualquier duda sobre protecci&oacute;n de datos y cumplimiento normativo.
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {badges.map((badge, i) => {
+              const Icon = badge.icon;
+              return (
+                <motion.div
+                  key={badge.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="rounded-2xl p-6 text-center relative overflow-hidden hover:-translate-y-1 transition-all duration-500"
+                  style={{
+                    background: `hsl(${badge.hsl} / 0.06)`,
+                    border: `1.5px solid hsl(${badge.hsl} / 0.25)`,
+                  }}
+                >
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+                    style={{ background: `hsl(${badge.hsl} / 0.12)` }}
+                  >
+                    <Icon className="h-7 w-7" style={{ color: `hsl(${badge.hsl})` }} />
+                  </div>
+                  <h3 className="text-sm font-display font-bold text-foreground mb-1">{badge.title}</h3>
+                  <p className="text-xs font-light" style={{ color: `hsl(${badge.hsl} / 0.8)` }}>{badge.subtitle}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 md:py-28 px-5 md:px-6">
+        <div className="container mx-auto max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl border border-border/20 p-10 md:p-14 text-center relative overflow-hidden"
+            style={{ background: "hsl(var(--card) / 0.4)" }}
+          >
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] rounded-full bg-brand-teal/[0.04] blur-[80px] pointer-events-none" />
+
+            <motion.div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10"
+              style={{ background: "hsl(190 60% 55% / 0.12)", border: "1.5px solid hsl(190 60% 55% / 0.3)" }}
+              animate={{ boxShadow: ["0 0 15px hsl(190 60% 55% / 0.1)", "0 0 35px hsl(190 60% 55% / 0.25)", "0 0 15px hsl(190 60% 55% / 0.1)"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Shield className="h-8 w-8" style={{ color: "hsl(190 60% 55%)" }} />
+            </motion.div>
+
+            <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
+              ¿Tienes preguntas sobre seguridad?
+            </h2>
+            <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-8 relative z-10">
+              Nuestro equipo resuelve cualquier duda sobre protección de datos y cumplimiento normativo.
             </p>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity shadow-lg shadow-primary/20"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 relative z-10"
             >
               Hablar con un experto
               <ArrowRight className="w-4 h-4" />
             </a>
+
+            <p className="text-xs font-mono text-foreground/25 mt-8 relative z-10">
+              $ status: all_systems_secure · RGPD · AES-256 · Frankfurt EU
+            </p>
           </motion.div>
         </div>
       </section>
