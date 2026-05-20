@@ -340,7 +340,7 @@ const Features = () => {
                         >
                           {f.agent}
                         </span>
-                        <span className="text-[10px] text-muted-foreground/60 font-medium hidden sm:inline">
+                        <span className="text-xs text-muted-foreground/75 font-medium hidden sm:inline">
                           {f.personality}
                         </span>
                       </div>
