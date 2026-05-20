@@ -303,7 +303,7 @@ const Security = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <div className="text-4xl md:text-5xl font-display font-extrabold text-foreground mb-2">{m.value}</div>
-                  <p className="text-xs text-foreground/55 font-light leading-tight">{m.label}</p>
+                  <p className="text-xs text-foreground/70 font-light leading-tight">{m.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -334,7 +334,7 @@ const Security = () => {
                 <h2 className="text-xl md:text-2xl font-display font-extrabold text-foreground tracking-tight">
                   Lo que CALLA nunca hará
                 </h2>
-                <p className="text-sm text-foreground/55 font-light mt-0.5">Compromisos contractuales, no solo palabras.</p>
+                <p className="text-sm text-foreground/70 font-light mt-0.5">Compromisos contractuales, no solo palabras.</p>
               </div>
             </div>
 
@@ -363,7 +363,7 @@ const Security = () => {
                   </span>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm md:text-base text-foreground/85 font-medium leading-relaxed">{item.text}</p>
-                    <p className="text-xs text-foreground/45 font-light mt-0.5">{item.note}</p>
+                    <p className="text-xs text-foreground/65 font-light mt-0.5">{item.note}</p>
                   </div>
                 </motion.div>
               ))}
@@ -371,8 +371,8 @@ const Security = () => {
 
             {/* Footer note */}
             <div className="px-8 md:px-12 py-5 border-t border-border/10 flex items-center gap-2">
-              <FileText className="h-3.5 w-3.5 text-foreground/30 shrink-0" />
-              <p className="text-xs text-foreground/40 font-light">
+              <FileText className="h-3.5 w-3.5 text-foreground/50 shrink-0" />
+              <p className="text-xs text-foreground/60 font-light">
                 Estos compromisos forman parte del Acuerdo de Procesamiento de Datos (DPA) disponible para todos los clientes.
               </p>
             </div>

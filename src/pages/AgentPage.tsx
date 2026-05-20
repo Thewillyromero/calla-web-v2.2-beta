@@ -399,7 +399,7 @@ const AgentPage = () => {
                   </div>
                   <div className="h-px bg-border/20 mb-3" />
                   <div className="text-sm font-medium text-foreground">{t.name}</div>
-                  <div className="text-xs text-foreground/50">{t.role}</div>
+                  <div className="text-xs text-foreground/65">{t.role}</div>
                 </motion.div>
               ))}
             </div>

@@ -127,7 +127,7 @@ const Results = () => {
                         <span className="text-sm font-bold text-foreground">{b.rating}</span>
                         <TrustpilotStars rating={b.rating} size={14} />
                       </div>
-                      <span className="text-[10px] text-foreground/50">{b.label}</span>
+                      <span className="text-[10px] text-foreground/65">{b.label}</span>
                     </div>
                   </div>
                 ))}
@@ -135,7 +135,7 @@ const Results = () => {
                   <ShieldCheck className="w-5 h-5" style={{ color: '#00b67a' }} />
                   <div>
                     <span className="text-xs font-semibold text-foreground block leading-tight">Verificado</span>
-                    <span className="text-[10px] text-foreground/50">Opiniones reales</span>
+                    <span className="text-[10px] text-foreground/65">Opiniones reales</span>
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@ const Results = () => {
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-foreground truncate">{t.name}</div>
-                        <div className="text-xs text-foreground/50 truncate">{t.role}, {t.company}</div>
+                        <div className="text-xs text-foreground/65 truncate">{t.role}, {t.company}</div>
                       </div>
                       <span className="text-[10px] uppercase tracking-wider text-foreground/60 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
                     </div>
@@ -223,8 +223,8 @@ const Results = () => {
                     </div>
                     <div className="text-2xl font-display font-bold text-foreground mb-1">{cs.result}</div>
                     <div className="text-sm text-foreground/70 font-medium mb-1">{cs.description}</div>
-                    <div className="text-xs text-foreground/50 mb-1">{cs.metric}</div>
-                    <div className="text-xs text-foreground/55 italic">{cs.detail}</div>
+                    <div className="text-xs text-foreground/65 mb-1">{cs.metric}</div>
+                    <div className="text-xs text-foreground/70 italic">{cs.detail}</div>
                   </motion.div>
                 ))}
               </div>

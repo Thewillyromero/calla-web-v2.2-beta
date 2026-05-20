@@ -15,7 +15,7 @@ const Footer = () => {
                 CA<span className="text-gradient-blue">LLA</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground/60 font-light leading-relaxed max-w-xs">
+            <p className="text-sm text-muted-foreground/80 font-light leading-relaxed max-w-xs">
               Empleados IA que atienden llamadas, agendan citas y gestionan tu comunicación 24/7.
             </p>
           </div>
@@ -54,10 +54,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground/60">
+          <p className="text-xs text-muted-foreground/70">
             © 2026 CALLA. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-muted-foreground/50">
+          <p className="text-xs text-muted-foreground/65">
             callao.app
           </p>
         </div>

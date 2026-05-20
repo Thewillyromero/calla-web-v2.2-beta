@@ -375,7 +375,7 @@ const Index = () => {
                 Todo lo que cubrimos{" "}
                 <span className="text-gradient">en tu empresa</span>
               </h2>
-              <p className="text-foreground/60 max-w-lg mx-auto text-base font-light">
+              <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
                 Un ecosistema que lo gestiona todo.
               </p>
             </motion.div>
@@ -432,7 +432,7 @@ const Index = () => {
                       <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
                         {cap.title}
                       </h3>
-                      <p className="text-sm text-foreground/55 font-light mb-3 leading-relaxed">
+                      <p className="text-sm text-foreground/70 font-light mb-3 leading-relaxed">
                         {cap.description}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -477,7 +477,7 @@ const Index = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
                 ¿Por qué CALLA y no otra solución?
               </h2>
-              <p className="text-foreground/55 font-light max-w-lg mx-auto">
+              <p className="text-foreground/70 font-light max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
               </p>
             </motion.div>
@@ -516,8 +516,8 @@ const Index = () => {
                     ].map((col) => (
                       <div key={col.name} className="px-4 py-5 text-center bg-card/50 border-b border-l border-border/15 flex flex-col items-center justify-center gap-2">
                         <col.Icon className="h-4 w-4 text-foreground/40" />
-                        <p className="text-xs font-display font-semibold text-foreground/65 leading-tight">{col.name}</p>
-                        <p className="text-[10px] text-foreground/45 font-light">{col.sub}</p>
+                        <p className="text-xs font-display font-semibold text-foreground/80 leading-tight">{col.name}</p>
+                        <p className="text-[10px] text-foreground/60 font-light">{col.sub}</p>
                       </div>
                     ))}
                   </div>
@@ -540,7 +540,7 @@ const Index = () => {
                       {row.values.slice(0, 3).map((val, j) => (
                         <div key={j} className="border-l border-border/10 py-4 flex items-center justify-center">
                           {val === true      && <Check className="h-5 w-5 text-brand-emerald/70" />}
-                          {val === false     && <X     className="h-4 w-4 text-foreground/30" />}
+                          {val === false     && <X     className="h-4 w-4 text-foreground/50" />}
                           {val === "partial" && <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 58%)" }} />}
                         </div>
                       ))}
@@ -561,7 +561,7 @@ const Index = () => {
                     {/* Competidores */}
                     {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
                       <div key={cost} className="border-l border-border/15 py-5 flex items-center justify-center">
-                        <span className="text-sm font-bold text-foreground/55 tabular-nums">{cost}</span>
+                        <span className="text-sm font-bold text-foreground/75 tabular-nums">{cost}</span>
                       </div>
                     ))}
                   </div>
@@ -571,16 +571,16 @@ const Index = () => {
 
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
-                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
+                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
                   <Check className="h-3.5 w-3.5 text-brand-emerald" /> Incluido
                 </span>
-                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
+                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
                   <Minus className="h-3.5 w-3.5" style={{ color: "hsl(35 70% 58%)" }} /> Parcial o con coste extra
                 </span>
-                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
-                  <X className="h-3.5 w-3.5 text-foreground/40" /> No disponible
+                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
+                  <X className="h-3.5 w-3.5 text-foreground/55" /> No disponible
                 </span>
-                <span className="text-xs text-foreground/35">· Estimaciones orientativas</span>
+                <span className="text-xs text-foreground/55">· Estimaciones orientativas</span>
               </div>
             </motion.div>
           </div>

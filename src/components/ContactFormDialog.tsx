@@ -114,7 +114,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar demo <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
-              <p className="text-xs text-muted-foreground/50 text-center">Sin compromiso · Respuesta en &lt;24h · Setup en 30 min</p>
+              <p className="text-xs text-muted-foreground/65 text-center">Sin compromiso · Respuesta en &lt;24h · Setup en 30 min</p>
             </form>
           </>
         )}

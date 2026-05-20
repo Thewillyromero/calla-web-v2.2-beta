@@ -93,11 +93,11 @@ const PressQuotes = () => {
                   </blockquote>
 
                   <div className="flex items-center justify-center gap-2">
-                    <span className="font-editorial font-bold italic text-sm text-muted-foreground/60">
+                    <span className="font-editorial font-bold italic text-sm text-muted-foreground/75">
                       &mdash;{quote.source}
                     </span>
                     {quote.year && (
-                      <span className="text-xs text-muted-foreground/55">
+                      <span className="text-xs text-muted-foreground/65">
                         (Citation, {quote.year})
                       </span>
                     )}
