@@ -1,13 +1,13 @@
 // V2 sync
-import { useRef, useState } from "react";
+import { useRef, useState, lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import SocialProof from "@/components/SocialProof";
 import LogoMarquee from "@/components/LogoMarquee";
-import PressQuotes from "@/components/PressQuotes";
-import PressBar from "@/components/PressBar";
 import SectionFade from "@/components/SectionFade";
+
+const DemoCall = lazy(() => import("@/components/DemoCall"));
 import FOMONotifications from "@/components/FOMONotifications";
 import LiveViewers from "@/components/LiveViewers";
 import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
@@ -628,18 +628,13 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 6. PROOF — Social proof ─── */}
-      <SectionFade>
-        <PressQuotes />
-      </SectionFade>
-
+      {/* ─── 6. DEMO — Habla con ARIA ─── */}
+      <Suspense fallback={<div className="py-20" />}>
+        <DemoCall />
+      </Suspense>
 
       <SectionFade>
         <LogoMarquee />
-      </SectionFade>
-
-      <SectionFade>
-        <SocialProof />
       </SectionFade>
 
       <SectionFade>
@@ -676,6 +671,7 @@ const Index = () => {
         </section>
       </SectionFade>
 
+      <SocialProof />
       <Footer />
       <FOMONotifications />
       <LiveViewers />

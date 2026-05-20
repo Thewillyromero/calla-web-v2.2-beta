@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Chatbot from "./components/Chatbot.tsx";
-import SideNav from "./components/SideNav.tsx";
 import ScrollProgress from "./components/ScrollProgress.tsx";
 import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
 
@@ -32,7 +31,6 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <LiveMetricsProvider>
-        <div className="hidden lg:block"><SideNav /></div>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/precios" element={<Suspense fallback={<div className="py-20" />}><Pricing /></Suspense>} />
