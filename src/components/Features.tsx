@@ -221,7 +221,11 @@ const Features = () => {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className="group relative rounded-2xl border border-border/25 overflow-visible transition-all duration-500"
+                onClick={() => {
+                  const slug = f.agent.toLowerCase();
+                  navigate(slug === "halo" ? "/equipo" : `/${slug}`);
+                }}
+                className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
                 style={{
                   background: isHovered
                     ? `linear-gradient(135deg, hsl(${f.hsl} / 0.06) 0%, hsl(var(--card) / 0.5) 60%)`
@@ -358,19 +362,14 @@ const Features = () => {
                       {f.description}
                     </p>
 
-                    {/* Navigation CTA — always visible */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const slug = f.agent.toLowerCase();
-                        navigate(slug === "halo" ? "/equipo" : `/${slug}`);
-                      }}
-                      className="flex items-center gap-1.5 text-sm font-display font-semibold hover:opacity-80 transition-opacity mt-1 cursor-pointer"
+                    {/* Navigation CTA */}
+                    <div
+                      className="flex items-center gap-1.5 text-sm font-display font-semibold mt-1"
                       style={{ color: `hsl(${f.hsl})` }}
                     >
                       Conocer más
                       <ArrowRight className="h-3.5 w-3.5" />
-                    </button>
+                    </div>
                   </div>
                 </div>
 
