@@ -481,7 +481,7 @@ const Index = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
                 ¿Por qué <span className="text-gradient">CALLA</span> y no otra solución?
               </h2>
-              <p className="text-foreground/70 font-light max-w-lg mx-auto">
+              <p className="text-foreground/85 font-light max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
               </p>
             </motion.div>
@@ -519,9 +519,9 @@ const Index = () => {
                       { name: "Herramienta genérica", sub: "ChatGPT, n8n, etc.",       Icon: Wrench },
                     ].map((col) => (
                       <div key={col.name} className="px-4 py-5 text-center bg-card/60 border-b border-l border-border/30 flex flex-col items-center justify-center gap-2">
-                        <col.Icon className="h-4 w-4 text-foreground/55" />
-                        <p className="text-sm font-display font-semibold text-foreground leading-tight">{col.name}</p>
-                        <p className="text-xs text-foreground/65 font-light">{col.sub}</p>
+                        <col.Icon className="h-5 w-5 text-foreground/70" />
+                        <p className="text-base font-display font-semibold text-foreground leading-tight">{col.name}</p>
+                        <p className="text-xs text-foreground/80 font-light">{col.sub}</p>
                       </div>
                     ))}
                   </div>
@@ -533,19 +533,19 @@ const Index = () => {
                       className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/20"
                       style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.40)" : "transparent" }}
                     >
-                      <div className="px-6 py-4 text-base text-foreground font-medium flex items-center leading-snug">
+                      <div className="px-6 py-5 text-base text-foreground font-medium flex items-center leading-snug">
                         {row.label}
                       </div>
                       {/* CALLA siempre ✓ */}
-                      <div className="border-l border-primary/20 bg-primary/[0.06] py-4 flex items-center justify-center">
+                      <div className="border-l border-primary/20 bg-primary/[0.06] py-5 flex items-center justify-center">
                         <Check className="h-5 w-5 text-primary" />
                       </div>
                       {/* Competidores */}
                       {row.values.slice(0, 3).map((val, j) => (
-                        <div key={j} className="border-l border-border/20 py-4 flex items-center justify-center">
-                          {val === true      && <Check className="h-5 w-5 text-foreground/70" />}
-                          {val === false     && <X     className="h-4 w-4 text-foreground/40" />}
-                          {val === "partial" && <Minus className="h-4 w-4 text-foreground/50" />}
+                        <div key={j} className="border-l border-border/20 py-5 flex items-center justify-center">
+                          {val === true      && <Check className="h-5 w-5 text-foreground/80" />}
+                          {val === false     && <X     className="h-5 w-5 text-red-400" />}
+                          {val === "partial" && <Minus className="h-5 w-5 text-orange-400" />}
                         </div>
                       ))}
                     </div>
@@ -565,7 +565,7 @@ const Index = () => {
                     {/* Competidores */}
                     {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
                       <div key={cost} className="border-l border-border/25 py-5 flex items-center justify-center">
-                        <span className="text-sm font-bold text-foreground/85 tabular-nums">{cost}</span>
+                        <span className="text-base font-bold text-foreground tabular-nums">{cost}</span>
                       </div>
                     ))}
                   </div>
@@ -574,17 +574,17 @@ const Index = () => {
               </div>
 
               {/* Legend */}
-              <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
-                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
+              <div className="flex items-center justify-center gap-5 mt-5 flex-wrap">
+                <span className="flex items-center gap-1.5 text-sm text-foreground">
                   <Check className="h-4 w-4 text-primary" /> Incluido
                 </span>
-                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
-                  <Minus className="h-4 w-4 text-foreground/55" /> Parcial o con coste extra
+                <span className="flex items-center gap-1.5 text-sm text-foreground">
+                  <Minus className="h-4 w-4 text-orange-400" /> Parcial o con coste extra
                 </span>
-                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
-                  <X className="h-4 w-4 text-foreground/45" /> No disponible
+                <span className="flex items-center gap-1.5 text-sm text-foreground">
+                  <X className="h-4 w-4 text-red-400" /> No disponible
                 </span>
-                <span className="text-sm text-foreground/60">· Estimaciones orientativas</span>
+                <span className="text-sm text-foreground/70">· Estimaciones orientativas</span>
               </div>
             </motion.div>
           </div>
