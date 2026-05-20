@@ -105,7 +105,7 @@ const features = [
     image: haloConductor,
     agent: "HALO",
     icon: Sparkles,
-    title: "Orquesta a todos los agentes.",
+    title: "Orquesta a todos los agentes",
     description:
       "El único miembro del equipo que no habla con tus clientes, pero sin el que los demás no funcionarían igual. HALO pasa el contexto en tiempo real: cuando ARIA recibe una llamada, LUMI ya conoce al cliente.",
     personality: "El director del equipo",
