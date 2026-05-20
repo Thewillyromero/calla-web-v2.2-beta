@@ -376,7 +376,7 @@ const Index = () => {
                 <span className="text-gradient">en tu empresa</span>
               </h2>
               <p className="text-foreground/60 max-w-lg mx-auto text-base font-light">
-                Desde la primera llamada hasta la fidelización. Un solo sistema que lo gestiona todo.
+                Un ecosistema que lo gestiona todo.
               </p>
             </motion.div>
 
