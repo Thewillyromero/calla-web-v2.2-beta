@@ -490,77 +490,80 @@ const Index = () => {
               className="max-w-5xl mx-auto"
             >
               <div className="relative overflow-x-auto rounded-2xl border border-border/20">
-                {/* mobile scroll fade hint */}
                 <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background/80 to-transparent pointer-events-none z-10 md:hidden rounded-r-2xl" />
 
                 <div className="min-w-[660px]">
 
                   {/* ── Column headers ── */}
-                  <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr]">
+                  <div className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr]">
                     <div className="px-6 py-5 bg-card/50 border-b border-border/15" />
+
+                    {/* CALLA — primera */}
+                    <div className="px-4 py-5 text-center border-b border-l border-border/15 bg-brand-teal/[0.08] relative flex flex-col items-center justify-center gap-1.5">
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/70 to-transparent" />
+                      <div className="inline-flex items-center gap-1 bg-brand-teal/15 border border-brand-teal/30 rounded-full px-2.5 py-0.5">
+                        <span className="text-[9px] font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 62%)" }}>Recomendado</span>
+                      </div>
+                      <img src={heroRobot} alt="CALLA" className="h-7 w-7 object-contain" loading="lazy" />
+                      <p className="text-sm font-display font-bold text-foreground">CALLA</p>
+                    </div>
+
+                    {/* Competidores */}
                     {[
-                      { name: "Contratar personal",   sub: "Secretaria, admin, IT",    Icon: Users },
-                      { name: "Agencia digital",       sub: "Consultoría + desarrollo", Icon: Building2 },
-                      { name: "Herramienta genérica",  sub: "ChatGPT, n8n, etc.",       Icon: Wrench },
+                      { name: "Contratar personal",  sub: "Secretaria, admin, IT",    Icon: Users },
+                      { name: "Agencia digital",      sub: "Consultoría + desarrollo", Icon: Building2 },
+                      { name: "Herramienta genérica", sub: "ChatGPT, n8n, etc.",       Icon: Wrench },
                     ].map((col) => (
-                      <div key={col.name} className="px-4 py-5 text-center bg-card/50 border-b border-l border-border/15 flex flex-col items-center justify-center gap-1.5">
-                        <col.Icon className="h-4 w-4 text-foreground/25" />
-                        <p className="text-[11px] font-display font-semibold text-foreground/50 leading-tight">{col.name}</p>
-                        <p className="text-[9px] text-foreground/30 font-light">{col.sub}</p>
+                      <div key={col.name} className="px-4 py-5 text-center bg-card/50 border-b border-l border-border/15 flex flex-col items-center justify-center gap-2">
+                        <col.Icon className="h-4 w-4 text-foreground/40" />
+                        <p className="text-xs font-display font-semibold text-foreground/65 leading-tight">{col.name}</p>
+                        <p className="text-[10px] text-foreground/45 font-light">{col.sub}</p>
                       </div>
                     ))}
-                    {/* CALLA header */}
-                    <div className="px-4 py-5 text-center border-b border-l border-border/15 bg-brand-teal/[0.07] relative flex flex-col items-center justify-center gap-1.5">
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/60 to-transparent" />
-                      <div className="inline-flex items-center gap-1 bg-brand-teal/15 border border-brand-teal/30 rounded-full px-2.5 py-0.5 mb-0.5">
-                        <span className="text-[9px] font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 60%)" }}>
-                          Recomendado
-                        </span>
-                      </div>
-                      <img src={heroRobot} alt="CALLA" className="h-6 w-6 object-contain" loading="lazy" />
-                      <p className="text-xs font-display font-bold text-foreground">CALLA</p>
-                    </div>
                   </div>
 
                   {/* ── Data rows ── */}
                   {comparisonRows.map((row, i) => (
                     <div
                       key={row.label}
-                      className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr] border-t border-border/10"
-                      style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.18)" : "transparent" }}
+                      className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/10"
+                      style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.22)" : "transparent" }}
                     >
-                      <div className="px-6 py-4 text-sm text-foreground/70 font-medium flex items-center leading-snug">
+                      <div className="px-6 py-4 text-sm text-foreground/85 font-medium flex items-center leading-snug">
                         {row.label}
                       </div>
+                      {/* CALLA siempre ✓ */}
+                      <div className="border-l border-brand-teal/20 bg-brand-teal/[0.05] py-4 flex items-center justify-center">
+                        <Check className="h-5 w-5" style={{ color: "hsl(190 60% 60%)" }} />
+                      </div>
+                      {/* Competidores */}
                       {row.values.slice(0, 3).map((val, j) => (
                         <div key={j} className="border-l border-border/10 py-4 flex items-center justify-center">
-                          {val === true    && <Check className="h-5 w-5 text-brand-emerald" />}
-                          {val === false   && <X     className="h-4 w-4 text-foreground/18" />}
-                          {val === "partial" && <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 55% / 0.7)" }} />}
+                          {val === true      && <Check className="h-5 w-5 text-brand-emerald/70" />}
+                          {val === false     && <X     className="h-4 w-4 text-foreground/30" />}
+                          {val === "partial" && <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 58%)" }} />}
                         </div>
                       ))}
-                      <div className="border-l border-brand-teal/20 bg-brand-teal/[0.05] py-4 flex items-center justify-center">
-                        <Check className="h-5 w-5" style={{ color: "hsl(190 60% 58%)" }} />
-                      </div>
                     </div>
                   ))}
 
                   {/* ── Cost row ── */}
-                  <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr] border-t border-border/20 bg-card/30">
+                  <div className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/20 bg-card/30">
                     <div className="px-6 py-5 flex items-center">
-                      <span className="text-sm font-display font-semibold text-foreground/65">Coste mensual estimado</span>
+                      <span className="text-sm font-display font-semibold text-foreground/75">Coste mensual estimado</span>
                     </div>
+                    {/* CALLA — sin precio */}
+                    <div className="border-l border-brand-teal/25 bg-brand-teal/[0.07] py-5 flex items-center justify-center">
+                      <Link to="/precios" className="text-xs font-display font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: "hsl(190 60% 62%)" }}>
+                        Ver precios <ArrowRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                    {/* Competidores */}
                     {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
                       <div key={cost} className="border-l border-border/15 py-5 flex items-center justify-center">
-                        <span className="text-sm font-bold text-foreground/35 tabular-nums">{cost}</span>
+                        <span className="text-sm font-bold text-foreground/55 tabular-nums">{cost}</span>
                       </div>
                     ))}
-                    <div className="border-l border-brand-teal/25 bg-brand-teal/[0.09] py-5 flex flex-col items-center justify-center">
-                      <span className="text-base font-display font-extrabold tabular-nums" style={{ color: "hsl(190 60% 62%)" }}>
-                        desde 297€
-                      </span>
-                      <span className="text-[10px] text-foreground/40 font-light">/mes</span>
-                    </div>
                   </div>
 
                 </div>
@@ -568,16 +571,16 @@ const Index = () => {
 
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
-                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
+                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
                   <Check className="h-3.5 w-3.5 text-brand-emerald" /> Incluido
                 </span>
-                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
-                  <Minus className="h-3.5 w-3.5" style={{ color: "hsl(35 70% 55% / 0.6)" }} /> Parcial o con coste extra
+                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
+                  <Minus className="h-3.5 w-3.5" style={{ color: "hsl(35 70% 58%)" }} /> Parcial o con coste extra
                 </span>
-                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
-                  <X className="h-3.5 w-3.5 text-foreground/25" /> No disponible
+                <span className="flex items-center gap-1.5 text-xs text-foreground/55">
+                  <X className="h-3.5 w-3.5 text-foreground/40" /> No disponible
                 </span>
-                <span className="text-[11px] text-foreground/25">· Estimaciones orientativas de mercado</span>
+                <span className="text-xs text-foreground/35">· Estimaciones orientativas</span>
               </div>
             </motion.div>
           </div>
