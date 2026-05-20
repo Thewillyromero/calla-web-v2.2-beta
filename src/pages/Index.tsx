@@ -402,25 +402,26 @@ const Index = () => {
                       i < capabilities.length - 1 ? " border-b border-border/15" : ""
                     }`}
                     style={{
-                      background: hoveredCap === i ? `hsl(${cap.hsl} / 0.04)` : "transparent",
+                      background: hoveredCap === i ? "hsl(var(--primary) / 0.025)" : "transparent",
                     }}
                   >
-                    {/* Left accent bar */}
+                    {/* Timeline line — siempre visible, brilla en hover */}
                     <motion.div
-                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full"
-                      style={{ background: `hsl(${cap.hsl})`, originY: 0.5 }}
+                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-primary"
                       animate={{
-                        opacity: hoveredCap === i ? 1 : 0,
-                        scaleY: hoveredCap === i ? 1 : 0.3,
+                        opacity: hoveredCap === i ? 1 : 0.12,
+                        scaleY: hoveredCap === i ? 1 : 0.85,
                       }}
                       transition={{ duration: 0.25 }}
                     />
 
-                    {/* Number */}
+                    {/* Number — decorativo en reposo, visible en hover */}
                     <motion.span
                       className="text-5xl md:text-6xl font-display font-black shrink-0 leading-none tabular-nums select-none w-14 md:w-16 text-right"
                       animate={{
-                        color: hoveredCap === i ? `hsl(${cap.hsl})` : `hsl(${cap.hsl} / 0.28)`,
+                        color: hoveredCap === i
+                          ? "hsl(var(--foreground) / 0.55)"
+                          : "hsl(var(--foreground) / 0.10)",
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -439,12 +440,7 @@ const Index = () => {
                         {cap.chips.map((chip) => (
                           <span
                             key={chip}
-                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border"
-                            style={{
-                              background: `hsl(${cap.hsl} / 0.08)`,
-                              color: `hsl(${cap.hsl})`,
-                              borderColor: `hsl(${cap.hsl} / 0.22)`,
-                            }}
+                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-border/30 bg-foreground/[0.04] text-foreground/65"
                           >
                             {chip}
                           </span>
@@ -538,14 +534,14 @@ const Index = () => {
                       </div>
                       {/* CALLA siempre ✓ */}
                       <div className="border-l border-primary/20 bg-primary/[0.06] py-5 flex items-center justify-center">
-                        <Check className="h-5 w-5 text-primary" />
+                        <Check className="h-5 w-5 text-brand-emerald" />
                       </div>
                       {/* Competidores */}
                       {row.values.slice(0, 3).map((val, j) => (
                         <div key={j} className="border-l border-border/20 py-5 flex items-center justify-center">
-                          {val === true      && <Check className="h-5 w-5 text-foreground/80" />}
+                          {val === true      && <Check className="h-5 w-5 text-brand-emerald" />}
                           {val === false     && <X     className="h-5 w-5 text-red-400" />}
-                          {val === "partial" && <Minus className="h-5 w-5 text-orange-400" />}
+                          {val === "partial" && <Minus className="h-5 w-5 text-amber-400" />}
                         </div>
                       ))}
                     </div>
@@ -576,10 +572,10 @@ const Index = () => {
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-5 flex-wrap">
                 <span className="flex items-center gap-1.5 text-sm text-foreground">
-                  <Check className="h-4 w-4 text-primary" /> Incluido
+                  <Check className="h-4 w-4 text-brand-emerald" /> Incluido
                 </span>
                 <span className="flex items-center gap-1.5 text-sm text-foreground">
-                  <Minus className="h-4 w-4 text-orange-400" /> Parcial o con coste extra
+                  <Minus className="h-4 w-4 text-amber-400" /> Parcial o con coste extra
                 </span>
                 <span className="flex items-center gap-1.5 text-sm text-foreground">
                   <X className="h-4 w-4 text-red-400" /> No disponible
