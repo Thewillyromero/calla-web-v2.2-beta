@@ -185,7 +185,7 @@ const Pricing = () => {
           </motion.div>
 
           {/* Pricing cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start pt-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start pt-10">
             {tiers.map((tier, i) => {
               const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * 0.8).toString() : tier.price;
 
@@ -199,11 +199,20 @@ const Pricing = () => {
                   className={`relative transition-all duration-500 ${tier.popular ? "md:-mt-4 md:mb-4" : ""}`}
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 >
+                  {/* Badge FUERA del glow-border para que overflow:hidden no lo corte */}
+                  {tier.badge && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                      <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold rounded-full shadow-lg whitespace-nowrap inline-block leading-none px-5 py-2">
+                        {tier.badge}
+                      </span>
+                    </div>
+                  )}
+
                   <div
-                    className={`rounded-2xl p-5 sm:p-6 lg:p-8 h-full transition-all duration-500 ${
+                    className={`rounded-2xl h-full transition-all duration-500 ${
                       tier.popular
-                        ? "glass-warm glow-border border-brand-lavender/20"
-                        : "glass border-border/20 hover:border-border/30"
+                        ? "glass-warm glow-border border-brand-lavender/20 pt-8 px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8"
+                        : "glass border-border/20 hover:border-border/30 p-5 sm:p-6 lg:p-8"
                     }`}
                     style={{
                       boxShadow: tier.popular
@@ -211,14 +220,6 @@ const Pricing = () => {
                         : undefined,
                     }}
                   >
-                    {tier.badge && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                        <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold rounded-full shadow-lg whitespace-nowrap inline-block leading-none px-[20px] py-[8px]">
-                          {tier.badge}
-                        </span>
-                      </div>
-                    )}
-
                     <div className="flex items-center gap-3 mb-4">
                       <div className={`w-10 h-10 rounded-xl bg-${tier.accent}/10 flex items-center justify-center shrink-0`}>
                         <tier.icon className={`h-5 w-5 ${tier.accentClass}`} />
@@ -241,7 +242,7 @@ const Pricing = () => {
 
                     <Button
                       size="lg"
-                      className="w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl"
+                      className="w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl border-border/40 hover:bg-primary/10 hover:text-primary hover:border-primary/40 transition-colors"
                       variant="outline"
                       onClick={() => window.open(BOOKING_URL, "_blank")}
                     >
