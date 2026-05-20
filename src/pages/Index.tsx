@@ -372,7 +372,7 @@ const Index = () => {
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Cobertura total</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-4">
-                Todo lo que cubrimos{" "}
+                Todo lo que desarrollamos{" "}
                 <span className="text-gradient">en tu empresa</span>
               </h2>
               <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
