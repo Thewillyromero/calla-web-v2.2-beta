@@ -109,6 +109,7 @@ const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/m4SFv9fHyIZr
 const Pricing = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [annual, setAnnual] = useState(false);
+  const [hoveredBtn, setHoveredBtn] = useState<number | null>(null);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -242,8 +243,15 @@ const Pricing = () => {
 
                     <Button
                       size="lg"
-                      className="w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl border-border/40 hover:bg-primary/10 hover:text-primary hover:border-primary/40 transition-colors"
+                      className="w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl transition-all duration-200"
                       variant="outline"
+                      onMouseEnter={() => setHoveredBtn(i)}
+                      onMouseLeave={() => setHoveredBtn(null)}
+                      style={hoveredBtn === i ? {
+                        backgroundColor: `hsl(${tier.hsl} / 0.12)`,
+                        borderColor: `hsl(${tier.hsl} / 0.6)`,
+                        color: `hsl(${tier.hsl})`,
+                      } : {}}
                       onClick={() => window.open(BOOKING_URL, "_blank")}
                     >
                       {tier.cta}
