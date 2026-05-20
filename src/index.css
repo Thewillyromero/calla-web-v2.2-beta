@@ -325,6 +325,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
+  pointer-events: none;
   background: conic-gradient(
     from var(--glow-angle),
     transparent 25%,
@@ -347,6 +348,7 @@
   position: absolute;
   inset: -4px;
   border-radius: inherit;
+  pointer-events: none;
   background: conic-gradient(
     from var(--glow-angle),
     transparent 25%,
