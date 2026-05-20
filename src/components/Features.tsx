@@ -8,7 +8,7 @@ import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/care-waving-transparent.png";
 import heroRobot from "@/assets/hero-robot.webp";
 import haloConductor from "@/assets/halo-conductor.png";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight, Check } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight } from "lucide-react";
 
 const features = [
   {
@@ -170,7 +170,6 @@ const badgeVariants = {
 
 const Features = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const navigate = useNavigate();
 
   return (
@@ -358,45 +357,6 @@ const Features = () => {
                     <p className="text-sm text-foreground/85 leading-relaxed mb-3">
                       {f.description}
                     </p>
-
-                    {/* Expandable details toggle */}
-                    <button
-                      type="button"
-                      onClick={() => setExpandedIdx(expandedIdx === i ? null : i)}
-                      className="flex items-center gap-1 text-xs font-display font-semibold mb-2 transition-opacity duration-200 hover:opacity-70"
-                      style={{ color: `hsl(${f.hsl})` }}
-                    >
-                      {expandedIdx === i ? "– info" : "+ info"}
-                    </button>
-
-                    <AnimatePresence initial={false}>
-                      {expandedIdx === i && (
-                        <motion.ul
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                          className="overflow-hidden space-y-1.5 mb-2"
-                        >
-                          {f.expandedDetails.map((detail, j) => (
-                            <motion.li
-                              key={j}
-                              initial={{ opacity: 0, x: -8 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              exit={{ opacity: 0, x: -8 }}
-                              transition={{ duration: 0.25, delay: j * 0.06 }}
-                              className="flex items-start gap-2 text-xs text-muted-foreground/70 leading-relaxed"
-                            >
-                              <Check
-                                className="h-3.5 w-3.5 mt-0.5 shrink-0"
-                                style={{ color: `hsl(${f.hsl})` }}
-                              />
-                              <span>{detail}</span>
-                            </motion.li>
-                          ))}
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
 
                     {/* Navigation CTA — always visible */}
                     <button
