@@ -213,7 +213,7 @@ const Pricing = () => {
                   >
                     {tier.badge && (
                       <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                        <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold rounded-full shadow-lg whitespace-nowrap inline-block leading-none px-[20px] py-[8px] my-[30px]">
+                        <span className="bg-gradient-to-r from-brand-lavender to-brand-rose text-primary-foreground text-[11px] font-bold rounded-full shadow-lg whitespace-nowrap inline-block leading-none px-[20px] py-[8px]">
                           {tier.badge}
                         </span>
                       </div>
@@ -241,8 +241,8 @@ const Pricing = () => {
 
                     <Button
                       size="lg"
-                      className={`w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl ${tier.popular ? "glow-box" : ""}`}
-                      variant={tier.popular ? "default" : "outline"}
+                      className="w-full mb-5 sm:mb-6 text-sm sm:text-base rounded-xl"
+                      variant="outline"
                       onClick={() => window.open(BOOKING_URL, "_blank")}
                     >
                       {tier.cta}
