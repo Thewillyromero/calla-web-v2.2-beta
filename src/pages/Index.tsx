@@ -149,6 +149,44 @@ const agents = [
   },
 ];
 
+const capabilities = [
+  {
+    number: "01",
+    title: "Atendemos toda tu comunicación telefónica",
+    description: "Entrante, saliente, 24 horas al día, 7 días a la semana. Nunca una llamada perdida.",
+    chips: ["Llamadas entrantes", "Llamadas salientes", "24/7", "Voz natural"],
+    hsl: "190 60% 55%",
+  },
+  {
+    number: "02",
+    title: "Agendamos citas sin intervención humana",
+    description: "Tu calendario se llena solo. Sin errores ni dobles reservas.",
+    chips: ["Google Calendar", "Calendly", "CRM", "Recordatorios"],
+    hsl: "160 50% 48%",
+  },
+  {
+    number: "03",
+    title: "Automatizamos flujos y procesos internos",
+    description: "Transferencias inteligentes, integraciones y asistentes IA a medida para tu operativa.",
+    chips: ["Integraciones", "Workflows", "Asistentes IA", "API"],
+    hsl: "260 50% 65%",
+  },
+  {
+    number: "04",
+    title: "Analizamos cada conversación en tiempo real",
+    description: "Dashboard con todo lo que pasa en tu atención. Sabes qué funciona y dónde mejorar.",
+    chips: ["Analytics", "Sentimiento", "Patrones", "Informes semanales"],
+    hsl: "35 70% 58%",
+  },
+  {
+    number: "05",
+    title: "Fidelizamos a tus clientes post-venta",
+    description: "Seguimiento automático, NPS y detección de churn antes de que se vayan.",
+    chips: ["Post-venta", "NPS", "Retención", "Cross-sell"],
+    hsl: "340 55% 60%",
+  },
+];
+
 const steps = [
   {
     number: "1",
@@ -201,6 +239,7 @@ const itemVariants = {
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [hoveredAgent, setHoveredAgent] = useState<number | null>(null);
+  const [hoveredCap, setHoveredCap] = useState<number | null>(null);
 
   /* Task 2: Hero robot scroll-based parallax */
   const { scrollYProgress } = useScroll({
@@ -314,83 +353,135 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 2. WHAT WE DO — 3 value props with characters ─── */}
+      {/* ─── 2. WHAT WE DO — capability map ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20 relative overflow-hidden">
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.h2
-              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
-              {...fade}
-            >
-              ¿Qué hacemos por tu empresa?
-            </motion.h2>
+        <section className="py-16 md:py-24 px-5 md:px-6 relative overflow-hidden">
+          <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] rounded-full bg-brand-teal/[0.03] blur-[160px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-lavender/[0.025] blur-[140px] pointer-events-none" />
+          <div className="container mx-auto relative z-10">
+
+            {/* Header */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto pt-16 sm:pt-20"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="text-center mb-12"
             >
-              {valueProps.map((vp) => {
-                const Icon = vp.icon;
-                return (
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
+                <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs text-primary font-display font-semibold tracking-wide">Cobertura total</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-4">
+                Todo lo que cubrimos{" "}
+                <span className="text-gradient">en tu empresa</span>
+              </h2>
+              <p className="text-foreground/60 max-w-lg mx-auto text-base font-light">
+                Desde la primera llamada hasta la fidelización. Un solo sistema que lo gestiona todo.
+              </p>
+            </motion.div>
+
+            {/* Capability list */}
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                className="bg-card/30 rounded-2xl border border-border/20 overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {capabilities.map((cap, i) => (
                   <motion.div
-                    key={vp.title}
-                    className={`group relative bg-gradient-to-br ${vp.gradient} border border-border/30 rounded-2xl p-7 pt-24 sm:pt-28 transition-all duration-500 hover:-translate-y-1`}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 60px ${vp.color}40, 0 25px 60px rgba(0,0,0,0.25)`;
-                      e.currentTarget.style.borderColor = `${vp.color}99`;
-                      const img = e.currentTarget.querySelector('img');
-                      if (img) (img as HTMLElement).style.filter = `drop-shadow(0 0 28px ${vp.color}ee) drop-shadow(0 0 12px ${vp.color}aa) drop-shadow(0 8px 16px ${vp.color}66)`;
+                    key={cap.number}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                    onMouseEnter={() => setHoveredCap(i)}
+                    onMouseLeave={() => setHoveredCap(null)}
+                    className={`relative flex items-start gap-5 md:gap-10 px-6 md:px-10 py-6 transition-colors duration-300 cursor-default${
+                      i < capabilities.length - 1 ? " border-b border-border/15" : ""
+                    }`}
+                    style={{
+                      background: hoveredCap === i ? `hsl(${cap.hsl} / 0.04)` : "transparent",
                     }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '';
-                      e.currentTarget.style.borderColor = '';
-                      const img = e.currentTarget.querySelector('img');
-                      if (img) (img as HTMLElement).style.filter = '';
-                    }}
-                    variants={itemVariants}
                   >
-                    {/* Color glow behind character — wraps it like Features */}
-                    <div
-                      className="absolute -top-8 right-0 sm:right-2 w-52 h-52 rounded-full blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      style={{ background: `radial-gradient(circle, ${vp.color}, transparent 70%)`, transform: 'scale(1.4)' }}
-                    />
-                    {/* Character peeking out — idle bob + hover head wobble */}
-                    <motion.img
-                      src={vp.image}
-                      alt={vp.agentName}
-                      loading="lazy"
-                      className="absolute -top-10 sm:-top-12 right-2 sm:right-4 w-40 h-40 sm:w-48 sm:h-48 object-contain select-none z-10"
-                      style={{ filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.5))', transition: 'filter 400ms ease', transformOrigin: 'center bottom' }}
-                      animate={{ y: [0, -1.2, 0] }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                      whileHover={{
-                        rotate: [0, -1.8, 1.5, -0.9, 0],
-                        scale: 1.024,
-                        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+                    {/* Left accent bar */}
+                    <motion.div
+                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full"
+                      style={{ background: `hsl(${cap.hsl})`, originY: 0.5 }}
+                      animate={{
+                        opacity: hoveredCap === i ? 1 : 0,
+                        scaleY: hoveredCap === i ? 1 : 0.3,
                       }}
+                      transition={{ duration: 0.25 }}
                     />
-                    <div className="relative">
-                      <Icon className="h-7 w-7 mb-3" style={{ color: vp.color }} />
-                      <h3 className="text-lg font-bold text-foreground mb-2 leading-tight">
-                        {vp.title}
+
+                    {/* Number */}
+                    <motion.span
+                      className="text-5xl md:text-6xl font-display font-black shrink-0 leading-none tabular-nums select-none w-14 md:w-16 text-right"
+                      animate={{
+                        color: hoveredCap === i ? `hsl(${cap.hsl})` : `hsl(${cap.hsl} / 0.28)`,
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {cap.number}
+                    </motion.span>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0 pt-1.5">
+                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
+                        {cap.title}
                       </h3>
-                      <p className="text-sm text-foreground/80 mb-4 leading-relaxed">
-                        {vp.description}
+                      <p className="text-sm text-foreground/55 font-light mb-3 leading-relaxed">
+                        {cap.description}
                       </p>
-                      <Link
-                        to={vp.link}
-                        className="text-sm font-medium inline-flex items-center gap-1 hover:underline"
-                        style={{ color: vp.color }}
-                      >
-                        Conoce a {vp.agentName} <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
+                      <div className="flex flex-wrap gap-1.5">
+                        {cap.chips.map((chip) => (
+                          <span
+                            key={chip}
+                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border"
+                            style={{
+                              background: `hsl(${cap.hsl} / 0.08)`,
+                              color: `hsl(${cap.hsl})`,
+                              borderColor: `hsl(${cap.hsl} / 0.22)`,
+                            }}
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
-                );
-              })}
-            </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Metrics strip */}
+              <motion.div
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {[
+                  { value: "2M+", label: "llamadas gestionadas" },
+                  { value: "+200", label: "empresas activas" },
+                  { value: "24/7", label: "disponibilidad real" },
+                  { value: "< 30 min", label: "tiempo de activación" },
+                ].map((m) => (
+                  <div
+                    key={m.value}
+                    className="text-center bg-card/30 rounded-xl border border-border/15 px-4 py-4"
+                  >
+                    <div className="text-xl md:text-2xl font-display font-extrabold text-foreground mb-0.5">
+                      {m.value}
+                    </div>
+                    <p className="text-[11px] text-foreground/50 font-light">{m.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </section>
       </SectionFade>
