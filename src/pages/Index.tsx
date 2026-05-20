@@ -489,23 +489,23 @@ const Index = () => {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-5xl mx-auto"
             >
-              <div className="relative overflow-x-auto rounded-2xl border border-border/20">
+              <div className="relative overflow-x-auto rounded-2xl border border-border/40 bg-card/20">
                 <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background/80 to-transparent pointer-events-none z-10 md:hidden rounded-r-2xl" />
 
                 <div className="min-w-[660px]">
 
                   {/* ── Column headers ── */}
                   <div className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr]">
-                    <div className="px-6 py-5 bg-card/50 border-b border-border/15" />
+                    <div className="px-6 py-5 bg-card/60 border-b border-border/30" />
 
                     {/* CALLA — primera */}
-                    <div className="px-4 py-5 text-center border-b border-l border-border/15 bg-brand-teal/[0.08] relative flex flex-col items-center justify-center gap-1.5">
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/70 to-transparent" />
-                      <div className="inline-flex items-center gap-1 bg-brand-teal/15 border border-brand-teal/30 rounded-full px-2.5 py-0.5">
-                        <span className="text-[9px] font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 62%)" }}>Recomendado</span>
+                    <div className="px-4 py-5 text-center border-b border-l border-border/30 bg-brand-teal/[0.12] relative flex flex-col items-center justify-center gap-1.5">
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/80 to-transparent" />
+                      <div className="inline-flex items-center gap-1 bg-brand-teal/20 border border-brand-teal/40 rounded-full px-2.5 py-0.5">
+                        <span className="text-xs font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 68%)" }}>Recomendado</span>
                       </div>
-                      <img src={heroRobot} alt="CALLA" className="h-7 w-7 object-contain" loading="lazy" />
-                      <p className="text-sm font-display font-bold text-foreground">CALLA</p>
+                      <img src={heroRobot} alt="CALLA" className="h-8 w-8 object-contain" loading="lazy" />
+                      <p className="text-base font-display font-bold text-foreground">CALLA</p>
                     </div>
 
                     {/* Competidores */}
@@ -514,10 +514,10 @@ const Index = () => {
                       { name: "Agencia digital",      sub: "Consultoría + desarrollo", Icon: Building2 },
                       { name: "Herramienta genérica", sub: "ChatGPT, n8n, etc.",       Icon: Wrench },
                     ].map((col) => (
-                      <div key={col.name} className="px-4 py-5 text-center bg-card/50 border-b border-l border-border/15 flex flex-col items-center justify-center gap-2">
-                        <col.Icon className="h-4 w-4 text-foreground/40" />
-                        <p className="text-xs font-display font-semibold text-foreground/80 leading-tight">{col.name}</p>
-                        <p className="text-[10px] text-foreground/60 font-light">{col.sub}</p>
+                      <div key={col.name} className="px-4 py-5 text-center bg-card/60 border-b border-l border-border/30 flex flex-col items-center justify-center gap-2">
+                        <col.Icon className="h-4 w-4 text-foreground/55" />
+                        <p className="text-sm font-display font-semibold text-foreground leading-tight">{col.name}</p>
+                        <p className="text-xs text-foreground/65 font-light">{col.sub}</p>
                       </div>
                     ))}
                   </div>
@@ -526,10 +526,10 @@ const Index = () => {
                   {comparisonRows.map((row, i) => (
                     <div
                       key={row.label}
-                      className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/10"
-                      style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.22)" : "transparent" }}
+                      className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/20"
+                      style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.40)" : "transparent" }}
                     >
-                      <div className="px-6 py-4 text-sm text-foreground/85 font-medium flex items-center leading-snug">
+                      <div className="px-6 py-4 text-base text-foreground font-medium flex items-center leading-snug">
                         {row.label}
                       </div>
                       {/* CALLA siempre ✓ */}
@@ -548,20 +548,20 @@ const Index = () => {
                   ))}
 
                   {/* ── Cost row ── */}
-                  <div className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/20 bg-card/30">
+                  <div className="grid grid-cols-[2fr_1.15fr_1fr_1fr_1fr] border-t border-border/35 bg-card/50">
                     <div className="px-6 py-5 flex items-center">
-                      <span className="text-sm font-display font-semibold text-foreground/75">Coste mensual estimado</span>
+                      <span className="text-base font-display font-semibold text-foreground">Coste mensual estimado</span>
                     </div>
                     {/* CALLA — sin precio */}
-                    <div className="border-l border-brand-teal/25 bg-brand-teal/[0.07] py-5 flex items-center justify-center">
-                      <Link to="/precios" className="text-xs font-display font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: "hsl(190 60% 62%)" }}>
-                        Ver precios <ArrowRight className="h-3 w-3" />
+                    <div className="border-l border-brand-teal/30 bg-brand-teal/[0.10] py-5 flex items-center justify-center">
+                      <Link to="/precios" className="text-sm font-display font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: "hsl(190 60% 68%)" }}>
+                        Ver precios <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                     {/* Competidores */}
                     {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
-                      <div key={cost} className="border-l border-border/15 py-5 flex items-center justify-center">
-                        <span className="text-sm font-bold text-foreground/75 tabular-nums">{cost}</span>
+                      <div key={cost} className="border-l border-border/25 py-5 flex items-center justify-center">
+                        <span className="text-sm font-bold text-foreground/85 tabular-nums">{cost}</span>
                       </div>
                     ))}
                   </div>
@@ -571,16 +571,16 @@ const Index = () => {
 
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
-                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
-                  <Check className="h-3.5 w-3.5 text-brand-emerald" /> Incluido
+                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
+                  <Check className="h-4 w-4 text-brand-emerald" /> Incluido
                 </span>
-                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
-                  <Minus className="h-3.5 w-3.5" style={{ color: "hsl(35 70% 58%)" }} /> Parcial o con coste extra
+                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
+                  <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 58%)" }} /> Parcial o con coste extra
                 </span>
-                <span className="flex items-center gap-1.5 text-xs text-foreground/70">
-                  <X className="h-3.5 w-3.5 text-foreground/55" /> No disponible
+                <span className="flex items-center gap-1.5 text-sm text-foreground/80">
+                  <X className="h-4 w-4 text-foreground/60" /> No disponible
                 </span>
-                <span className="text-xs text-foreground/55">· Estimaciones orientativas</span>
+                <span className="text-sm text-foreground/60">· Estimaciones orientativas</span>
               </div>
             </motion.div>
           </div>
@@ -634,10 +634,6 @@ const Index = () => {
       </Suspense>
 
       <SectionFade>
-        <LogoMarquee />
-      </SectionFade>
-
-      <SectionFade>
         <div className="text-center py-6">
           <Link
             to="/resultados"
@@ -671,6 +667,7 @@ const Index = () => {
         </section>
       </SectionFade>
 
+      <LogoMarquee />
       <SocialProof />
       <Footer />
       <FOMONotifications />
