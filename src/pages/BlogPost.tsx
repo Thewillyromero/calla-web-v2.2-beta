@@ -7,8 +7,7 @@ import ContactFormDialog from "@/components/ContactFormDialog";
 import { blogPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
-
-const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/m4SFv9fHyIZraSrAu8QT";
+import { BOOKING_URL } from "@/lib/constants";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();

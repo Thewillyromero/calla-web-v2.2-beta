@@ -131,7 +131,6 @@ const DemoCall = () => {
       let micStream: MediaStream;
       try {
         micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        console.log("✅ Microphone permission granted");
       } catch (micErr) {
         console.error("❌ Microphone denied:", micErr);
         toast.error("Necesitamos acceso al micrófono para hablar con ARIA. Permite el acceso e inténtalo de nuevo.");

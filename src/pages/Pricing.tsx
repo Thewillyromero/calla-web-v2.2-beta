@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Zap, Crown, Building2 } from "lucide-react";
+import { BOOKING_URL } from "@/lib/constants";
 
 const ROICalculator = lazy(() => import("@/components/ROICalculator"));
 
@@ -104,7 +105,6 @@ const cardVariants = (i: number) => ({
   },
 });
 
-const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/m4SFv9fHyIZraSrAu8QT";
 
 const Pricing = () => {
   const [contactOpen, setContactOpen] = useState(false);

@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2>Deja de perder dinero hoy</h2>
         <p>
-          En <strong>CALLA</strong> ayudamos a negocios como el tuyo a no perder ni una sola llamada. Nuestros empleados IA contestan el teléfono, agendan citas y cualifican leads automáticamente. Sin permanencia, sin inversión inicial elevada y con resultados desde el primer día.
+          En <strong>CALLA</strong> ayudamos a negocios como el tuyo a no perder ni una sola llamada. Nuestros agentes IA contestan el teléfono, agendan citas y cualifican leads automáticamente. Sin permanencia, sin inversión inicial elevada y con resultados desde el primer día.
         </p>
         <p>
           <strong>¿Quieres saber cuánto dinero estás perdiendo en llamadas sin contestar?</strong> Reserva una consulta gratuita y te lo calculamos en 10 minutos.
@@ -161,7 +161,7 @@ export const blogPosts: BlogPost[] = [
           Cada llamada perdida representaba una cita no agendada, un paciente frustrado y un ingreso que se iba a otra clínica.
         </p>
 
-        <h2>La solución: un empleado IA de CALLA</h2>
+        <h2>La solución: un agente IA de CALLA</h2>
         <p>
           La clínica implementó un <strong>asistente de voz con IA de CALLA</strong> configurado específicamente para el sector dental. El agente fue entrenado para:
         </p>

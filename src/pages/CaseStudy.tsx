@@ -100,30 +100,30 @@ const CaseStudy = () => {
             <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6">
               <TrendingUp className="h-4 w-4 text-brand-amber" />
               <span className="text-xs font-display font-medium text-brand-amber uppercase tracking-[0.2em]">
-                Caso de exito
+                Caso de éxito
               </span>
             </div>
           </FadeIn>
 
           <FadeIn delay={100}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-6 tracking-tight leading-[1.1]">
-              Como Edommo Energia{" "}
-              <span className="text-gradient">automatizo su atencion telefonica</span>{" "}
+              Cómo Edommo Energía{" "}
+              <span className="text-gradient">automatizó su atención telefónica</span>{" "}
               con CALLA
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 font-light">
-              De perder llamadas a gestionar 200 al dia entre 3 sedes — sin anadir personal
+              De perder llamadas a gestionar 200 al día entre 3 sedes — sin añadir personal
             </p>
           </FadeIn>
 
           <FadeIn delay={300}>
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
-              <span className="glass rounded-full px-3 py-1">Energia</span>
+              <span className="glass rounded-full px-3 py-1">Energía</span>
               <span className="glass rounded-full px-3 py-1">Marzo — Abril 2026</span>
-              <span className="glass rounded-full px-3 py-1">Edommo Energia</span>
+              <span className="glass rounded-full px-3 py-1">Edommo Energía</span>
             </div>
           </FadeIn>
         </div>
@@ -157,7 +157,7 @@ const CaseStudy = () => {
                 <div className="flex items-center gap-2 mb-6">
                   <Target className="h-5 w-5 text-brand-rose" />
                   <h2 className="font-display font-bold text-lg text-foreground">
-                    El desafio
+                    El desafío
                   </h2>
                 </div>
                 <ul className="space-y-4">
@@ -178,7 +178,7 @@ const CaseStudy = () => {
                 <div className="flex items-center gap-2 mb-6">
                   <Zap className="h-5 w-5 text-brand-emerald" />
                   <h2 className="font-display font-bold text-lg text-foreground">
-                    La solucion CALLA
+                    La solución CALLA
                   </h2>
                 </div>
                 <ul className="space-y-4">
@@ -238,7 +238,7 @@ const CaseStudy = () => {
               <div className="pl-8 md:pl-12">
                 <Quote className="h-8 w-8 text-brand-amber/40 mb-4" />
                 <blockquote className="text-xl md:text-2xl lg:text-3xl font-serif leading-relaxed text-foreground/90 mb-8 italic">
-                  &ldquo;Gestionamos 200 llamadas al dia entre 3 sedes. CALLA unifico todo: atiende, deriva a la sede correcta y agenda. Ahorramos 2 puestos de recepcion.&rdquo;
+                  &ldquo;Gestionamos 200 llamadas al día entre 3 sedes. CALLA unificó todo: atiende, deriva a la sede correcta y agenda. Ahorramos 2 puestos de recepción.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-amber/40 to-brand-teal/30 flex items-center justify-center ring-2 ring-brand-amber/20">
@@ -246,7 +246,7 @@ const CaseStudy = () => {
                   </div>
                   <div>
                     <div className="font-display font-bold text-foreground">Miguel Santos</div>
-                    <div className="text-sm text-muted-foreground">Director de Operaciones, Edommo Energia</div>
+                    <div className="text-sm text-muted-foreground">Director de Operaciones, Edommo Energía</div>
                   </div>
                 </div>
               </div>
@@ -269,7 +269,7 @@ const CaseStudy = () => {
                   <span className="text-gradient">Edommo</span>?
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                  Agenda una consulta gratuita y te mostramos como CALLA puede transformar tu atencion telefonica.
+                  Agenda una consulta gratuita y te mostramos cómo CALLA puede transformar tu atención telefónica.
                 </p>
                 <Button
                   size="lg"
