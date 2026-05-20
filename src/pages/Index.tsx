@@ -256,8 +256,10 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <h1 className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
-                  Automatizamos y digitalizamos la comunicación y los procesos de tu empresa
+                <h1 className="text-[2rem] leading-[1.15] sm:text-5xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
+                  Automatizamos y digitalizamos<br className="hidden sm:block" />
+                  {" "}la comunicación y los procesos<br className="hidden sm:block" />
+                  {" "}de tu empresa
                 </h1>
                 <p className="text-base md:text-xl text-foreground/80 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Tus clientes llaman, nuestro asistente contesta, agenda citas
