@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
-import SocialProof from "@/components/SocialProof";
 import LogoMarquee from "@/components/LogoMarquee";
 import { BOOKING_URL } from "@/lib/constants";
 
@@ -75,9 +74,6 @@ const Results = () => {
           </SectionFade>
         </div>
       </section>
-
-      {/* Social Proof */}
-      <SocialProof />
 
       {/* Logo Marquee */}
       <LogoMarquee />
