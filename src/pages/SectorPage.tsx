@@ -81,7 +81,7 @@ const SectorPage = () => {
             <FadeIn delay={0}>
               <div className="glass-warm rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-2 mb-6">
-                  <Target className="h-5 w-5 text-brand-rose" />
+                  <Target className="h-5 w-5 text-primary" />
                   <h2 className="font-display font-bold text-lg text-foreground">
                     Problemas que resolvemos
                   </h2>
@@ -89,8 +89,8 @@ const SectorPage = () => {
                 <ul className="space-y-4">
                   {sector.painPoints.map((point, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-brand-rose/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-xs font-bold text-brand-rose">{i + 1}</span>
+                      <span className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-primary">{i + 1}</span>
                       </span>
                       <span className="text-sm text-foreground/80">{point}</span>
                     </li>
@@ -102,7 +102,7 @@ const SectorPage = () => {
             <FadeIn delay={150}>
               <div className="glass rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-2 mb-6">
-                  <Zap className="h-5 w-5 text-brand-emerald" />
+                  <Zap className="h-5 w-5 text-primary" />
                   <h2 className="font-display font-bold text-lg text-foreground">
                     Nuestra solución
                   </h2>
@@ -110,7 +110,7 @@ const SectorPage = () => {
                 <ul className="space-y-4">
                   {sector.solutions.map((solution, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-brand-emerald shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm text-foreground/80">{solution}</span>
                     </li>
                   ))}

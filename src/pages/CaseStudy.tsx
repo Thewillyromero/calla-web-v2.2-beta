@@ -98,8 +98,8 @@ const CaseStudy = () => {
         <div className="container mx-auto relative z-10 max-w-4xl text-center">
           <FadeIn>
             <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6">
-              <TrendingUp className="h-4 w-4 text-brand-amber" />
-              <span className="text-xs font-display font-medium text-brand-amber uppercase tracking-[0.2em]">
+              <TrendingUp className="h-4 w-4 text-primary" />
+              <span className="text-xs font-display font-medium text-primary uppercase tracking-[0.2em]">
                 Caso de éxito
               </span>
             </div>
@@ -155,7 +155,7 @@ const CaseStudy = () => {
             <FadeIn delay={0}>
               <div className="glass-warm rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-2 mb-6">
-                  <Target className="h-5 w-5 text-brand-rose" />
+                  <Target className="h-5 w-5 text-primary" />
                   <h2 className="font-display font-bold text-lg text-foreground">
                     El desafío
                   </h2>
@@ -163,8 +163,8 @@ const CaseStudy = () => {
                 <ul className="space-y-4">
                   {challenges.map((point, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-brand-rose/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-xs font-bold text-brand-rose">{i + 1}</span>
+                      <span className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-xs font-bold text-primary">{i + 1}</span>
                       </span>
                       <span className="text-sm text-foreground/80">{point}</span>
                     </li>
@@ -176,7 +176,7 @@ const CaseStudy = () => {
             <FadeIn delay={150}>
               <div className="glass rounded-2xl p-8 h-full">
                 <div className="flex items-center gap-2 mb-6">
-                  <Zap className="h-5 w-5 text-brand-emerald" />
+                  <Zap className="h-5 w-5 text-primary" />
                   <h2 className="font-display font-bold text-lg text-foreground">
                     La solución CALLA
                   </h2>
@@ -184,7 +184,7 @@ const CaseStudy = () => {
                 <ul className="space-y-4">
                   {solutions.map((s, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-brand-emerald shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <div>
                         <span className="text-sm font-semibold text-foreground">{s.title}</span>
                         <span className="text-sm text-foreground/70 ml-1">— {s.desc}</span>
@@ -233,15 +233,15 @@ const CaseStudy = () => {
           <FadeIn>
             <div className="relative">
               {/* Gold accent line */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-brand-amber via-brand-amber/60 to-brand-amber/20" />
+              <div className="absolute left-0 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-primary via-primary/60 to-primary/20" />
 
               <div className="pl-8 md:pl-12">
-                <Quote className="h-8 w-8 text-brand-amber/40 mb-4" />
+                <Quote className="h-8 w-8 text-primary/40 mb-4" />
                 <blockquote className="text-xl md:text-2xl lg:text-3xl font-serif leading-relaxed text-foreground/90 mb-8 italic">
                   &ldquo;Gestionamos 200 llamadas al día entre 3 sedes. CALLA unificó todo: atiende, deriva a la sede correcta y agenda. Ahorramos 2 puestos de recepción.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-amber/40 to-brand-teal/30 flex items-center justify-center ring-2 ring-brand-amber/20">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center ring-2 ring-primary/20">
                     <span className="font-display font-bold text-foreground text-sm">MS</span>
                   </div>
                   <div>
@@ -263,7 +263,7 @@ const CaseStudy = () => {
               <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-brand-amber/[0.06] blur-[80px]" />
               <div className="absolute bottom-0 left-0 w-[200px] h-[200px] rounded-full bg-primary/[0.04] blur-[60px]" />
               <div className="relative z-10">
-                <BarChart3 className="h-8 w-8 text-brand-amber mx-auto mb-4" />
+                <BarChart3 className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-4 tracking-tight">
                   Quieres resultados como{" "}
                   <span className="text-gradient">Edommo</span>?
