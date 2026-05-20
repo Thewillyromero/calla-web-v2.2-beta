@@ -297,10 +297,10 @@ const Index = () => {
               >
                 <h1 className="text-[2rem] leading-[1.15] sm:text-5xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
                   Automatizamos y digitalizamos<br className="hidden sm:block" />
-                  {" "}la comunicación y procesos<br className="hidden sm:block" />
+                  {" "}<span className="text-gradient">la comunicación y procesos</span><br className="hidden sm:block" />
                   {" "}de tu empresa
                 </h1>
-                <p className="text-base md:text-xl text-foreground/80 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p className="text-base md:text-xl text-foreground/70 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
                   Tus clientes llaman, nuestro asistente contesta, agenda citas
                   y resuelve dudas con voz natural. Sin que notes la diferencia.
                 </p>
@@ -328,25 +328,92 @@ const Index = () => {
                 </div>
               </motion.div>
 
-              {/* Right: robot with parallax + glow */}
+              {/* Right: robot with parallax + glow + floating cards */}
               <motion.div
                 className="flex-1 flex justify-center lg:justify-end relative order-first lg:order-last"
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               >
+                {/* Multi-layer glow */}
                 <div
-                  className="absolute inset-0 scale-[1.8] md:scale-[2.5] rounded-full blur-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.18), transparent 70%)" }}
+                  className="absolute inset-0 scale-[2.2] md:scale-[3] rounded-full blur-3xl pointer-events-none"
+                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.22), hsl(260 50% 60% / 0.08) 55%, transparent 70%)" }}
                 />
+                <div
+                  className="absolute inset-0 scale-[1.5] md:scale-[1.9] rounded-full blur-2xl pointer-events-none"
+                  style={{ background: "radial-gradient(circle, hsl(190 60% 55% / 0.14), transparent 65%)" }}
+                />
+
+                {/* Robot */}
                 <motion.img
                   src={heroRobot}
                   alt="CALLA Asistente Virtual"
-                  className="w-44 sm:w-72 md:w-[22rem] lg:w-[28rem] drop-shadow-2xl relative z-10"
+                  className="w-52 sm:w-80 md:w-[26rem] lg:w-[32rem] drop-shadow-2xl relative z-10"
                   width={1024}
                   height={1024}
                   style={{ rotateX, y: heroY, transformOrigin: "center bottom" }}
                 />
+
+                {/* Card 1 — Llamada atendida (teal) */}
+                <motion.div
+                  className="absolute top-6 left-2 sm:left-4 lg:-left-6 z-20"
+                  initial={{ opacity: 0, x: -14 }}
+                  animate={{ opacity: 1, x: 0, y: [0, -7, 0] }}
+                  transition={{
+                    opacity: { duration: 0.5, delay: 1.3 },
+                    x: { duration: 0.5, delay: 1.3 },
+                    y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
+                  }}
+                >
+                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(190 60% 55%)" }} />
+                    <div>
+                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Llamada atendida</p>
+                      <p className="text-[10px] text-foreground/45 leading-none">ARIA · ahora mismo</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Card 2 — Cita agendada (emerald) */}
+                <motion.div
+                  className="absolute bottom-16 left-0 sm:left-2 lg:-left-10 z-20"
+                  initial={{ opacity: 0, x: -14 }}
+                  animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+                  transition={{
+                    opacity: { duration: 0.5, delay: 1.8 },
+                    x: { duration: 0.5, delay: 1.8 },
+                    y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.1 },
+                  }}
+                >
+                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(160 50% 48%)" }} />
+                    <div>
+                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Cita agendada</p>
+                      <p className="text-[10px] text-foreground/45 leading-none">LUMI · hace 2 min</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Card 3 — Lead captado (lavender) — sm+ only */}
+                <motion.div
+                  className="absolute top-[42%] -translate-y-1/2 right-2 sm:right-0 lg:right-2 z-20 hidden sm:block"
+                  initial={{ opacity: 0, x: 14 }}
+                  animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+                  transition={{
+                    opacity: { duration: 0.5, delay: 2.3 },
+                    x: { duration: 0.5, delay: 2.3 },
+                    y: { duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 2.6 },
+                  }}
+                >
+                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
+                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(260 50% 65%)" }} />
+                    <div>
+                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Lead captado</p>
+                      <p className="text-[10px] text-foreground/45 leading-none">NOVA · hace 5 min</p>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
