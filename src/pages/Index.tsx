@@ -304,7 +304,7 @@ const Index = () => {
                   </span>
                 </h1>
                 <p className="text-base md:text-xl text-foreground/70 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
-                  Despreocúpate de las llamadas y tareas manuales. Agentes IA creados a medida para tu negocio.
+                  Despreocúpate de las llamadas y tareas manuales. Creamos Agentes IA a medida para tu negocio.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                   <Button
