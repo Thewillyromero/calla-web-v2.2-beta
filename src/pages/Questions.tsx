@@ -37,7 +37,7 @@ const Questions = () => {
               Preguntas frecuentes
             </h1>
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light">
-              Todo lo que necesitas saber antes de empezar con CALLA.
+              Resolvemos las dudas para impulsarte a dar el paso.
             </p>
           </SectionFade>
         </div>

@@ -258,7 +258,7 @@ const Index = () => {
               >
                 <h1 className="text-[2rem] leading-[1.15] sm:text-5xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-foreground">
                   Automatizamos y digitalizamos<br className="hidden sm:block" />
-                  {" "}la comunicación y los procesos<br className="hidden sm:block" />
+                  {" "}la comunicación y procesos<br className="hidden sm:block" />
                   {" "}de tu empresa
                 </h1>
                 <p className="text-base md:text-xl text-foreground/80 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">

@@ -65,7 +65,7 @@ const FAQ = () => {
             </span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light">
-            Todo lo que necesitas saber antes de empezar con CALLA.
+            Resolvemos las dudas para impulsarte a dar el paso.
           </p>
         </motion.div>
 
