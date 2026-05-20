@@ -474,8 +474,12 @@ const Index = () => {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="text-center mb-12"
             >
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-6">
+                <Check className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs text-primary font-display font-semibold tracking-wide">Comparativa</span>
+              </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
-                ¿Por qué CALLA y no otra solución?
+                ¿Por qué <span className="text-gradient">CALLA</span> y no otra solución?
               </h2>
               <p className="text-foreground/70 font-light max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
@@ -499,10 +503,10 @@ const Index = () => {
                     <div className="px-6 py-5 bg-card/60 border-b border-border/30" />
 
                     {/* CALLA — primera */}
-                    <div className="px-4 py-5 text-center border-b border-l border-border/30 bg-brand-teal/[0.12] relative flex flex-col items-center justify-center gap-1.5">
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/80 to-transparent" />
-                      <div className="inline-flex items-center gap-1 bg-brand-teal/20 border border-brand-teal/40 rounded-full px-2.5 py-0.5">
-                        <span className="text-xs font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 68%)" }}>Recomendado</span>
+                    <div className="px-4 py-5 text-center border-b border-l border-border/30 bg-primary/[0.08] relative flex flex-col items-center justify-center gap-1.5">
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+                      <div className="inline-flex items-center gap-1 bg-primary/15 border border-primary/30 rounded-full px-2.5 py-0.5">
+                        <span className="text-xs font-display font-bold tracking-widest uppercase text-primary">Recomendado</span>
                       </div>
                       <img src={heroRobot} alt="CALLA" className="h-8 w-8 object-contain" loading="lazy" />
                       <p className="text-base font-display font-bold text-foreground">CALLA</p>
@@ -533,15 +537,15 @@ const Index = () => {
                         {row.label}
                       </div>
                       {/* CALLA siempre ✓ */}
-                      <div className="border-l border-brand-teal/20 bg-brand-teal/[0.05] py-4 flex items-center justify-center">
-                        <Check className="h-5 w-5" style={{ color: "hsl(190 60% 60%)" }} />
+                      <div className="border-l border-primary/20 bg-primary/[0.06] py-4 flex items-center justify-center">
+                        <Check className="h-5 w-5 text-primary" />
                       </div>
                       {/* Competidores */}
                       {row.values.slice(0, 3).map((val, j) => (
-                        <div key={j} className="border-l border-border/10 py-4 flex items-center justify-center">
-                          {val === true      && <Check className="h-5 w-5 text-brand-emerald/70" />}
-                          {val === false     && <X     className="h-4 w-4 text-foreground/50" />}
-                          {val === "partial" && <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 58%)" }} />}
+                        <div key={j} className="border-l border-border/20 py-4 flex items-center justify-center">
+                          {val === true      && <Check className="h-5 w-5 text-foreground/70" />}
+                          {val === false     && <X     className="h-4 w-4 text-foreground/40" />}
+                          {val === "partial" && <Minus className="h-4 w-4 text-foreground/50" />}
                         </div>
                       ))}
                     </div>
@@ -553,8 +557,8 @@ const Index = () => {
                       <span className="text-base font-display font-semibold text-foreground">Coste mensual estimado</span>
                     </div>
                     {/* CALLA — sin precio */}
-                    <div className="border-l border-brand-teal/30 bg-brand-teal/[0.10] py-5 flex items-center justify-center">
-                      <Link to="/precios" className="text-sm font-display font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity" style={{ color: "hsl(190 60% 68%)" }}>
+                    <div className="border-l border-primary/25 bg-primary/[0.08] py-5 flex items-center justify-center">
+                      <Link to="/precios" className="text-sm font-display font-semibold flex items-center gap-1 text-primary hover:opacity-80 transition-opacity">
                         Ver precios <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
@@ -572,13 +576,13 @@ const Index = () => {
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
                 <span className="flex items-center gap-1.5 text-sm text-foreground/80">
-                  <Check className="h-4 w-4 text-brand-emerald" /> Incluido
+                  <Check className="h-4 w-4 text-primary" /> Incluido
                 </span>
                 <span className="flex items-center gap-1.5 text-sm text-foreground/80">
-                  <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 58%)" }} /> Parcial o con coste extra
+                  <Minus className="h-4 w-4 text-foreground/55" /> Parcial o con coste extra
                 </span>
                 <span className="flex items-center gap-1.5 text-sm text-foreground/80">
-                  <X className="h-4 w-4 text-foreground/60" /> No disponible
+                  <X className="h-4 w-4 text-foreground/45" /> No disponible
                 </span>
                 <span className="text-sm text-foreground/60">· Estimaciones orientativas</span>
               </div>
