@@ -20,10 +20,12 @@ import {
   BarChart3,
   HeartHandshake,
   ShieldCheck,
-  Clock,
-  PhoneForwarded,
-  Lock,
-  Bot,
+  Users,
+  Building2,
+  Wrench,
+  Check,
+  X,
+  Minus,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
@@ -36,8 +38,6 @@ import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import ariaCalling from "@/assets/characters/aria-calling-cut.png";
 import lumiWriting from "@/assets/characters/lumi-writing-cut.png";
 import byteMagnifying from "@/assets/characters/byte-analyzing-cut.png";
-import novaPointing from "@/assets/characters/nova-pointing-cut.png";
-import careWaving from "@/assets/characters/care-waving-cut.png";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Data ── */
@@ -78,27 +78,16 @@ const valueProps = [
   },
 ];
 
-const differentiators = [
-  {
-    icon: PhoneForwarded,
-    title: "Se instala en tu número actual",
-    description:
-      "Sin cambiar nada en tu empresa. Tu número, tu marca.",
-  },
-  {
-    icon: Clock,
-    title: "Funcionando en 30 minutos",
-    description:
-      "No son meses de implementación. En media hora, operativo.",
-  },
-  {
-    icon: Lock,
-    title: "Tus datos, protegidos",
-    description:
-      "Cumplimiento RGPD, grabaciones encriptadas, servidores en Europa.",
-    link: "/seguridad",
-    linkLabel: "Ver seguridad",
-  },
+const comparisonRows: { label: string; values: (boolean | "partial")[] }[] = [
+  { label: "Llamadas atendidas 24/7",              values: [false,     false,     false,     true] },
+  { label: "Campañas de llamadas salientes",        values: [false,     false,     false,     true] },
+  { label: "Agendado automático de citas",          values: [false,     "partial", "partial", true] },
+  { label: "Digitalización de flujos internos",    values: [false,     true,      "partial", true] },
+  { label: "Agentes IA a medida para tu operativa",values: [false,     true,      "partial", true] },
+  { label: "Integración con tus herramientas",     values: ["partial", true,      "partial", true] },
+  { label: "Analítica de cada conversación",       values: [false,     false,     false,     true] },
+  { label: "Operativo en menos de 48h",            values: [true,      false,     "partial", true] },
+  { label: "Escalable sin contratar más personal", values: [false,     false,     true,      true] },
 ];
 
 const agents = [
@@ -471,120 +460,126 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      {/* ─── 3. WHY US — Differentiators with NOVA hero card + bg character ─── */}
+      {/* ─── 3. WHY US — Comparison table ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20 relative overflow-hidden">
-          {/* Aurora bg */}
-          <div
-            className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-30 pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, hsl(260 60% 55% / 0.5), hsl(190 60% 50% / 0.3) 50%, transparent 70%)',
-              animation: 'aurora-pulse 25s ease-in-out infinite',
-            }}
-          />
-          {/* Background character (desktop only) */}
-          <img
-            src={careWaving}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            className="hidden md:block absolute bottom-0 right-[-4rem] w-[28rem] lg:w-[32rem] opacity-[0.13] pointer-events-none select-none mix-blend-luminosity"
-            style={{ filter: 'blur(0.5px)' }}
-          />
+        <section className="py-16 md:py-24 px-5 md:px-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-teal/[0.04] blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-lavender/[0.03] blur-[120px] pointer-events-none" />
 
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.h2
-              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
-              {...fade}
+          <div className="container mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="text-center mb-12"
             >
-              ¿Por qué CALLA y no otra solución?
-            </motion.h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
+                ¿Por qué CALLA y no otra solución?
+              </h2>
+              <p className="text-foreground/55 font-light max-w-lg mx-auto">
+                Compara lo que incluye cada opción. La diferencia habla por sí sola.
+              </p>
+            </motion.div>
 
-            <div className="max-w-5xl mx-auto space-y-6">
-              {/* Hero diff card with NOVA */}
-              <motion.div
-                className="relative bg-gradient-to-br from-[hsl(260_60%_55%)]/15 via-card/50 to-[hsl(190_60%_50%)]/10 border border-[hsl(260_60%_60%)]/30 rounded-2xl p-7 md:p-10 overflow-visible"
-                variants={itemVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <div
-                  className="absolute -top-32 -left-20 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-50 pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, hsl(260 60% 55% / 0.4), transparent 70%)' }}
-                />
-                {/* NOVA glow behind */}
-                <div
-                  className="hidden md:block absolute -top-10 right-0 w-64 h-64 rounded-full blur-3xl opacity-60 pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, hsl(260 60% 55% / 0.45), transparent 70%)' }}
-                />
-                {/* NOVA peeking out from the right edge of the card */}
-                <img
-                  src={novaPointing}
-                  alt="NOVA"
-                  loading="lazy"
-                  className="hidden md:block absolute -top-16 -right-6 w-56 lg:w-64 object-contain drop-shadow-[0_16px_36px_rgba(0,0,0,0.55)] pointer-events-none select-none z-10"
-                />
-                <div className="relative max-w-xl">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(260_60%_55%)] to-[hsl(190_60%_50%)] mb-4 shadow-lg shadow-[hsl(260_60%_55%)]/30">
-                    <Bot className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-                    No somos un chatbot
-                  </h3>
-                  <p className="text-base text-foreground/85 leading-relaxed">
-                    Voz natural, conversación fluida y matices humanos. Tus clientes
-                    no distinguen a CALLA de una persona real.
-                  </p>
-                  {/* Mobile NOVA, smaller, below the text */}
-                  <img
-                    src={novaPointing}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    className="md:hidden mt-4 w-32 mx-auto drop-shadow-[0_12px_28px_rgba(0,0,0,0.5)]"
-                  />
-                </div>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-5xl mx-auto"
+            >
+              <div className="relative overflow-x-auto rounded-2xl border border-border/20">
+                {/* mobile scroll fade hint */}
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background/80 to-transparent pointer-events-none z-10 md:hidden rounded-r-2xl" />
 
-              {/* 3 compact diff cards */}
-              <motion.div
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-              >
-                {differentiators.map((d) => {
-                  const Icon = d.icon;
-                  return (
-                    <motion.div
-                      key={d.title}
-                      className="bg-card/40 border border-border/30 rounded-2xl p-5 md:p-6 hover:border-primary/40 transition-colors"
-                      variants={itemVariants}
-                    >
-                      <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-primary/20 to-[hsl(190_60%_50%)]/20 border border-primary/20 mb-3">
-                        <Icon className="h-5 w-5 text-primary" />
+                <div className="min-w-[660px]">
+
+                  {/* ── Column headers ── */}
+                  <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr]">
+                    <div className="px-6 py-5 bg-card/50 border-b border-border/15" />
+                    {[
+                      { name: "Contratar personal",   sub: "Secretaria, admin, IT",    Icon: Users },
+                      { name: "Agencia digital",       sub: "Consultoría + desarrollo", Icon: Building2 },
+                      { name: "Herramienta genérica",  sub: "ChatGPT, n8n, etc.",       Icon: Wrench },
+                    ].map((col) => (
+                      <div key={col.name} className="px-4 py-5 text-center bg-card/50 border-b border-l border-border/15 flex flex-col items-center justify-center gap-1.5">
+                        <col.Icon className="h-4 w-4 text-foreground/25" />
+                        <p className="text-[11px] font-display font-semibold text-foreground/50 leading-tight">{col.name}</p>
+                        <p className="text-[9px] text-foreground/30 font-light">{col.sub}</p>
                       </div>
-                      <h3 className="text-base font-bold text-foreground mb-1">
-                        {d.title}
-                      </h3>
-                      <p className="text-sm text-foreground/75 leading-relaxed">
-                        {d.description}
-                      </p>
-                      {d.link && (
-                        <Link
-                          to={d.link}
-                          className="text-sm text-primary font-medium inline-flex items-center gap-1 mt-3 hover:underline"
-                        >
-                          {d.linkLabel} <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      )}
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            </div>
+                    ))}
+                    {/* CALLA header */}
+                    <div className="px-4 py-5 text-center border-b border-l border-border/15 bg-brand-teal/[0.07] relative flex flex-col items-center justify-center gap-1.5">
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal/60 to-transparent" />
+                      <div className="inline-flex items-center gap-1 bg-brand-teal/15 border border-brand-teal/30 rounded-full px-2.5 py-0.5 mb-0.5">
+                        <span className="text-[9px] font-display font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 60%)" }}>
+                          Recomendado
+                        </span>
+                      </div>
+                      <img src={heroRobot} alt="CALLA" className="h-6 w-6 object-contain" loading="lazy" />
+                      <p className="text-xs font-display font-bold text-foreground">CALLA</p>
+                    </div>
+                  </div>
+
+                  {/* ── Data rows ── */}
+                  {comparisonRows.map((row, i) => (
+                    <div
+                      key={row.label}
+                      className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr] border-t border-border/10"
+                      style={{ background: i % 2 === 0 ? "hsl(var(--card) / 0.18)" : "transparent" }}
+                    >
+                      <div className="px-6 py-4 text-sm text-foreground/70 font-medium flex items-center leading-snug">
+                        {row.label}
+                      </div>
+                      {row.values.slice(0, 3).map((val, j) => (
+                        <div key={j} className="border-l border-border/10 py-4 flex items-center justify-center">
+                          {val === true    && <Check className="h-5 w-5 text-brand-emerald" />}
+                          {val === false   && <X     className="h-4 w-4 text-foreground/18" />}
+                          {val === "partial" && <Minus className="h-4 w-4" style={{ color: "hsl(35 70% 55% / 0.7)" }} />}
+                        </div>
+                      ))}
+                      <div className="border-l border-brand-teal/20 bg-brand-teal/[0.05] py-4 flex items-center justify-center">
+                        <Check className="h-5 w-5" style={{ color: "hsl(190 60% 58%)" }} />
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* ── Cost row ── */}
+                  <div className="grid grid-cols-[2fr_1fr_1fr_1fr_1.15fr] border-t border-border/20 bg-card/30">
+                    <div className="px-6 py-5 flex items-center">
+                      <span className="text-sm font-display font-semibold text-foreground/65">Coste mensual estimado</span>
+                    </div>
+                    {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
+                      <div key={cost} className="border-l border-border/15 py-5 flex items-center justify-center">
+                        <span className="text-sm font-bold text-foreground/35 tabular-nums">{cost}</span>
+                      </div>
+                    ))}
+                    <div className="border-l border-brand-teal/25 bg-brand-teal/[0.09] py-5 flex flex-col items-center justify-center">
+                      <span className="text-base font-display font-extrabold tabular-nums" style={{ color: "hsl(190 60% 62%)" }}>
+                        desde 297€
+                      </span>
+                      <span className="text-[10px] text-foreground/40 font-light">/mes</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              {/* Legend */}
+              <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
+                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
+                  <Check className="h-3.5 w-3.5 text-brand-emerald" /> Incluido
+                </span>
+                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
+                  <Minus className="h-3.5 w-3.5" style={{ color: "hsl(35 70% 55% / 0.6)" }} /> Parcial o con coste extra
+                </span>
+                <span className="flex items-center gap-1.5 text-[11px] text-foreground/40">
+                  <X className="h-3.5 w-3.5 text-foreground/25" /> No disponible
+                </span>
+                <span className="text-[11px] text-foreground/25">· Estimaciones orientativas de mercado</span>
+              </div>
+            </motion.div>
           </div>
         </section>
       </SectionFade>
