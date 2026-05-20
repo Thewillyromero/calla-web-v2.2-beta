@@ -314,20 +314,23 @@ const SquadWorkflow = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.15 }}
               >
-                <div className="inline-flex items-center gap-2 bg-foreground/10 border border-foreground/20 px-3 py-1.5 rounded-full mb-4">
-                  <Sparkles className="h-3.5 w-3.5 text-foreground/60" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-foreground/60">Conoce a HALO</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4 border" style={{ background: 'hsl(220 12% 62% / 0.1)', borderColor: 'hsl(220 12% 62% / 0.3)' }}>
+                  <Sparkles className="h-3.5 w-3.5" style={{ color: 'hsl(215 20% 72%)' }} />
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'hsl(215 20% 72%)' }}>Conoce a HALO</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight">
-                  El hilo invisible que mantiene<br />al equipo en sincronía
+                  El director que mantiene<br />al equipo en{" "}
+                  <span style={{ background: 'linear-gradient(110deg, hsl(215 8% 38%), hsl(210 28% 74%), hsl(218 5% 93%), hsl(215 18% 58%))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                    sincronía
+                  </span>
                 </h2>
                 <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-5">
-                  HALO es el sexto miembro del equipo. No habla con tus clientes, pero hace que ARIA, NOVA, LUMI, BYTE y CARE trabajen como un solo cerebro: pasa contexto, decide quién entra y escala a humano cuando hace falta.
+                  HALO es el sexto miembro del equipo. No habla con tus clientes, pero hace que ARIA, NOVA, LUMI, BYTE y CARE trabajen como un solo sistema: pasa contexto, decide quién actúa y escala a un humano cuando hace falta.
                 </p>
                 <ul className="space-y-2 text-foreground/80 text-sm md:text-base">
-                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Pasa el contexto del cliente entre agentes en tiempo real</li>
-                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Decide qué agente entra en cada momento</li>
-                  <li className="flex items-start gap-2"><span className="text-primary mt-1">›</span>Detecta cuándo escalar a un humano y lo hace al instante</li>
+                  <li className="flex items-start gap-2"><span style={{ color: 'hsl(215 20% 72%)' }} className="mt-1">›</span>Pasa el contexto del cliente entre agentes en tiempo real</li>
+                  <li className="flex items-start gap-2"><span style={{ color: 'hsl(215 20% 72%)' }} className="mt-1">›</span>Decide qué agente entra en cada momento sin que nadie tropiece</li>
+                  <li className="flex items-start gap-2"><span style={{ color: 'hsl(215 20% 72%)' }} className="mt-1">›</span>Detecta cuándo escalar a un humano y lo hace al instante</li>
                 </ul>
               </motion.div>
             </div>

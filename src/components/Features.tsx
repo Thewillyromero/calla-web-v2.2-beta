@@ -105,18 +105,18 @@ const features = [
     image: haloConductor,
     agent: "HALO",
     icon: Sparkles,
-    title: "Mantiene todo en sincronía",
+    title: "Orquesta a todos los agentes como uno solo",
     description:
-      "El hilo invisible que pasa contexto entre agentes. Cuando ARIA recibe una llamada, LUMI ya conoce al cliente; cuando NOVA cierra una venta, CARE inicia el seguimiento. Sin huecos, sin repeticiones.",
-    personality: "La que conecta el equipo",
+      "El único miembro del equipo que no habla con tus clientes, pero sin el que los demás no funcionarían igual. HALO pasa el contexto en tiempo real: cuando ARIA recibe una llamada, LUMI ya conoce al cliente.",
+    personality: "El director del equipo",
     color: "brand-silver",
     hsl: "220 12% 62%",
-    gradient: "linear-gradient(135deg, hsl(220 10% 45%), hsl(220 12% 62%), hsl(220 18% 75%))",
+    gradient: "linear-gradient(110deg, hsl(215 8% 38%), hsl(210 28% 74%), hsl(218 5% 93%), hsl(215 18% 58%))",
     expandedDetails: [
       "Pasa el contexto del cliente entre agentes en tiempo real",
       "Decide qué agente entra en cada momento sin que nadie tropiece",
       "Detecta si hay que escalar a un humano y lo hace al instante",
-      "Es nuestra salsa secreta — por eso CALLA funciona como un solo cerebro",
+      "Sin HALO, serían cinco agentes sueltos. Con HALO, son un solo sistema.",
     ],
   },
 ];
