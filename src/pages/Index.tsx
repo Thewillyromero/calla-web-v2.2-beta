@@ -355,65 +355,6 @@ const Index = () => {
                   style={{ rotateX, y: heroY, transformOrigin: "center bottom" }}
                 />
 
-                {/* Card 1 — Llamada atendida (teal) */}
-                <motion.div
-                  className="absolute top-6 left-2 sm:left-4 lg:-left-6 z-20"
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0, y: [0, -7, 0] }}
-                  transition={{
-                    opacity: { duration: 0.5, delay: 1.3 },
-                    x: { duration: 0.5, delay: 1.3 },
-                    y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 },
-                  }}
-                >
-                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
-                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(190 60% 55%)" }} />
-                    <div>
-                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Llamada atendida</p>
-                      <p className="text-[10px] text-foreground/45 leading-none">ARIA · ahora mismo</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Card 2 — Cita agendada (emerald) */}
-                <motion.div
-                  className="absolute bottom-16 left-0 sm:left-2 lg:-left-10 z-20"
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
-                  transition={{
-                    opacity: { duration: 0.5, delay: 1.8 },
-                    x: { duration: 0.5, delay: 1.8 },
-                    y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.1 },
-                  }}
-                >
-                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
-                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(160 50% 48%)" }} />
-                    <div>
-                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Cita agendada</p>
-                      <p className="text-[10px] text-foreground/45 leading-none">LUMI · hace 2 min</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Card 3 — Lead captado (lavender) — sm+ only */}
-                <motion.div
-                  className="absolute top-[42%] -translate-y-1/2 right-2 sm:right-0 lg:right-2 z-20 hidden sm:block"
-                  initial={{ opacity: 0, x: 14 }}
-                  animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
-                  transition={{
-                    opacity: { duration: 0.5, delay: 2.3 },
-                    x: { duration: 0.5, delay: 2.3 },
-                    y: { duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 2.6 },
-                  }}
-                >
-                  <div className="bg-background/85 backdrop-blur-xl border border-border/35 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl shadow-black/25">
-                    <span className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" style={{ background: "hsl(260 50% 65%)" }} />
-                    <div>
-                      <p className="text-xs font-semibold text-foreground leading-none mb-1">Lead captado</p>
-                      <p className="text-[10px] text-foreground/45 leading-none">NOVA · hace 5 min</p>
-                    </div>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>
