@@ -8,7 +8,7 @@ import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/care-waving-transparent.png";
 import heroRobot from "@/assets/hero-robot.webp";
 import haloConductor from "@/assets/halo-conductor.png";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight, ChevronDown, Check } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight, Check } from "lucide-react";
 
 const features = [
   {
@@ -222,15 +222,7 @@ const Features = () => {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                onClick={() => {
-                  const slug = f.agent.toLowerCase();
-                  if (slug === "halo") {
-                    navigate("/equipo");
-                  } else {
-                    navigate(`/${slug}`);
-                  }
-                }}
-                className="group relative rounded-2xl border border-border/25 overflow-visible cursor-pointer transition-all duration-500"
+                className="group relative rounded-2xl border border-border/25 overflow-visible transition-all duration-500"
                 style={{
                   background: isHovered
                     ? `linear-gradient(135deg, hsl(${f.hsl} / 0.06) 0%, hsl(var(--card) / 0.5) 60%)`
@@ -370,21 +362,11 @@ const Features = () => {
                     {/* Expandable details toggle */}
                     <button
                       type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setExpandedIdx(expandedIdx === i ? null : i);
-                      }}
-                      className="flex items-center gap-1.5 text-xs font-display font-semibold mb-2 transition-colors duration-200 hover:opacity-80"
+                      onClick={() => setExpandedIdx(expandedIdx === i ? null : i)}
+                      className="flex items-center gap-1 text-xs font-display font-semibold mb-2 transition-opacity duration-200 hover:opacity-70"
                       style={{ color: `hsl(${f.hsl})` }}
                     >
-                      {expandedIdx === i ? "Ver menos" : "Ver más"}
-                      <motion.span
-                        animate={{ rotate: expandedIdx === i ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="inline-flex"
-                      >
-                        <ChevronDown className="h-3.5 w-3.5" />
-                      </motion.span>
+                      {expandedIdx === i ? "– info" : "+ info"}
                     </button>
 
                     <AnimatePresence initial={false}>
@@ -416,20 +398,19 @@ const Features = () => {
                       )}
                     </AnimatePresence>
 
-                    {/* CTA that reveals on hover */}
-                    <motion.div
-                      initial={false}
-                      animate={{
-                        opacity: isHovered ? 1 : 0,
-                        x: isHovered ? 0 : -8,
+                    {/* Navigation CTA — always visible */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const slug = f.agent.toLowerCase();
+                        navigate(slug === "halo" ? "/equipo" : `/${slug}`);
                       }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="flex items-center gap-1.5 text-sm font-display font-semibold"
+                      className="flex items-center gap-1.5 text-sm font-display font-semibold hover:opacity-80 transition-opacity mt-1 cursor-pointer"
                       style={{ color: `hsl(${f.hsl})` }}
                     >
                       Conocer más
                       <ArrowRight className="h-3.5 w-3.5" />
-                    </motion.div>
+                    </button>
                   </div>
                 </div>
 
