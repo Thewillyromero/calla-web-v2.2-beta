@@ -128,14 +128,14 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     ¿Cuánto pagas al mes a quien contesta las llamadas?
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground/40">€</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground/60">€</span>
                     <Input
                       type="number"
                       value={staffCost || ""}
                       onChange={(e) => setStaffCost(Math.max(0, Number(e.target.value)))}
                       className="bg-secondary/30 border-border/25 h-11 text-base font-display font-bold rounded-xl focus:border-primary/40 pl-8 pr-16 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground/40">/mes</span>
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground/60">/mes</span>
                   </div>
                 </div>
 
@@ -159,7 +159,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                       </button>
                     ))}
                   </div>
-                  <p className="text-[10px] text-muted-foreground/30 mt-1.5">
+                  <p className="text-xs text-muted-foreground/55 mt-1.5">
                     Tu tiempo como CEO vale mínimo €50/h
                   </p>
                 </div>
@@ -173,7 +173,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     €{result.totalToday.toLocaleString("es-ES")}<span className="text-sm font-normal text-brand-rose/50">/mes</span>
                   </span>
                 </div>
-                <div className="space-y-1 text-xs text-muted-foreground/40">
+                <div className="space-y-1 text-xs text-muted-foreground/60">
                   <div className="flex justify-between">
                     <span>Personal</span>
                     <span>€{staffCost.toLocaleString("es-ES")}</span>
@@ -238,13 +238,13 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Savings box */}
               {result.monthlySaving > 0 && (
                 <div className="bg-brand-emerald/10 rounded-xl p-5 text-center mb-4">
-                  <p className="text-[10px] text-brand-emerald/50 uppercase tracking-wider font-semibold mb-1">
+                  <p className="text-[10px] text-brand-emerald/75 uppercase tracking-wider font-semibold mb-1">
                     Ahorras cada mes
                   </p>
                   <p className="text-3xl font-display font-extrabold text-brand-emerald">
                     €{result.monthlySaving.toLocaleString("es-ES")}
                   </p>
-                  <p className="text-xs text-muted-foreground/40 mt-1">
+                  <p className="text-xs text-muted-foreground/60 mt-1">
                     €{result.annualSaving.toLocaleString("es-ES")} al año
                   </p>
                 </div>
@@ -272,7 +272,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                   Reservar consulta gratuita
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <p className="text-[10px] text-muted-foreground/30 text-center mt-2">
+                <p className="text-xs text-muted-foreground/55 text-center mt-2">
                   30 min · Sin compromiso · Te contamos cómo funciona para tu sector
                 </p>
               </div>

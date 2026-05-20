@@ -59,10 +59,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground/40">
+          <p className="text-xs text-muted-foreground/60">
             © 2026 CALLA. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-muted-foreground/30">
+          <p className="text-xs text-muted-foreground/50">
             callao.app
           </p>
         </div>

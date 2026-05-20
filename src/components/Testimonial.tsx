@@ -104,7 +104,7 @@ const Testimonial = () => {
                       <div className="text-sm font-medium text-foreground truncate">{t.name}</div>
                       <div className="text-xs text-muted-foreground truncate">{t.role}, {t.company}</div>
                     </div>
-                    <span className="text-[9px] uppercase tracking-wider text-muted-foreground/40 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
                   </div>
                 </div>
               </motion.div>
@@ -143,7 +143,7 @@ const Testimonial = () => {
                   <div className="text-2xl font-display font-bold text-foreground mb-1">{cs.result}</div>
                   <div className="text-sm text-foreground/70 font-medium mb-1">{cs.description}</div>
                   <div className="text-xs text-muted-foreground mb-1">{cs.metric}</div>
-                  <div className="text-[10px] text-muted-foreground/40 italic">{cs.detail}</div>
+                  <div className="text-xs text-muted-foreground/60 italic">{cs.detail}</div>
                 </motion.div>
               ))}
             </div>

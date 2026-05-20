@@ -70,10 +70,10 @@ const CallCard = ({ call }: { call: CallSample }) => (
             <span className={`text-xs font-display font-bold text-${call.agentColor} tracking-wider uppercase`}>
               {call.agent}
             </span>
-            <span className="text-[10px] text-muted-foreground/40 ml-2">{call.sector}</span>
+            <span className="text-xs text-muted-foreground/60 ml-2">{call.sector}</span>
           </div>
         </div>
-        <span className="text-xs text-muted-foreground/40 bg-secondary/30 px-2 py-0.5 rounded-full">
+        <span className="text-xs text-muted-foreground/60 bg-secondary/30 px-2 py-0.5 rounded-full">
           Próximamente
         </span>
       </div>
@@ -139,7 +139,7 @@ const CallPlayer = () => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="text-center text-xs text-muted-foreground/30 mt-8"
+        className="text-center text-xs text-muted-foreground/55 mt-8"
       >
         <Volume2 className="w-3 h-3 inline mr-1" />
         Nombres de clientes anonimizados por privacidad · Grabaciones de campañas reales en España

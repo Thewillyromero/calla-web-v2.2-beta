@@ -345,7 +345,7 @@ const Features = () => {
                         >
                           {f.agent}
                         </span>
-                        <span className="text-[10px] text-muted-foreground/40 font-medium hidden sm:inline">
+                        <span className="text-[10px] text-muted-foreground/60 font-medium hidden sm:inline">
                           {f.personality}
                         </span>
                       </div>

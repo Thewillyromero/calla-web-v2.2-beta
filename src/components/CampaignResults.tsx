@@ -181,7 +181,7 @@ const CampaignResults = () => {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-xl font-display font-extrabold text-foreground">84,7%</span>
-                    <span className="text-[9px] text-muted-foreground">conectados</span>
+                    <span className="text-[10px] text-muted-foreground">conectados</span>
                   </div>
                 </div>
                 <div className="flex-1 grid grid-cols-3 gap-4 text-center">
@@ -189,19 +189,19 @@ const CampaignResults = () => {
                     <div className="w-2 h-2 rounded-full bg-brand-teal mx-auto mb-1" />
                     <p className="text-lg font-display font-bold text-brand-teal">561</p>
                     <p className="text-[10px] text-muted-foreground">Contestadas</p>
-                    <p className="text-[10px] text-muted-foreground/40">84,7%</p>
+                    <p className="text-[10px] text-muted-foreground/65">84,7%</p>
                   </div>
                   <div>
                     <div className="w-2 h-2 rounded-full bg-brand-lavender mx-auto mb-1" />
                     <p className="text-lg font-display font-bold text-brand-lavender">101</p>
                     <p className="text-[10px] text-muted-foreground">No contestadas</p>
-                    <p className="text-[10px] text-muted-foreground/40">15,3%</p>
+                    <p className="text-[10px] text-muted-foreground/65">15,3%</p>
                   </div>
                   <div>
                     <div className="w-2 h-2 rounded-full bg-muted-foreground/30 mx-auto mb-1" />
                     <p className="text-lg font-display font-bold text-muted-foreground/60">0</p>
                     <p className="text-[10px] text-muted-foreground">Sin llamar</p>
-                    <p className="text-[10px] text-muted-foreground/40">0%</p>
+                    <p className="text-[10px] text-muted-foreground/65">0%</p>
                   </div>
                 </div>
               </div>
