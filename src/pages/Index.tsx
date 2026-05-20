@@ -440,7 +440,7 @@ const Index = () => {
                         {cap.chips.map((chip) => (
                           <span
                             key={chip}
-                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-border/30 bg-foreground/[0.04] text-foreground/65"
+                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
                           >
                             {chip}
                           </span>
