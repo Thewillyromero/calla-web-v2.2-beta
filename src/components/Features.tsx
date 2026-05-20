@@ -7,6 +7,7 @@ import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/care-waving-transparent.png";
 import heroRobot from "@/assets/hero-robot.webp";
+import haloConductor from "@/assets/halo-conductor.png";
 import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles, ArrowRight, ChevronDown, Check } from "lucide-react";
 
 const features = [
@@ -101,7 +102,7 @@ const features = [
     ],
   },
   {
-    image: heroRobot,
+    image: haloConductor,
     agent: "HALO",
     icon: Sparkles,
     title: "Mantiene todo en sincronía",

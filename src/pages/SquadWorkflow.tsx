@@ -12,6 +12,7 @@ import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
 import heroRobot from "@/assets/hero-robot.webp";
+import haloConductor from "@/assets/halo-conductor.png";
 import { BOOKING_URL } from "@/lib/constants";
 
 /* ── Station data ── */
@@ -298,7 +299,7 @@ const SquadWorkflow = () => {
                     style={{ boxShadow: `0 0 60px hsl(220 90% 65% / 0.5), inset 0 0 40px hsl(220 90% 65% / 0.2)` }}
                   />
                   <motion.img
-                    src={heroRobot}
+                    src={haloConductor}
                     alt="HALO — orquestador del equipo"
                     className="relative z-10 w-64 sm:w-72 md:w-[22rem] lg:w-[26rem] object-contain animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                   />
