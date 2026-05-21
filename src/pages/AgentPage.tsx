@@ -127,7 +127,7 @@ const agentData: Record<string, AgentData> = {
     taglineHighlight: "nunca para de llamar",
     taglineBreakBefore: true,
     description:
-      "NOVA llama a tus prospectos, cualifica oportunidades y cierra ventas sin que tu equipo levante el teléfono. Campañas outbound a escala y con seguimiento inteligente.",
+      "NOVA llama a tus prospectos, cualifica oportunidades y cierra ventas sin que tu equipo levante el teléfono.\n\nCampañas outbound a escala y con seguimiento inteligente.",
     image: agentOutbound,
     icon: PhoneOutgoing,
     howItWorks: [
@@ -175,7 +175,7 @@ const agentData: Record<string, AgentData> = {
     tagline: "El mejor gestor de tu agenda",
     taglineHighlight: "mejor gestor",
     description:
-      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios.\nReduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
+      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios.\n\nReduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
     image: agentScheduler,
     icon: CalendarCheck,
     howItWorks: [
