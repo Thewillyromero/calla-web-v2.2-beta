@@ -33,6 +33,7 @@ interface AgentData {
   name: string;
   role: string;
   tagline: string;
+  taglineHighlight: string;
   description: string;
   image: string;
   icon: typeof Phone;
@@ -49,6 +50,7 @@ const agentData: Record<string, AgentData> = {
     name: "ARIA",
     role: "Recepcionista Virtual",
     tagline: "Tu recepcionista que nunca descansa",
+    taglineHighlight: "nunca descansa",
     description:
       "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7 sin días malos ni bajas.",
     image: agentInbound,
@@ -80,6 +82,7 @@ const agentData: Record<string, AgentData> = {
     name: "NOVA",
     role: "Agente de Ventas",
     tagline: "Convierte leads en clientes mientras duermes",
+    taglineHighlight: "mientras duermes",
     description:
       "NOVA realiza llamadas salientes para captar leads, cualificar oportunidades y cerrar ventas. Ejecuta campañas outbound automatizadas con seguimiento inteligente.",
     image: agentOutbound,
@@ -109,6 +112,7 @@ const agentData: Record<string, AgentData> = {
     name: "LUMI",
     role: "Coordinador de Citas",
     tagline: "Cero no-shows, cero llamadas perdidas",
+    taglineHighlight: "Cero no-shows",
     description:
       "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
     image: agentScheduler,
@@ -138,6 +142,7 @@ const agentData: Record<string, AgentData> = {
     name: "BYTE",
     role: "Analista de Datos",
     tagline: "Datos que transforman decisiones",
+    taglineHighlight: "transforman decisiones",
     description:
       "BYTE analiza cada llamada y genera reportes accionables. Detecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
     image: agentAnalytics,
@@ -167,6 +172,7 @@ const agentData: Record<string, AgentData> = {
     name: "CARE",
     role: "Atención y Satisfacción del Cliente",
     tagline: "Convierte clientes en fans para toda la vida",
+    taglineHighlight: "para toda la vida",
     description:
       "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
     image: agentSupport,
@@ -243,6 +249,18 @@ const AgentPage = () => {
 
   const Icon = agent.icon;
 
+  const agentGradient =
+    agent.slug === "aria" ? "linear-gradient(110deg, hsl(185 75% 65%), hsl(195 65% 88%))" :
+    agent.slug === "nova" ? "linear-gradient(110deg, hsl(255 65% 72%), hsl(270 70% 88%))" :
+    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(155 65% 58%), hsl(165 55% 82%))" :
+    agent.slug === "byte" ? "linear-gradient(110deg, hsl(30 85% 62%), hsl(45 90% 82%))" :
+                            "linear-gradient(110deg, hsl(335 70% 68%), hsl(350 65% 86%))";
+
+  const highlight = agent.taglineHighlight;
+  const hIdx = agent.tagline.indexOf(highlight);
+  const taglineBefore = agent.tagline.slice(0, hIdx);
+  const taglineAfter = agent.tagline.slice(hIdx + highlight.length);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar onContact={() => setContactOpen(true)} />
@@ -257,7 +275,11 @@ const AgentPage = () => {
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider">{agent.name}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
-                {agent.tagline}
+                {taglineBefore}
+                <span style={{ background: agentGradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  {highlight}
+                </span>
+                {taglineAfter}
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6">
                 {agent.description}
