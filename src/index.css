@@ -163,6 +163,7 @@
 .marquee-container {
   overflow: hidden;
   width: 100%;
+  contain: layout style;
 }
 
 .marquee-track {
@@ -170,6 +171,9 @@
   width: max-content;
   animation: marquee-infinite 88s linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .marquee-item {
@@ -180,8 +184,8 @@
 }
 
 @keyframes marquee-infinite {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes count-up {

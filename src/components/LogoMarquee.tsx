@@ -111,24 +111,29 @@ const LogoMarquee = memo(() => {
                 src={logo}
                 alt=""
                 className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
                 draggable={false}
                 style={{ filter: "brightness(1.1)", opacity: 1 }}
               />
             </div>
           ))}
-          {displayLogos.map((logo, i) => (
-            <div key={`b-${i}`} className="marquee-item">
-              <img
-                src={logo}
-                alt=""
-                className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                loading="lazy"
-                draggable={false}
-                style={{ filter: "brightness(1.1)", opacity: 1 }}
-              />
-            </div>
-          ))}
+          {/* Copia duplicada para loop continuo — oculta a lectores de pantalla */}
+          <div aria-hidden="true" className="contents">
+            {displayLogos.map((logo, i) => (
+              <div key={`b-${i}`} className="marquee-item">
+                <img
+                  src={logo}
+                  alt=""
+                  className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                  style={{ filter: "brightness(1.1)", opacity: 1 }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
