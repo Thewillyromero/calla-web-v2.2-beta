@@ -158,7 +158,7 @@ const SquadWorkflow = () => {
                 </span>
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
-                {"Es el que mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nSin HALO, no hay sistema. Con HALO, cada pieza encaja."}
+                {"Halo mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nSin HALO, no hay sistema. Con HALO, cada pieza encaja."}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <div
