@@ -128,9 +128,9 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${sectorsOpen ? "rotate-180" : ""}`} />
             </button>
             {sectorsOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[340px] glass-elevated rounded-xl p-2 animate-in fade-in-0 zoom-in-95 duration-200">
-                <div className="grid grid-cols-2 gap-0.5">
-                  {sectors.map((s) => {
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] glass-elevated rounded-xl p-2 animate-in fade-in-0 zoom-in-95 duration-200">
+                <div className="grid grid-cols-3 gap-0.5">
+                  {[...sectors].sort((a, b) => a.name.localeCompare(b.name, "es")).map((s) => {
                     const Icon = s.icon;
                     return (
                       <Link
