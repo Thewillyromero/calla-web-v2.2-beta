@@ -375,20 +375,25 @@ const AgentPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 {agent.slug === "aria" ? (
-                  <Button
-                    size="lg"
-                    className="rounded-full px-8 shadow-lg hover:opacity-90 transition-opacity"
-                    style={{ background: "#000", color: "transparent" }}
-                    onClick={() => window.open(BOOKING_URL, "_blank")}
+                  <div
+                    className="rounded-full p-[2px] hover:opacity-90 transition-opacity shadow-lg"
+                    style={{ backgroundImage: agentGradient }}
                   >
-                    <span
-                      className="bg-clip-text text-transparent flex items-center gap-2"
-                      style={{ backgroundImage: agentGradient }}
+                    <Button
+                      size="lg"
+                      className="rounded-full px-8 w-full"
+                      style={{ background: "#000", color: "transparent" }}
+                      onClick={() => window.open(BOOKING_URL, "_blank")}
                     >
-                      Solicitar demo
-                      <ArrowRight className="h-4 w-4 shrink-0" style={{ color: "hsl(190 100% 60%)" }} />
-                    </span>
-                  </Button>
+                      <span
+                        className="bg-clip-text text-transparent flex items-center gap-2"
+                        style={{ backgroundImage: agentGradient }}
+                      >
+                        Solicitar demo
+                        <ArrowRight className="h-4 w-4 shrink-0" style={{ color: "hsl(190 100% 60%)" }} />
+                      </span>
+                    </Button>
+                  </div>
                 ) : (
                   <Button
                     size="lg"
