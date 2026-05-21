@@ -256,19 +256,26 @@ const SquadWorkflow = () => {
         <div className="container mx-auto max-w-4xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-4">
-              El equipo que coordina
+              Todo lo que HALO coordina
             </h2>
             <p className="text-center text-foreground/70 mb-10 max-w-xl mx-auto font-light">
-              HALO dirige los cinco agentes base más cualquier agente personalizado que desarrollemos para los procesos específicos de tu empresa.
+              Desde el equipo base hasta los agentes que construimos específicamente para tu empresa.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+
+            {/* Agentes base */}
+            <div className="mb-3">
+              <span className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full" style={{ background: `hsl(${haloHsl} / 0.10)`, color: `hsl(${haloHsl})` }}>
+                Equipo base · incluido en todos los planes
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-4">
               {squadAgents.map((agent, i) => {
                 const Icon = agent.icon;
                 return (
                   <motion.div key={agent.name} {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                     <Link
                       to={agent.path}
-                      className="flex flex-col items-center gap-2 bg-card/40 border border-border/20 rounded-xl p-4 hover:border-primary/25 transition-all group"
+                      className="flex flex-col items-center gap-2 bg-card/40 border border-border/20 rounded-xl p-4 hover:border-primary/25 transition-all"
                     >
                       <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: `hsl(${agent.hsl} / 0.1)` }}>
                         <Icon className="h-4 w-4" style={{ color: `hsl(${agent.hsl})` }} />
@@ -280,6 +287,26 @@ const SquadWorkflow = () => {
                 );
               })}
             </div>
+
+            {/* Agentes a medida */}
+            <motion.div
+              {...fade}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5"
+              style={{ background: `hsl(${haloHsl} / 0.07)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}
+            >
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 text-2xl font-display font-bold" style={{ background: `hsl(${haloHsl} / 0.15)`, color: `hsl(${haloHsl})` }}>
+                +
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-lg text-foreground mb-2">
+                  Agentes específicos para tu empresa
+                </h3>
+                <p className="text-sm text-foreground/70 font-light leading-relaxed">
+                  Desarrollamos agentes que siguen exactamente tu proceso: un gestor de averías, un cualificador de leads por sector, un asistente de reservas con tu protocolo. HALO los sincroniza con el equipo base desde el primer día, sin reconfigurar nada del sistema.
+                </p>
+              </div>
+            </motion.div>
           </SectionFade>
         </div>
       </section>
