@@ -418,14 +418,11 @@ const AgentPage = () => {
               <div className="grid sm:grid-cols-3 gap-6 mb-14">
                 {agent.howItWorks.map((s, i) => (
                   <motion.div key={i} className="flex flex-col items-center text-center gap-3" {...fade} transition={{ duration: 0.5, delay: i * 0.12 }}>
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                      <span className="font-display font-extrabold text-base text-primary">{s.step}</span>
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <span className="font-display font-extrabold text-lg text-primary">{s.step}</span>
                     </div>
-                    {i < agent.howItWorks!.length - 1 && (
-                      <div className="hidden sm:block absolute" />
-                    )}
-                    <h3 className="font-display font-bold text-base text-foreground">{s.title}</h3>
-                    <p className="text-sm text-foreground/65 font-light leading-relaxed">{s.description}</p>
+                    <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
+                    <p className="text-base text-foreground/70 font-light leading-relaxed">{s.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -439,8 +436,8 @@ const AgentPage = () => {
                     <motion.div key={i} className="bg-card/40 border border-border/20 rounded-xl p-5 flex gap-3" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                       <CircleDot className="h-4 w-4 text-primary shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
                       <div>
-                        <h3 className="font-display font-semibold text-sm text-foreground mb-1">{fc.title}</h3>
-                        <p className="text-xs text-foreground/65 font-light leading-relaxed">{fc.description}</p>
+                        <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{fc.title}</h3>
+                        <p className="text-sm text-foreground/70 font-light leading-relaxed">{fc.description}</p>
                       </div>
                     </motion.div>
                   ))}
