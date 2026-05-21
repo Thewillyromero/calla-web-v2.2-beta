@@ -52,7 +52,7 @@ const agentData: Record<string, AgentData> = {
     name: "ARIA",
     role: "Recepcionista Virtual",
     tagline: "Tu recepcionista que nunca descansa",
-    taglineHighlight: "nunca descansa",
+    taglineHighlight: "que nunca descansa",
     taglineBreakBefore: true,
     description:
       "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7 sin días malos ni bajas.",
