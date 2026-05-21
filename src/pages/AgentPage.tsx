@@ -127,7 +127,7 @@ const agentData: Record<string, AgentData> = {
     taglineHighlight: "nunca para de llamar",
     taglineBreakBefore: true,
     description:
-      "NOVA llama a tus prospectos, cualifica oportunidades y cierra ventas sin que tu equipo levante el teléfono. Campañas outbound a escala, con seguimiento inteligente y sin coste por hora.",
+      "NOVA llama a tus prospectos, cualifica oportunidades y cierra ventas sin que tu equipo levante el teléfono. Campañas outbound a escala y con seguimiento inteligente.",
     image: agentOutbound,
     icon: PhoneOutgoing,
     howItWorks: [
