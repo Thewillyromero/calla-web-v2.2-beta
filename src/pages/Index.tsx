@@ -25,6 +25,10 @@ import {
   X,
   Minus,
   Network,
+  Search,
+  Code2,
+  Rocket,
+  RefreshCw,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
@@ -94,24 +98,32 @@ const steps = [
     title: "Diagnóstico",
     description: "Nos reunimos contigo o visitamos tu empresa. Analizamos flujos, cuellos de botella y oportunidades de automatización para diseñar la solución exacta que necesitas.",
     chips: ["Reunión inicial", "Auditoría de procesos", "Propuesta a medida"],
+    hsl: "190 60% 55%",
+    icon: Search,
   },
   {
     number: "02",
     title: "Desarrollo",
     description: "Configuramos los cinco agentes base adaptados a tu negocio y desarrollamos los asistentes IA específicos que requiera tu operativa.",
     chips: ["Agentes base", "IA a medida", "Integraciones", "Pruebas internas"],
+    hsl: "260 50% 65%",
+    icon: Code2,
   },
   {
     number: "03",
     title: "Entrega e implementación",
     description: "Conectamos todo el ecosistema con tus herramientas, formamos a tu equipo para sacarle el máximo rendimiento y verificamos que cada pieza funciona perfectamente.",
     chips: ["Puesta en marcha", "Formación", "Pruebas finales", "Soporte"],
+    hsl: "160 50% 48%",
+    icon: Rocket,
   },
   {
     number: "04",
     title: "Actualizaciones y mantenimiento",
     description: "El sistema no se entrega y se olvida. Monitorizamos el rendimiento, aplicamos mejoras continuas y actualizamos los agentes con nuevas capacidades. Tu equipo de IA evoluciona con tu empresa.",
     chips: ["Monitorización continua", "Mejoras y actualizaciones", "Soporte técnico", "Nuevas capacidades"],
+    hsl: "35 70% 58%",
+    icon: RefreshCw,
   },
 ];
 
@@ -544,38 +556,56 @@ const Index = () => {
 
             {/* Cards grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-6 flex flex-col gap-4 hover:border-primary/25 transition-colors duration-300"
-                >
-                  <span className="text-5xl font-display font-black leading-none tabular-nums select-none text-foreground/10">
-                    {step.number}
-                  </span>
-                  <div>
-                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-foreground/70 font-light leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-auto pt-2">
-                    {step.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="text-xs font-medium px-3 py-1 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
-                      >
-                        {chip}
+              {steps.map((step, i) => {
+                const StepIcon = step.icon;
+                return (
+                  <motion.div
+                    key={step.number}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    className="rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300"
+                    style={{
+                      background: `hsl(${step.hsl} / 0.06)`,
+                      border: `1px solid hsl(${step.hsl} / 0.25)`,
+                    }}
+                  >
+                    {/* Icon + number row */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
+                        <StepIcon className="w-5 h-5" style={{ color: `hsl(${step.hsl})` }} />
+                      </div>
+                      <span className="text-4xl font-display font-black leading-none tabular-nums select-none" style={{ color: `hsl(${step.hsl} / 0.20)` }}>
+                        {step.number}
                       </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+                    </div>
+                    <div>
+                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-foreground/70 font-light leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                      {step.chips.map((chip) => (
+                        <span
+                          key={chip}
+                          className="text-xs font-medium px-3 py-1 rounded-full"
+                          style={{
+                            background: `hsl(${step.hsl} / 0.12)`,
+                            border: `1px solid hsl(${step.hsl} / 0.30)`,
+                            color: `hsl(${step.hsl})`,
+                          }}
+                        >
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
           </div>
