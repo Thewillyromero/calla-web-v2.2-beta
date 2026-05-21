@@ -195,6 +195,12 @@ const steps = [
     description: "Conectamos todo el ecosistema con tus herramientas, formamos a tu equipo para sacarle el máximo rendimiento y verificamos que cada pieza funciona perfectamente.",
     chips: ["Puesta en marcha", "Formación", "Pruebas finales", "Soporte"],
   },
+  {
+    number: "04",
+    title: "Inversión",
+    description: "El proyecto tiene un coste inicial de desarrollo e implementación y una cuota mensual posterior. El pago se puede estructurar al inicio, por fases o al finalizar, según el acuerdo.",
+    chips: ["Coste de desarrollo", "Cuota mensual", "Pago flexible"],
+  },
 ];
 
 const metrics = [
@@ -617,7 +623,7 @@ const Index = () => {
             >
               <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
                 <ArrowRight className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs text-primary font-display font-semibold tracking-wide">Cómo empezamos</span>
+                <span className="text-xs text-primary font-display font-semibold tracking-wide">Manos a la obra</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-4">
                 Así de fácil es{" "}
@@ -681,14 +687,14 @@ const Index = () => {
                       <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-foreground/70 font-light mb-3 leading-relaxed">
+                      <p className="text-sm text-foreground/85 font-light mb-3 leading-relaxed">
                         {step.description}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-2">
                         {step.chips.map((chip) => (
                           <span
                             key={chip}
-                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
+                            className="text-xs font-medium px-3 py-1 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
                           >
                             {chip}
                           </span>
@@ -699,16 +705,6 @@ const Index = () => {
                 ))}
               </motion.div>
 
-              {/* Inversión note */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-center text-sm text-foreground/60 mt-5"
-              >
-                <span className="text-foreground/80 font-medium">Inversión:</span> coste inicial de desarrollo e implementación + cuota mensual. El pago se estructura según el proyecto: al inicio, por fases o al finalizar.
-              </motion.p>
             </div>
 
           </div>
