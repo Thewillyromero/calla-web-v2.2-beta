@@ -298,7 +298,7 @@ const AgentPage = () => {
                     </>
                   );
                 })() : agent.taglineBreakBefore ? (
-                  <span className="md:block">{taglineBefore.trim()}{" "}</span>
+                  <span className="block">{taglineBefore.trim()}{" "}</span>
                 ) : taglineBefore}
                 <span
                   className="bg-clip-text text-transparent whitespace-nowrap"
