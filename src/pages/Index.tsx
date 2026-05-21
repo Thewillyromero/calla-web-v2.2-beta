@@ -41,6 +41,11 @@ import ariaCalling from "@/assets/characters/aria-calling-cut.png";
 import lumiWriting from "@/assets/characters/lumi-writing-cut.png";
 import byteMagnifying from "@/assets/characters/byte-analyzing-cut.png";
 import { BOOKING_URL } from "@/lib/constants";
+import avatarElena from "@/assets/avatars/elena-garcia.webp";
+import avatarRoberto from "@/assets/avatars/roberto-mendez.webp";
+import avatarCarmen from "@/assets/avatars/carmen-ortega.webp";
+import avatarJorge from "@/assets/avatars/jorge-navarro.webp";
+import avatarLaura from "@/assets/avatars/laura-m.webp";
 
 /* ── Data ── */
 
@@ -782,9 +787,26 @@ const Index = () => {
                 >
                   Solicitar demo gratuita <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center gap-2.5 mt-5">
-                  <TrustpilotStars rating={4.9} size={15} />
-                  <span className="text-sm text-foreground/70">4.9 · +200 empresas confían en CALLA</span>
+                <div className="flex items-center gap-3 mt-5">
+                  {/* Avatares apilados */}
+                  <div className="flex -space-x-2.5">
+                    {[avatarElena, avatarRoberto, avatarCarmen, avatarJorge, avatarLaura].map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt=""
+                        className="w-8 h-8 rounded-full object-cover ring-2 ring-background"
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-1.5">
+                      <TrustpilotStars rating={4.9} size={14} />
+                      <span className="text-sm font-semibold text-foreground">4.9</span>
+                    </div>
+                    <span className="text-xs text-foreground/65">+200 empresas confían en CALLA</span>
+                  </div>
                 </div>
               </motion.div>
 
