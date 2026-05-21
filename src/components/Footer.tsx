@@ -15,7 +15,7 @@ const Footer = () => {
                 CA<span className="text-gradient-blue">LLA</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground/80 font-light leading-relaxed max-w-xs">
+            <p className="text-sm text-foreground/80 font-light leading-relaxed max-w-xs">
               Automatizamos y digitalizamos la comunicación y procesos de tu empresa.
             </p>
           </div>
