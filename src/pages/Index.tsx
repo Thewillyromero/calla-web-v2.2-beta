@@ -3,8 +3,8 @@ import { useRef, useState, lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
-import SocialProof from "@/components/SocialProof";
 import LogoMarquee from "@/components/LogoMarquee";
+import { TrustpilotStars } from "@/components/TrustpilotStars";
 import SectionFade from "@/components/SectionFade";
 
 const DemoCall = lazy(() => import("@/components/DemoCall"));
@@ -352,6 +352,8 @@ const Index = () => {
         </section>
       </SectionFade>
 
+      <LogoMarquee />
+
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ─── 2. WHAT WE DO — capability map ─── */}
@@ -678,13 +680,15 @@ const Index = () => {
               >
                 Solicitar una demostración
               </Button>
+              <div className="flex items-center justify-center gap-2.5 mt-6">
+                <TrustpilotStars rating={4.9} size={16} />
+                <span className="text-sm text-foreground/70">4.9 · +200 empresas confían en CALLA</span>
+              </div>
             </motion.div>
           </div>
         </section>
       </SectionFade>
 
-      <SocialProof />
-      <LogoMarquee />
       <Footer />
       <FOMONotifications />
       <LiveViewers />
