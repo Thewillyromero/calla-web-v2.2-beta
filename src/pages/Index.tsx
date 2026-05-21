@@ -590,14 +590,14 @@ const Index = () => {
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-1 border-t" style={{ borderColor: `hsl(${step.hsl} / 0.15)` }}>
+                    <div className="flex flex-wrap gap-2 pt-2 border-t" style={{ borderColor: `hsl(${step.hsl} / 0.15)` }}>
                       {step.chips.map((chip) => (
                         <span
                           key={chip}
-                          className="text-xs font-medium px-2.5 py-1 rounded-md"
+                          className="text-sm font-semibold px-3 py-1.5 rounded-md"
                           style={{
-                            background: `hsl(${step.hsl} / 0.10)`,
-                            color: `hsl(${step.hsl} / 0.85)`,
+                            background: `hsl(${step.hsl} / 0.15)`,
+                            color: `hsl(${step.hsl})`,
                           }}
                         >
                           {chip}
