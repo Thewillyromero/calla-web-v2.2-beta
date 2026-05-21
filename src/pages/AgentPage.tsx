@@ -175,7 +175,7 @@ const agentData: Record<string, AgentData> = {
     tagline: "El mejor gestor de tu agenda",
     taglineHighlight: "mejor gestor",
     description:
-      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
+      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios.\nReduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
     image: agentScheduler,
     icon: CalendarCheck,
     howItWorks: [
@@ -388,7 +388,7 @@ const AgentPage = () => {
                 </span>
                 {taglineAfter}
               </h1>
-              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6">
+              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
                 {agent.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
