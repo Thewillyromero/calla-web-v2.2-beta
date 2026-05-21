@@ -301,7 +301,7 @@ const AgentPage = () => {
                   <span className="md:block">{taglineBefore.trim()}{" "}</span>
                 ) : taglineBefore}
                 <span
-                  className="bg-clip-text text-transparent"
+                  className="bg-clip-text text-transparent whitespace-nowrap"
                   style={{
                     backgroundImage: agentGradient,
                     textShadow: "none",
