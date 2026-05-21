@@ -787,25 +787,25 @@ const Index = () => {
                 >
                   Solicitar demo gratuita <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center gap-3 mt-5">
+                <div className="flex items-center gap-4 mt-7">
                   {/* Avatares apilados */}
-                  <div className="flex -space-x-2.5">
+                  <div className="flex -space-x-3">
                     {[avatarElena, avatarRoberto, avatarCarmen, avatarJorge, avatarLaura].map((src, i) => (
                       <img
                         key={i}
                         src={src}
                         alt=""
-                        className="w-8 h-8 rounded-full object-cover ring-2 ring-background"
+                        className="w-11 h-11 rounded-full object-cover ring-2 ring-background"
                         loading="lazy"
                       />
                     ))}
                   </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5">
-                      <TrustpilotStars rating={4.9} size={14} />
-                      <span className="text-sm font-semibold text-foreground">4.9</span>
+                  <div className="flex flex-col gap-0.5">
+                    <div className="flex items-center gap-2">
+                      <TrustpilotStars rating={4.9} size={16} />
+                      <span className="text-base font-semibold text-foreground">4.9</span>
                     </div>
-                    <span className="text-xs text-foreground/65">+200 empresas confían en CALLA</span>
+                    <span className="text-sm text-foreground/70">+200 empresas confían en CALLA</span>
                   </div>
                 </div>
               </motion.div>
