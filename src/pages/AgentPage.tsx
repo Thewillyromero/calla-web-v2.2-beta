@@ -123,13 +123,31 @@ const agentData: Record<string, AgentData> = {
     slug: "nova",
     name: "NOVA",
     role: "Agente de Ventas",
-    tagline: "Convierte leads en clientes mientras duermes",
-    taglineHighlight: "mientras duermes",
+    tagline: "Tu comercial que nunca para de llamar",
+    taglineHighlight: "nunca para de llamar",
     taglineBreakBefore: true,
     description:
-      "NOVA realiza llamadas salientes para captar leads, cualificar oportunidades y cerrar ventas. Ejecuta campañas outbound automatizadas con seguimiento inteligente.",
+      "NOVA llama a tus prospectos, cualifica oportunidades y cierra ventas sin que tu equipo levante el teléfono. Campañas outbound a escala, con seguimiento inteligente y sin coste por hora.",
     image: agentOutbound,
     icon: PhoneOutgoing,
+    howItWorks: [
+      { step: "01", title: "Recibe la lista de contactos", description: "NOVA importa los prospectos desde tu CRM o un fichero, verifica los datos y prioriza los contactos con mayor probabilidad de conversión." },
+      { step: "02", title: "Llama y cualifica", description: "Presenta la oferta, responde objeciones, detecta el nivel de interés y clasifica cada contacto: listo para cerrar, en seguimiento o descartado." },
+      { step: "03", title: "Tu equipo cierra", description: "Los leads cualificados llegan a tu equipo con el contexto completo. Solo tienen que aparecer a la reunión y firmar." },
+    ],
+    featureCards: [
+      { title: "Llamadas a escala", description: "NOVA puede realizar cientos de llamadas al día sin pausas, sin descansos y sin bajones de motivación. Tu pipeline siempre activo." },
+      { title: "Cualificación BANT", description: "Detecta presupuesto, autoridad, necesidad y tiempo antes de pasar el lead a tu equipo. Solo llegan oportunidades reales." },
+      { title: "Scripts dinámicos", description: "Se adapta en tiempo real a cada respuesta del interlocutor. No sigue un guión rígido, gestiona la conversación con criterio." },
+      { title: "Seguimiento automático", description: "Si no contesta, NOVA reintenta en el momento óptimo. Si dice 'llámame la semana que viene', NOVA lo hace. Sin excepciones." },
+      { title: "Integración CRM", description: "Sincroniza resultados directamente con tu CRM: estado del lead, notas de la llamada, próxima acción. Tu equipo ve todo actualizado." },
+      { title: "Reportes de conversión", description: "Métricas de contactados, cualificados, descartados y cerrados. Sabes exactamente qué está funcionando y qué no." },
+    ],
+    scenarios: [
+      { time: "09:00h", title: "100 leads fríos de una feria", scenario: "Tu equipo recogió 100 tarjetas en una feria. Llevan dos semanas sin contactar porque no hay tiempo. Los leads se enfrían.", result: "NOVA llama a los 100 en la mañana. 34 muestran interés, 12 aceptan una reunión con tu equipo. El pipeline se llena solo." },
+      { time: "Campaña", title: "Reactivación de clientes inactivos", scenario: "Tienes 300 clientes que no han comprado en más de 6 meses. Tu equipo no puede dedicarles tiempo, pero tampoco quieres perderlos.", result: "NOVA lanza la campaña: detecta a los 40 con mayor probabilidad de reactivación, les llama con una oferta personalizada y cierra 18 ventas." },
+      { time: "15:30h", title: "Lead entra pero el comercial está ocupado", scenario: "Un prospecto rellena el formulario web a las 3 de la tarde. Tu comercial está en reunión hasta las 6. Para entonces, el lead ya está frío.", result: "NOVA llama en menos de 2 minutos, cualifica el interés, resuelve las primeras dudas y agenda la reunión con el comercial para el día siguiente." },
+    ],
     useCases: [
       { title: "Generación de leads", description: "Llama a listas de prospectos, cualifica y agenda reuniones con tu equipo comercial." },
       { title: "Seguimiento post-venta", description: "Contacta clientes tras la compra para asegurar satisfacción y detectar oportunidades de upsell." },
@@ -145,9 +163,9 @@ const agentData: Record<string, AgentData> = {
       "Reportes de conversión en tiempo real",
     ],
     testimonials: [
-      { quote: "In just 14 days we generated $7,200 in new customers. The automated follow-up calls were the key to closing.", name: "Michael Torres", role: "Propietario, Advanced Plumbing", company: "Advanced Plumbing", result: "$7.2K en 14 días" },
-      { quote: "Mi equipo se resistía: '¿una IA va a hacer nuestro trabajo?'. A los dos días me dijeron 'esto es lo mejor que has hecho'. Ahora se dedican a cerrar ventas.", name: "Carlos Vega", role: "Director Comercial, SolarTech España", company: "SolarTech España", result: "Equipo convencido en 2 días" },
-      { quote: "We hired 3 separate teams to find the best fit, and Guillermo stood out above all of them. Over $300K in new revenue generated.", name: "Tim Michael Bissonnette", role: "CEO, Direct Public Funding", company: "Direct Public Funding", result: "$300K+ generados" },
+      { quote: "Teníamos 400 leads en el CRM sin contactar desde hacía meses. En una semana NOVA llamó a todos, cualificó 87 y mi equipo cerró 19 contratos. No me lo creía.", name: "Carlos Vega", role: "Director Comercial, SolarTech España", company: "SolarTech España", result: "19 contratos en una semana" },
+      { quote: "Mi equipo se resistía al principio: 'una IA no va a poder vender nuestros productos, son complejos'. A los tres días me dijeron que era lo mejor que habíamos implantado.", name: "Marta Sánchez", role: "CEO, Grupo Reformas del Sur", company: "Grupo Reformas del Sur", result: "Equipo convencido en 3 días" },
+      { quote: "Antes tardábamos 5 días en contactar a un lead nuevo. Ahora NOVA llama en menos de 2 minutos. La tasa de conversión subió un 34% solo por eso.", name: "Roberto Fuentes", role: "Gerente Comercial, Servicios Industriales Fuentes", company: "Servicios Industriales Fuentes", result: "+34% conversión" },
     ],
   },
   lumi: {
