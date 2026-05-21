@@ -223,9 +223,27 @@ const agentData: Record<string, AgentData> = {
     tagline: "Datos que transforman decisiones",
     taglineHighlight: "transforman decisiones",
     description:
-      "BYTE analiza cada llamada y genera reportes accionables. Detecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
+      "BYTE analiza cada llamada y genera reportes accionables.\n\nDetecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
     image: agentAnalytics,
     icon: BarChart3,
+    howItWorks: [
+      { step: "01", title: "Escucha cada conversación", description: "BYTE transcribe y analiza cada llamada en tiempo real. Detecta el tono, las objeciones y los patrones que tu equipo no ve a simple vista." },
+      { step: "02", title: "Convierte datos en insights", description: "Cruza información de todas las interacciones, identifica tendencias y genera alertas cuando algo sale de lo normal: satisfacción baja, picos de incidencias, objeciones que se repiten." },
+      { step: "03", title: "Tu equipo decide mejor", description: "Cada mañana tienes un informe con lo que pasó ayer, qué mejorar y qué está funcionando. Sin hojas de cálculo, sin escuchar llamadas manualmente." },
+    ],
+    featureCards: [
+      { title: "Transcripción automática", description: "Cada llamada queda transcrita y etiquetada al instante. Búsqueda por palabra clave, fecha o resultado. Toda la información accesible en segundos." },
+      { title: "Análisis de sentimiento", description: "Detecta el tono emocional de cada conversación. Sabe cuándo un cliente está insatisfecho antes de que lo diga y alerta a tu equipo a tiempo." },
+      { title: "Detección de patrones", description: "Identifica qué preguntas se repiten, qué objeciones frenan ventas y en qué momentos del día se concentran las incidencias o las llamadas sin resolver." },
+      { title: "Reportes ejecutivos", description: "Dashboards diarios, semanales y mensuales adaptados a tu negocio. Exportables a PDF, CSV o integrados directamente con tu herramienta de BI." },
+      { title: "Alertas configurables", description: "Define umbrales: si la satisfacción baja del 80%, si hay llamadas sin atender acumuladas, o si un patrón inusual aparece. BYTE te avisa antes de que escale." },
+      { title: "Control de calidad", description: "Scoring automático de cada interacción. Detecta qué llamadas merecen revisión y qué agentes necesitan apoyo sin que nadie tenga que escucharlas todas." },
+    ],
+    scenarios: [
+      { time: "08:30h", title: "El informe del lunes", scenario: "Empieza la semana y nadie sabe cómo fue la anterior. El equipo dedica la primera hora a revisar Excel y escuchar llamadas al azar sin llegar a ninguna conclusión.", result: "BYTE tiene el informe listo desde el domingo: llamadas atendidas, tasa de resolución, satisfacción media y las 3 conversaciones que merecen atención. La reunión dura 10 minutos." },
+      { time: "En tiempo real", title: "Un cliente a punto de irse", scenario: "Un cliente lleva tres llamadas en dos semanas con el mismo problema sin resolver. Nadie del equipo ha conectado los puntos. Está a un paso de escribir una reseña negativa.", result: "BYTE detecta el patrón, genera una alerta y la envía al responsable. El equipo llama al cliente antes de que el problema escale. Crisis evitada." },
+      { time: "Campaña", title: "¿Por qué no convierte esta oferta?", scenario: "Lanzaste una campaña hace dos semanas. Hay llamadas, pero pocas ventas. No sabes si el problema es el precio, el mensaje o el perfil del cliente.", result: "BYTE analiza 200 conversaciones en minutos: el 67% menciona que el plazo de entrega es demasiado largo. Tienes la respuesta concreta para actuar." },
+    ],
     useCases: [
       { title: "Análisis de sentimiento", description: "Detecta el tono emocional de cada llamada y alerta sobre clientes insatisfechos." },
       { title: "Reportes ejecutivos", description: "Genera dashboards diarios, semanales y mensuales con métricas clave." },
@@ -241,9 +259,9 @@ const agentData: Record<string, AgentData> = {
       "Integración con herramientas de BI",
     ],
     testimonials: [
-      { quote: "Antes dedicaba 3 horas al día al teléfono. Ahora CALLA atiende, filtra y solo me pasa las llamadas que realmente importan. Recuperé mi agenda.", name: "David Martínez", role: "Director Comercial, Instalaciones Martínez", company: "Instalaciones Martínez", result: "3h/día recuperadas" },
-      { quote: "Gestionamos 200 llamadas al día entre 3 sedes. CALLA unificó todo: atiende, deriva a la sede correcta y agenda. Ahorramos 2 puestos de recepción.", name: "Miguel Santos", role: "Director de Operaciones, Edommo Energía", company: "Edommo Energía", result: "2 puestos ahorrados" },
-      { quote: "Tenemos 12 técnicos en la calle y las llamadas de clientes para avisos de avería eran un caos. CALLA las recoge, prioriza y asigna al técnico más cercano.", name: "Antonio Ruiz", role: "Jefe de Operaciones, Climatizaciones Ruiz", company: "Climatizaciones Ruiz", result: "Averías priorizadas al instante" },
+      { quote: "Antes no sabía por qué perdía clientes. Con BYTE vi que el 40% de las llamadas de reclamación venían del mismo tipo de incidencia. Lo corregimos en una semana y las quejas cayeron a la mitad.", name: "David Martínez", role: "Director Comercial, Instalaciones Martínez", company: "Instalaciones Martínez", result: "Quejas reducidas a la mitad" },
+      { quote: "Gestionamos 200 llamadas al día entre 3 sedes. BYTE nos dio por primera vez una visión unificada de qué estaba pasando en cada una. Detectamos que una sede tenía el doble de no-shows y lo solucionamos.", name: "Miguel Santos", role: "Director de Operaciones, Edommo Energía", company: "Edommo Energía", result: "Visión unificada de 3 sedes" },
+      { quote: "Mis comerciales decían que los leads eran malos. BYTE demostró que el problema era el horario de las llamadas: el 70% de los contactos se hacían en la franja de menor conversión. Lo cambiamos y los resultados mejoraron de inmediato.", name: "Antonio Ruiz", role: "Jefe de Ventas, Climatizaciones Ruiz", company: "Climatizaciones Ruiz", result: "Conversión mejorada cambiando horarios" },
     ],
   },
   care: {
