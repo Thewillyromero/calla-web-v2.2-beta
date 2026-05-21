@@ -273,9 +273,27 @@ const agentData: Record<string, AgentData> = {
     taglineBreakBefore: true,
     taglineBreakAfter: "Convierte",
     description:
-      "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
+      "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza.\n\nDetecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
     image: agentSupport,
     icon: HeartHandshake,
+    howItWorks: [
+      { step: "01", title: "Después de cada venta", description: "CARE contacta al cliente automáticamente tras el servicio o compra. Confirma que todo ha ido bien y detecta cualquier señal de insatisfacción antes de que se convierta en un problema." },
+      { step: "02", title: "Mide y actúa", description: "Procesa cada respuesta, asigna un score de satisfacción y clasifica al cliente: promotor, neutral o en riesgo. Los casos urgentes llegan a tu equipo con todo el contexto ya preparado." },
+      { step: "03", title: "Fideliza sin esfuerzo", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y reactivación de inactivos. CARE mantiene viva la relación con cada cliente sin que tu equipo tenga que acordarse de nada." },
+    ],
+    featureCards: [
+      { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien. El cliente siente que importa. Tu equipo no tiene que hacer nada." },
+      { title: "Encuestas NPS", description: "Mide la satisfacción tras cada interacción. Detecta promotores y detractores antes de que los segundos publiquen una reseña negativa que no puedes borrar." },
+      { title: "Clientes en riesgo", description: "Identifica patrones de abandono: clientes que no responden, con incidencias sin resolver o que llevan meses sin comprar. CARE actúa antes de que se vayan." },
+      { title: "Gestión de reclamaciones", description: "Recoge la incidencia, la clasifica por urgencia y la escala al responsable adecuado con todo el contexto. Ninguna queja queda sin respuesta." },
+      { title: "Fidelización automática", description: "Felicitaciones de cumpleaños, recordatorios de revisión periódica y ofertas exclusivas para clientes de larga duración. Sin trabajo manual ni listas que actualizar." },
+      { title: "Reactivación de inactivos", description: "Detecta clientes que llevan meses sin contacto y lanza campañas personalizadas para recuperarlos antes de que se vayan definitivamente a la competencia." },
+    ],
+    scenarios: [
+      { time: "3 días después", title: "La venta cerrada, ¿y ahora qué?", scenario: "El cliente compró, el equipo pasa al siguiente. Nadie sabe si quedó satisfecho. Si hay un problema, se enterarán cuando llegue la reseña negativa en Google.", result: "CARE llama a los 3 días. El cliente menciona un pequeño detalle que no le cuadró. El equipo lo resuelve ese mismo día. El cliente deja una reseña de 5 estrellas." },
+      { time: "6 semanas sin señal", title: "Un cliente que dejó de aparecer", scenario: "Un cliente que compraba cada mes lleva 6 semanas sin dar señales. Tu equipo no ha notado nada. Para cuando lo hagan puede ser demasiado tarde.", result: "CARE detecta el patrón y lanza una llamada de reactivación con una oferta personalizada. El cliente vuelve. Una venta recuperada con coste cero en publicidad." },
+      { time: "09:15h", title: "Reclamación antes de abrir", scenario: "Un cliente envió un mensaje fuera de horario muy molesto por un pedido que llegó mal. Nadie lo vio. Si nadie actúa antes del mediodía, puede convertirse en una reseña pública.", result: "CARE recogió la incidencia, la clasificó como urgente y a las 9:15h el responsable ya tenía la alerta con todo el contexto. El cliente fue contactado y resuelto antes del mediodía." },
+    ],
     useCases: [
       { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien y resolver dudas." },
       { title: "Encuestas de satisfacción (NPS)", description: "Mide la satisfacción de cada cliente y te alerta cuando alguien puntúa bajo, antes de que se queje públicamente." },
