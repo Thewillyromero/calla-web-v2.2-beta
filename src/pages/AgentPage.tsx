@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, CheckCircle2, Quote } from "lucide-react";
+import { Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, ArrowRight, CheckCircle2, Quote, CircleDot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -28,6 +28,24 @@ interface AgentTestimonial {
   result: string;
 }
 
+interface AgentStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
+interface AgentFeatureCard {
+  title: string;
+  description: string;
+}
+
+interface AgentScenario {
+  time: string;
+  title: string;
+  scenario: string;
+  result: string;
+}
+
 interface AgentData {
   slug: string;
   name: string;
@@ -44,6 +62,9 @@ interface AgentData {
   taglineBreakAfter?: string;
   showDemoCall?: boolean;
   showCallSimulator?: boolean;
+  howItWorks?: AgentStep[];
+  featureCards?: AgentFeatureCard[];
+  scenarios?: AgentScenario[];
 }
 
 const agentData: Record<string, AgentData> = {
@@ -60,6 +81,24 @@ const agentData: Record<string, AgentData> = {
     icon: Phone,
     showDemoCall: true,
     showCallSimulator: true,
+    howItWorks: [
+      { step: "01", title: "Entra la llamada", description: "ARIA responde al instante, identifica al interlocutor y detecta el motivo de la llamada en los primeros segundos." },
+      { step: "02", title: "ARIA actúa", description: "Agenda la cita, resuelve la duda, informa de horarios o transfiere la llamada al responsable con contexto completo." },
+      { step: "03", title: "Todo queda registrado", description: "BYTE transcribe la conversación, CARE programa el seguimiento si es necesario y HALO coordina la respuesta del equipo." },
+    ],
+    featureCards: [
+      { title: "Voz natural", description: "Habla con tus clientes como lo haría una persona real. Sin robótica, sin pausas extrañas. Los clientes no notan la diferencia." },
+      { title: "Transferencia inteligente", description: "Detecta a qué persona o departamento debe ir cada llamada y la transfiere con el contexto completo ya explicado." },
+      { title: "Agenda automática", description: "Se integra con tu calendario y agenda citas directamente, sin llamadas de ida y vuelta ni intermediarios." },
+      { title: "Detección de urgencias", description: "Identifica situaciones críticas y escala inmediatamente al responsable adecuado, sin perder tiempo." },
+      { title: "Transcripción completa", description: "Cada llamada queda transcrita y resumida automáticamente. Nada se pierde, todo queda registrado." },
+      { title: "Tu tono de empresa", description: "Se configura con el vocabulario, estilo y protocolo de tu negocio. No suena a IA genérica, suena a tu empresa." },
+    ],
+    scenarios: [
+      { time: "22:45h", title: "Un paciente llama fuera de horario", scenario: "La clínica está cerrada. Un paciente angustiado llama por un dolor agudo. Nadie del equipo puede atender.", result: "ARIA atiende, evalúa la urgencia, tranquiliza al paciente y agenda la primera cita disponible para las 8:30h del día siguiente." },
+      { time: "13:15h", title: "El teléfono suena y el equipo está ocupado", scenario: "Todo el personal está atendiendo clientes presenciales. El teléfono lleva tres llamadas perdidas en 20 minutos.", result: "ARIA gestionó las tres llamadas: dos agendaron cita y una dejó disponibilidad para que el equipo devuelva la llamada." },
+      { time: "Campaña", title: "150 llamadas tras un envío de newsletter", scenario: "Acabas de enviar una oferta a tu base de datos. El teléfono explota. El equipo no puede asumir ese volumen.", result: "ARIA atiende todas en paralelo, responde dudas sobre la oferta y agenda citas para los interesados sin colas ni esperas." },
+    ],
     useCases: [
       { title: "Clínicas y consultas médicas", description: "Atiende pacientes, agenda citas y gestiona cancelaciones sin intervención humana." },
       { title: "Despachos profesionales", description: "Filtra llamadas por urgencia y conecta con el profesional adecuado." },
@@ -368,31 +407,72 @@ const AgentPage = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
-        <div className="container mx-auto max-w-4xl">
-          <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
-              Capacidades de {agent.name}
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {agent.features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-start gap-3 bg-card/40 border border-border/20 rounded-xl p-4"
-                  {...fade}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                >
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-foreground/85">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
-          </SectionFade>
-        </div>
-      </section>
+      {/* Cómo trabaja — only if howItWorks data exists */}
+      {agent.howItWorks && (
+        <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
+          <div className="container mx-auto max-w-4xl">
+            <SectionFade>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12">
+                Cómo trabaja {agent.name}
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-6 mb-14">
+                {agent.howItWorks.map((s, i) => (
+                  <motion.div key={i} className="flex flex-col items-center text-center gap-3" {...fade} transition={{ duration: 0.5, delay: i * 0.12 }}>
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <span className="font-display font-extrabold text-base text-primary">{s.step}</span>
+                    </div>
+                    {i < agent.howItWorks!.length - 1 && (
+                      <div className="hidden sm:block absolute" />
+                    )}
+                    <h3 className="font-display font-bold text-base text-foreground">{s.title}</h3>
+                    <p className="text-sm text-foreground/65 font-light leading-relaxed">{s.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionFade>
 
-      {/* ARIA-specific: DemoCall (moved before Use Cases for visibility) */}
+            {/* Feature cards */}
+            {agent.featureCards && (
+              <SectionFade>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {agent.featureCards.map((fc, i) => (
+                    <motion.div key={i} className="bg-card/40 border border-border/20 rounded-xl p-5 flex gap-3" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                      <CircleDot className="h-4 w-4 text-primary shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
+                      <div>
+                        <h3 className="font-display font-semibold text-sm text-foreground mb-1">{fc.title}</h3>
+                        <p className="text-xs text-foreground/65 font-light leading-relaxed">{fc.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </SectionFade>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Features (fallback for agents without featureCards) */}
+      {!agent.howItWorks && (
+        <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
+          <div className="container mx-auto max-w-4xl">
+            <SectionFade>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
+                Capacidades de {agent.name}
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {agent.features.map((feature, i) => (
+                  <motion.div key={i} className="flex items-start gap-3 bg-card/40 border border-border/20 rounded-xl p-4" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground/85">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionFade>
+          </div>
+        </section>
+      )}
+
+      {/* DemoCall */}
       {agent.showDemoCall && (
         <div className="bg-white/[0.03]">
           <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
@@ -401,29 +481,51 @@ const AgentPage = () => {
         </div>
       )}
 
-      {/* Use Cases */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-5xl">
-          <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
-              Casos de uso
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {agent.useCases.map((uc, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all"
-                  {...fade}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
-                  <p className="text-sm text-foreground/70 font-light">{uc.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </SectionFade>
-        </div>
-      </section>
+      {/* Scenarios (rich) or Use Cases (fallback) */}
+      {agent.scenarios ? (
+        <section className="py-12 md:py-20 px-5 md:px-6">
+          <div className="container mx-auto max-w-5xl">
+            <SectionFade>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
+                Un día con {agent.name}
+              </h2>
+              <div className="grid md:grid-cols-3 gap-5">
+                {agent.scenarios.map((sc, i) => (
+                  <motion.div key={i} className="bg-card/40 border border-border/20 rounded-2xl p-6 flex flex-col gap-4" {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                    <div className="inline-flex items-center bg-card/70 border border-border/30 rounded-full px-3 py-1 self-start">
+                      <span className="text-xs font-mono font-bold text-primary">{sc.time}</span>
+                    </div>
+                    <h3 className="font-display font-bold text-base text-foreground leading-snug">{sc.title}</h3>
+                    <p className="text-sm text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
+                    <div className="flex items-start gap-2.5 pt-3 border-t border-border/15">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-xs text-foreground/80 font-medium leading-snug">{sc.result}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionFade>
+          </div>
+        </section>
+      ) : (
+        <section className="py-12 md:py-20 px-5 md:px-6">
+          <div className="container mx-auto max-w-5xl">
+            <SectionFade>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
+                Casos de uso
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {agent.useCases.map((uc, i) => (
+                  <motion.div key={i} className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all" {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
+                    <p className="text-sm text-foreground/70 font-light">{uc.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionFade>
+          </div>
+        </section>
+      )}
 
       {/* Testimonials */}
       <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
