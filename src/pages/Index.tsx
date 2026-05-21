@@ -773,7 +773,7 @@ const Index = () => {
                   <span className="text-gradient">no descansa.</span>
                 </h2>
                 <p className="text-foreground/75 text-base font-light leading-relaxed mb-8">
-                  CALLA se integra en 48 horas, sin cambiar nada de lo que ya tienes. Operativo desde el primer día.
+                  Un equipo de IA trabajando por tu empresa los 365 días del año. Sin descansos, sin bajas, sin errores.
                 </p>
                 <Button
                   size="lg"
