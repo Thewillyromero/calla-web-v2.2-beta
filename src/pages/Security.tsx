@@ -133,7 +133,7 @@ const Security = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight leading-[1.08]"
           >
-            Tu empresa{" "}
+            Tu empresa,{" "}
             <span className="text-gradient">protegida desde el inicio</span>
           </motion.h1>
 
