@@ -27,6 +27,7 @@ import {
   X,
   Minus,
   Zap,
+  Network,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
@@ -159,7 +160,7 @@ const capabilities = [
     title: "Automatizamos flujos y procesos internos",
     description: "Transferencias inteligentes, integraciones y asistentes IA a medida para tu operativa.",
     chips: ["Integraciones", "Workflows", "Asistentes IA", "API"],
-    Icon: Zap,
+    Icon: Network,
   },
   {
     number: "04",
@@ -173,7 +174,7 @@ const capabilities = [
     title: "Fidelizamos a tus clientes post-venta",
     description: "Seguimiento automático, NPS y detección de churn antes de que se vayan.",
     chips: ["Post-venta", "NPS", "Retención", "Cross-sell"],
-    Icon: HeartHandshake,
+    Icon: Users,
   },
 ];
 
@@ -419,10 +420,6 @@ const Index = () => {
                       borderColor: hoveredCap === i ? "hsl(var(--primary) / 0.20)" : undefined,
                     }}
                   >
-                    {/* Number watermark */}
-                    <span className="absolute -bottom-4 -right-2 text-[110px] md:text-[130px] font-display font-black leading-none select-none pointer-events-none text-foreground/[0.05]">
-                      {cap.number}
-                    </span>
                     {/* Icon */}
                     <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
                       <cap.Icon className="h-5 w-5 text-primary" />
@@ -435,7 +432,7 @@ const Index = () => {
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {cap.chips.map((chip) => (
-                        <span key={chip} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary">
+                        <span key={chip} className="text-xs font-medium px-3 py-1 rounded-full border border-primary/30 bg-primary/[0.12] text-foreground/90">
                           {chip}
                         </span>
                       ))}
@@ -467,10 +464,6 @@ const Index = () => {
                       borderColor: hoveredCap === i + 3 ? "hsl(var(--primary) / 0.20)" : undefined,
                     }}
                   >
-                    {/* Number watermark */}
-                    <span className="absolute -bottom-4 -right-2 text-[110px] md:text-[130px] font-display font-black leading-none select-none pointer-events-none text-foreground/[0.05]">
-                      {cap.number}
-                    </span>
                     {/* Icon */}
                     <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
                       <cap.Icon className="h-5 w-5 text-primary" />
@@ -483,7 +476,7 @@ const Index = () => {
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {cap.chips.map((chip) => (
-                        <span key={chip} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary">
+                        <span key={chip} className="text-xs font-medium px-3 py-1 rounded-full border border-primary/30 bg-primary/[0.12] text-foreground/90">
                           {chip}
                         </span>
                       ))}
