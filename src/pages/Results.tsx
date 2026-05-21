@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
 import LogoMarquee from "@/components/LogoMarquee";
+import SystemFlow from "@/components/SystemFlow";
 import { BOOKING_URL } from "@/lib/constants";
 
 const CampaignResults = lazy(() => import("@/components/CampaignResults"));
@@ -110,6 +111,9 @@ const Results = () => {
           </SectionFade>
         </div>
       </section>
+
+      {/* System Flow */}
+      <SystemFlow />
 
       {/* Testimonials */}
       <section className="py-12 md:py-20 px-5 md:px-6">
