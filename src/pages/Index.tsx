@@ -542,77 +542,40 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Timeline */}
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                className="bg-card/30 rounded-2xl border border-border/20 overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {steps.map((step, i) => (
-                  <motion.div
-                    key={step.number}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    onMouseEnter={() => setHoveredCap(i + 10)}
-                    onMouseLeave={() => setHoveredCap(null)}
-                    className={`relative flex items-start gap-5 md:gap-10 px-6 md:px-10 py-7 transition-colors duration-300 cursor-default${
-                      i < steps.length - 1 ? " border-b border-border/15" : ""
-                    }`}
-                    style={{
-                      background: hoveredCap === i + 10 ? "hsl(var(--primary) / 0.025)" : "transparent",
-                    }}
-                  >
-                    {/* Timeline line */}
-                    <motion.div
-                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-primary"
-                      animate={{
-                        opacity: hoveredCap === i + 10 ? 1 : 0.12,
-                        scaleY: hoveredCap === i + 10 ? 1 : 0.85,
-                      }}
-                      transition={{ duration: 0.25 }}
-                    />
-
-                    {/* Number */}
-                    <motion.span
-                      className="text-5xl md:text-6xl font-display font-black shrink-0 leading-none tabular-nums select-none w-14 md:w-16 text-right"
-                      animate={{
-                        color: hoveredCap === i + 10
-                          ? "hsl(var(--foreground) / 0.55)"
-                          : "hsl(var(--foreground) / 0.10)",
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {step.number}
-                    </motion.span>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0 pt-1.5">
-                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-foreground/85 font-light mb-3 leading-relaxed">
-                        {step.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {step.chips.map((chip) => (
-                          <span
-                            key={chip}
-                            className="text-xs font-medium px-3 py-1 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
-                          >
-                            {chip}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
+            {/* Cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {steps.map((step, i) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="bg-card/40 border border-border/20 rounded-2xl p-6 flex flex-col gap-4 hover:border-primary/25 transition-colors duration-300"
+                >
+                  <span className="text-5xl font-display font-black leading-none tabular-nums select-none text-foreground/10">
+                    {step.number}
+                  </span>
+                  <div>
+                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-foreground/70 font-light leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                    {step.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="text-xs font-medium px-3 py-1 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
           </div>
