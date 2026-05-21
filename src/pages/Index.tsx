@@ -26,6 +26,7 @@ import {
   Check,
   X,
   Minus,
+  Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
@@ -144,35 +145,35 @@ const capabilities = [
     title: "Atendemos toda tu comunicación telefónica",
     description: "Entrante, saliente, 24 horas al día, 7 días a la semana. Nunca una llamada perdida.",
     chips: ["Llamadas entrantes", "Llamadas salientes", "24/7", "Voz natural"],
-    hsl: "190 60% 55%",
+    Icon: Phone,
   },
   {
     number: "02",
     title: "Agendamos citas sin intervención humana",
     description: "Tu calendario se llena solo. Sin errores ni dobles reservas.",
     chips: ["Google Calendar", "Calendly", "CRM", "Recordatorios"],
-    hsl: "160 50% 48%",
+    Icon: CalendarCheck,
   },
   {
     number: "03",
     title: "Automatizamos flujos y procesos internos",
     description: "Transferencias inteligentes, integraciones y asistentes IA a medida para tu operativa.",
     chips: ["Integraciones", "Workflows", "Asistentes IA", "API"],
-    hsl: "260 50% 65%",
+    Icon: Zap,
   },
   {
     number: "04",
     title: "Analizamos cada conversación en tiempo real",
     description: "Dashboard con todo lo que pasa en tu atención. Sabes qué funciona y dónde mejorar.",
     chips: ["Analytics", "Sentimiento", "Patrones", "Informes semanales"],
-    hsl: "35 70% 58%",
+    Icon: BarChart3,
   },
   {
     number: "05",
     title: "Fidelizamos a tus clientes post-venta",
     description: "Seguimiento automático, NPS y detección de churn antes de que se vayan.",
     chips: ["Post-venta", "NPS", "Retención", "Cross-sell"],
-    hsl: "340 55% 60%",
+    Icon: HeartHandshake,
   },
 ];
 
@@ -393,77 +394,103 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Capability list */}
-            <div className="max-w-4xl mx-auto">
+            {/* Capability grid — B1 */}
+            <div className="max-w-5xl mx-auto">
+              {/* Row 1: 3 cards */}
               <motion.div
-                className="bg-card/30 rounded-2xl border border-border/20 overflow-hidden"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-4 md:mb-5"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                {capabilities.map((cap, i) => (
+                {capabilities.slice(0, 3).map((cap, i) => (
                   <motion.div
                     key={cap.number}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                     onMouseEnter={() => setHoveredCap(i)}
                     onMouseLeave={() => setHoveredCap(null)}
-                    className={`relative flex items-start gap-5 md:gap-10 px-6 md:px-10 py-6 transition-colors duration-300 cursor-default${
-                      i < capabilities.length - 1 ? " border-b border-border/15" : ""
-                    }`}
+                    className="relative overflow-hidden rounded-2xl border border-border/20 bg-card/30 p-6 md:p-7 flex flex-col transition-all duration-300 cursor-default"
                     style={{
-                      background: hoveredCap === i ? "hsl(var(--primary) / 0.025)" : "transparent",
+                      background: hoveredCap === i ? "hsl(var(--primary) / 0.04)" : "hsl(var(--card) / 0.30)",
+                      borderColor: hoveredCap === i ? "hsl(var(--primary) / 0.20)" : undefined,
                     }}
                   >
-                    {/* Timeline line — siempre visible, brilla en hover */}
-                    <motion.div
-                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-primary"
-                      animate={{
-                        opacity: hoveredCap === i ? 1 : 0.12,
-                        scaleY: hoveredCap === i ? 1 : 0.85,
-                      }}
-                      transition={{ duration: 0.25 }}
-                    />
-
-                    {/* Number — decorativo en reposo, visible en hover */}
-                    <motion.span
-                      className="text-5xl md:text-6xl font-display font-black shrink-0 leading-none tabular-nums select-none w-14 md:w-16 text-right"
-                      animate={{
-                        color: hoveredCap === i
-                          ? "hsl(var(--foreground) / 0.55)"
-                          : "hsl(var(--foreground) / 0.10)",
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    {/* Number watermark */}
+                    <span className="absolute -bottom-4 -right-2 text-[110px] md:text-[130px] font-display font-black leading-none select-none pointer-events-none text-foreground/[0.05]">
                       {cap.number}
-                    </motion.span>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0 pt-1.5">
-                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
-                        {cap.title}
-                      </h3>
-                      <p className="text-sm text-foreground/70 font-light mb-3 leading-relaxed">
-                        {cap.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {cap.chips.map((chip) => (
-                          <span
-                            key={chip}
-                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
-                          >
-                            {chip}
-                          </span>
-                        ))}
-                      </div>
+                    </span>
+                    {/* Icon */}
+                    <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
+                      <cap.Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+                      {cap.title}
+                    </h3>
+                    <p className="text-sm text-foreground/80 font-light mb-4 leading-relaxed flex-1">
+                      {cap.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {cap.chips.map((chip) => (
+                        <span key={chip} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary">
+                          {chip}
+                        </span>
+                      ))}
                     </div>
                   </motion.div>
                 ))}
               </motion.div>
 
+              {/* Row 2: 2 cards centered */}
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 max-w-2xl lg:max-w-[calc(66.666%+0.625rem)] mx-auto"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {capabilities.slice(3).map((cap, i) => (
+                  <motion.div
+                    key={cap.number}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    onMouseEnter={() => setHoveredCap(i + 3)}
+                    onMouseLeave={() => setHoveredCap(null)}
+                    className="relative overflow-hidden rounded-2xl border border-border/20 bg-card/30 p-6 md:p-7 flex flex-col transition-all duration-300 cursor-default"
+                    style={{
+                      background: hoveredCap === i + 3 ? "hsl(var(--primary) / 0.04)" : "hsl(var(--card) / 0.30)",
+                      borderColor: hoveredCap === i + 3 ? "hsl(var(--primary) / 0.20)" : undefined,
+                    }}
+                  >
+                    {/* Number watermark */}
+                    <span className="absolute -bottom-4 -right-2 text-[110px] md:text-[130px] font-display font-black leading-none select-none pointer-events-none text-foreground/[0.05]">
+                      {cap.number}
+                    </span>
+                    {/* Icon */}
+                    <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
+                      <cap.Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+                      {cap.title}
+                    </h3>
+                    <p className="text-sm text-foreground/80 font-light mb-4 leading-relaxed flex-1">
+                      {cap.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {cap.chips.map((chip) => (
+                        <span key={chip} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary">
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </section>
