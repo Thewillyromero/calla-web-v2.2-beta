@@ -249,13 +249,13 @@ const AgentPage = () => {
 
   const Icon = agent.icon;
 
-  // Metallic gradient per agent: dark base → bright mid → near-white peak → mid → dark
+  // Vivid metallic gradient per agent: matches home card colors + near-white metallic peak
   const agentGradient =
-    agent.slug === "aria" ? "linear-gradient(110deg, hsl(185 50% 42%) 0%, hsl(188 60% 65%) 30%, hsl(190 35% 92%) 55%, hsl(186 55% 68%) 78%, hsl(185 50% 48%) 100%)" :
-    agent.slug === "nova" ? "linear-gradient(110deg, hsl(260 45% 48%) 0%, hsl(263 55% 68%) 30%, hsl(265 30% 92%) 55%, hsl(260 50% 72%) 78%, hsl(258 45% 52%) 100%)" :
-    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(155 45% 38%) 0%, hsl(158 55% 58%) 30%, hsl(160 30% 88%) 55%, hsl(156 50% 62%) 78%, hsl(155 45% 44%) 100%)" :
-    agent.slug === "byte" ? "linear-gradient(110deg, hsl(35 65% 45%) 0%, hsl(38 75% 62%) 30%, hsl(42 45% 92%) 55%, hsl(36 70% 65%) 78%, hsl(34 65% 50%) 100%)" :
-                            "linear-gradient(110deg, hsl(340 55% 48%) 0%, hsl(343 65% 65%) 30%, hsl(346 35% 90%) 55%, hsl(340 60% 68%) 78%, hsl(338 55% 52%) 100%)";
+    agent.slug === "aria" ? "linear-gradient(110deg, hsl(190 100% 42%) 0%, hsl(185 100% 62%) 28%, hsl(188 20% 94%) 52%, hsl(175 100% 60%) 76%, hsl(190 100% 46%) 100%)" :
+    agent.slug === "nova" ? "linear-gradient(110deg, hsl(255 100% 55%) 0%, hsl(270 100% 70%) 28%, hsl(265 20% 94%) 52%, hsl(285 100% 67%) 76%, hsl(255 100% 58%) 100%)" :
+    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(160 100% 35%) 0%, hsl(165 100% 55%) 28%, hsl(160 20% 92%) 52%, hsl(150 100% 58%) 76%, hsl(160 100% 38%) 100%)" :
+    agent.slug === "byte" ? "linear-gradient(110deg, hsl(35 100% 42%) 0%, hsl(42 100% 63%) 28%, hsl(40 45% 92%) 52%, hsl(28 100% 62%) 76%, hsl(35 100% 46%) 100%)" :
+                            "linear-gradient(110deg, hsl(340 100% 48%) 0%, hsl(345 100% 67%) 28%, hsl(342 25% 93%) 52%, hsl(355 100% 67%) 76%, hsl(340 100% 52%) 100%)";
 
   const highlight = agent.taglineHighlight;
   const hIdx = agent.tagline.indexOf(highlight);
