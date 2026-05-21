@@ -199,7 +199,7 @@ const steps = [
   {
     number: "04",
     title: "Inversión",
-    description: "El proyecto tiene un coste inicial de desarrollo e implementación y una cuota mensual posterior. El pago se puede estructurar al inicio, por fases o al finalizar, según el acuerdo.",
+    description: "El proyecto tiene un coste inicial de desarrollo e implementación y una cuota mensual posterior. El pago se puede estructurar al inicio, por fases o al finalizar, según las necesidades del proyecto.",
     chips: ["Coste de desarrollo", "Cuota mensual", "Pago flexible"],
   },
 ];
