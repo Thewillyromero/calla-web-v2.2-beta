@@ -249,12 +249,13 @@ const AgentPage = () => {
 
   const Icon = agent.icon;
 
+  // Metallic gradient per agent: dark base → bright mid → near-white peak → mid → dark
   const agentGradient =
-    agent.slug === "aria" ? "linear-gradient(110deg, hsl(185 75% 65%), hsl(195 65% 88%))" :
-    agent.slug === "nova" ? "linear-gradient(110deg, hsl(255 65% 72%), hsl(270 70% 88%))" :
-    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(155 65% 58%), hsl(165 55% 82%))" :
-    agent.slug === "byte" ? "linear-gradient(110deg, hsl(30 85% 62%), hsl(45 90% 82%))" :
-                            "linear-gradient(110deg, hsl(335 70% 68%), hsl(350 65% 86%))";
+    agent.slug === "aria" ? "linear-gradient(110deg, hsl(185 50% 42%) 0%, hsl(188 60% 65%) 30%, hsl(190 35% 92%) 55%, hsl(186 55% 68%) 78%, hsl(185 50% 48%) 100%)" :
+    agent.slug === "nova" ? "linear-gradient(110deg, hsl(260 45% 48%) 0%, hsl(263 55% 68%) 30%, hsl(265 30% 92%) 55%, hsl(260 50% 72%) 78%, hsl(258 45% 52%) 100%)" :
+    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(155 45% 38%) 0%, hsl(158 55% 58%) 30%, hsl(160 30% 88%) 55%, hsl(156 50% 62%) 78%, hsl(155 45% 44%) 100%)" :
+    agent.slug === "byte" ? "linear-gradient(110deg, hsl(35 65% 45%) 0%, hsl(38 75% 62%) 30%, hsl(42 45% 92%) 55%, hsl(36 70% 65%) 78%, hsl(34 65% 50%) 100%)" :
+                            "linear-gradient(110deg, hsl(340 55% 48%) 0%, hsl(343 65% 65%) 30%, hsl(346 35% 90%) 55%, hsl(340 60% 68%) 78%, hsl(338 55% 52%) 100%)";
 
   const highlight = agent.taglineHighlight;
   const hIdx = agent.tagline.indexOf(highlight);
@@ -276,7 +277,7 @@ const AgentPage = () => {
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {taglineBefore}
-                <span style={{ background: agentGradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                <span className="bg-clip-text text-transparent" style={{ backgroundImage: agentGradient }}>
                   {highlight}
                 </span>
                 {taglineAfter}

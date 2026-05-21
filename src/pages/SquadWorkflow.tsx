@@ -321,7 +321,7 @@ const SquadWorkflow = () => {
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight">
                   El director que mantiene<br />al equipo en{" "}
-                  <span style={{ background: 'linear-gradient(110deg, hsl(215 30% 82%), hsl(210 20% 96%), hsl(220 25% 88%))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(110deg, hsl(215 15% 55%) 0%, hsl(210 22% 80%) 30%, hsl(215 8% 97%) 55%, hsl(220 18% 83%) 78%, hsl(215 15% 62%) 100%)' }}>
                     sincronía
                   </span>
                 </h2>
