@@ -96,33 +96,33 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    description: "Nos reunimos contigo o visitamos tu empresa. Analizamos flujos, cuellos de botella y oportunidades de automatización para diseñar la solución exacta que necesitas.",
-    chips: ["Reunión inicial", "Auditoría de procesos", "Propuesta a medida"],
-    hsl: "190 60% 55%",
+    description: "Se realiza un análisis en profundidad de los flujos operativos, los puntos de fricción y las oportunidades de automatización. El resultado es una propuesta técnica adaptada a los procesos específicos de la empresa.",
+    chips: ["Auditoría de procesos", "Propuesta a medida"],
+    hsl: "210 75% 52%",
     icon: Search,
   },
   {
     number: "02",
     title: "Desarrollo",
-    description: "Configuramos los cinco agentes base adaptados a tu negocio y desarrollamos los asistentes IA específicos que requiera tu operativa.",
-    chips: ["Agentes base", "IA a medida", "Integraciones", "Pruebas internas"],
-    hsl: "260 50% 65%",
+    description: "Se configuran los agentes base y se desarrollan los asistentes específicos que requiera la operativa. Cada integración es validada en entorno de pruebas antes de pasar a producción.",
+    chips: ["Agentes base", "IA a medida", "Integraciones"],
+    hsl: "245 60% 62%",
     icon: Code2,
   },
   {
     number: "03",
-    title: "Entrega e implementación",
-    description: "Conectamos todo el ecosistema con tus herramientas, formamos a tu equipo para sacarle el máximo rendimiento y verificamos que cada pieza funciona perfectamente.",
-    chips: ["Puesta en marcha", "Formación", "Pruebas finales", "Soporte"],
-    hsl: "160 50% 48%",
+    title: "Implementación",
+    description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
+    chips: ["Puesta en marcha", "Formación de equipo"],
+    hsl: "195 65% 42%",
     icon: Rocket,
   },
   {
     number: "04",
-    title: "Actualizaciones y mantenimiento",
-    description: "El sistema no se entrega y se olvida. Monitorizamos el rendimiento, aplicamos mejoras continuas y actualizamos los agentes con nuevas capacidades. Tu equipo de IA evoluciona con tu empresa.",
-    chips: ["Monitorización continua", "Mejoras y actualizaciones", "Soporte técnico", "Nuevas capacidades"],
-    hsl: "35 70% 58%",
+    title: "Mantenimiento y evolución",
+    description: "El rendimiento del sistema es monitorizado de forma continua. Se aplican actualizaciones periódicas y se incorporan nuevas capacidades a medida que los requisitos del negocio evolucionan.",
+    chips: ["Monitorización", "Actualizaciones"],
+    hsl: "220 50% 55%",
     icon: RefreshCw,
   },
 ];
@@ -565,38 +565,39 @@ const Index = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300"
+                    className="rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300"
                     style={{
-                      background: `hsl(${step.hsl} / 0.06)`,
-                      border: `1px solid hsl(${step.hsl} / 0.25)`,
+                      background: `hsl(${step.hsl} / 0.05)`,
+                      border: `1px solid hsl(${step.hsl} / 0.20)`,
                     }}
                   >
                     {/* Icon + number row */}
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
-                        <StepIcon className="w-5 h-5" style={{ color: `hsl(${step.hsl})` }} />
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `hsl(${step.hsl} / 0.12)`, border: `1px solid hsl(${step.hsl} / 0.20)` }}>
+                        <StepIcon className="w-4 h-4" style={{ color: `hsl(${step.hsl})` }} />
                       </div>
-                      <span className="text-4xl font-display font-black leading-none tabular-nums select-none" style={{ color: `hsl(${step.hsl} / 0.20)` }}>
+                      <span className="text-3xl font-display font-black leading-none tabular-nums select-none" style={{ color: `hsl(${step.hsl} / 0.18)` }}>
                         {step.number}
                       </span>
                     </div>
-                    <div>
-                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+
+                    <div className="flex-1">
+                      <h3 className="text-lg font-display font-bold text-foreground mb-3 leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-foreground/70 font-light leading-relaxed">
+                      <p className="text-sm md:text-base text-foreground/65 font-light leading-relaxed">
                         {step.description}
                       </p>
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-auto pt-2">
+
+                    <div className="flex flex-wrap gap-1.5 pt-1 border-t" style={{ borderColor: `hsl(${step.hsl} / 0.15)` }}>
                       {step.chips.map((chip) => (
                         <span
                           key={chip}
-                          className="text-xs font-medium px-3 py-1 rounded-full"
+                          className="text-xs font-medium px-2.5 py-1 rounded-md"
                           style={{
-                            background: `hsl(${step.hsl} / 0.12)`,
-                            border: `1px solid hsl(${step.hsl} / 0.30)`,
-                            color: `hsl(${step.hsl})`,
+                            background: `hsl(${step.hsl} / 0.10)`,
+                            color: `hsl(${step.hsl} / 0.85)`,
                           }}
                         >
                           {chip}
