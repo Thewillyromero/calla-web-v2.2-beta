@@ -757,27 +757,62 @@ const Index = () => {
 
       {/* ─── 7. CTA FINAL ─── */}
       <SectionFade>
-        <section className="py-16 md:py-20">
-          <div className="container mx-auto px-6">
-            <motion.div
-              className="bg-card/40 border border-border/20 rounded-2xl p-10 md:p-14 text-center max-w-2xl mx-auto"
-              {...fade}
-            >
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
-                ¿Listo para automatizar tu atención telefónica?
-              </h2>
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 mt-4 text-base"
-                onClick={() => window.open(BOOKING_URL, "_blank")}
-              >
-                Solicitar una demostración
-              </Button>
-              <div className="flex items-center justify-center gap-2.5 mt-6">
-                <TrustpilotStars rating={4.9} size={16} />
-                <span className="text-sm text-foreground/70">4.9 · +200 empresas confían en CALLA</span>
+        <section className="py-20 md:py-28 px-5 md:px-6 relative overflow-hidden">
+          {/* Ambient glows */}
+          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] rounded-full bg-primary/[0.04] blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[300px] rounded-full bg-brand-lavender/[0.03] blur-[120px] pointer-events-none" />
+
+          <div className="container mx-auto max-w-5xl relative z-10">
+            <div className="bg-card/30 border border-border/20 rounded-3xl p-10 md:p-14 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+              {/* Left — copy + CTA */}
+              <motion.div {...fade}>
+                <p className="text-xs font-display font-semibold tracking-[0.2em] uppercase text-primary mb-4">Empieza hoy</p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-5">
+                  Tu competencia ya{" "}
+                  <span className="text-gradient">no descansa.</span>
+                </h2>
+                <p className="text-foreground/75 text-base font-light leading-relaxed mb-8">
+                  CALLA se integra en 48 horas, sin cambiar nada de lo que ya tienes. Operativo desde el primer día.
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 text-base w-full sm:w-auto"
+                  onClick={() => window.open(BOOKING_URL, "_blank")}
+                >
+                  Solicitar demo gratuita <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <div className="flex items-center gap-2.5 mt-5">
+                  <TrustpilotStars rating={4.9} size={15} />
+                  <span className="text-sm text-foreground/70">4.9 · +200 empresas confían en CALLA</span>
+                </div>
+              </motion.div>
+
+              {/* Right — metrics */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "+200", label: "empresas activas" },
+                  { value: "2M+",  label: "llamadas gestionadas" },
+                  { value: "48h",  label: "hasta estar operativo" },
+                  { value: "4.9",  label: "valoración media" },
+                ].map((m, i) => (
+                  <motion.div
+                    key={m.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                    className="bg-card/50 border border-border/20 rounded-2xl p-5 md:p-6 text-center"
+                  >
+                    <div className="text-3xl md:text-4xl font-display font-extrabold text-gradient mb-1">
+                      {m.value}
+                    </div>
+                    <div className="text-xs text-foreground/70 font-light leading-snug">{m.label}</div>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
+
+            </div>
           </div>
         </section>
       </SectionFade>
