@@ -172,18 +172,29 @@ const SquadWorkflow = () => {
                   sincronía
                 </span>
               </h1>
-              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6">
-                HALO no atiende llamadas ni cierra ventas. Es el más importante del equipo: coordina los cinco agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa. Sin HALO, no hay sistema. Con HALO, cada pieza encaja.
+              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
+                {"HALO no atiende llamadas ni cierra ventas. Es el más importante del equipo: coordina los cinco agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nSin HALO, no hay sistema. Con HALO, cada pieza encaja."}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20"
-                  onClick={() => window.open(BOOKING_URL, "_blank")}
+                <div
+                  className="rounded-full p-[2px] hover:opacity-90 transition-opacity shadow-lg"
+                  style={{ backgroundImage: haloGradient }}
                 >
-                  Solicitar demo
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                  <Button
+                    size="lg"
+                    className="rounded-full px-8 w-full"
+                    style={{ background: "#000", color: "transparent" }}
+                    onClick={() => window.open(BOOKING_URL, "_blank")}
+                  >
+                    <span
+                      className="bg-clip-text text-transparent flex items-center gap-2"
+                      style={{ backgroundImage: haloGradient }}
+                    >
+                      Solicitar demo
+                      <ArrowRight className="h-4 w-4 shrink-0" style={{ color: `hsl(${haloHsl})` }} />
+                    </span>
+                  </Button>
+                </div>
               </div>
             </div>
           </motion.div>
