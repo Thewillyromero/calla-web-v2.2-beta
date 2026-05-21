@@ -306,7 +306,7 @@ const DemoCall = () => {
               {[
                 { icon: Mic, text: "Conversación en tiempo real desde tu navegador" },
                 { icon: Volume2, text: "Voz natural en español — Pregunta lo que quieras" },
-                { icon: Phone, text: "Sin coste, solo activa tu micrófono" },
+                { icon: Phone, text: "Llamada sin coste, solo activa tu micrófono" },
               ].map((item, i) => (
                 <motion.div
                   key={i}
