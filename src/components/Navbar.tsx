@@ -129,7 +129,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
             </button>
             {sectorsOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] glass-elevated rounded-xl p-2 animate-in fade-in-0 zoom-in-95 duration-200">
-                <div className="grid grid-cols-3 gap-0.5">
+                <div className="grid grid-cols-3 grid-rows-4 grid-flow-col gap-0.5">
                   {[...sectors].sort((a, b) => a.name.localeCompare(b.name, "es")).map((s) => {
                     const Icon = s.icon;
                     return (
