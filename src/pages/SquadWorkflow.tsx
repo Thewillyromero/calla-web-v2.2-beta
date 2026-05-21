@@ -273,9 +273,9 @@ const SquadWorkflow = () => {
                   <Sparkles className="w-6 h-6" style={{ color: `hsl(${haloHsl})` }} />
                 </div>
                 <div className="flex-1">
-                  <span className="font-display font-extrabold text-xl text-foreground tracking-tight">HALO</span>
-                  <span className="text-foreground/45 text-sm font-light ml-3">Núcleo de orquestación</span>
-                  <p className="text-sm text-foreground/60 font-light mt-0.5">
+                  <span className="font-display font-extrabold text-2xl text-foreground tracking-tight">HALO</span>
+                  <span className="text-foreground/50 text-sm font-light ml-3">Núcleo de orquestación</span>
+                  <p className="text-base text-foreground/70 font-light mt-1 leading-relaxed">
                     Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa. Sin HALO, no hay sistema.
                   </p>
                 </div>
@@ -304,24 +304,24 @@ const SquadWorkflow = () => {
               >
                 <div className="flex items-center gap-2">
                   <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                  <span className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>5 agentes base</span>
+                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>5 agentes base</span>
                   <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
                 </div>
                 <div className="grid grid-cols-5 gap-2">
                   {squadAgents.map((agent, i) => {
                     const Icon = agent.icon;
                     return (
-                      <Link key={agent.name} to={agent.path} className="flex flex-col items-center gap-1.5 rounded-xl p-2.5 transition-all hover:bg-card/40">
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `hsl(${agent.hsl} / 0.12)` }}>
-                          <Icon className="h-3.5 w-3.5" style={{ color: `hsl(${agent.hsl})` }} />
+                      <Link key={agent.name} to={agent.path} className="flex flex-col items-center gap-2 rounded-xl p-3 transition-all hover:bg-card/40">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: `hsl(${agent.hsl} / 0.12)` }}>
+                          <Icon className="h-4 w-4" style={{ color: `hsl(${agent.hsl})` }} />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</span>
-                        <span className="text-[9px] text-foreground/50 text-center leading-tight">{agent.role}</span>
+                        <span className="text-xs font-bold uppercase tracking-wide" style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</span>
+                        <span className="text-[10px] text-foreground/55 text-center leading-tight">{agent.role}</span>
                       </Link>
                     );
                   })}
                 </div>
-                <p className="text-xs text-foreground/45 font-light text-center">Incluidos en todos los planes</p>
+                <p className="text-sm text-foreground/50 font-light text-center">Incluidos en todos los planes</p>
               </motion.div>
 
               {/* Columna derecha — A medida */}
@@ -332,26 +332,26 @@ const SquadWorkflow = () => {
               >
                 <div className="flex items-center gap-2">
                   <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                  <span className="text-[11px] font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>Ilimitado · a medida</span>
+                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>Ilimitado · a medida</span>
                   <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <div className="flex items-start gap-3 rounded-xl p-3" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
-                    <span className="text-lg font-display font-bold leading-none mt-0.5" style={{ color: `hsl(${haloHsl})` }}>+</span>
+                  <div className="flex items-start gap-3 rounded-xl p-4" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
+                    <span className="text-xl font-display font-bold leading-none mt-0.5 shrink-0" style={{ color: `hsl(${haloHsl})` }}>+</span>
                     <div>
-                      <p className="text-sm font-semibold text-foreground mb-0.5">Agentes personalizados</p>
-                      <p className="text-xs text-foreground/55 font-light leading-relaxed">Diseñados para los procesos exactos de tu empresa. HALO los integra como uno más del equipo.</p>
+                      <p className="text-base font-semibold text-foreground mb-1">Agentes personalizados</p>
+                      <p className="text-sm text-foreground/65 font-light leading-relaxed">Diseñados para los procesos exactos de tu empresa. HALO los integra como uno más del equipo.</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 rounded-xl p-3" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
-                    <span className="text-lg font-display font-bold leading-none mt-0.5" style={{ color: `hsl(${haloHsl})` }}>⇄</span>
+                  <div className="flex items-start gap-3 rounded-xl p-4" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
+                    <span className="text-xl font-display font-bold leading-none mt-0.5 shrink-0" style={{ color: `hsl(${haloHsl})` }}>⇄</span>
                     <div>
-                      <p className="text-sm font-semibold text-foreground mb-0.5">Flujos y automatizaciones</p>
-                      <p className="text-xs text-foreground/55 font-light leading-relaxed">Automatizamos los flujos propios de tu operativa. HALO los orquesta junto al resto sin fricciones.</p>
+                      <p className="text-base font-semibold text-foreground mb-1">Flujos y automatizaciones</p>
+                      <p className="text-sm text-foreground/65 font-light leading-relaxed">Automatizamos los flujos propios de tu operativa. HALO los orquesta junto al resto sin fricciones.</p>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-foreground/45 font-light text-center">Crece con tu empresa sin límite</p>
+                <p className="text-sm text-foreground/50 font-light text-center">Crece con tu empresa sin límite</p>
               </motion.div>
             </div>
           </SectionFade>
