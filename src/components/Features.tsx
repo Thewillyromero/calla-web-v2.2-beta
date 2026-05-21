@@ -107,7 +107,7 @@ const features = [
     icon: Sparkles,
     title: "Orquesta a todos los agentes",
     description:
-      "El único miembro del equipo que no habla con tus clientes, pero sin el que los demás no funcionarían igual. HALO pasa el contexto en tiempo real: cuando ARIA recibe una llamada, LUMI ya conoce al cliente.",
+      "Dirige y coordina a todos los asistentes: los cinco agentes base y cualquiera que desarrollemos a medida para tu negocio.",
     personality: "El director del equipo",
     color: "brand-silver",
     hsl: "220 12% 62%",
