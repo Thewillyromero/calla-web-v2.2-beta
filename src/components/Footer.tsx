@@ -16,7 +16,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground/80 font-light leading-relaxed max-w-xs">
-              Empleados IA que atienden llamadas, agendan citas y gestionan tu comunicación 24/7.
+              Automatizamos y digitalizamos la comunicación y procesos de tu empresa.
             </p>
           </div>
 
