@@ -178,19 +178,22 @@ const capabilities = [
 
 const steps = [
   {
-    number: "1",
-    title: "Conectamos tu número",
-    description: "Vinculamos tu línea actual. Sin cambiar nada.",
+    number: "01",
+    title: "Diagnóstico",
+    description: "Nos reunimos contigo o visitamos tu empresa. Analizamos flujos, cuellos de botella y oportunidades de automatización para diseñar la solución exacta que necesitas.",
+    chips: ["Reunión inicial", "Auditoría de procesos", "Propuesta a medida"],
   },
   {
-    number: "2",
-    title: "Configuramos tu asistente",
-    description: "Lo adaptamos a tu negocio en una sesión.",
+    number: "02",
+    title: "Desarrollo",
+    description: "Configuramos los cinco agentes base adaptados a tu negocio y desarrollamos los asistentes IA específicos que requiera tu operativa.",
+    chips: ["Agentes base", "IA a medida", "Integraciones", "Pruebas internas"],
   },
   {
-    number: "3",
-    title: "Empieza a funcionar",
-    description: "En 30 minutos, tu asistente atiende llamadas.",
+    number: "03",
+    title: "Entrega e implementación",
+    description: "Conectamos todo el ecosistema con tus herramientas, formamos a tu equipo para sacarle el máximo rendimiento y verificamos que cada pieza funciona perfectamente.",
+    chips: ["Puesta en marcha", "Formación", "Pruebas finales", "Soporte"],
   },
 ];
 
@@ -599,41 +602,115 @@ const Index = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
+      {/* ─── 5. HOW IT WORKS — 3 phases ─── */}
       <SectionFade>
-        <section id="como-funciona" className="py-16 md:py-20">
-          <div className="container mx-auto px-6">
-            <motion.h2
-              className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12"
-              {...fade}
-            >
-              Así de fácil es empezar
-            </motion.h2>
+        <section className="py-16 md:py-24 px-5 md:px-6 relative overflow-hidden">
+          <div className="container mx-auto relative z-10">
+
+            {/* Header */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="text-center mb-12"
             >
-              {steps.map((step) => (
-                <motion.div
-                  key={step.number}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-7 text-center"
-                  variants={itemVariants}
-                >
-                  <div className="text-4xl font-extrabold text-primary mb-3">
-                    {step.number}
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-foreground/80 leading-relaxed">
-                    {step.description}
-                  </p>
-                </motion.div>
-              ))}
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
+                <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs text-primary font-display font-semibold tracking-wide">Cómo empezamos</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-4">
+                Así de fácil es{" "}
+                <span className="text-gradient">empezar</span>
+              </h2>
+              <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
+                Tres fases claras. Sin tecnicismos, sin sorpresas.
+              </p>
             </motion.div>
+
+            {/* Timeline */}
+            <div className="max-w-4xl mx-auto">
+              <motion.div
+                className="bg-card/30 rounded-2xl border border-border/20 overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {steps.map((step, i) => (
+                  <motion.div
+                    key={step.number}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    onMouseEnter={() => setHoveredCap(i + 10)}
+                    onMouseLeave={() => setHoveredCap(null)}
+                    className={`relative flex items-start gap-5 md:gap-10 px-6 md:px-10 py-7 transition-colors duration-300 cursor-default${
+                      i < steps.length - 1 ? " border-b border-border/15" : ""
+                    }`}
+                    style={{
+                      background: hoveredCap === i + 10 ? "hsl(var(--primary) / 0.025)" : "transparent",
+                    }}
+                  >
+                    {/* Timeline line */}
+                    <motion.div
+                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-primary"
+                      animate={{
+                        opacity: hoveredCap === i + 10 ? 1 : 0.12,
+                        scaleY: hoveredCap === i + 10 ? 1 : 0.85,
+                      }}
+                      transition={{ duration: 0.25 }}
+                    />
+
+                    {/* Number */}
+                    <motion.span
+                      className="text-5xl md:text-6xl font-display font-black shrink-0 leading-none tabular-nums select-none w-14 md:w-16 text-right"
+                      animate={{
+                        color: hoveredCap === i + 10
+                          ? "hsl(var(--foreground) / 0.55)"
+                          : "hsl(var(--foreground) / 0.10)",
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {step.number}
+                    </motion.span>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0 pt-1.5">
+                      <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-snug">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-foreground/70 font-light mb-3 leading-relaxed">
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {step.chips.map((chip) => (
+                          <span
+                            key={chip}
+                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-primary/25 bg-primary/[0.07] text-primary"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Inversión note */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-center text-sm text-foreground/60 mt-5"
+              >
+                <span className="text-foreground/80 font-medium">Inversión:</span> coste inicial de desarrollo e implementación + cuota mensual. El pago se estructura según el proyecto: al inicio, por fases o al finalizar.
+              </motion.p>
+            </div>
+
           </div>
         </section>
       </SectionFade>
