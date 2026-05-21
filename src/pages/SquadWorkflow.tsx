@@ -9,8 +9,7 @@ import { TrustpilotStars } from "@/components/TrustpilotStars";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import {
   ArrowRight, Phone, PhoneOutgoing, CalendarCheck, BarChart3,
-  HeartHandshake, Sparkles, CheckCircle2, Quote,
-  Network, GitMerge, Brain, ShieldCheck, Puzzle, LayoutDashboard,
+  HeartHandshake, Sparkles, CheckCircle2, Quote, CircleDot,
 } from "lucide-react";
 import haloConductor from "@/assets/halo-conductor.png";
 import { BOOKING_URL } from "@/lib/constants";
@@ -25,56 +24,78 @@ const fade = {
   transition: { duration: 0.5 },
 };
 
-const capabilities = [
+const howItWorks = [
   {
-    icon: Network,
-    title: "Orquestación en tiempo real",
-    description: "Coordina los cinco agentes en cada interacción sin que ningún cliente note el cambio de un asistente a otro.",
+    step: "01",
+    title: "Escucha cada señal",
+    description: "HALO monitoriza en tiempo real cada interacción del sistema. Sabe qué agente está activo, qué necesita el cliente en cada momento y qué paso sigue en el proceso de tu empresa.",
   },
   {
-    icon: Brain,
-    title: "Memoria compartida del cliente",
-    description: "El historial completo del cliente viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. Sin repeticiones.",
+    step: "02",
+    title: "Decide y coordina",
+    description: "En milisegundos, HALO decide qué agente debe intervenir, le transfiere el contexto completo del cliente y asegura que la transición sea invisible. El cliente nunca repite nada.",
   },
   {
-    icon: GitMerge,
-    title: "Decisión inteligente de flujo",
-    description: "Elige qué agente interviene en cada momento del proceso. Sin solapamientos, sin lagunas.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Escalado a humanos",
-    description: "Detecta urgencias, situaciones delicadas o límites del sistema y transfiere al instante con todo el contexto.",
-  },
-  {
-    icon: Puzzle,
-    title: "Agentes a medida para tu empresa",
-    description: "Desarrollamos agentes específicos para tus procesos. HALO los sincroniza con el equipo base desde el primer día, sin fricciones.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Panel de supervisión total",
-    description: "Monitoriza toda la actividad del equipo en tiempo real. Qué hizo cada agente, cuándo y con qué resultado.",
+    step: "03",
+    title: "Integra y escala",
+    description: "Activa agentes base o agentes a medida desarrollados específicamente para tu empresa. Los sincroniza con el equipo desde el primer día sin reconfigurar el sistema.",
   },
 ];
 
-const useCases = [
+const featureCards = [
   {
-    title: "Flujos complejos sin fisuras",
-    description: "Un cliente que primero agenda, luego compra y después necesita soporte. HALO pasa el contexto completo en cada paso sin que el cliente repita nada.",
+    title: "Orquestación en tiempo real",
+    description: "Coordina los cinco agentes base en cada interacción. Ningún cliente nota el cambio de un asistente a otro porque HALO gestiona la transición con el contexto completo.",
   },
   {
-    title: "Empresas multisede",
-    description: "Enruta automáticamente según sede, horario, idioma y disponibilidad del equipo. Sin configuraciones manuales.",
+    title: "Memoria compartida del cliente",
+    description: "El historial completo del cliente viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. Sin que el cliente tenga que repetir quién es ni qué necesita.",
   },
   {
-    title: "Sectores regulados",
-    description: "Detecta escalaciones por urgencia o compliance y actúa de inmediato. Ninguna incidencia cae en el vacío.",
+    title: "Decisión inteligente de flujo",
+    description: "HALO elige qué agente interviene en cada momento del proceso. Sin solapamientos, sin lagunas, sin llamadas que caen en el vacío entre departamentos.",
   },
   {
-    title: "Tu negocio, tu equipo",
-    description: "Desarrollamos agentes a medida para tus procesos específicos. HALO los integra de forma nativa, sin reconfigurar el sistema.",
+    title: "Escalado a humanos",
+    description: "Detecta urgencias, situaciones delicadas o límites del sistema y transfiere al instante a la persona adecuada con todo el contexto ya explicado.",
   },
+  {
+    title: "Agentes a medida para tu empresa",
+    description: "Desarrollamos agentes específicos para tus procesos: un gestor de averías, un cualificador de obra, un agente de reservas con tu protocolo exacto. HALO los sincroniza con el equipo base desde el primer día.",
+  },
+  {
+    title: "Panel de supervisión total",
+    description: "Monitoriza toda la actividad del equipo en tiempo real. Qué hizo cada agente, cuándo, con qué cliente y con qué resultado. Trazabilidad completa de cada interacción.",
+  },
+];
+
+const scenarios = [
+  {
+    time: "16:30h — 17:45h",
+    title: "Un cliente que compra, agenda y necesita soporte en la misma tarde",
+    scenario: "Un cliente llama interesado en un servicio. Necesita información, cerrar la contratación, fijar la instalación y resolver una duda técnica. Cuatro procesos distintos, un solo cliente, una sola tarde.",
+    result: "HALO orquesta cuatro agentes en 75 minutos: ARIA recibe la llamada, NOVA cierra la venta, LUMI agenda la instalación y CARE programa el seguimiento post-servicio. El cliente no repite su nombre ni una sola vez.",
+  },
+  {
+    time: "Todos los días",
+    title: "200 llamadas diarias entre 3 sedes con equipos distintos",
+    scenario: "Tres oficinas, horarios diferentes, equipos distintos y clientes que llaman sin saber a qué sede pertenecen. Cada llamada tiene que llegar al sitio correcto con el contexto adecuado.",
+    result: "HALO enruta automáticamente según sede, horario y disponibilidad. Las 200 llamadas llegan donde tienen que llegar, sin intervención manual y sin que ningún cliente quede sin atender.",
+  },
+  {
+    time: "Semana 1",
+    title: "Activación de un agente personalizado para un proceso específico",
+    scenario: "Una empresa de climatización necesita un agente que gestione avisos de avería siguiendo su protocolo exacto: prioridad por tipo de instalación, asignación al técnico más cercano y confirmación al cliente en menos de 10 minutos.",
+    result: "Desarrollamos el agente a medida. HALO lo integra con el equipo base desde el primer día: recibe el aviso, lo clasifica por urgencia, asigna técnico y notifica al cliente. Sin reconfigurar nada del sistema existente.",
+  },
+];
+
+const squadAgents = [
+  { name: "ARIA", role: "Recepcionista Virtual", hsl: "190 60% 55%", icon: Phone, path: "/aria" },
+  { name: "NOVA", role: "Agente de Ventas", hsl: "260 50% 65%", icon: PhoneOutgoing, path: "/nova" },
+  { name: "LUMI", role: "Coordinador de Citas", hsl: "160 50% 48%", icon: CalendarCheck, path: "/lumi" },
+  { name: "BYTE", role: "Analista de Datos", hsl: "35 70% 58%", icon: BarChart3, path: "/byte" },
+  { name: "CARE", role: "Atención Post-venta", hsl: "340 55% 60%", icon: HeartHandshake, path: "/care" },
 ];
 
 const testimonials = [
@@ -91,19 +112,11 @@ const testimonials = [
     result: "Cero repeticiones para el cliente",
   },
   {
-    quote: "Tenemos un proceso muy específico para gestionar averías. Desarrollaron un agente a medida y funcionó desde el primer día. HALO lo coordinó con el resto sin problemas.",
+    quote: "Tenemos un proceso muy específico para gestionar averías. Desarrollaron un agente a medida y funcionó desde el primer día. HALO lo coordinó con el resto sin ningún problema.",
     name: "Antonio Ruiz",
     role: "Jefe de Operaciones, Climatizaciones Ruiz",
     result: "Agente a medida integrado en días",
   },
-];
-
-const squadAgents = [
-  { name: "ARIA", role: "Recepcionista Virtual", hsl: "190 60% 55%", icon: Phone, path: "/aria" },
-  { name: "NOVA", role: "Agente de Ventas", hsl: "260 50% 65%", icon: PhoneOutgoing, path: "/nova" },
-  { name: "LUMI", role: "Coordinador de Citas", hsl: "160 50% 48%", icon: CalendarCheck, path: "/lumi" },
-  { name: "BYTE", role: "Analista de Datos", hsl: "35 70% 58%", icon: BarChart3, path: "/byte" },
-  { name: "CARE", role: "Atención Post-venta", hsl: "340 55% 60%", icon: HeartHandshake, path: "/care" },
 ];
 
 const SquadWorkflow = () => {
@@ -201,25 +214,35 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
-      {/* ── Capacidades ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      {/* ── Cómo trabaja ── */}
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-4xl">
           <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
-              Capacidades de HALO
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-12">
+              Cómo trabaja HALO
             </h2>
+            <div className="grid sm:grid-cols-3 gap-6 mb-14">
+              {howItWorks.map((s, i) => (
+                <motion.div key={i} className="flex flex-col items-center text-center gap-3" {...fade} transition={{ duration: 0.5, delay: i * 0.12 }}>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
+                    <span className="font-display font-extrabold text-lg" style={{ color: `hsl(${haloHsl})` }}>{s.step}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
+                  <p className="text-base text-foreground/70 font-light leading-relaxed">{s.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </SectionFade>
+
+          {/* Feature cards */}
+          <SectionFade>
             <div className="grid sm:grid-cols-2 gap-4">
-              {capabilities.map((cap, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-start gap-3 bg-card/40 border border-border/20 rounded-xl p-4"
-                  {...fade}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                >
-                  <cap.icon className="h-5 w-5 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
+              {featureCards.map((fc, i) => (
+                <motion.div key={i} className="bg-card/40 border border-border/20 rounded-xl p-5 flex gap-3" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                  <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                   <div>
-                    <p className="text-sm font-semibold text-foreground mb-0.5">{cap.title}</p>
-                    <p className="text-sm text-foreground/80">{cap.description}</p>
+                    <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{fc.title}</h3>
+                    <p className="text-sm text-foreground/70 font-light leading-relaxed">{fc.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -228,33 +251,26 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
-      {/* ── El equipo que dirige ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
+      {/* ── El equipo que coordina ── */}
+      <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-4xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-4">
               El equipo que coordina
             </h2>
-            <p className="text-center text-foreground/70 mb-10 max-w-xl mx-auto">
-              HALO dirige a los cinco agentes base más cualquier agente personalizado que desarrollemos para los procesos específicos de tu empresa.
+            <p className="text-center text-foreground/70 mb-10 max-w-xl mx-auto font-light">
+              HALO dirige los cinco agentes base más cualquier agente personalizado que desarrollemos para los procesos específicos de tu empresa.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               {squadAgents.map((agent, i) => {
                 const Icon = agent.icon;
                 return (
-                  <motion.div
-                    key={agent.name}
-                    {...fade}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                  >
+                  <motion.div key={agent.name} {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                     <Link
                       to={agent.path}
                       className="flex flex-col items-center gap-2 bg-card/40 border border-border/20 rounded-xl p-4 hover:border-primary/25 transition-all group"
                     >
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center"
-                        style={{ background: `hsl(${agent.hsl} / 0.1)` }}
-                      >
+                      <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: `hsl(${agent.hsl} / 0.1)` }}>
                         <Icon className="h-4 w-4" style={{ color: `hsl(${agent.hsl})` }} />
                       </div>
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</span>
@@ -268,23 +284,28 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
-      {/* ── Casos de uso ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      {/* ── Un día con HALO ── */}
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
-              Casos de uso
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-3">
+              Un día con HALO
             </h2>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {useCases.map((uc, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all"
-                  {...fade}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
-                  <p className="text-sm text-foreground/70 font-light">{uc.description}</p>
+            <p className="text-center text-foreground/60 font-light max-w-xl mx-auto mb-10">
+              HALO no es un agente que ves: es el sistema que hace que todos los demás funcionen sin fisuras.
+            </p>
+            <div className="grid md:grid-cols-3 gap-5">
+              {scenarios.map((sc, i) => (
+                <motion.div key={i} className="bg-card/40 border border-border/20 rounded-2xl p-6 flex flex-col gap-4" {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                  <div className="inline-flex items-center rounded-full px-3 py-1 self-start" style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
+                    <span className="text-xs font-mono font-bold" style={{ color: `hsl(${haloHsl})` }}>{sc.time}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-foreground leading-snug">{sc.title}</h3>
+                  <p className="text-base text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
+                  <div className="rounded-xl p-4 flex items-start gap-3 mt-1" style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}>
+                    <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
+                    <span className="text-sm font-medium leading-snug text-foreground">{sc.result}</span>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -293,7 +314,7 @@ const SquadWorkflow = () => {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
+      <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
@@ -329,28 +350,6 @@ const SquadWorkflow = () => {
                 </motion.div>
               ))}
             </div>
-          </SectionFade>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-16 md:py-24 px-5 md:px-6">
-        <div className="container mx-auto text-center">
-          <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-5">
-              Activa HALO en tu empresa
-            </h2>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
-              Agenda una demo personalizada y descubre cómo HALO convierte a cinco agentes en un sistema coordinado que trabaja para tu empresa los 365 días del año.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20"
-              onClick={() => window.open(BOOKING_URL, "_blank")}
-            >
-              Solicitar demo
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </SectionFade>
         </div>
       </section>
