@@ -26,7 +26,6 @@ import {
   Check,
   X,
   Minus,
-  Zap,
   Network,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -210,33 +209,11 @@ const steps = [
   },
 ];
 
-const metrics = [
-  { value: "+200", label: "empresas" },
-  { value: "2M+", label: "llamadas" },
-  { value: "4.9/5", label: "valoración" },
-];
-
 const fade = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.3 },
   transition: { duration: 0.5 },
-};
-
-/* ── Staggered container variants (Task 5) ── */
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
 };
 
 /* ── Page ── */
@@ -655,7 +632,7 @@ const Index = () => {
                 <span className="text-gradient">empezar</span>
               </h2>
               <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
-                Tres fases claras. Sin tecnicismos, sin sorpresas.
+                Cuatro fases claras. Sin tecnicismos, sin sorpresas.
               </p>
             </motion.div>
 
