@@ -273,7 +273,7 @@ const Pricing = () => {
           </div>
 
           {/* FAQ */}
-          <div className="mt-16 md:mt-24 max-w-3xl mx-auto">
+          <div className="mt-16 md:mt-24 max-w-3xl mx-auto rounded-2xl bg-white/[0.03] p-8 md:p-12">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

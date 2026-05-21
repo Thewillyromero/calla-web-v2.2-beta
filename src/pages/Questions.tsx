@@ -44,7 +44,7 @@ const Questions = () => {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -164,7 +164,7 @@ const Security = () => {
       </section>
 
       {/* ── Three pillars ── */}
-      <section className="py-16 md:py-24 px-5 md:px-6">
+      <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -282,7 +282,7 @@ const Security = () => {
       </section>
 
       {/* ── Metrics ── */}
-      <section className="py-12 md:py-16 px-5 md:px-6">
+      <section className="py-12 md:py-16 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

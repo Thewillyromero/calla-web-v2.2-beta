@@ -218,7 +218,7 @@ const SquadWorkflow = () => {
       </section>
 
       {/* ── El equipo que dirige ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.02]">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-4xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-4">
@@ -282,7 +282,7 @@ const SquadWorkflow = () => {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.02]">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">

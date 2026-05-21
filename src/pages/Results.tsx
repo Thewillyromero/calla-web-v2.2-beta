@@ -116,7 +116,7 @@ const Results = () => {
       <SystemFlow />
 
       {/* Testimonials */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto">
           <SectionFade>
             <div className="text-center mb-12">

@@ -353,7 +353,7 @@ const AgentPage = () => {
       </section>
 
       {/* Features */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-4xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
@@ -378,9 +378,11 @@ const AgentPage = () => {
 
       {/* ARIA-specific: DemoCall (moved before Use Cases for visibility) */}
       {agent.showDemoCall && (
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
-          <DemoCall />
-        </Suspense>
+        <div className="bg-white/[0.03]">
+          <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
+            <DemoCall />
+          </Suspense>
+        </div>
       )}
 
       {/* Use Cases */}
@@ -408,7 +410,7 @@ const AgentPage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
