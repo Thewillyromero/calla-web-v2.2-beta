@@ -41,6 +41,7 @@ interface AgentData {
   features: string[];
   testimonials: AgentTestimonial[];
   taglineBreakBefore?: boolean;
+  taglineBreakAfter?: string;
   showDemoCall?: boolean;
   showCallSimulator?: boolean;
 }
@@ -177,6 +178,7 @@ const agentData: Record<string, AgentData> = {
     tagline: "Convierte clientes en fans para toda la vida",
     taglineHighlight: "para toda la vida",
     taglineBreakBefore: true,
+    taglineBreakAfter: "Convierte",
     description:
       "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
     image: agentSupport,
@@ -287,7 +289,10 @@ const AgentPage = () => {
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider">{agent.name}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
-                {taglineBefore}
+                {agent.taglineBreakAfter ? (() => {
+                  const idx = taglineBefore.indexOf(agent.taglineBreakAfter!) + agent.taglineBreakAfter!.length;
+                  return <>{taglineBefore.slice(0, idx)}<br className="hidden md:block" />{taglineBefore.slice(idx)}</>;
+                })() : taglineBefore}
                 {agent.taglineBreakBefore && <br className="hidden md:block" />}
                 <span
                   className="bg-clip-text text-transparent"
