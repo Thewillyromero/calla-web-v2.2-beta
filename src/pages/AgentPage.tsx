@@ -40,6 +40,7 @@ interface AgentData {
   useCases: { title: string; description: string }[];
   features: string[];
   testimonials: AgentTestimonial[];
+  taglineBreakBefore?: boolean;
   showDemoCall?: boolean;
   showCallSimulator?: boolean;
 }
@@ -51,6 +52,7 @@ const agentData: Record<string, AgentData> = {
     role: "Recepcionista Virtual",
     tagline: "Tu recepcionista que nunca descansa",
     taglineHighlight: "nunca descansa",
+    taglineBreakBefore: true,
     description:
       "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7 sin días malos ni bajas.",
     image: agentInbound,
@@ -83,6 +85,7 @@ const agentData: Record<string, AgentData> = {
     role: "Agente de Ventas",
     tagline: "Convierte leads en clientes mientras duermes",
     taglineHighlight: "mientras duermes",
+    taglineBreakBefore: true,
     description:
       "NOVA realiza llamadas salientes para captar leads, cualificar oportunidades y cerrar ventas. Ejecuta campañas outbound automatizadas con seguimiento inteligente.",
     image: agentOutbound,
@@ -173,6 +176,7 @@ const agentData: Record<string, AgentData> = {
     role: "Atención y Satisfacción del Cliente",
     tagline: "Convierte clientes en fans para toda la vida",
     taglineHighlight: "para toda la vida",
+    taglineBreakBefore: true,
     description:
       "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza. Detecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
     image: agentSupport,
@@ -276,7 +280,7 @@ const AgentPage = () => {
       {/* Hero */}
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6">
         <div className="container mx-auto">
-          <motion.div className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto" {...fade}>
+          <motion.div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-5xl mx-auto" {...fade}>
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
                 <Icon className="h-5 w-5 text-primary" />
@@ -284,6 +288,7 @@ const AgentPage = () => {
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {taglineBefore}
+                {agent.taglineBreakBefore && <br className="hidden md:block" />}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
@@ -337,7 +342,7 @@ const AgentPage = () => {
                     <motion.img
                       src={agent.image}
                       alt={agent.name}
-                      className="w-56 sm:w-72 md:w-[26rem] lg:w-[32rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                      className="w-48 sm:w-64 md:w-[22rem] lg:w-[26rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                       width={512}
                       height={512}
                       initial={{ opacity: 0, scale: 0, rotate: -12 }}

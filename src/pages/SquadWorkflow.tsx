@@ -119,7 +119,7 @@ const SquadWorkflow = () => {
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6">
         <div className="container mx-auto">
           <motion.div
-            className="flex flex-col md:flex-row items-center gap-8 md:gap-20 max-w-5xl mx-auto"
+            className="flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -142,7 +142,7 @@ const SquadWorkflow = () => {
                 <motion.img
                   src={haloConductor}
                   alt="HALO"
-                  className="w-56 sm:w-72 md:w-[26rem] lg:w-[32rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                  className="w-48 sm:w-64 md:w-[22rem] lg:w-[26rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
                   width={512}
                   height={512}
                   initial={{ opacity: 0, scale: 0, rotate: -12 }}
