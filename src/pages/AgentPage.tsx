@@ -76,7 +76,7 @@ const agentData: Record<string, AgentData> = {
     taglineHighlight: "que nunca descansa",
     taglineBreakBefore: true,
     description:
-      "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7, sin días malos ni bajas.",
+      "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas.\n\nDisponible 24/7, sin días malos ni bajas.",
     image: agentInbound,
     icon: Phone,
     showDemoCall: true,
@@ -360,8 +360,8 @@ const AgentPage = () => {
           <motion.div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-5xl mx-auto" {...fade}>
             <div className="flex-1 text-center md:text-left">
               <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                <Icon className="h-5 w-5 text-primary" />
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">{agent.name}</span>
+                <Icon className="h-5 w-5" style={{ color: `hsl(${agentHsl})` }} />
+                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: `hsl(${agentHsl})` }}>{agent.name}</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {agent.taglineBreakAfter ? (() => {
@@ -465,8 +465,8 @@ const AgentPage = () => {
               <div className="grid sm:grid-cols-3 gap-6 mb-14">
                 {agent.howItWorks.map((s, i) => (
                   <motion.div key={i} className="flex flex-col items-center text-center gap-3" {...fade} transition={{ duration: 0.5, delay: i * 0.12 }}>
-                    <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                      <span className="font-display font-extrabold text-lg text-primary">{s.step}</span>
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" style={{ background: `hsl(${agentHsl} / 0.10)`, border: `1px solid hsl(${agentHsl} / 0.25)` }}>
+                      <span className="font-display font-extrabold text-lg" style={{ color: `hsl(${agentHsl})` }}>{s.step}</span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
                     <p className="text-base text-foreground/70 font-light leading-relaxed">{s.description}</p>
