@@ -55,7 +55,7 @@ const agentData: Record<string, AgentData> = {
     taglineHighlight: "que nunca descansa",
     taglineBreakBefore: true,
     description:
-      "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7 sin días malos ni bajas.",
+      "ARIA atiende todas las llamadas entrantes de tu empresa con voz natural. Resuelve dudas, transfiere llamadas y agenda citas. Disponible 24/7, sin días malos ni bajas.",
     image: agentInbound,
     icon: Phone,
     showDemoCall: true,
