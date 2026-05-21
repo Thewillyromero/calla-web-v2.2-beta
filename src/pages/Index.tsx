@@ -109,9 +109,9 @@ const steps = [
   },
   {
     number: "04",
-    title: "Inversión",
-    description: "El proyecto tiene un coste inicial de desarrollo e implementación y una cuota mensual posterior. El pago se puede estructurar al inicio, por fases o al finalizar, según las necesidades del proyecto.",
-    chips: ["Coste de desarrollo", "Cuota mensual", "Pago flexible"],
+    title: "Actualizaciones y mantenimiento",
+    description: "El sistema no se entrega y se olvida. Monitorizamos el rendimiento, aplicamos mejoras continuas y actualizamos los agentes con nuevas capacidades. Tu equipo de IA evoluciona con tu empresa.",
+    chips: ["Monitorización continua", "Mejoras y actualizaciones", "Soporte técnico", "Nuevas capacidades"],
   },
 ];
 
