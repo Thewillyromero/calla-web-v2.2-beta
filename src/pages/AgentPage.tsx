@@ -172,12 +172,31 @@ const agentData: Record<string, AgentData> = {
     slug: "lumi",
     name: "LUMI",
     role: "Coordinador de Citas",
-    tagline: "El mejor gestor de tu agenda",
-    taglineHighlight: "mejor gestor",
+    tagline: "Tu agenda siempre llena, sin esfuerzo",
+    taglineHighlight: "siempre llena, sin esfuerzo",
+    taglineBreakBefore: true,
     description:
-      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
+      "LUMI gestiona tu agenda de forma autónoma. Confirma citas, cubre cancelaciones con la lista de espera y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
     image: agentScheduler,
     icon: CalendarCheck,
+    howItWorks: [
+      { step: "01", title: "Sincroniza tu agenda", description: "LUMI se conecta a tu calendario, aprende tu disponibilidad y detecta los huecos libres en tiempo real. Sin configuraciones complejas." },
+      { step: "02", title: "Confirma y gestiona", description: "Llama a cada cliente 24h antes para confirmar. Si alguien cancela o reagenda, LUMI lo gestiona al momento y actualiza el calendario automáticamente." },
+      { step: "03", title: "Cero huecos vacíos", description: "Cuando hay una cancelación, LUMI llama al siguiente de la lista de espera y llena el hueco antes de que tu equipo se entere de que existió." },
+    ],
+    featureCards: [
+      { title: "Confirmación automática", description: "Llama a cada cliente 24h antes para confirmar su cita. Detecta cancelaciones con tiempo suficiente para reasignar el hueco sin perder ingresos." },
+      { title: "Lista de espera inteligente", description: "Cuando alguien cancela, LUMI contacta al siguiente cliente de la lista al instante. El hueco se cubre solo, sin que nadie tenga que llamar." },
+      { title: "Recordatorios multicanal", description: "Combina llamada, SMS y email según el perfil de cada cliente. Configurable por tipo de cita, urgencia o preferencia del paciente." },
+      { title: "Reagendamiento por voz", description: "El cliente llama para cambiar su cita y LUMI busca disponibilidad, ofrece opciones y confirma el cambio en menos de dos minutos." },
+      { title: "Sincronización total", description: "Compatible con Google Calendar, Outlook, Calendly y la mayoría de software de gestión. Sin cambiar las herramientas que ya usas." },
+      { title: "Panel de ocupación", description: "Visualiza en tiempo real el porcentaje de ocupación, huecos disponibles y tasa de no-shows. Detecta patrones y optimiza tu agenda por franjas horarias." },
+    ],
+    scenarios: [
+      { time: "07:45h", title: "Cancelación de última hora", scenario: "Son las 8 menos cuarto. Un cliente cancela su cita de las 9:00h por WhatsApp. El hueco queda vacío si nadie actúa antes de que empiece la jornada.", result: "LUMI detecta la cancelación, llama al primero de la lista de espera y en 4 minutos el hueco de las 9:00h ya tiene nuevo titular. Tu equipo llega a trabajar con la agenda completa." },
+      { time: "Día anterior", title: "40 citas sin confirmar", scenario: "Mañana tienes 40 citas en agenda. Tu equipo no tiene tiempo de llamar a todos para confirmar. Los no-shows te cuestan dinero y tiempo.", result: "LUMI llama a los 40 durante la tarde. 36 confirman, 3 reagendan y 1 cancela. El hueco queda cubierto antes de cerrar. Mañana empiezas con todo confirmado." },
+      { time: "14:00h", title: "El cliente quiere cambiar su cita", scenario: "Un cliente llama para cambiar su cita del jueves porque le ha surgido algo. Tu equipo está comiendo y nadie puede atenderle.", result: "LUMI atiende, busca disponibilidad, ofrece tres opciones y confirma el cambio. El cliente cuelga con su nueva cita en menos de 90 segundos. Sin esperas ni llamadas perdidas." },
+    ],
     useCases: [
       { title: "Confirmación automática", description: "Llama a cada paciente o cliente 24h antes para confirmar su cita." },
       { title: "Reagendamiento inteligente", description: "Cuando alguien cancela, LUMI llena el hueco con otro cliente de la lista de espera." },
@@ -193,9 +212,9 @@ const agentData: Record<string, AgentData> = {
       "Reducción de no-shows del 80%",
     ],
     testimonials: [
-      { quote: "Nuestra academia recibe consultas de padres a todas horas. CALLA les da la información, resuelve dudas sobre horarios y matricula directamente. Matriculaciones subieron un 40%.", name: "Sofía Herrero", role: "Directora, Academia Herrero", company: "Academia Herrero", result: "+40% matriculaciones" },
-      { quote: "Nuestro centro recibe 40 llamadas al día. Antes contestábamos 25 si teníamos suerte. Con CALLA, 40 de 40.", name: "Carmen Ortega", role: "Directora, Centro Estética Carmen", company: "Centro Estética Carmen", result: "40/40 llamadas atendidas" },
-      { quote: "Somos una gestoría con 400 clientes. En campaña de renta nos saturábamos. CALLA atiende, clasifica la urgencia y agenda la cita con el asesor correcto.", name: "Ana Morales", role: "Socia, Gestoría Morales & Asociados", company: "Gestoría Morales & Asociados", result: "400 clientes sin saturación" },
+      { quote: "Teníamos un 22% de no-shows en la clínica. Era dinero que se evaporaba cada semana. Con LUMI confirmando el día anterior, bajamos al 4%. El cambio fue inmediato.", name: "Dra. Elena Campos", role: "Directora, Clínica Dental Campos", company: "Clínica Dental Campos", result: "No-shows del 22% al 4%" },
+      { quote: "Mi equipo dedicaba dos horas al día a llamar para confirmar citas. Ahora LUMI lo hace solo. Esas dos horas las dedicamos a atender mejor a los que están delante.", name: "Fernando Iglesias", role: "Gerente, Centro de Fisioterapia Iglesias", company: "Centro de Fisioterapia Iglesias", result: "2h/día recuperadas" },
+      { quote: "Lo que más me sorprendió fue la lista de espera. Antes perdíamos esos huecos. Ahora cuando alguien cancela, LUMI llama solo y en diez minutos el hueco está ocupado.", name: "Beatriz Molina", role: "Propietaria, Centro Estética Molina", company: "Centro Estética Molina", result: "0 huecos vacíos por cancelación" },
     ],
   },
   byte: {
