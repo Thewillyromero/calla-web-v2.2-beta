@@ -629,9 +629,11 @@ const Index = () => {
       </SectionFade>
 
       {/* ─── 6. DEMO — Habla con ARIA ─── */}
-      <Suspense fallback={<div className="py-20" />}>
-        <DemoCall />
-      </Suspense>
+      <div id="como-funciona">
+        <Suspense fallback={<div className="py-20" />}>
+          <DemoCall />
+        </Suspense>
+      </div>
 
       <SectionFade>
         <div className="text-center py-6">
