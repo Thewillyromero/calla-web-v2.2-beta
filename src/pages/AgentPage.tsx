@@ -277,7 +277,7 @@ const agentData: Record<string, AgentData> = {
     image: agentSupport,
     icon: HeartHandshake,
     howItWorks: [
-      { step: "01", title: "Después de cada venta", description: "CARE contacta al cliente automáticamente tras el servicio o compra. Confirma que todo ha ido bien y detecta cualquier señal de insatisfacción antes de que se convierta en un problema." },
+      { step: "01", title: "Contacto post-venta", description: "CARE contacta al cliente automáticamente tras el servicio o compra. Confirma que todo ha ido bien y detecta cualquier señal de insatisfacción antes de que se convierta en un problema." },
       { step: "02", title: "Mide y actúa", description: "Procesa cada respuesta, asigna un score de satisfacción y clasifica al cliente: promotor, neutral o en riesgo. Los casos urgentes llegan a tu equipo con todo el contexto ya preparado." },
       { step: "03", title: "Fideliza sin esfuerzo", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y reactivación de inactivos. CARE mantiene viva la relación con cada cliente sin que tu equipo tenga que acordarse de nada." },
     ],
