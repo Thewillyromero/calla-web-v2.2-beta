@@ -317,7 +317,7 @@ const Index = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full px-8 text-base hover:bg-transparent hover:border-primary hover:text-primary transition-colors duration-200"
+                    className="rounded-full px-8 text-base hover:bg-transparent hover:border-brand-lavender hover:text-brand-lavender transition-colors duration-200"
                     onClick={() =>
                       document
                         .querySelector("#como-funciona")
