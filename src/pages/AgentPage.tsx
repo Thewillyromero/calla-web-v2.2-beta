@@ -172,11 +172,10 @@ const agentData: Record<string, AgentData> = {
     slug: "lumi",
     name: "LUMI",
     role: "Coordinador de Citas",
-    tagline: "Tu agenda siempre llena, sin esfuerzo",
-    taglineHighlight: "siempre llena, sin esfuerzo",
-    taglineBreakBefore: true,
+    tagline: "El mejor gestor de tu agenda",
+    taglineHighlight: "mejor gestor",
     description:
-      "LUMI gestiona tu agenda de forma autónoma. Confirma citas, cubre cancelaciones con la lista de espera y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
+      "LUMI gestiona tu agenda de forma autónoma. Agenda, confirma, reagenda y envía recordatorios. Reduce los no-shows hasta un 80% sin que tu equipo mueva un dedo.",
     image: agentScheduler,
     icon: CalendarCheck,
     howItWorks: [
