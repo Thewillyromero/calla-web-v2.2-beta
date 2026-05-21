@@ -119,13 +119,13 @@ const SquadWorkflow = () => {
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6">
         <div className="container mx-auto">
           <motion.div
-            className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto"
+            className="flex flex-col md:flex-row items-center gap-8 md:gap-20 max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             {/* Image — LEFT */}
-            <div className="shrink-0 relative flex items-center justify-center order-2 md:order-1">
+            <div className="shrink-0 relative flex items-center justify-center order-2 md:order-1 p-10 md:p-14">
               <div className="relative">
                 <div
                   className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
