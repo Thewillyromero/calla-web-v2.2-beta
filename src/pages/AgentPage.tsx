@@ -249,13 +249,13 @@ const AgentPage = () => {
 
   const Icon = agent.icon;
 
-  // Vivid metallic gradient per agent: matches home card colors + near-white metallic peak
+  // Exact same gradients as Features.tsx home cards
   const agentGradient =
-    agent.slug === "aria" ? "linear-gradient(110deg, hsl(190 100% 42%) 0%, hsl(185 100% 62%) 28%, hsl(188 20% 94%) 52%, hsl(175 100% 60%) 76%, hsl(190 100% 46%) 100%)" :
-    agent.slug === "nova" ? "linear-gradient(110deg, hsl(255 100% 55%) 0%, hsl(270 100% 70%) 28%, hsl(265 20% 94%) 52%, hsl(285 100% 67%) 76%, hsl(255 100% 58%) 100%)" :
-    agent.slug === "lumi" ? "linear-gradient(110deg, hsl(160 100% 35%) 0%, hsl(165 100% 55%) 28%, hsl(160 20% 92%) 52%, hsl(150 100% 58%) 76%, hsl(160 100% 38%) 100%)" :
-    agent.slug === "byte" ? "linear-gradient(110deg, hsl(35 100% 42%) 0%, hsl(42 100% 63%) 28%, hsl(40 45% 92%) 52%, hsl(28 100% 62%) 76%, hsl(35 100% 46%) 100%)" :
-                            "linear-gradient(110deg, hsl(340 100% 48%) 0%, hsl(345 100% 67%) 28%, hsl(342 25% 93%) 52%, hsl(355 100% 67%) 76%, hsl(340 100% 52%) 100%)";
+    agent.slug === "aria" ? "linear-gradient(135deg, hsl(190 100% 60%), hsl(175 100% 55%), hsl(210 100% 65%))" :
+    agent.slug === "nova" ? "linear-gradient(135deg, hsl(245 100% 70%), hsl(285 100% 65%), hsl(325 100% 65%))" :
+    agent.slug === "lumi" ? "linear-gradient(135deg, hsl(170 100% 55%), hsl(150 100% 55%), hsl(95 100% 60%))" :
+    agent.slug === "byte" ? "linear-gradient(135deg, hsl(48 100% 62%), hsl(28 100% 60%), hsl(355 100% 65%))" :
+                            "linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))";
 
   const highlight = agent.taglineHighlight;
   const hIdx = agent.tagline.indexOf(highlight);
