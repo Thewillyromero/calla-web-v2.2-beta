@@ -398,7 +398,7 @@ const Index = () => {
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Comparativa</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
-                ¿Por qué <span className="text-gradient">CALLA</span> y no otra solución?
+                ¿Qué diferencia a <span className="text-gradient">Calla</span>?
               </h2>
               <p className="text-foreground/85 font-light max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
