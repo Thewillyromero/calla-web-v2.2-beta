@@ -291,9 +291,15 @@ const AgentPage = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {agent.taglineBreakAfter ? (() => {
                   const idx = taglineBefore.indexOf(agent.taglineBreakAfter!) + agent.taglineBreakAfter!.length;
-                  return <>{taglineBefore.slice(0, idx)}<br className="hidden md:block" />{taglineBefore.slice(idx)}</>;
-                })() : taglineBefore}
-                {agent.taglineBreakBefore && <br className="hidden md:block" />}
+                  return (
+                    <>
+                      <span className="md:block">{taglineBefore.slice(0, idx).trim()}</span>
+                      <span className="md:block">{taglineBefore.slice(idx).trim()}{" "}</span>
+                    </>
+                  );
+                })() : agent.taglineBreakBefore ? (
+                  <span className="md:block">{taglineBefore.trim()}{" "}</span>
+                ) : taglineBefore}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
