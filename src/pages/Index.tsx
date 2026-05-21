@@ -352,8 +352,10 @@ const Index = () => {
         </section>
       </SectionFade>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ─── 2. WHAT WE DO — capability map ─── */}
-      <SectionFade>
+      <SectionFade className="bg-white/[0.03]">
         <section className="py-16 md:py-24 px-5 md:px-6 relative overflow-hidden">
           <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] rounded-full bg-brand-teal/[0.03] blur-[160px] pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-lavender/[0.025] blur-[140px] pointer-events-none" />
@@ -455,6 +457,8 @@ const Index = () => {
           </div>
         </section>
       </SectionFade>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ─── 3. WHY US — Comparison table ─── */}
       <SectionFade>
@@ -587,7 +591,11 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      <SectionFade><Features /></SectionFade>
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
+      <SectionFade className="bg-white/[0.03]"><Features /></SectionFade>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ─── 5. HOW IT WORKS — 3 steps ─── */}
       <SectionFade>
@@ -628,12 +636,16 @@ const Index = () => {
         </section>
       </SectionFade>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ─── 6. DEMO — Habla con ARIA ─── */}
-      <div id="como-funciona">
+      <div id="como-funciona" className="bg-white/[0.03]">
         <Suspense fallback={<div className="py-20" />}>
           <DemoCall />
         </Suspense>
       </div>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       <SectionFade>
         <div className="text-center py-6">
@@ -645,6 +657,8 @@ const Index = () => {
           </Link>
         </div>
       </SectionFade>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ─── 7. CTA FINAL ─── */}
       <SectionFade>
