@@ -311,7 +311,7 @@ const AgentPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="shrink-0 relative flex items-center justify-center">
+            <div className="shrink-0 relative flex items-center justify-center p-6 md:p-8">
               {(() => {
                 const glow =
                   agent.slug === "aria" ? "190 70% 55%" :

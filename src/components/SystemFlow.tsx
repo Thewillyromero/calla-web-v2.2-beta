@@ -1,116 +1,66 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import {
-  Sparkles,
-  Phone,
-  PhoneOutgoing,
-  CalendarCheck,
-  BarChart3,
-  HeartHandshake,
-  User,
+  Sparkles, Phone, PhoneOutgoing, CalendarCheck,
+  BarChart3, HeartHandshake, User, ArrowDown,
 } from "lucide-react";
 
-// ─── Agent colour palette ────────────────────────────────────────────────────
 const AGENTS = {
-  HALO: { hsl: "220 12% 62%", label: "HALO", role: "Orquestador central", Icon: Sparkles },
-  ARIA: { hsl: "190 60% 55%", label: "ARIA", role: "Recepcionista Virtual", Icon: Phone },
-  NOVA: { hsl: "260 50% 65%", label: "NOVA", role: "Agente de Ventas", Icon: PhoneOutgoing },
-  LUMI: { hsl: "160 50% 48%", label: "LUMI", role: "Gestión de Agenda", Icon: CalendarCheck },
-  BYTE: { hsl: "35 70% 58%", label: "BYTE", role: "Analítica & Registro", Icon: BarChart3 },
-  CARE: { hsl: "340 55% 60%", label: "CARE", role: "Seguimiento", Icon: HeartHandshake },
-  HUMAN: { hsl: "217 91% 60%", label: "Humano", role: "Escalado / Urgencia", Icon: User },
+  HALO:  { hsl: "220 12% 62%",  label: "HALO",   role: "Orquestador central",      Icon: Sparkles      },
+  ARIA:  { hsl: "190 60% 55%",  label: "ARIA",    role: "Recepcionista Virtual",    Icon: Phone         },
+  NOVA:  { hsl: "260 50% 65%",  label: "NOVA",    role: "Agente de Ventas",         Icon: PhoneOutgoing },
+  LUMI:  { hsl: "160 50% 48%",  label: "LUMI",    role: "Gestión de Agenda",        Icon: CalendarCheck },
+  BYTE:  { hsl: "35 70% 58%",   label: "BYTE",    role: "Analítica & Registro",     Icon: BarChart3     },
+  CARE:  { hsl: "340 55% 60%",  label: "CARE",    role: "Seguimiento",              Icon: HeartHandshake},
+  HUMAN: { hsl: "217 91% 60%",  label: "Humano",  role: "Escalado / Urgencia",      Icon: User          },
 } as const;
 
 type AgentKey = keyof typeof AGENTS;
 
-// ─── Primitives ──────────────────────────────────────────────────────────────
+// ─── Primitives ───────────────────────────────────────────────────────────────
 
-interface AgentNodeProps {
-  agentKey: AgentKey;
-  description?: string;
-  small?: boolean;
-}
-
-const AgentNode = memo(({ agentKey, description, small = false }: AgentNodeProps) => {
-  const agent = AGENTS[agentKey];
-  const { Icon } = agent;
+const AgentNode = memo(({ agentKey, description, compact = false }: {
+  agentKey: AgentKey; description?: string; compact?: boolean;
+}) => {
+  const a = AGENTS[agentKey];
   return (
     <div
-      className={`rounded-xl border flex flex-col items-center text-center ${small ? "px-3 py-2.5 gap-1" : "px-4 py-3 gap-1.5"}`}
-      style={{
-        background: `hsl(${agent.hsl} / 0.08)`,
-        borderColor: `hsl(${agent.hsl} / 0.25)`,
-      }}
+      className={`rounded-xl border flex flex-col items-center text-center w-full ${compact ? "px-3 py-3 gap-1.5" : "px-5 py-4 gap-2"}`}
+      style={{ background: `hsl(${a.hsl} / 0.09)`, borderColor: `hsl(${a.hsl} / 0.30)` }}
     >
-      <Icon
-        className={small ? "w-3.5 h-3.5" : "w-4 h-4"}
-        style={{ color: `hsl(${agent.hsl})` }}
-      />
-      <span
-        className={`font-display font-bold leading-none ${small ? "text-xs" : "text-sm"}`}
-        style={{ color: `hsl(${agent.hsl})` }}
-      >
-        {agent.label}
+      <a.Icon className={compact ? "w-4 h-4" : "w-5 h-5"} style={{ color: `hsl(${a.hsl})` }} />
+      <span className={`font-display font-bold leading-none ${compact ? "text-sm" : "text-base"}`} style={{ color: `hsl(${a.hsl})` }}>
+        {a.label}
       </span>
       {description && (
-        <span className="text-[10px] leading-snug text-foreground/70 max-w-[90px]">
-          {description}
-        </span>
+        <span className="text-xs leading-snug text-foreground/70 max-w-[110px]">{description}</span>
       )}
     </div>
   );
 });
 AgentNode.displayName = "AgentNode";
 
-interface PillProps {
-  label: string;
-}
-
-const Pill = memo(({ label }: PillProps) => (
-  <div className="bg-card/60 border border-border/30 rounded-full px-2.5 py-1 text-[10px] text-foreground/60 whitespace-nowrap">
+const Pill = memo(({ label }: { label: string }) => (
+  <div className="bg-card/70 border border-border/35 rounded-full px-3 py-1.5 text-xs text-foreground/65 whitespace-nowrap font-medium">
     {label}
   </div>
 ));
 Pill.displayName = "Pill";
 
-interface ConnectorProps {
-  fromHsl: string;
-  toHsl: string;
-  height?: number;
-}
-
-const Connector = memo(({ fromHsl, toHsl, height = 24 }: ConnectorProps) => (
-  <div
-    className="w-px mx-auto"
-    style={{
-      height,
-      background: `linear-gradient(to bottom, hsl(${fromHsl} / 0.5), hsl(${toHsl} / 0.5))`,
-    }}
-  />
+const VLine = memo(({ from, to, h = 28 }: { from: string; to: string; h?: number }) => (
+  <div className="flex flex-col items-center">
+    <div className="w-[2px] rounded-full" style={{ height: h, background: `linear-gradient(to bottom, hsl(${from} / 0.5), hsl(${to} / 0.5))` }} />
+    <ArrowDown className="w-3 h-3 -mt-1" style={{ color: `hsl(${to} / 0.55)` }} />
+  </div>
 ));
-Connector.displayName = "Connector";
+VLine.displayName = "VLine";
 
-// ─── Shared footer nodes (BYTE + CARE) ───────────────────────────────────────
+// ─── Footer (BYTE + CARE always present) ─────────────────────────────────────
 
-interface FooterNodesProps {
-  byteDesc: string;
-  careDesc: string;
-}
-
-const FooterNodes = memo(({ byteDesc, careDesc }: FooterNodesProps) => (
-  <div className="mt-4 pt-4 border-t border-border/20 flex flex-col gap-3">
-    <div className="flex items-center gap-2">
-      <div className="w-px flex-none self-stretch" style={{ background: `hsl(${AGENTS.BYTE.hsl} / 0.25)` }} />
-      <div className="flex-1">
-        <AgentNode agentKey="BYTE" description={byteDesc} />
-      </div>
-    </div>
-    <div className="flex items-center gap-2">
-      <div className="w-px flex-none self-stretch" style={{ background: `hsl(${AGENTS.CARE.hsl} / 0.25)` }} />
-      <div className="flex-1">
-        <AgentNode agentKey="CARE" description={careDesc} />
-      </div>
-    </div>
+const FooterNodes = memo(({ byteDesc, careDesc }: { byteDesc: string; careDesc: string }) => (
+  <div className="mt-5 pt-5 border-t border-border/25 grid grid-cols-2 gap-3">
+    <AgentNode agentKey="BYTE" description={byteDesc} compact />
+    <AgentNode agentKey="CARE" description={careDesc} compact />
   </div>
 ));
 FooterNodes.displayName = "FooterNodes";
@@ -118,57 +68,42 @@ FooterNodes.displayName = "FooterNodes";
 // ─── Inbound tree ─────────────────────────────────────────────────────────────
 
 const InboundTree = memo(() => (
-  <div className="flex flex-col items-center w-full">
-    {/* Entry */}
-    <div className="bg-card/60 border border-border/30 rounded-xl px-4 py-2.5 flex items-center gap-2">
-      <Phone className="w-4 h-4 text-foreground/50" />
-      <span className="text-sm font-medium text-foreground/80">Entra una llamada</span>
+  <div className="flex flex-col items-center w-full gap-0">
+    {/* Trigger */}
+    <div className="bg-card/70 border border-border/30 rounded-xl px-5 py-3 flex items-center gap-2.5 self-center">
+      <Phone className="w-4 h-4 text-foreground/60" />
+      <span className="text-sm font-semibold text-foreground/85">Entra una llamada</span>
     </div>
 
-    <Connector fromHsl={AGENTS.ARIA.hsl} toHsl={AGENTS.ARIA.hsl} height={20} />
+    <VLine from={AGENTS.ARIA.hsl} to={AGENTS.ARIA.hsl} h={24} />
 
     {/* ARIA */}
-    <div className="w-full max-w-[200px]">
-      <AgentNode agentKey="ARIA" description="Recepcionista Virtual · Identifica intención" />
+    <div className="w-full max-w-[220px]">
+      <AgentNode agentKey="ARIA" description="Identifica la intención del cliente" />
     </div>
 
-    <Connector fromHsl={AGENTS.ARIA.hsl} toHsl="220 12% 30%" height={20} />
+    <VLine from={AGENTS.ARIA.hsl} to="220 10% 35%" h={24} />
 
-    {/* Branch row */}
-    <div className="w-full grid grid-cols-4 gap-1.5">
-      {/* LUMI */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.ARIA.hsl} toHsl={AGENTS.LUMI.hsl} height={16} />
-        <AgentNode agentKey="LUMI" description="Agenda cita" small />
-        <Connector fromHsl={AGENTS.LUMI.hsl} toHsl={AGENTS.LUMI.hsl} height={12} />
-        <Pill label="Confirmación + Recordatorio" />
-      </div>
-      {/* NOVA */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.ARIA.hsl} toHsl={AGENTS.NOVA.hsl} height={16} />
-        <AgentNode agentKey="NOVA" description="Cualificación ventas" small />
-        <Connector fromHsl={AGENTS.NOVA.hsl} toHsl={AGENTS.NOVA.hsl} height={12} />
-        <Pill label="Agenda reunión" />
-      </div>
-      {/* CARE */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.ARIA.hsl} toHsl={AGENTS.CARE.hsl} height={16} />
-        <AgentNode agentKey="CARE" description="Soporte & gestión" small />
-        <Connector fromHsl={AGENTS.CARE.hsl} toHsl={AGENTS.CARE.hsl} height={12} />
-        <Pill label="Resuelve + Escala" />
-      </div>
-      {/* Human */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.ARIA.hsl} toHsl={AGENTS.HUMAN.hsl} height={16} />
-        <AgentNode agentKey="HUMAN" description="Urgencia / Escalado" small />
-        <Connector fromHsl={AGENTS.HUMAN.hsl} toHsl={AGENTS.HUMAN.hsl} height={12} />
-        <Pill label="Traspaso con contexto" />
-      </div>
+    {/* Branch row — 4 columns */}
+    <div className="w-full grid grid-cols-4 gap-2">
+      {[
+        { key: "LUMI" as AgentKey, desc: "Agenda cita",       outcome: "Conf. + Recordatorio" },
+        { key: "NOVA" as AgentKey, desc: "Oportunidad ventas", outcome: "Agenda reunión"        },
+        { key: "CARE" as AgentKey, desc: "Soporte directo",   outcome: "Resuelve · Escala"    },
+        { key: "HUMAN" as AgentKey,desc: "Urgencia",          outcome: "Traspaso con contexto"},
+      ].map(({ key, desc, outcome }) => (
+        <div key={key} className="flex flex-col items-center gap-1.5">
+          <VLine from={AGENTS.ARIA.hsl} to={AGENTS[key].hsl} h={18} />
+          <AgentNode agentKey={key} description={desc} compact />
+          <VLine from={AGENTS[key].hsl} to={AGENTS[key].hsl} h={14} />
+          <Pill label={outcome} />
+        </div>
+      ))}
     </div>
 
     <FooterNodes
-      byteDesc="Transcribe · Analiza sentimiento · Métricas"
-      careDesc="Seguimiento post-interacción · Satisfacción"
+      byteDesc="Transcribe · Sentimiento · Métricas"
+      careDesc="Seguimiento post-interacción"
     />
   </div>
 ));
@@ -177,191 +112,145 @@ InboundTree.displayName = "InboundTree";
 // ─── Outbound tree ────────────────────────────────────────────────────────────
 
 const OutboundTree = memo(() => (
-  <div className="flex flex-col items-center w-full">
-    {/* Entry */}
-    <div className="bg-card/60 border border-border/30 rounded-xl px-4 py-2.5 flex items-center gap-2">
-      <PhoneOutgoing className="w-4 h-4 text-foreground/50" />
-      <span className="text-sm font-medium text-foreground/80">Campaña outbound</span>
+  <div className="flex flex-col items-center w-full gap-0">
+    {/* Trigger */}
+    <div className="bg-card/70 border border-border/30 rounded-xl px-5 py-3 flex items-center gap-2.5 self-center">
+      <PhoneOutgoing className="w-4 h-4 text-foreground/60" />
+      <span className="text-sm font-semibold text-foreground/85">Campaña saliente</span>
     </div>
 
-    <Connector fromHsl={AGENTS.NOVA.hsl} toHsl={AGENTS.NOVA.hsl} height={20} />
+    <VLine from={AGENTS.NOVA.hsl} to={AGENTS.NOVA.hsl} h={24} />
 
     {/* NOVA */}
-    <div className="w-full max-w-[200px]">
-      <AgentNode agentKey="NOVA" description="Agente de Ventas · Llama al prospecto" />
+    <div className="w-full max-w-[220px]">
+      <AgentNode agentKey="NOVA" description="Llama al prospecto · Cualifica" />
     </div>
 
-    <Connector fromHsl={AGENTS.NOVA.hsl} toHsl="220 12% 30%" height={20} />
+    <VLine from={AGENTS.NOVA.hsl} to="220 10% 35%" h={24} />
 
-    {/* Branch row */}
+    {/* Branch row — 3 columns */}
     <div className="w-full grid grid-cols-3 gap-2">
-      {/* Lead OK */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.NOVA.hsl} toHsl={AGENTS.LUMI.hsl} height={16} />
-        <Pill label="Lead OK" />
-        <Connector fromHsl={AGENTS.LUMI.hsl} toHsl={AGENTS.LUMI.hsl} height={12} />
-        <AgentNode agentKey="LUMI" description="Agenda reunión" small />
-      </div>
-      {/* Lead frío */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.NOVA.hsl} toHsl="220 12% 40%" height={16} />
-        <Pill label="Lead frío" />
-        <Connector fromHsl="220 12% 40%" toHsl={AGENTS.NOVA.hsl} height={12} />
-        <Pill label="Reintento cadencia automática" />
-      </div>
-      {/* Cierre */}
-      <div className="flex flex-col items-center gap-1.5">
-        <Connector fromHsl={AGENTS.NOVA.hsl} toHsl={AGENTS.HUMAN.hsl} height={16} />
-        <Pill label="Cierre directo" />
-        <Connector fromHsl={AGENTS.HUMAN.hsl} toHsl={AGENTS.HUMAN.hsl} height={12} />
-        <AgentNode agentKey="HUMAN" description="Notificación con contexto" small />
-      </div>
+      {[
+        { key: "LUMI"  as AgentKey, label: "Lead cualificado", desc: "Agenda reunión",            outcome: "Cita confirmada"          },
+        { key: "NOVA"  as AgentKey, label: "Lead frío",        desc: "Reintento automático",      outcome: "Cadencia inteligente"     },
+        { key: "HUMAN" as AgentKey, label: "Cierre directo",   desc: "Notificación al equipo",    outcome: "Con contexto completo"   },
+      ].map(({ key, label, desc, outcome }) => (
+        <div key={key + label} className="flex flex-col items-center gap-1.5">
+          <VLine from={AGENTS.NOVA.hsl} to={AGENTS[key].hsl} h={18} />
+          <Pill label={label} />
+          <VLine from={AGENTS[key].hsl} to={AGENTS[key].hsl} h={14} />
+          <AgentNode agentKey={key} description={desc} compact />
+          <VLine from={AGENTS[key].hsl} to={AGENTS[key].hsl} h={12} />
+          <Pill label={outcome} />
+        </div>
+      ))}
     </div>
 
     <FooterNodes
-      byteDesc="Mide conversión · Coste por lead · ROI"
+      byteDesc="Conversión · Coste/lead · ROI"
       careDesc="Activa seguimiento post-venta"
     />
   </div>
 ));
 OutboundTree.displayName = "OutboundTree";
 
-// ─── Container animation variants ────────────────────────────────────────────
+// ─── Main ─────────────────────────────────────────────────────────────────────
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
-
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-// ─── Main component ───────────────────────────────────────────────────────────
+const SystemFlow = memo(() => (
+  <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.015]">
+    <div className="container mx-auto">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        {/* Header */}
+        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 bg-card/60 border border-border/30 rounded-full px-4 py-1.5 mb-5">
+            <Sparkles className="w-3.5 h-3.5" style={{ color: `hsl(${AGENTS.HALO.hsl})` }} />
+            <span className="text-xs font-display font-semibold tracking-wider text-foreground/70 uppercase">
+              HALO · Orquestación inteligente
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
+            El sistema que lo gestiona todo
+          </h2>
+          <p className="text-foreground/75 max-w-2xl mx-auto text-base md:text-lg font-light">
+            HALO coordina en tiempo real todos los agentes según el tipo de interacción. Cada llamada entrante o saliente recorre el flujo correcto y termina en la acción precisa.
+          </p>
+        </motion.div>
 
-const SystemFlow = memo(() => {
-  return (
-    <section className="py-16 md:py-24 px-5 md:px-6">
-      <div className="container mx-auto">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 bg-card/60 border border-border/30 rounded-full px-4 py-1.5 mb-5">
-              <Sparkles
-                className="w-3.5 h-3.5"
-                style={{ color: `hsl(${AGENTS.HALO.hsl})` }}
-              />
-              <span className="text-xs font-display font-semibold tracking-wider text-foreground/70 uppercase">
-                HALO · Orquestación inteligente
+        {/* HALO root */}
+        <motion.div variants={itemVariants} className="flex flex-col items-center mb-6">
+          <div
+            className="rounded-2xl border px-8 py-5 flex items-center gap-4 shadow-lg"
+            style={{
+              background: `hsl(${AGENTS.HALO.hsl} / 0.10)`,
+              borderColor: `hsl(${AGENTS.HALO.hsl} / 0.35)`,
+              boxShadow: `0 0 40px hsl(${AGENTS.HALO.hsl} / 0.12)`,
+            }}
+          >
+            <Sparkles className="w-6 h-6" style={{ color: `hsl(${AGENTS.HALO.hsl})` }} />
+            <div>
+              <span className="font-display font-extrabold text-lg leading-none block" style={{ color: `hsl(${AGENTS.HALO.hsl})` }}>
+                HALO
               </span>
+              <span className="text-sm text-foreground/65 mt-0.5 block">Orquestador central · Coordina todos los agentes</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
-              El sistema que lo gestiona todo
-            </h2>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light">
-              HALO coordina en tiempo real a todos los agentes según el tipo de interacción,
-              garantizando que cada llamada termine en la acción correcta.
-            </p>
-          </motion.div>
+          </div>
 
-          {/* HALO root node */}
-          <motion.div variants={itemVariants} className="flex flex-col items-center mb-8">
-            <div className="w-fit">
-              <div
-                className="rounded-2xl border px-6 py-4 flex items-center gap-3"
-                style={{
-                  background: `hsl(${AGENTS.HALO.hsl} / 0.08)`,
-                  borderColor: `hsl(${AGENTS.HALO.hsl} / 0.30)`,
-                }}
-              >
-                <Sparkles
-                  className="w-5 h-5"
-                  style={{ color: `hsl(${AGENTS.HALO.hsl})` }}
-                />
-                <div>
-                  <span
-                    className="font-display font-bold text-base leading-none block"
-                    style={{ color: `hsl(${AGENTS.HALO.hsl})` }}
-                  >
-                    HALO
-                  </span>
-                  <span className="text-xs text-foreground/70 mt-0.5 block">
-                    Orquestador central
-                  </span>
-                </div>
-              </div>
-            </div>
-            {/* Fork connector */}
-            <div className="flex items-start mt-3 w-full max-w-2xl">
-              <div
-                className="flex-1 h-px mt-3"
-                style={{ background: `hsl(${AGENTS.HALO.hsl} / 0.3)` }}
-              />
-              <div
-                className="w-px"
-                style={{ height: 24, background: `hsl(${AGENTS.HALO.hsl} / 0.3)` }}
-              />
-              <div
-                className="flex-1 h-px mt-3"
-                style={{ background: `hsl(${AGENTS.HALO.hsl} / 0.3)` }}
-              />
-            </div>
-          </motion.div>
-
-          {/* Two-column grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-4xl mx-auto">
-            {/* Left: Inbound */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-card/30 border border-border/20 rounded-2xl p-5 md:p-6 h-full">
-                <div className="flex items-center gap-2 mb-5">
-                  <Phone
-                    className="w-4 h-4"
-                    style={{ color: `hsl(${AGENTS.ARIA.hsl})` }}
-                  />
-                  <span
-                    className="text-xs font-display font-bold uppercase tracking-wider"
-                    style={{ color: `hsl(${AGENTS.ARIA.hsl})` }}
-                  >
-                    Llamada Entrante
-                  </span>
-                </div>
-                <InboundTree />
-              </div>
-            </motion.div>
-
-            {/* Right: Outbound */}
-            <motion.div variants={itemVariants}>
-              <div className="bg-card/30 border border-border/20 rounded-2xl p-5 md:p-6 h-full">
-                <div className="flex items-center gap-2 mb-5">
-                  <PhoneOutgoing
-                    className="w-4 h-4"
-                    style={{ color: `hsl(${AGENTS.NOVA.hsl})` }}
-                  />
-                  <span
-                    className="text-xs font-display font-bold uppercase tracking-wider"
-                    style={{ color: `hsl(${AGENTS.NOVA.hsl})` }}
-                  >
-                    Llamada Saliente
-                  </span>
-                </div>
-                <OutboundTree />
-              </div>
-            </motion.div>
+          {/* Fork line */}
+          <div className="flex items-start mt-4 w-full max-w-5xl">
+            <div className="flex-1 h-[2px] mt-3" style={{ background: `hsl(${AGENTS.HALO.hsl} / 0.25)` }} />
+            <div className="w-[2px]" style={{ height: 28, background: `hsl(${AGENTS.HALO.hsl} / 0.25)` }} />
+            <div className="flex-1 h-[2px] mt-3" style={{ background: `hsl(${AGENTS.HALO.hsl} / 0.25)` }} />
+          </div>
+          <div className="flex w-full max-w-5xl justify-between px-[25%]">
+            <ArrowDown className="w-3.5 h-3.5" style={{ color: `hsl(${AGENTS.HALO.hsl} / 0.4)` }} />
+            <ArrowDown className="w-3.5 h-3.5" style={{ color: `hsl(${AGENTS.HALO.hsl} / 0.4)` }} />
           </div>
         </motion.div>
-      </div>
-    </section>
-  );
-});
+
+        {/* Two trees */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <motion.div variants={itemVariants}>
+            <div className="bg-card/30 border border-border/20 rounded-2xl p-6 md:p-8 h-full">
+              <div className="flex items-center gap-2.5 mb-6 pb-4 border-b border-border/15">
+                <Phone className="w-5 h-5" style={{ color: `hsl(${AGENTS.ARIA.hsl})` }} />
+                <span className="text-sm font-display font-bold uppercase tracking-wider" style={{ color: `hsl(${AGENTS.ARIA.hsl})` }}>
+                  Llamada Entrante
+                </span>
+              </div>
+              <InboundTree />
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <div className="bg-card/30 border border-border/20 rounded-2xl p-6 md:p-8 h-full">
+              <div className="flex items-center gap-2.5 mb-6 pb-4 border-b border-border/15">
+                <PhoneOutgoing className="w-5 h-5" style={{ color: `hsl(${AGENTS.NOVA.hsl})` }} />
+                <span className="text-sm font-display font-bold uppercase tracking-wider" style={{ color: `hsl(${AGENTS.NOVA.hsl})` }}>
+                  Llamada Saliente
+                </span>
+              </div>
+              <OutboundTree />
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+));
 
 SystemFlow.displayName = "SystemFlow";
-
 export default SystemFlow;

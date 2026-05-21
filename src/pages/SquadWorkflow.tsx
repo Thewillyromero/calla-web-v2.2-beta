@@ -125,7 +125,7 @@ const SquadWorkflow = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Image — LEFT */}
-            <div className="shrink-0 relative flex items-center justify-center order-2 md:order-1 p-10 md:p-14">
+            <div className="shrink-0 relative flex items-center justify-center order-2 md:order-1 p-6 md:p-8">
               <div className="relative">
                 <div
                   className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
@@ -159,7 +159,7 @@ const SquadWorkflow = () => {
                 <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: `hsl(${haloHsl})` }}>HALO</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
-                El agente que{" "}
+                Cinco agentes.{" "}
                 <span
                   className="bg-clip-text text-transparent"
                   style={{
@@ -169,7 +169,7 @@ const SquadWorkflow = () => {
                     filter: `drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.15)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 3px 5px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 12px hsl(${haloHsl} / 0.3))`,
                   }}
                 >
-                  hace posible todo.
+                  Un solo sistema.
                 </span>
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6">
