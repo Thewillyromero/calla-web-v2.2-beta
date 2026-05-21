@@ -669,8 +669,8 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      <LogoMarquee />
       <SocialProof />
+      <LogoMarquee />
       <Footer />
       <FOMONotifications />
       <LiveViewers />
