@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-const SectionFade = ({ children, className }: { children: ReactNode; className?: string }) => (
+const SectionFade = memo(({ children, className }: { children: ReactNode; className?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -11,6 +12,8 @@ const SectionFade = ({ children, className }: { children: ReactNode; className?:
   >
     {children}
   </motion.div>
-);
+));
+
+SectionFade.displayName = "SectionFade";
 
 export default SectionFade;

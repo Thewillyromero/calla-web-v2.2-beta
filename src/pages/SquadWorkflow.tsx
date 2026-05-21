@@ -5,13 +5,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionFade from "@/components/SectionFade";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowDown, Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake, Sparkles } from "lucide-react";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
 import agentScheduler from "@/assets/characters/agent-scheduler.webp";
 import agentAnalytics from "@/assets/characters/agent-analytics.webp";
 import agentSupport from "@/assets/characters/agent-support.webp";
-import heroRobot from "@/assets/hero-robot.webp";
 import haloConductor from "@/assets/halo-conductor.png";
 import { BOOKING_URL } from "@/lib/constants";
 

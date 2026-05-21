@@ -111,7 +111,7 @@ const LogoMarquee = memo(() => {
                 src={logo}
                 alt=""
                 className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                loading="eager"
+                loading="lazy"
                 decoding="async"
                 draggable={false}
                 style={{ filter: "brightness(1.1)", opacity: 1 }}
@@ -126,7 +126,7 @@ const LogoMarquee = memo(() => {
                   src={logo}
                   alt=""
                   className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                   draggable={false}
                   style={{ filter: "brightness(1.1)", opacity: 1 }}

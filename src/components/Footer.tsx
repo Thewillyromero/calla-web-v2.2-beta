@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import heroRobot from "@/assets/hero-robot.webp";
 import { BOOKING_URL } from "@/lib/constants";
 
-const Footer = () => {
+const Footer = memo(() => {
   return (
     <footer className="border-t border-border/20 pt-12 md:pt-16 pb-8 px-5 md:px-6">
       <div className="container mx-auto">
@@ -64,6 +65,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

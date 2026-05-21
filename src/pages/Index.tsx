@@ -15,10 +15,8 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Phone,
-  PhoneOutgoing,
   CalendarCheck,
   BarChart3,
-  HeartHandshake,
   ShieldCheck,
   Users,
   Building2,
@@ -29,16 +27,8 @@ import {
   Network,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import heroRobot from "@/assets/hero-robot.webp";
-import agentSupport from "@/assets/characters/agent-support.webp";
-import agentInbound from "@/assets/characters/agent-inbound.webp";
-import agentOutbound from "@/assets/characters/agent-outbound.webp";
-import agentScheduler from "@/assets/characters/agent-scheduler-cut.png";
-import agentAnalytics from "@/assets/characters/agent-analytics.webp";
-import ariaCalling from "@/assets/characters/aria-calling-cut.png";
-import lumiWriting from "@/assets/characters/lumi-writing-cut.png";
-import byteMagnifying from "@/assets/characters/byte-analyzing-cut.png";
 import { BOOKING_URL } from "@/lib/constants";
 import avatarElena from "@/assets/avatars/elena-garcia.webp";
 import avatarRoberto from "@/assets/avatars/roberto-mendez.webp";
@@ -47,42 +37,6 @@ import avatarJorge from "@/assets/avatars/jorge-navarro.webp";
 import avatarLaura from "@/assets/avatars/laura-m.webp";
 
 /* ── Data ── */
-
-const valueProps = [
-  {
-    icon: Phone,
-    title: "Atendemos TODAS tus llamadas",
-    description:
-      "24 horas, 7 días, festivos y noches. Nunca pierdes una llamada de un cliente.",
-    link: "/aria",
-    image: ariaCalling,
-    agentName: "ARIA",
-    color: "hsl(190 60% 55%)", // brand-teal
-    gradient: "from-[hsl(190_60%_50%)]/10 via-card/40 to-card/40",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Agendamos citas automáticamente",
-    description:
-      "Tu calendario se llena solo, sin errores ni dobles reservas.",
-    link: "/lumi",
-    image: lumiWriting,
-    agentName: "LUMI",
-    color: "hsl(160 55% 50%)", // brand-emerald (LUMI is green)
-    gradient: "from-[hsl(160_55%_45%)]/10 via-card/40 to-card/40",
-  },
-  {
-    icon: BarChart3,
-    title: "Analizamos cada conversación",
-    description:
-      "Sabes exactamente qué pasa con tu atención telefónica y dónde mejorar.",
-    link: "/byte",
-    image: byteMagnifying,
-    agentName: "BYTE",
-    color: "hsl(28 80% 55%)", // amber/orange (BYTE is orange)
-    gradient: "from-[hsl(28_80%_50%)]/10 via-card/40 to-card/40",
-  },
-];
 
 const comparisonRows: { label: string; values: (boolean | "partial")[] }[] = [
   { label: "Llamadas atendidas 24/7",              values: [false,     false,     false,     true] },
@@ -94,54 +48,6 @@ const comparisonRows: { label: string; values: (boolean | "partial")[] }[] = [
   { label: "Analítica de cada conversación",       values: [false,     false,     false,     true] },
   { label: "Operativo en menos de 48h",            values: [true,      false,     "partial", true] },
   { label: "Escalable sin contratar más personal", values: [false,     false,     true,      true] },
-];
-
-const agents = [
-  {
-    name: "ARIA",
-    role: "Recepcionista Virtual",
-    description:
-      "Atiende llamadas entrantes, resuelve dudas y transfiere cuando es necesario.",
-    image: agentInbound,
-    icon: Phone,
-    link: "/aria",
-  },
-  {
-    name: "NOVA",
-    role: "Agente de Ventas",
-    description:
-      "Realiza llamadas salientes para captar leads y cerrar oportunidades.",
-    image: agentOutbound,
-    icon: PhoneOutgoing,
-    link: "/nova",
-  },
-  {
-    name: "LUMI",
-    role: "Coordinador de Citas",
-    description:
-      "Agenda, confirma y reagenda citas automáticamente sin intervención humana.",
-    image: agentScheduler,
-    icon: CalendarCheck,
-    link: "/lumi",
-  },
-  {
-    name: "BYTE",
-    role: "Analista de Datos",
-    description:
-      "Analiza cada llamada y genera reportes accionables para tu negocio.",
-    image: agentAnalytics,
-    icon: BarChart3,
-    link: "/byte",
-  },
-  {
-    name: "CARE",
-    role: "Servicio Post-Venta",
-    description:
-      "Seguimiento, satisfacción y fidelización de tus clientes automáticamente.",
-    image: agentSupport,
-    icon: HeartHandshake,
-    link: "/care",
-  },
 ];
 
 const capabilities = [
