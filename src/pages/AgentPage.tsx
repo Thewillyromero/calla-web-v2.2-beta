@@ -524,6 +524,12 @@ const AgentPage = () => {
         </section>
       )}
 
+      {agent.showCallSimulator && (
+        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
+          <CallSimulator />
+        </Suspense>
+      )}
+
       {/* Testimonials */}
       <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
@@ -558,34 +564,6 @@ const AgentPage = () => {
                 </motion.div>
               ))}
             </div>
-          </SectionFade>
-        </div>
-      </section>
-
-      {agent.showCallSimulator && (
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
-          <CallSimulator />
-        </Suspense>
-      )}
-
-      {/* CTA */}
-      <section className="py-16 md:py-24 px-5 md:px-6">
-        <div className="container mx-auto text-center">
-          <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-5">
-              Activa {agent.name} en tu empresa
-            </h2>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
-              Agenda una demo personalizada y descubre cómo {agent.name} puede transformar tu negocio.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20"
-              onClick={() => window.open(BOOKING_URL, "_blank")}
-            >
-              Solicitar demo
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </SectionFade>
         </div>
       </section>
