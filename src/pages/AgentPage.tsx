@@ -536,13 +536,13 @@ const AgentPage = () => {
               <div className="grid md:grid-cols-3 gap-5">
                 {agent.scenarios.map((sc, i) => (
                   <motion.div key={i} className="bg-card/40 border border-border/20 rounded-2xl p-6 flex flex-col gap-4" {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                    <div className="inline-flex items-center bg-card/70 border border-border/30 rounded-full px-3 py-1 self-start">
-                      <span className="text-xs font-mono font-bold text-primary">{sc.time}</span>
+                    <div className="inline-flex items-center rounded-full px-3 py-1 self-start" style={{ background: `hsl(${agentHsl} / 0.10)`, border: `1px solid hsl(${agentHsl} / 0.25)` }}>
+                      <span className="text-xs font-mono font-bold" style={{ color: `hsl(${agentHsl})` }}>{sc.time}</span>
                     </div>
                     <h3 className="font-display font-bold text-base text-foreground leading-snug">{sc.title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
                     <div className="flex items-start gap-2.5 pt-3 border-t border-border/15">
-                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
                       <span className="text-xs text-foreground/80 font-medium leading-snug">{sc.result}</span>
                     </div>
                   </motion.div>
