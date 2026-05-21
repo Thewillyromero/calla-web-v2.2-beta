@@ -575,11 +575,11 @@ const AgentPage = () => {
                     <div className="inline-flex items-center rounded-full px-3 py-1 self-start" style={{ background: `hsl(${agentHsl} / 0.10)`, border: `1px solid hsl(${agentHsl} / 0.25)` }}>
                       <span className="text-xs font-mono font-bold" style={{ color: `hsl(${agentHsl})` }}>{sc.time}</span>
                     </div>
-                    <h3 className="font-display font-bold text-base text-foreground leading-snug">{sc.title}</h3>
-                    <p className="text-sm text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
-                    <div className="flex items-start gap-2.5 pt-3 border-t border-border/15">
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
-                      <span className="text-xs text-foreground/80 font-medium leading-snug">{sc.result}</span>
+                    <h3 className="font-display font-bold text-lg text-foreground leading-snug">{sc.title}</h3>
+                    <p className="text-base text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
+                    <div className="rounded-xl p-4 flex items-start gap-3 mt-1" style={{ background: `hsl(${agentHsl} / 0.10)`, border: `1px solid hsl(${agentHsl} / 0.20)` }}>
+                      <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
+                      <span className="text-sm font-medium leading-snug text-foreground">{sc.result}</span>
                     </div>
                   </motion.div>
                 ))}
