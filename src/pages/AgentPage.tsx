@@ -249,13 +249,20 @@ const AgentPage = () => {
 
   const Icon = agent.icon;
 
-  // Exact same gradients as Features.tsx home cards
+  // Exact same gradients + hsl glow values as Features.tsx home cards
   const agentGradient =
     agent.slug === "aria" ? "linear-gradient(135deg, hsl(190 100% 60%), hsl(175 100% 55%), hsl(210 100% 65%))" :
     agent.slug === "nova" ? "linear-gradient(135deg, hsl(245 100% 70%), hsl(285 100% 65%), hsl(325 100% 65%))" :
     agent.slug === "lumi" ? "linear-gradient(135deg, hsl(170 100% 55%), hsl(150 100% 55%), hsl(95 100% 60%))" :
     agent.slug === "byte" ? "linear-gradient(135deg, hsl(48 100% 62%), hsl(28 100% 60%), hsl(355 100% 65%))" :
                             "linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))";
+
+  const agentHsl =
+    agent.slug === "aria" ? "190 60% 55%" :
+    agent.slug === "nova" ? "260 50% 65%" :
+    agent.slug === "lumi" ? "160 50% 48%" :
+    agent.slug === "byte" ? "35 70% 58%" :
+                            "340 55% 60%";
 
   const highlight = agent.taglineHighlight;
   const hIdx = agent.tagline.indexOf(highlight);
@@ -277,7 +284,15 @@ const AgentPage = () => {
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 {taglineBefore}
-                <span className="bg-clip-text text-transparent" style={{ backgroundImage: agentGradient }}>
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: agentGradient,
+                    textShadow: "none",
+                    WebkitTextStroke: "0",
+                    filter: `drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.15)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 3px 5px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 12px hsl(${agentHsl} / 0.3))`,
+                  }}
+                >
                   {highlight}
                 </span>
                 {taglineAfter}
