@@ -316,7 +316,7 @@ const SquadWorkflow = () => {
                           <Icon className="h-4 w-4" style={{ color: `hsl(${agent.hsl})` }} />
                         </div>
                         <span className="text-xs font-bold uppercase tracking-wide" style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</span>
-                        <span className="text-[10px] text-foreground/55 text-center leading-tight">{agent.role}</span>
+                        <span className="text-xs text-foreground/60 text-center leading-tight">{agent.role}</span>
                       </Link>
                     );
                   })}
