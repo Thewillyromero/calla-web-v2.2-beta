@@ -151,6 +151,8 @@ const Pricing = () => {
             </Suspense>
           </div>
 
+          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-12 md:mb-16" />
+
           {/* Title + toggle */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -270,8 +272,10 @@ const Pricing = () => {
             })}
           </div>
 
+          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mt-16 md:mt-24 mb-16 md:mb-24" />
+
           {/* FAQ */}
-          <div className="mt-16 md:mt-24 max-w-3xl mx-auto rounded-2xl bg-white/[0.03] p-8 md:p-12">
+          <div className="max-w-3xl mx-auto rounded-2xl bg-white/[0.03] p-8 md:p-12">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
