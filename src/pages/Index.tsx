@@ -99,7 +99,7 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    description: "Análisis en profundidad de tus flujos operativos, puntos de fricción y oportunidades de automatización. El resultado: una propuesta técnica adaptada a tu empresa.",
+    description: "Se realiza un análisis en profundidad de los flujos operativos, los puntos de fricción y las oportunidades de automatización. El resultado es una propuesta técnica adaptada a los procesos específicos de la empresa.",
     chips: ["Auditoría de procesos", "Propuesta a medida"],
     hsl: "210 75% 52%",
     icon: Search,
@@ -107,7 +107,7 @@ const steps = [
   {
     number: "02",
     title: "Desarrollo",
-    description: "Configuramos los agentes base y desarrollamos los asistentes específicos para tu operativa. Cada integración se valida en entorno de pruebas antes de producción.",
+    description: "Se configuran los agentes base y se desarrollan los asistentes específicos que requiera la operativa. Cada integración es validada en entorno de pruebas antes de pasar a producción.",
     chips: ["Agentes base", "IA a medida", "Integraciones"],
     hsl: "245 60% 62%",
     icon: Code2,
@@ -115,7 +115,7 @@ const steps = [
   {
     number: "03",
     title: "Implementación",
-    description: "Conectamos el sistema con tus herramientas actuales, formamos a tu equipo y verificamos el funcionamiento completo antes de la puesta en marcha definitiva.",
+    description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
     chips: ["Puesta en marcha", "Formación de equipo"],
     hsl: "195 65% 42%",
     icon: Rocket,
@@ -123,7 +123,7 @@ const steps = [
   {
     number: "04",
     title: "Mantenimiento",
-    description: "Monitorizamos el rendimiento de forma continua y aplicamos actualizaciones periódicas. El sistema evoluciona con las necesidades de tu negocio.",
+    description: "El rendimiento del sistema es monitorizado de forma continua. Se aplican actualizaciones periódicas y se incorporan nuevas capacidades a medida que los requisitos del negocio evolucionan.",
     chips: ["Monitorización", "Actualizaciones"],
     hsl: "220 50% 55%",
     icon: RefreshCw,
