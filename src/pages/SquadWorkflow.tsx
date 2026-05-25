@@ -214,6 +214,8 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Cómo trabaja ── */}
       <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-4xl">
@@ -238,7 +240,7 @@ const SquadWorkflow = () => {
           <SectionFade>
             <div className="grid sm:grid-cols-2 gap-4">
               {featureCards.map((fc, i) => (
-                <motion.div key={i} className="bg-card/40 border border-border/20 rounded-xl p-5 flex gap-3" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                <motion.div key={i} className="bg-card/40 rounded-xl p-5 flex gap-3" style={{ border: `1px solid hsl(${haloHsl} / 0.28)` }} {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                   <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                   <div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{fc.title}</h3>
@@ -250,6 +252,8 @@ const SquadWorkflow = () => {
           </SectionFade>
         </div>
       </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ── Lo que HALO coordina ── */}
       <section className="py-12 md:py-20 px-5 md:px-6">
@@ -358,6 +362,8 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Un día con HALO ── */}
       <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
@@ -387,8 +393,10 @@ const SquadWorkflow = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Testimonials ── */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
+      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-10">
@@ -398,7 +406,13 @@ const SquadWorkflow = () => {
               {testimonials.map((t, i) => (
                 <motion.div
                   key={i}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all flex flex-col"
+                  className="bg-card/40 rounded-2xl p-6 flex flex-col"
+                  style={{ border: `1px solid hsl(${haloHsl} / 0.28)` }}
+                  whileHover={{
+                    borderColor: `hsl(${haloHsl} / 0.7)`,
+                    boxShadow: `0 0 20px hsl(${haloHsl} / 0.18)`,
+                    transition: { duration: 0.15 },
+                  }}
                   {...fade}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >

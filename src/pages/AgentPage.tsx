@@ -672,7 +672,10 @@ const AgentPage = () => {
                     {t.quote}
                   </blockquote>
                   <div className="mb-3">
-                    <span className="text-[11px] font-display font-bold tracking-wide px-2.5 py-1 rounded-full" style={{ backgroundColor: 'hsl(160 50% 48% / 0.12)', color: 'hsl(160 50% 60%)' }}>
+                    <span
+                      className="text-[11px] font-display font-bold tracking-wide px-2.5 py-1 rounded-full"
+                      style={{ backgroundColor: `hsl(${agentHsl} / 0.12)`, color: `hsl(${agentHsl})` }}
+                    >
                       {t.result}
                     </span>
                   </div>
