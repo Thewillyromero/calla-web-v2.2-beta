@@ -419,7 +419,7 @@ const Index = () => {
                           <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.15)" }}>
                             <div className="flex items-center gap-2">
                               <motion.div className="w-2 h-2 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
-                              <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>Captación Leads Q4</span>
+                              <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>Contacto de Leads (Campaña 1)</span>
                             </div>
                             <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full" style={{ background: "hsl(145 60% 45% / 0.15)", color: "hsl(145 60% 45%)", border: "1px solid hsl(145 60% 45% / 0.3)" }}>ACTIVA</span>
                           </div>
