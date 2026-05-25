@@ -670,13 +670,13 @@ const Index = () => {
                       ))}
                       {/* Animated particles */}
                       {[
-                        { path: "M140,110 L140,22", dur: "1.8s" },
-                        { path: "M140,110 L236,66", dur: "2.2s" },
-                        { path: "M140,110 L220,175", dur: "1.6s" },
-                        { path: "M140,110 L60,175", dur: "2s" },
-                        { path: "M140,110 L44,66", dur: "2.4s" },
+                        { path: "M140,84 L140,33",        dur: "1.8s" },
+                        { path: "M164,99 L212,77",         dur: "2.2s" },
+                        { path: "M160,126 L207,164",       dur: "1.6s" },
+                        { path: "M120,126 L74,164",        dur: "2s"   },
+                        { path: "M116,99 L62,74",          dur: "2.4s" },
                       ].map((p, i) => (
-                        <circle key={i} r="4" fill="hsl(245 60% 75%)" opacity="0.9">
+                        <circle key={i} r="3" fill="hsl(245 60% 75%)" opacity="0.9">
                           <animateMotion path={p.path} dur={p.dur} repeatCount="indefinite" />
                         </circle>
                       ))}
