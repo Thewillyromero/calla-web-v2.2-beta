@@ -97,35 +97,35 @@ const capabilities = [
 
 const steps = [
   {
-    number: "01",
+    number: "1",
     title: "Diagnóstico",
     description: "Se realiza un análisis en profundidad de los flujos operativos, los puntos de fricción y las oportunidades de automatización. El resultado es una propuesta técnica adaptada a los procesos específicos de la empresa.",
     chips: ["Auditoría de procesos", "Propuesta a medida"],
-    hsl: "210 75% 52%",
+    hsl: "215 88% 58%",
     icon: Search,
   },
   {
-    number: "02",
+    number: "2",
     title: "Desarrollo",
     description: "Se configuran los agentes base y se desarrollan los asistentes específicos que requiera la operativa. Cada integración es validada en entorno de pruebas antes de pasar a producción.",
     chips: ["Agentes base", "IA a medida", "Integraciones"],
-    hsl: "245 60% 62%",
+    hsl: "248 76% 63%",
     icon: Code2,
   },
   {
-    number: "03",
+    number: "3",
     title: "Implementación",
     description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
     chips: ["Puesta en marcha", "Formación de equipo"],
-    hsl: "195 65% 42%",
+    hsl: "287 66% 60%",
     icon: Rocket,
   },
   {
-    number: "04",
+    number: "4",
     title: "Mantenimiento",
     description: "El rendimiento del sistema es monitorizado de forma continua. Se aplican actualizaciones periódicas y se incorporan nuevas capacidades a medida que los requisitos del negocio evolucionan.",
     chips: ["Monitorización", "Actualizaciones"],
-    hsl: "220 50% 55%",
+    hsl: "340 72% 62%",
     icon: RefreshCw,
   },
 ];
@@ -1018,14 +1018,14 @@ const Index = () => {
                         <div className="md:w-56 rounded-xl overflow-hidden shrink-0 md:ml-6 flex flex-col justify-center min-h-[8rem]"
                           style={{ background: `hsl(${step.hsl} / 0.06)` }}>
 
-                          {/* 01 — Diagnóstico: scan bars */}
+                          {/* 1 — Diagnóstico: mapeo de flujos con puntos de fricción */}
                           {i === 0 && (
                             <div className="p-4 flex flex-col justify-center gap-2.5">
                               {[
-                                { label: "Flujos entrantes", pct: 82 },
-                                { label: "Gestión de agenda", pct: 67 },
-                                { label: "Automatización",   pct: 54 },
-                                { label: "Integración CRM",  pct: 38 },
+                                { label: "Flujos operativos",    status: "Analizado",  pct: 88 },
+                                { label: "Puntos de fricción",   status: "3 detectados", pct: 64 },
+                                { label: "Automatización",       status: "Oportunidad", pct: 51 },
+                                { label: "Propuesta técnica",    status: "Generando…", pct: 30 },
                               ].map((item, j) => (
                                 <div key={item.label}>
                                   <div className="flex justify-between mb-1">
@@ -1033,12 +1033,12 @@ const Index = () => {
                                     <motion.span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}
                                       animate={{ opacity: [0.5, 1, 0.5] }}
                                       transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.45 }}>
-                                      {item.pct}%
+                                      {item.status}
                                     </motion.span>
                                   </div>
                                   <div className="h-1 rounded-full" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
                                     <motion.div className="h-full rounded-full" style={{ background: `hsl(${step.hsl})` }}
-                                      animate={{ width: [`${item.pct * 0.25}%`, `${item.pct}%`, `${item.pct * 0.25}%`] }}
+                                      animate={{ width: [`${item.pct * 0.2}%`, `${item.pct}%`, `${item.pct * 0.2}%`] }}
                                       transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: j * 0.55 }} />
                                   </div>
                                 </div>
@@ -1046,30 +1046,37 @@ const Index = () => {
                             </div>
                           )}
 
-                          {/* 02 — Desarrollo: build checklist + test bar */}
+                          {/* 2 — Desarrollo: agentes configurados + validación en pruebas */}
                           {i === 1 && (
                             <div className="p-4 flex flex-col justify-center gap-2.5">
                               {[
-                                "ARIA configurado",
-                                "Flujos integrados",
-                                "Tests ejecutados",
-                              ].map((label, j) => (
-                                <motion.div key={label} className="flex items-center gap-2.5"
+                                { label: "Agente base configurado",     done: true  },
+                                { label: "Asistente a medida",          done: true  },
+                                { label: "Entorno de pruebas activo",   done: false },
+                              ].map((item, j) => (
+                                <motion.div key={item.label} className="flex items-center gap-2.5"
                                   initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: j * 0.35 }}>
                                   <motion.div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                                    style={{ background: `hsl(${step.hsl} / 0.18)`, border: `1px solid hsl(${step.hsl} / 0.5)` }}
-                                    animate={{ scale: [1, 1.18, 1] }}
-                                    transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.6 }}>
-                                    <Check className="w-3 h-3" style={{ color: `hsl(${step.hsl})` }} />
+                                    style={{
+                                      background: `hsl(${step.hsl} / ${item.done ? 0.2 : 0.08})`,
+                                      border: `1px solid hsl(${step.hsl} / ${item.done ? 0.6 : 0.3})`,
+                                    }}
+                                    animate={{ scale: item.done ? [1, 1.15, 1] : [1, 1.3, 1] }}
+                                    transition={{ duration: item.done ? 2.5 : 1, repeat: Infinity, delay: j * 0.5 }}>
+                                    {item.done
+                                      ? <Check className="w-3 h-3" style={{ color: `hsl(${step.hsl})` }} />
+                                      : <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${step.hsl})` }}
+                                          animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 0.9, repeat: Infinity }} />
+                                    }
                                   </motion.div>
-                                  <span className="text-xs text-foreground/70">{label}</span>
+                                  <span className="text-xs text-foreground/70">{item.label}</span>
                                 </motion.div>
                               ))}
                               <div className="mt-0.5">
                                 <div className="flex justify-between mb-1">
-                                  <span className="text-[9px] text-foreground/40">Tests pasados</span>
-                                  <span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}>12 / 12</span>
+                                  <span className="text-[9px] text-foreground/40">Integraciones validadas</span>
+                                  <span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}>8 / 8</span>
                                 </div>
                                 <div className="h-1 rounded-full" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
                                   <motion.div className="h-full rounded-full" style={{ background: `hsl(${step.hsl})` }}
@@ -1080,39 +1087,47 @@ const Index = () => {
                             </div>
                           )}
 
-                          {/* 03 — Implementación: connected nodes SVG */}
+                          {/* 3 — Implementación: herramientas de la empresa conectadas */}
                           {i === 2 && (
-                            <div className="flex items-center justify-center p-3 h-full">
-                              <svg width="100%" height="72" viewBox="0 0 210 72">
-                                {/* dashed connector lines */}
-                                <line x1="54" y1="36" x2="86" y2="36" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
-                                <line x1="124" y1="36" x2="156" y2="36" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
-                                {/* nodes */}
-                                {([{ x: 30, label: "CRM" }, { x: 105, label: "CALLA" }, { x: 180, label: "Agenda" }] as const).map((node, j) => (
-                                  <g key={node.label}>
-                                    <motion.circle cx={node.x} cy={36} r={j === 1 ? 19 : 14}
-                                      fill={`hsl(${step.hsl} / ${j === 1 ? 0.2 : 0.1})`}
-                                      stroke={`hsl(${step.hsl} / ${j === 1 ? 0.7 : 0.4})`} strokeWidth="1.5"
-                                      animate={{ r: j === 1 ? [19, 21, 19] : [14, 15.5, 14] }}
-                                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: j * 0.45 }} />
-                                    <text x={node.x} y={40} textAnchor="middle" fontSize="7.5" fill={`hsl(${step.hsl})`} fontWeight="bold">{node.label}</text>
-                                  </g>
-                                ))}
-                                {/* travelling particles */}
-                                {[{ path: "M54,36 L86,36", delay: "0s" }, { path: "M124,36 L156,36", delay: "0.8s" }].map((p, j) => (
-                                  <circle key={j} r="2.5" fill={`hsl(${step.hsl})`} opacity="0.9">
-                                    <animateMotion path={p.path} dur="1.4s" begin={p.delay} repeatCount="indefinite" />
-                                  </circle>
-                                ))}
-                              </svg>
+                            <div className="flex flex-col justify-center p-3 h-full gap-2">
+                              <div className="flex items-center justify-center">
+                                <svg width="100%" height="60" viewBox="0 0 220 60">
+                                  <line x1="56" y1="30" x2="88" y2="30" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
+                                  <line x1="132" y1="30" x2="164" y2="30" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
+                                  {([
+                                    { x: 30,  label: "Tu CRM"   },
+                                    { x: 110, label: "CALLA"    },
+                                    { x: 190, label: "Tu agenda"},
+                                  ] as const).map((node, j) => (
+                                    <g key={node.label}>
+                                      <motion.circle cx={node.x} cy={30} r={j === 1 ? 18 : 13}
+                                        fill={`hsl(${step.hsl} / ${j === 1 ? 0.22 : 0.1})`}
+                                        stroke={`hsl(${step.hsl} / ${j === 1 ? 0.75 : 0.4})`} strokeWidth="1.5"
+                                        animate={{ r: j === 1 ? [18, 20, 18] : [13, 14.5, 13] }}
+                                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: j * 0.4 }} />
+                                      <text x={node.x} y={34} textAnchor="middle" fontSize="7" fill={`hsl(${step.hsl})`} fontWeight="bold">{node.label}</text>
+                                    </g>
+                                  ))}
+                                  {[{ path: "M56,30 L88,30", delay: "0s" }, { path: "M132,30 L164,30", delay: "0.7s" }].map((p, j) => (
+                                    <circle key={j} r="2.5" fill={`hsl(${step.hsl})`} opacity="0.9">
+                                      <animateMotion path={p.path} dur="1.3s" begin={p.delay} repeatCount="indefinite" />
+                                    </circle>
+                                  ))}
+                                </svg>
+                              </div>
+                              <div className="flex items-center justify-center gap-1.5 px-2">
+                                <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `hsl(${step.hsl})` }}
+                                  animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
+                                <span className="text-[9px] text-foreground/50">Equipo formado · Sistema verificado</span>
+                              </div>
                             </div>
                           )}
 
-                          {/* 04 — Mantenimiento: uptime dashboard */}
+                          {/* 4 — Mantenimiento: rendimiento monitorizado + nuevas capacidades */}
                           {i === 3 && (
                             <div className="p-4 flex flex-col justify-around h-full gap-2">
                               <div className="flex items-center justify-between">
-                                <span className="text-[9px] uppercase tracking-widest text-foreground/40">Uptime</span>
+                                <span className="text-[9px] uppercase tracking-widest text-foreground/40">Rendimiento</span>
                                 <motion.span className="text-base font-black font-mono" style={{ color: `hsl(${step.hsl})` }}
                                   animate={{ opacity: [0.7, 1, 0.7] }}
                                   transition={{ duration: 2.5, repeat: Infinity }}>
@@ -1123,16 +1138,21 @@ const Index = () => {
                                 <path d="M0,22 L22,18 L44,20 L66,9 L88,13 L110,7 L132,11 L154,5 L176,9 L200,3"
                                   fill="none" stroke={`hsl(${step.hsl} / 0.2)`} strokeWidth="1.5" />
                                 <motion.path d="M0,22 L22,18 L44,20 L66,9 L88,13 L110,7 L132,11 L154,5 L176,9 L200,3"
-                                  fill="none" stroke={`hsl(${step.hsl})`} strokeWidth="1.5"
-                                  strokeLinecap="round"
+                                  fill="none" stroke={`hsl(${step.hsl})`} strokeWidth="1.5" strokeLinecap="round"
                                   initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 1, 0] }}
                                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 0.85, 1] }} />
                               </svg>
-                              <div className="flex items-center gap-1.5">
-                                <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "hsl(145 60% 50%)" }}
-                                  animate={{ opacity: [1, 0.3, 1] }}
-                                  transition={{ duration: 1.2, repeat: Infinity }} />
-                                <span className="text-[9px] text-foreground/45">Sistema activo · v2.1.4 · actualizado hoy</span>
+                              <div className="flex flex-col gap-1">
+                                <div className="flex items-center gap-1.5">
+                                  <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "hsl(145 60% 50%)" }}
+                                    animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
+                                  <span className="text-[9px] text-foreground/45">Monitorización continua · v2.1.4</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                  <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `hsl(${step.hsl})` }}
+                                    animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.6 }} />
+                                  <span className="text-[9px] text-foreground/45">Nueva capacidad incorporada hoy</span>
+                                </div>
                               </div>
                             </div>
                           )}
