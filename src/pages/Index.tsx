@@ -115,7 +115,7 @@ const steps = [
   {
     number: "3",
     title: "Implementación",
-    description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
+    description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al personal de tu equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
     chips: ["Puesta en marcha", "Formación de equipo"],
     hsl: "287 66% 60%",
     icon: Rocket,
