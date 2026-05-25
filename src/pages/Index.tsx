@@ -303,7 +303,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(190 60% 55% / 0.25)", background: "hsl(190 60% 55% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[0].description}</p>
                   </div>
                   <div className="flex gap-2 px-5 pb-3">
@@ -375,20 +375,53 @@ const Index = () => {
                       )}
                       {llamadasTab === "campana" && (
                         <motion.div key="campana" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>Renovación Q4</span>
-                            <span className="text-xs text-foreground/50">31% completado</span>
+                          className="h-full flex flex-col p-4 gap-2.5">
+                          {/* Campaign header */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-1.5">
+                              <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
+                              <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>Captación Leads Q4</span>
+                            </div>
+                            <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full" style={{ background: "hsl(145 60% 45% / 0.15)", color: "hsl(145 60% 45%)", border: "1px solid hsl(145 60% 45% / 0.3)" }}>ACTIVA</span>
                           </div>
-                          <div className="w-full h-1.5 rounded-full mb-4 overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.15)" }}>
-                            <motion.div className="h-full rounded-full" style={{ background: "hsl(190 60% 55%)" }}
-                              initial={{ width: "0%" }} animate={{ width: "31%" }} transition={{ duration: 1.2, ease: "easeOut" }} />
+                          {/* Progress */}
+                          <div>
+                            <div className="flex justify-between mb-1">
+                              <span className="text-[9px] text-foreground/50">47 de 150 leads contactados</span>
+                              <span className="text-[9px] font-bold" style={{ color: "hsl(190 60% 55%)" }}>31%</span>
+                            </div>
+                            <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.15)" }}>
+                              <motion.div className="h-full rounded-full" style={{ background: "hsl(190 60% 55%)" }}
+                                initial={{ width: "0%" }} animate={{ width: "31%" }} transition={{ duration: 1.2, ease: "easeOut" }} />
+                            </div>
                           </div>
-                          <div className="grid grid-cols-3 gap-2 flex-1">
-                            {[{ label: "En llamada", val: "1" }, { label: "Completados", val: "46" }, { label: "Pendientes", val: "103" }].map(({ label, val }) => (
-                              <div key={label} className="rounded-xl p-2 text-center" style={{ background: "hsl(190 60% 55% / 0.1)", border: "1px solid hsl(190 60% 55% / 0.2)" }}>
-                                <p className="text-base font-bold text-foreground">{val}</p>
-                                <p className="text-[10px] text-foreground/50 leading-tight">{label}</p>
+                          {/* Lead list */}
+                          <div className="flex flex-col gap-1.5 flex-1">
+                            {[
+                              { name: "Juan Rodríguez", phone: "612 XXX XXX", status: "Interesado", sc: "145 60% 45%", dot: "bg-emerald-400" },
+                              { name: "Carmen Vega",    phone: "634 XXX XXX", status: "En llamada",  sc: "190 60% 55%", dot: "bg-blue-400" },
+                              { name: "Pedro Alonso",  phone: "645 XXX XXX", status: "Sin respuesta", sc: "35 70% 55%", dot: "bg-amber-400" },
+                            ].map((lead, i) => (
+                              <motion.div key={lead.name} className="flex items-center gap-2 rounded-lg px-2.5 py-1.5"
+                                style={{ background: "hsl(190 60% 55% / 0.07)", border: "1px solid hsl(190 60% 55% / 0.15)" }}
+                                initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08 }}>
+                                <motion.div className={`w-1.5 h-1.5 rounded-full shrink-0 ${lead.dot}`}
+                                  animate={{ opacity: lead.status === "En llamada" ? [1, 0.3, 1] : 1 }}
+                                  transition={{ duration: 1.2, repeat: Infinity }} />
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-[10px] font-semibold text-foreground truncate">{lead.name}</p>
+                                  <p className="text-[9px] text-foreground/40">{lead.phone}</p>
+                                </div>
+                                <span className="text-[9px] font-semibold shrink-0" style={{ color: `hsl(${lead.sc})` }}>{lead.status}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                          {/* Bottom stats */}
+                          <div className="grid grid-cols-3 gap-1.5">
+                            {[{ label: "Contactados", val: "47" }, { label: "Interesados", val: "18" }, { label: "Cerrados", val: "6" }].map(({ label, val }) => (
+                              <div key={label} className="rounded-lg p-1.5 text-center" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
+                                <p className="text-sm font-bold text-foreground">{val}</p>
+                                <p className="text-[8px] text-foreground/45 leading-tight">{label}</p>
                               </div>
                             ))}
                           </div>
@@ -403,7 +436,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(160 50% 48% / 0.25)", background: "hsl(160 50% 48% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col justify-center gap-3 p-4 min-h-[180px]"
@@ -448,7 +481,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(245 60% 62% / 0.25)", background: "hsl(245 60% 62% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[2].description}</p>
                   </div>
                   <div className="flex-1 px-3 pb-4 min-h-[220px] flex items-center justify-center">
@@ -514,7 +547,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(35 70% 58% / 0.25)", background: "hsl(35 70% 58% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[3].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl overflow-hidden min-h-[220px] flex flex-col"
@@ -568,7 +601,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(340 55% 60% / 0.25)", background: "hsl(340 55% 60% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[4].description}</p>
                   </div>
                   <div className="flex-1 px-4 pb-4 flex flex-col gap-2 min-h-[200px]">
