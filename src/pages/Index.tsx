@@ -550,48 +550,94 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Step circles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 max-w-5xl mx-auto">
+            {/* Step circles — animated, floating, with pulsing rings */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-6 max-w-5xl mx-auto">
               {steps.map((step, i) => {
                 const StepIcon = step.icon;
-                const grad = `linear-gradient(135deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.30) 100%)`;
+                const grad = `linear-gradient(140deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.55) 50%, hsl(${step.hsl} / 0.15) 100%)`;
+                const floatDelay = i * 0.85;
+                const pulseDelay = i * 0.5;
                 return (
                   <motion.div
                     key={step.number}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 32 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                     className="flex flex-col items-center text-center gap-5"
                   >
-                    {/* Circle with gradient border */}
-                    <div className="relative">
-                      <div
-                        className="rounded-full p-[2px]"
-                        style={{ backgroundImage: grad }}
-                      >
+                    {/* "Fase X" label */}
+                    <span
+                      className="text-[11px] font-display font-bold tracking-[0.18em] uppercase"
+                      style={{ color: `hsl(${step.hsl} / 0.75)` }}
+                    >
+                      Fase {i + 1}
+                    </span>
+
+                    {/* Floating circle */}
+                    <motion.div
+                      animate={{ y: [0, -11, 0] }}
+                      transition={{
+                        duration: 4.2 + i * 0.55,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: floatDelay,
+                      }}
+                      className="relative"
+                    >
+                      {/* Gradient border ring */}
+                      <div className="rounded-full p-[2.5px]" style={{ backgroundImage: grad }}>
                         <div
-                          className="w-36 h-36 rounded-full flex items-center justify-center"
+                          className="w-44 h-44 rounded-full flex items-center justify-center overflow-hidden relative"
                           style={{ background: `hsl(${step.hsl} / 0.07)` }}
                         >
-                          <StepIcon className="w-10 h-10" style={{ color: `hsl(${step.hsl})` }} />
+                          {/* Pulsing concentric ring 1 */}
+                          <motion.div
+                            className="absolute rounded-full"
+                            style={{
+                              width: "50%",
+                              height: "50%",
+                              border: `1.5px solid hsl(${step.hsl} / 0.45)`,
+                            }}
+                            animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                            transition={{
+                              duration: 2.8,
+                              repeat: Infinity,
+                              ease: "easeOut",
+                              delay: pulseDelay,
+                            }}
+                          />
+                          {/* Pulsing concentric ring 2 */}
+                          <motion.div
+                            className="absolute rounded-full"
+                            style={{
+                              width: "72%",
+                              height: "72%",
+                              border: `1px solid hsl(${step.hsl} / 0.25)`,
+                            }}
+                            animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+                            transition={{
+                              duration: 2.8,
+                              repeat: Infinity,
+                              ease: "easeOut",
+                              delay: pulseDelay + 0.45,
+                            }}
+                          />
+                          {/* Icon */}
+                          <StepIcon
+                            className="w-12 h-12 relative z-10"
+                            style={{ color: `hsl(${step.hsl})` }}
+                          />
                         </div>
                       </div>
-                      {/* Number badge */}
-                      <div
-                        className="absolute -top-1 -left-1 w-8 h-8 rounded-full flex items-center justify-center text-xs font-display font-extrabold shadow-lg"
-                        style={{ backgroundImage: grad, color: "hsl(220 15% 6%)" }}
-                      >
-                        {i + 1}
-                      </div>
-                    </div>
+                    </motion.div>
 
                     {/* Text */}
                     <div>
-                      <h3 className="font-display font-bold text-lg text-foreground mb-2 leading-snug">
+                      <h3 className="font-display font-bold text-lg text-foreground mb-2 leading-tight">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[180px] mx-auto">
+                      <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[165px] mx-auto">
                         {step.shortDesc}
                       </p>
                     </div>
