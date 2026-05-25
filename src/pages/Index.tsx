@@ -96,32 +96,28 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    description: "Se realiza un análisis en profundidad de los flujos operativos, los puntos de fricción y las oportunidades de automatización. El resultado es una propuesta técnica adaptada a los procesos específicos de la empresa.",
-    chips: ["Auditoría de procesos", "Propuesta a medida"],
+    shortDesc: "Auditoría de tu operativa y propuesta técnica a medida.",
     hsl: "210 75% 52%",
     icon: Search,
   },
   {
     number: "02",
     title: "Desarrollo",
-    description: "Se configuran los agentes base y se desarrollan los asistentes específicos que requiera la operativa. Cada integración es validada en entorno de pruebas antes de pasar a producción.",
-    chips: ["Agentes base", "IA a medida", "Integraciones"],
+    shortDesc: "Agentes base y asistentes específicos para tu empresa, probados antes de producción.",
     hsl: "245 60% 62%",
     icon: Code2,
   },
   {
     number: "03",
     title: "Implementación",
-    description: "Se conecta el ecosistema con las herramientas existentes de la empresa, se forma al equipo y se verifica el funcionamiento completo del sistema antes de la puesta en marcha definitiva.",
-    chips: ["Puesta en marcha", "Formación de equipo"],
+    shortDesc: "Conexión con tus herramientas actuales y formación del equipo para la puesta en marcha.",
     hsl: "195 65% 42%",
     icon: Rocket,
   },
   {
     number: "04",
-    title: "Mantenimiento y evolución",
-    description: "El rendimiento del sistema es monitorizado de forma continua. Se aplican actualizaciones periódicas y se incorporan nuevas capacidades a medida que los requisitos del negocio evolucionan.",
-    chips: ["Monitorización", "Actualizaciones"],
+    title: "Mantenimiento",
+    shortDesc: "Rendimiento monitorizado de forma continua y sistema que evoluciona con tu negocio.",
     hsl: "220 50% 55%",
     icon: RefreshCw,
   },
@@ -554,10 +550,11 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Cards grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {/* Step circles */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 max-w-5xl mx-auto">
               {steps.map((step, i) => {
                 const StepIcon = step.icon;
+                const grad = `linear-gradient(135deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.30) 100%)`;
                 return (
                   <motion.div
                     key={step.number}
@@ -565,44 +562,38 @@ const Index = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300"
-                    style={{
-                      background: `hsl(${step.hsl} / 0.05)`,
-                      border: `1px solid hsl(${step.hsl} / 0.20)`,
-                    }}
+                    className="flex flex-col items-center text-center gap-5"
                   >
-                    {/* Icon + number row */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `hsl(${step.hsl} / 0.12)`, border: `1px solid hsl(${step.hsl} / 0.20)` }}>
-                        <StepIcon className="w-4 h-4" style={{ color: `hsl(${step.hsl})` }} />
+                    {/* Circle with gradient border */}
+                    <div className="relative">
+                      <div
+                        className="rounded-full p-[2px]"
+                        style={{ backgroundImage: grad }}
+                      >
+                        <div
+                          className="w-36 h-36 rounded-full flex items-center justify-center"
+                          style={{ background: `hsl(${step.hsl} / 0.07)` }}
+                        >
+                          <StepIcon className="w-10 h-10" style={{ color: `hsl(${step.hsl})` }} />
+                        </div>
                       </div>
-                      <span className="text-3xl font-display font-black leading-none tabular-nums select-none" style={{ color: `hsl(${step.hsl} / 0.18)` }}>
-                        {step.number}
-                      </span>
+                      {/* Number badge */}
+                      <div
+                        className="absolute -top-1 -left-1 w-8 h-8 rounded-full flex items-center justify-center text-xs font-display font-extrabold shadow-lg"
+                        style={{ backgroundImage: grad, color: "hsl(220 15% 6%)" }}
+                      >
+                        {i + 1}
+                      </div>
                     </div>
 
-                    <div className="flex-1">
-                      <h3 className="text-lg font-display font-bold text-foreground mb-3 leading-snug">
+                    {/* Text */}
+                    <div>
+                      <h3 className="font-display font-bold text-lg text-foreground mb-2 leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-sm md:text-base text-foreground/65 font-light leading-relaxed">
-                        {step.description}
+                      <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[180px] mx-auto">
+                        {step.shortDesc}
                       </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 pt-2 border-t" style={{ borderColor: `hsl(${step.hsl} / 0.15)` }}>
-                      {step.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="text-sm font-semibold px-3 py-1.5 rounded-md"
-                          style={{
-                            background: `hsl(${step.hsl} / 0.15)`,
-                            color: `hsl(${step.hsl})`,
-                          }}
-                        >
-                          {chip}
-                        </span>
-                      ))}
                     </div>
                   </motion.div>
                 );
