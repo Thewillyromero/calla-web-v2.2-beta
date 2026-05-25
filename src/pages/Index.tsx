@@ -375,53 +375,50 @@ const Index = () => {
                       )}
                       {llamadasTab === "campana" && (
                         <motion.div key="campana" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
-                          className="h-full flex flex-col p-3 gap-2">
-                          {/* Campaign header */}
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
-                              <motion.div className="w-1.5 h-1.5 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
+                          className="h-full flex flex-col">
+                          {/* Header */}
+                          <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.15)" }}>
+                            <div className="flex items-center gap-2">
+                              <motion.div className="w-2 h-2 rounded-full bg-emerald-400" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
                               <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>Captación Leads Q4</span>
                             </div>
-                            <span className="text-[9px] font-semibold px-2 py-0.5 rounded-full" style={{ background: "hsl(145 60% 45% / 0.15)", color: "hsl(145 60% 45%)", border: "1px solid hsl(145 60% 45% / 0.3)" }}>ACTIVA</span>
+                            <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full" style={{ background: "hsl(145 60% 45% / 0.15)", color: "hsl(145 60% 45%)", border: "1px solid hsl(145 60% 45% / 0.3)" }}>ACTIVA</span>
                           </div>
                           {/* Progress */}
-                          <div>
-                            <div className="flex justify-between mb-1">
-                              <span className="text-[9px] text-foreground/50">47 de 150 leads contactados</span>
-                              <span className="text-[9px] font-bold" style={{ color: "hsl(190 60% 55%)" }}>31%</span>
+                          <div className="px-4 py-2.5 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.1)" }}>
+                            <div className="flex justify-between mb-1.5">
+                              <span className="text-xs text-foreground/50">47 de 150 leads</span>
+                              <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>31%</span>
                             </div>
-                            <div className="w-full h-1.5 rounded-full overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.15)" }}>
+                            <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.15)" }}>
                               <motion.div className="h-full rounded-full" style={{ background: "hsl(190 60% 55%)" }}
                                 initial={{ width: "0%" }} animate={{ width: "31%" }} transition={{ duration: 1.2, ease: "easeOut" }} />
                             </div>
                           </div>
                           {/* Lead list */}
-                          <div className="flex flex-col gap-1.5 flex-1">
+                          <div className="flex flex-col justify-around flex-1 px-3 py-2">
                             {[
-                              { name: "Juan Rodríguez", phone: "612 XXX XXX", status: "Interesado", sc: "145 60% 45%", dot: "bg-emerald-400" },
-                              { name: "Carmen Vega",    phone: "634 XXX XXX", status: "En llamada",  sc: "190 60% 55%", dot: "bg-blue-400" },
-                              { name: "Pedro Alonso",  phone: "645 XXX XXX", status: "Sin respuesta", sc: "35 70% 55%", dot: "bg-amber-400" },
+                              { name: "Juan Rodríguez", status: "Interesado",    sc: "145 60% 45%", dot: "bg-emerald-400" },
+                              { name: "Carmen Vega",    status: "En llamada",    sc: "190 60% 55%", dot: "bg-blue-400" },
+                              { name: "Pedro Alonso",   status: "Sin respuesta", sc: "35 70% 55%",  dot: "bg-amber-400" },
                             ].map((lead, i) => (
-                              <motion.div key={lead.name} className="flex items-center gap-2 rounded-lg px-2.5 py-1.5"
+                              <motion.div key={lead.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5"
                                 style={{ background: "hsl(190 60% 55% / 0.07)", border: "1px solid hsl(190 60% 55% / 0.15)" }}
                                 initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.08 }}>
-                                <motion.div className={`w-1.5 h-1.5 rounded-full shrink-0 ${lead.dot}`}
+                                <motion.div className={`w-2 h-2 rounded-full shrink-0 ${lead.dot}`}
                                   animate={{ opacity: lead.status === "En llamada" ? [1, 0.3, 1] : 1 }}
                                   transition={{ duration: 1.2, repeat: Infinity }} />
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-[10px] font-semibold text-foreground truncate">{lead.name}</p>
-                                  <p className="text-[9px] text-foreground/40">{lead.phone}</p>
-                                </div>
-                                <span className="text-[9px] font-semibold shrink-0" style={{ color: `hsl(${lead.sc})` }}>{lead.status}</span>
+                                <p className="text-xs font-semibold text-foreground flex-1 truncate">{lead.name}</p>
+                                <span className="text-xs font-semibold shrink-0" style={{ color: `hsl(${lead.sc})` }}>{lead.status}</span>
                               </motion.div>
                             ))}
                           </div>
-                          {/* Bottom stats */}
-                          <div className="grid grid-cols-3 gap-1.5">
+                          {/* Stats */}
+                          <div className="grid grid-cols-3 gap-2 px-3 pb-3">
                             {[{ label: "Contactados", val: "47" }, { label: "Interesados", val: "18" }, { label: "Cerrados", val: "6" }].map(({ label, val }) => (
-                              <div key={label} className="rounded-lg p-1.5 text-center" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
-                                <p className="text-sm font-bold text-foreground">{val}</p>
-                                <p className="text-[8px] text-foreground/45 leading-tight">{label}</p>
+                              <div key={label} className="rounded-xl p-2.5 text-center" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
+                                <p className="text-base font-bold text-foreground">{val}</p>
+                                <p className="text-[9px] text-foreground/45">{label}</p>
                               </div>
                             ))}
                           </div>
@@ -494,7 +491,7 @@ const Index = () => {
                           <p className="text-[10px] text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
                         </div>
                       </motion.div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 justify-center">
                         {["Google Calendar", "Calendly", "Apple Calendar"].map(chip => (
                           <span key={chip} className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
                             style={{ background: "hsl(160 50% 48% / 0.1)", color: "hsl(160 50% 48%)", border: "1px solid hsl(160 50% 48% / 0.25)" }}>
