@@ -142,9 +142,6 @@ const Pricing = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-6 md:mb-8"
           >
-            <p className="text-primary font-display text-base sm:text-lg md:text-xl tracking-[0.25em] uppercase font-bold drop-shadow-[0_0_20px_hsl(var(--primary)/0.4)]">
-              Planes y precios
-            </p>
           </motion.div>
 
           {/* ROI Calculator */}
