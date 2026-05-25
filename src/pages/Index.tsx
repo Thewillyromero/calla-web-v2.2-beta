@@ -402,13 +402,13 @@ const Index = () => {
                               <p className="text-sm font-semibold text-foreground">María Pérez</p>
                               <p className="text-xs text-foreground/50">612 XXX XXX · Saliente</p>
                             </div>
-                          </div>
-                          <div className="flex items-center justify-center gap-4 mb-3">
-                            {[0, 0.2, 0.4, 0.6].map((d, i) => (
-                              <motion.div key={i} className="w-3 h-3 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
-                                animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
-                                transition={{ duration: 1, repeat: Infinity, delay: d }} />
-                            ))}
+                            <div className="flex-1 flex items-center justify-center gap-3">
+                              {[0, 0.2, 0.4, 0.6].map((d, i) => (
+                                <motion.div key={i} className="w-3 h-3 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
+                                  animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
+                                  transition={{ duration: 1, repeat: Infinity, delay: d }} />
+                              ))}
+                            </div>
                           </div>
 
                           {/* Next calls queue */}
