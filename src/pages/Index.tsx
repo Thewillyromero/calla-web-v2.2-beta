@@ -263,10 +263,10 @@ const Index = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ─── 2. WHAT WE DO — editorial list ─── */}
+      {/* ─── 2. WHAT WE DO — bento capabilities ─── */}
       <SectionFade className="bg-white/[0.03]">
-        <section className="py-16 md:py-24 px-5 md:px-6">
-          <div className="container mx-auto max-w-4xl">
+        <section className="py-20 md:py-28 px-5 md:px-6">
+          <div className="container mx-auto max-w-5xl">
 
             {/* Header */}
             <motion.div
@@ -274,7 +274,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-14"
+              className="mb-12"
             >
               <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
@@ -289,87 +289,201 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Editorial list */}
-            <div className="divide-y divide-border/12">
-              {capabilities.map((cap, i) => (
-                <motion.div
-                  key={cap.title}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  onMouseEnter={() => setHoveredCap(i)}
-                  onMouseLeave={() => setHoveredCap(null)}
-                  className="group relative flex items-center gap-6 md:gap-10 py-7 md:py-9 cursor-default transition-colors duration-300"
-                  style={{
-                    background: hoveredCap === i ? `hsl(${cap.hsl} / 0.03)` : "transparent",
-                  }}
-                >
-                  {/* Left accent bar */}
-                  <div
-                    className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-opacity duration-300"
-                    style={{
-                      background: `hsl(${cap.hsl})`,
-                      opacity: hoveredCap === i ? 1 : 0,
-                    }}
-                  />
+            {/* ── Bento grid ── */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
 
-                  {/* Large watermark number */}
-                  <span
-                    className="absolute right-0 top-1/2 -translate-y-1/2 text-[110px] font-display font-black leading-none pointer-events-none select-none tabular-nums transition-opacity duration-300"
-                    style={{
-                      color: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.07" : "0.04"})`,
-                    }}
+              {/* LLAMADAS — featured (col-span-2) */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => setHoveredCap(0)} onMouseLeave={() => setHoveredCap(null)}
+                className="md:col-span-2 rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
+                style={{ borderColor: `hsl(190 60% 55% / ${hoveredCap === 0 ? "0.40" : "0.18"})`, background: `hsl(190 60% 55% / ${hoveredCap === 0 ? "0.06" : "0.03"})` }}
+              >
+                <div className="relative h-52 flex items-center justify-center overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.07)" }}>
+                  {[1, 2, 3].map(n => (
+                    <motion.div key={n} className="absolute rounded-full border"
+                      style={{ width: n * 72, height: n * 72, borderColor: "hsl(190 60% 55% / 0.28)" }}
+                      animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2.8, repeat: Infinity, delay: n * 0.55, ease: "easeOut" }} />
+                  ))}
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center relative z-10"
+                    style={{ background: "hsl(190 60% 55% / 0.18)", border: "1px solid hsl(190 60% 55% / 0.35)" }}>
+                    <Phone className="w-8 h-8" style={{ color: "hsl(190 60% 55%)" }} />
+                  </div>
+                  <motion.div
+                    className="absolute top-5 right-6 rounded-2xl px-4 py-2 text-xs font-semibold border backdrop-blur-sm"
+                    style={{ background: "hsl(190 60% 55% / 0.12)", borderColor: "hsl(190 60% 55% / 0.3)", color: "hsl(190 60% 55%)" }}
+                    animate={{ y: [0, -5, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    {i + 1}
-                  </span>
+                    ● Llamada entrante
+                  </motion.div>
+                </div>
+                <div className="p-7 md:p-8 flex-1">
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2 leading-tight">{capabilities[0].title}</h3>
+                  <p className="text-base text-foreground/65 font-light mb-5 leading-relaxed">{capabilities[0].description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {capabilities[0].chips.map(chip => (
+                      <span key={chip} className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                        style={{ background: "hsl(190 60% 55% / 0.10)", color: "hsl(190 60% 55%)" }}>{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
 
-                  {/* Step number */}
-                  <span
-                    className="text-3xl md:text-4xl font-display font-black tabular-nums leading-none shrink-0 w-10 md:w-14 transition-colors duration-300"
-                    style={{ color: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.85" : "0.45"})` }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0 relative z-10">
-                    <h3 className="text-lg md:text-2xl font-display font-bold text-foreground mb-1.5 leading-tight">
-                      {cap.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-foreground/65 font-light leading-relaxed mb-3">
-                      {cap.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {cap.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="text-xs font-semibold px-2.5 py-1 rounded-full transition-colors duration-300"
-                          style={{
-                            background: `hsl(${cap.hsl} / 0.10)`,
-                            color: `hsl(${cap.hsl})`,
-                          }}
-                        >
-                          {chip}
-                        </span>
-                      ))}
+              {/* AGENDA (col-span-1) */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => setHoveredCap(1)} onMouseLeave={() => setHoveredCap(null)}
+                className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
+                style={{ borderColor: `hsl(160 50% 48% / ${hoveredCap === 1 ? "0.40" : "0.18"})`, background: `hsl(160 50% 48% / ${hoveredCap === 1 ? "0.06" : "0.03"})` }}
+              >
+                <div className="relative h-52 flex items-center justify-center overflow-hidden" style={{ background: "hsl(160 50% 48% / 0.07)" }}>
+                  <div className="rounded-2xl p-3.5" style={{ background: "hsl(160 50% 48% / 0.10)", border: "1px solid hsl(160 50% 48% / 0.18)" }}>
+                    <p className="text-[10px] font-bold text-center mb-2.5 tracking-widest" style={{ color: "hsl(160 50% 48%)" }}>OCTUBRE</p>
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {Array.from({ length: 15 }, (_, n) => {
+                        const day = n + 1;
+                        const booked = [3, 8, 12].includes(day);
+                        return (
+                          <motion.div key={day}
+                            className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold"
+                            style={{ background: booked ? "hsl(160 50% 48%)" : "hsl(160 50% 48% / 0.08)", color: booked ? "#fff" : "hsl(160 50% 48% / 0.6)" }}
+                            animate={booked ? { scale: [1, 1.12, 1] } : {}}
+                            transition={{ duration: 2.2, repeat: Infinity, delay: [3, 8, 12].indexOf(day) * 0.8 }}
+                          >{day}</motion.div>
+                        );
+                      })}
                     </div>
                   </div>
-
-                  {/* Icon */}
-                  <div
-                    className="hidden md:flex w-14 h-14 rounded-2xl items-center justify-center shrink-0 relative z-10 transition-all duration-300"
-                    style={{
-                      background: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.14" : "0.08"})`,
-                      border: `1px solid hsl(${cap.hsl} / 0.25)`,
-                    }}
-                  >
-                    <cap.Icon className="w-6 h-6" style={{ color: `hsl(${cap.hsl})` }} />
+                </div>
+                <div className="p-6 flex-1">
+                  <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[1].title}</h3>
+                  <p className="text-sm text-foreground/65 font-light mb-4 leading-relaxed">{capabilities[1].description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {capabilities[1].chips.map(chip => (
+                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                        style={{ background: "hsl(160 50% 48% / 0.10)", color: "hsl(160 50% 48%)" }}>{chip}</span>
+                    ))}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
 
+              {/* FLUJOS — network nodes */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => setHoveredCap(2)} onMouseLeave={() => setHoveredCap(null)}
+                className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
+                style={{ borderColor: `hsl(245 60% 62% / ${hoveredCap === 2 ? "0.40" : "0.18"})`, background: `hsl(245 60% 62% / ${hoveredCap === 2 ? "0.06" : "0.03"})` }}
+              >
+                <div className="relative h-40 flex items-center justify-center overflow-hidden" style={{ background: "hsl(245 60% 62% / 0.07)" }}>
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                    {[["50%","50%","18%","18%"],["50%","50%","82%","18%"],["50%","50%","18%","82%"],["50%","50%","82%","82%"]].map(([x1,y1,x2,y2], i) => (
+                      <motion.line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+                        stroke="hsl(245 60% 62% / 0.45)" strokeWidth="1.5" strokeDasharray="4 3"
+                        animate={{ opacity: [0.2, 0.8, 0.2] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }} />
+                    ))}
+                  </svg>
+                  {[{ top: "14%", left: "14%" },{ top: "14%", right: "14%" },{ bottom: "14%", left: "14%" },{ bottom: "14%", right: "14%" }].map((pos, i) => (
+                    <div key={i} className="absolute w-7 h-7 rounded-full z-10" style={{ ...pos, background: "hsl(245 60% 62% / 0.55)" }} />
+                  ))}
+                  <motion.div className="relative z-20 w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ background: "hsl(245 60% 62%)" }}
+                    animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2.5, repeat: Infinity }}>
+                    <Network className="w-5 h-5 text-white" />
+                  </motion.div>
+                </div>
+                <div className="p-5 md:p-6 flex-1">
+                  <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[2].title}</h3>
+                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[2].description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {capabilities[2].chips.map(chip => (
+                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                        style={{ background: "hsl(245 60% 62% / 0.10)", color: "hsl(245 60% 62%)" }}>{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* ANALÍTICA — animated bars */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => setHoveredCap(3)} onMouseLeave={() => setHoveredCap(null)}
+                className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
+                style={{ borderColor: `hsl(35 70% 58% / ${hoveredCap === 3 ? "0.40" : "0.18"})`, background: `hsl(35 70% 58% / ${hoveredCap === 3 ? "0.06" : "0.03"})` }}
+              >
+                <div className="relative h-40 flex items-end justify-center gap-1.5 overflow-hidden pb-5 px-6" style={{ background: "hsl(35 70% 58% / 0.07)" }}>
+                  {[55, 80, 45, 90, 65, 75, 50].map((h, n) => (
+                    <motion.div key={n}
+                      className="flex-1 rounded-t-md"
+                      style={{ height: `${h}%`, background: `hsl(35 70% 58% / ${n === 3 ? "1" : "0.55"})`, transformOrigin: "bottom" }}
+                      animate={{ scaleY: [0.7, 1, 0.7] }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay: n * 0.15, ease: "easeInOut" }} />
+                  ))}
+                </div>
+                <div className="p-5 md:p-6 flex-1">
+                  <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[3].title}</h3>
+                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[3].description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {capabilities[3].chips.map(chip => (
+                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                        style={{ background: "hsl(35 70% 58% / 0.10)", color: "hsl(35 70% 58%)" }}>{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* FIDELIZACIÓN — avatars */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                onMouseEnter={() => setHoveredCap(4)} onMouseLeave={() => setHoveredCap(null)}
+                className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
+                style={{ borderColor: `hsl(340 55% 60% / ${hoveredCap === 4 ? "0.40" : "0.18"})`, background: `hsl(340 55% 60% / ${hoveredCap === 4 ? "0.06" : "0.03"})` }}
+              >
+                <div className="relative h-40 flex items-center justify-center overflow-hidden" style={{ background: "hsl(340 55% 60% / 0.07)" }}>
+                  <div className="flex items-center">
+                    {["JG", "MR", "LP", "AC"].map((initials, n) => (
+                      <motion.div key={n}
+                        className="relative w-11 h-11 rounded-full flex items-center justify-center font-display font-extrabold text-sm border-2"
+                        style={{ background: `hsl(340 55% 60% / ${0.1 + n * 0.04})`, borderColor: "hsl(340 55% 60% / 0.3)", color: "hsl(340 55% 60%)", marginLeft: n > 0 ? "-10px" : "0", zIndex: 4 - n }}
+                        initial={{ x: 16, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }} transition={{ delay: 0.3 + n * 0.1, duration: 0.4, ease: "backOut" }}
+                      >
+                        {initials}
+                        <motion.div className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center"
+                          style={{ background: "hsl(160 60% 45%)" }}
+                          initial={{ scale: 0 }} whileInView={{ scale: 1 }}
+                          viewport={{ once: true }} transition={{ delay: 0.65 + n * 0.1 }}>
+                          <Check className="w-2.5 h-2.5 text-white" />
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                    <motion.div
+                      className="w-11 h-11 rounded-full flex items-center justify-center font-display font-bold text-sm border-2"
+                      style={{ background: "hsl(340 55% 60% / 0.08)", borderColor: "hsl(340 55% 60% / 0.25)", color: "hsl(340 55% 60%)", marginLeft: "-10px" }}
+                      initial={{ x: 16, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}
+                      viewport={{ once: true }} transition={{ delay: 0.75 }}
+                    >+12</motion.div>
+                  </div>
+                </div>
+                <div className="p-5 md:p-6 flex-1">
+                  <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[4].title}</h3>
+                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[4].description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {capabilities[4].chips.map(chip => (
+                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                        style={{ background: "hsl(340 55% 60% / 0.10)", color: "hsl(340 55% 60%)" }}>{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
           </div>
         </section>
       </SectionFade>
