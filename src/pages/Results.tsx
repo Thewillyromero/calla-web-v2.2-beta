@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
 import LogoMarquee from "@/components/LogoMarquee";
-import SystemFlow from "@/components/SystemFlow";
 import { BOOKING_URL } from "@/lib/constants";
 
 const CampaignResults = lazy(() => import("@/components/CampaignResults"));
@@ -125,13 +124,6 @@ const Results = () => {
           </SectionFade>
         </div>
       </section>
-
-      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
-
-      {/* System Flow */}
-      <div className="bg-white/[0.03]">
-        <SystemFlow />
-      </div>
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
