@@ -322,7 +322,7 @@ const Index = () => {
                       );
                     })}
                   </div>
-                  <div className="mx-4 mb-4 rounded-2xl overflow-hidden min-h-[160px]"
+                  <div className="mx-4 mb-4 rounded-2xl overflow-hidden h-[240px]"
                     style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.15)" }}>
                     <AnimatePresence mode="wait">
                       {llamadasTab === "entrante" && (
@@ -439,34 +439,72 @@ const Index = () => {
                     <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
                   </div>
-                  <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col justify-center gap-3 p-4 min-h-[180px]"
+                  <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col h-[240px]"
                     style={{ background: "hsl(160 50% 48% / 0.08)", border: "1px solid hsl(160 50% 48% / 0.15)" }}>
-                    {/* Countdown */}
-                    <div className="text-center">
-                      <motion.p className="text-5xl font-bold font-display" style={{ color: "hsl(160 50% 48%)" }}
-                        animate={{ opacity: [0.8, 1, 0.8] }} transition={{ duration: 2.5, repeat: Infinity }}>
-                        30 min
-                      </motion.p>
-                      <p className="text-xs text-foreground/50 mt-1">Próxima cita</p>
-                    </div>
-                    {/* Cita confirmada badge */}
-                    <motion.div className="flex items-center gap-3 p-3 rounded-xl mx-1"
-                      style={{ background: "hsl(160 50% 48% / 0.12)", border: "1px solid hsl(160 50% 48% / 0.28)" }}
-                      animate={{ y: [0, -2, 0] }} transition={{ duration: 3.2, repeat: Infinity }}>
-                      <span className="text-base shrink-0">📅</span>
-                      <div>
-                        <p className="text-xs font-bold text-foreground">Cita agendada automáticamente</p>
-                        <p className="text-[10px] text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
+                    {/* Header bar */}
+                    <div className="flex items-center justify-between px-3 py-2 border-b" style={{ borderColor: "hsl(160 50% 48% / 0.15)" }}>
+                      <div className="flex items-center gap-1.5">
+                        <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(160 50% 48%)" }}
+                          animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+                        <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(160 50% 48%)" }}>Hoy · 4 citas</span>
                       </div>
-                    </motion.div>
-                    {/* Chips */}
-                    <div className="flex flex-wrap justify-center gap-1.5">
-                      {["Google Calendar", "Calendly", "Apple Calendar"].map(chip => (
-                        <span key={chip} className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
-                          style={{ background: "hsl(160 50% 48% / 0.12)", color: "hsl(160 50% 48%)", border: "1px solid hsl(160 50% 48% / 0.3)" }}>
-                          {chip}
-                        </span>
+                      <motion.span className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                        style={{ background: "hsl(160 50% 48% / 0.15)", color: "hsl(160 50% 48%)" }}
+                        animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 2.5, repeat: Infinity }}>
+                        30 min
+                      </motion.span>
+                    </div>
+                    {/* Appointment list */}
+                    <div className="flex flex-col gap-1 p-2.5 flex-1">
+                      {[
+                        { time: "10:30", name: "Carlos Martínez", type: "Consulta inicial",   done: true  },
+                        { time: "12:00", name: "Ana Pérez",        type: "Revisión contrato",  done: false, next: true },
+                        { time: "15:30", name: "Pedro González",   type: "Demo producto",      done: false },
+                        { time: "17:00", name: "María López",      type: "Seguimiento venta",  done: false },
+                      ].map((appt, i) => (
+                        <motion.div key={appt.time}
+                          className="flex items-center gap-2.5 rounded-lg px-2.5 py-2"
+                          style={{
+                            background: appt.next ? "hsl(160 50% 48% / 0.18)" : appt.done ? "transparent" : "hsl(160 50% 48% / 0.07)",
+                            border: `1px solid hsl(160 50% 48% / ${appt.next ? "0.35" : appt.done ? "0.08" : "0.13"})`,
+                          }}
+                          initial={{ opacity: 0, x: -6 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                          transition={{ delay: i * 0.07 }}>
+                          <span className="text-[10px] font-mono font-bold shrink-0 w-8" style={{ color: appt.done ? "hsl(160 50% 48% / 0.4)" : "hsl(160 50% 48%)" }}>{appt.time}</span>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[10px] font-semibold truncate" style={{ color: appt.done ? "hsl(160 50% 48% / 0.45)" : "hsl(0 0% 95%)" }}>{appt.name}</p>
+                            <p className="text-[9px] truncate" style={{ color: "hsl(0 0% 60%)" }}>{appt.type}</p>
+                          </div>
+                          {appt.done && <span className="text-[9px] font-bold shrink-0" style={{ color: "hsl(160 50% 48% / 0.5)" }}>✓</span>}
+                          {appt.next && (
+                            <motion.span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
+                              style={{ background: "hsl(160 50% 48% / 0.2)", color: "hsl(160 50% 48%)" }}
+                              animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 1.8, repeat: Infinity }}>
+                              PRÓXIMA
+                            </motion.span>
+                          )}
+                        </motion.div>
                       ))}
+                    </div>
+                    {/* Footer: cita badge + chips */}
+                    <div className="border-t px-2.5 py-2" style={{ borderColor: "hsl(160 50% 48% / 0.12)" }}>
+                      <motion.div className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 mb-1.5"
+                        style={{ background: "hsl(160 50% 48% / 0.1)", border: "1px solid hsl(160 50% 48% / 0.22)" }}
+                        animate={{ y: [0, -2, 0] }} transition={{ duration: 3.2, repeat: Infinity }}>
+                        <span className="text-xs shrink-0">📅</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[9px] font-bold text-foreground">Cita agendada automáticamente</p>
+                          <p className="text-[8px] text-foreground/45">Mañana · 10:30 · Recordatorio enviado</p>
+                        </div>
+                      </motion.div>
+                      <div className="flex gap-1.5">
+                        {["Google Calendar", "Calendly", "Apple Calendar"].map(chip => (
+                          <span key={chip} className="px-2 py-0.5 rounded-full text-[8px] font-semibold"
+                            style={{ background: "hsl(160 50% 48% / 0.1)", color: "hsl(160 50% 48%)", border: "1px solid hsl(160 50% 48% / 0.25)" }}>
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
