@@ -322,7 +322,7 @@ const Index = () => {
                       );
                     })}
                   </div>
-                  <div className="mx-4 mb-4 rounded-2xl overflow-hidden h-[260px]"
+                  <div className="mx-4 mb-4 rounded-2xl overflow-hidden h-[300px]"
                     style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.15)" }}>
                     <AnimatePresence mode="wait">
                       {llamadasTab === "entrante" && (
