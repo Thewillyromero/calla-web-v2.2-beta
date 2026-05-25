@@ -1,4 +1,3 @@
-// Original logos
 import logoReputationLoop from "@/assets/logos/reputation-loop.webp";
 import logoMonitronics from "@/assets/logos/monitronics.webp";
 import logoInvictus from "@/assets/logos/invictus-advisors.webp";
@@ -28,7 +27,6 @@ import logoCrowdfund from "@/assets/logos/crowdfund-mafia.webp";
 import logoPCS from "@/assets/logos/pcs-software.webp";
 import logoGeniusDen from "@/assets/logos/genius-den.webp";
 
-// New logos from PDF extraction
 import logoP2_1 from "@/assets/logos-new/logo-p2-1.webp";
 import logoP2_2 from "@/assets/logos-new/logo-p2-2.webp";
 import logoP2_3 from "@/assets/logos-new/logo-p2-3.webp";
@@ -69,8 +67,9 @@ import logoP2_38 from "@/assets/logos-new/logo-p2-38.webp";
 import logoP2_39 from "@/assets/logos-new/logo-p2-39.webp";
 import logoP2_40 from "@/assets/logos-new/logo-p2-40.webp";
 
+import { memo } from "react";
+
 const logos = [
-  // New logos (PDF case studies)
   logoP2_1, logoP2_2, logoP2_3, logoP2_4, logoP2_5,
   logoP2_6, logoP2_7, logoP2_8, logoP2_9, logoP2_10,
   logoP2_11, logoP2_12, logoP2_13, logoP2_14, logoP2_15,
@@ -79,7 +78,6 @@ const logos = [
   logoP2_27, logoP2_28, logoP2_29, logoP2_30, logoP2_31,
   logoP2_32, logoP2_33, logoP2_34, logoP2_35, logoP2_36,
   logoP2_37, logoP2_38, logoP2_39, logoP2_40,
-  // Original logos
   logoReputationLoop, logoMonitronics, logoCox, logoHartmetall,
   logoInvictus, logoRehab, logoPCS, logoAdvancedPlumbing,
   logoRedRoot, logoHouwzer, logoMcKenzie, logoNorthwest,
@@ -89,49 +87,39 @@ const logos = [
   logoThreeRivers, logoIntelligent, logoEasyMobile, logoCrowdfund,
 ];
 
-import { memo } from "react";
+const LogoItem = ({ src, id }: { src: string; id: string }) => (
+  <div className="marquee-item">
+    <img
+      src={src}
+      alt=""
+      width={120}
+      height={28}
+      className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[120px]"
+      loading="lazy"
+      decoding="async"
+      draggable={false}
+      style={{ filter: "brightness(1.1)", opacity: 1 }}
+    />
+  </div>
+);
 
 const LogoMarquee = memo(() => {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const displayLogos = isMobile ? logos.slice(0, 20) : logos;
-
   return (
-    <section className="py-7 md:py-10 border-y border-white/[0.04] overflow-hidden relative bg-black/20 group/marquee">
-      <p className="text-center text-xs sm:text-sm font-display font-semibold tracking-[0.2em] uppercase text-foreground mb-4 md:mb-5">
+    <section className="border-y border-white/[0.04] overflow-hidden relative bg-black/20">
+      <p className="text-center text-xs sm:text-sm font-display font-semibold tracking-[0.2em] uppercase text-foreground pt-6 md:pt-8 pb-4 md:pb-5">
         Empresas que ya confían en CALLA
       </p>
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-      <div className="marquee-container">
-        <div className="marquee-track group-hover/marquee:[animation-play-state:paused]">
-          {displayLogos.map((logo, i) => (
-            <div key={`a-${i}`} className="marquee-item">
-              <img
-                src={logo}
-                alt=""
-                className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                loading="lazy"
-                decoding="async"
-                draggable={false}
-                style={{ filter: "brightness(1.1)", opacity: 1 }}
-              />
-            </div>
+      <div className="marquee-container pb-6 md:pb-8">
+        <div className="marquee-track">
+          {logos.map((logo, i) => (
+            <LogoItem key={`a-${i}`} src={logo} id={`a-${i}`} />
           ))}
-          {/* Copia duplicada para loop continuo — oculta a lectores de pantalla */}
           <div aria-hidden="true" className="contents">
-            {displayLogos.map((logo, i) => (
-              <div key={`b-${i}`} className="marquee-item">
-                <img
-                  src={logo}
-                  alt=""
-                  className="h-5 md:h-7 w-auto object-contain max-w-[90px] md:max-w-[130px]"
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                  style={{ filter: "brightness(1.1)", opacity: 1 }}
-                />
-              </div>
+            {logos.map((logo, i) => (
+              <LogoItem key={`b-${i}`} src={logo} id={`b-${i}`} />
             ))}
           </div>
         </div>
