@@ -67,7 +67,7 @@ const Results = () => {
               Casos reales
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight text-foreground">
-              Resultados probados
+              Resultados <span className="text-gradient">probados</span>
             </h1>
             <p className="text-foreground/80 max-w-2xl mx-auto text-base md:text-lg font-light">
               Más de 200 empresas en +20 industrias confían en CALLA para gestionar sus comunicaciones.
@@ -121,7 +121,7 @@ const Results = () => {
           <SectionFade>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-4 tracking-tight text-foreground">
-                Lo que dicen nuestros clientes
+                Lo que dicen <span className="text-gradient">nuestros clientes</span>
               </h2>
               <div className="flex flex-wrap items-center justify-center gap-2.5 md:gap-4 mt-6">
                 {[{ label: "Google Reviews", rating: 4.9 }, { label: "Trustpilot", rating: 4.8 }, { label: "Clutch.co", rating: 5.0 }].map((b) => (
@@ -246,7 +246,7 @@ const Results = () => {
         <div className="container mx-auto text-center">
           <SectionFade>
             <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">
-              ¿Listo para obtener estos resultados?
+              ¿Listo para obtener <span className="text-gradient">estos resultados?</span>
             </h2>
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
               Agenda una demo y descubre cómo CALLA puede transformar las comunicaciones de tu empresa.
