@@ -303,7 +303,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(190 60% 55% / 0.25)", background: "hsl(190 60% 55% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[0].title}</h3>
+                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[0].description}</p>
                   </div>
                   <div className="flex gap-2 px-5 pb-3">
@@ -403,7 +403,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(160 50% 48% / 0.25)", background: "hsl(160 50% 48% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[1].title}</h3>
+                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col items-center justify-center gap-4 p-5 min-h-[180px]"
@@ -436,38 +436,61 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(245 60% 62% / 0.25)", background: "hsl(245 60% 62% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[2].title}</h3>
+                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[2].description}</p>
                   </div>
-                  <div className="flex-1 flex items-center justify-center px-4 pb-4 min-h-[200px]">
-                    <svg viewBox="0 0 300 200" className="w-full max-w-[260px]">
-                      <ellipse cx="150" cy="100" rx="72" ry="72" fill="none" stroke="hsl(245 60% 62% / 0.15)" strokeWidth="1" strokeDasharray="4 4" />
-                      {[{ x: 150, y: 28 }, { x: 222, y: 76 }, { x: 196, y: 162 }, { x: 104, y: 162 }, { x: 78, y: 76 }].map((n, i) => (
-                        <line key={i} x1="150" y1="100" x2={n.x} y2={n.y} stroke="hsl(245 60% 62% / 0.2)" strokeWidth="1" />
+                  <div className="flex-1 px-3 pb-4 min-h-[220px] flex items-center justify-center">
+                    <svg viewBox="0 0 280 220" className="w-full h-full">
+                      {/* Pulsing rings around center */}
+                      {[36, 52, 68].map((r, i) => (
+                        <motion.circle key={i} cx="140" cy="110" r={r} fill="none"
+                          stroke="hsl(245 60% 62%)" strokeWidth="1"
+                          initial={{ opacity: 0.15 - i * 0.04, scale: 1 }}
+                          animate={{ opacity: [0.15 - i * 0.04, 0.05, 0.15 - i * 0.04] }}
+                          transition={{ duration: 2.5 + i * 0.6, repeat: Infinity, delay: i * 0.4 }} />
                       ))}
-                      <circle cx="150" cy="100" r="18" fill="hsl(245 60% 62% / 0.15)" stroke="hsl(245 60% 62% / 0.5)" strokeWidth="1.5" />
-                      <text x="150" y="104" textAnchor="middle" fontSize="7" fontWeight="700" fill="hsl(245 60% 72%)">CALLA</text>
+                      {/* Connection lines */}
                       {[
-                        { x: 150, y: 28, label: "CRM", w: 34 },
-                        { x: 222, y: 76, label: "WhatsApp", w: 54 },
-                        { x: 196, y: 162, label: "Slack", w: 38 },
-                        { x: 104, y: 162, label: "Email", w: 38 },
-                        { x: 78, y: 76, label: "API", w: 30 },
+                        { x: 140, y: 22 },
+                        { x: 236, y: 66 },
+                        { x: 220, y: 175 },
+                        { x: 60, y: 175 },
+                        { x: 44, y: 66 },
+                      ].map((n, i) => (
+                        <line key={i} x1="140" y1="110" x2={n.x} y2={n.y}
+                          stroke="hsl(245 60% 62% / 0.25)" strokeWidth="1.5" strokeDasharray="4 3" />
+                      ))}
+                      {/* Center node */}
+                      <circle cx="140" cy="110" r="26" fill="hsl(245 60% 62% / 0.18)" stroke="hsl(245 60% 62% / 0.6)" strokeWidth="2" />
+                      <motion.circle cx="140" cy="110" r="26" fill="none" stroke="hsl(245 60% 72%)" strokeWidth="1.5"
+                        strokeDasharray="163" animate={{ strokeDashoffset: [0, -163] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }} />
+                      <text x="140" y="106" textAnchor="middle" fontSize="9" fontWeight="800" fill="hsl(245 60% 85%)">CALLA</text>
+                      <text x="140" y="118" textAnchor="middle" fontSize="6.5" fill="hsl(245 60% 65%)">IA</text>
+                      {/* Outer nodes */}
+                      {[
+                        { x: 140, y: 22, label: "CRM", w: 42 },
+                        { x: 236, y: 66, label: "WhatsApp", w: 62 },
+                        { x: 220, y: 175, label: "Slack", w: 44 },
+                        { x: 60, y: 175, label: "Email", w: 44 },
+                        { x: 44, y: 66, label: "API", w: 36 },
                       ].map((n, i) => (
                         <g key={i}>
-                          <rect x={n.x - n.w / 2} y={n.y - 9} width={n.w} height={18} rx="9" fill="hsl(245 60% 62% / 0.12)" stroke="hsl(245 60% 62% / 0.35)" strokeWidth="1" />
-                          <text x={n.x} y={n.y + 4} textAnchor="middle" fontSize="7" fontWeight="600" fill="hsl(245 60% 72%)">{n.label}</text>
+                          <rect x={n.x - n.w / 2} y={n.y - 11} width={n.w} height={22} rx="11"
+                            fill="hsl(245 60% 62% / 0.15)" stroke="hsl(245 60% 62% / 0.45)" strokeWidth="1.5" />
+                          <text x={n.x} y={n.y + 4} textAnchor="middle" fontSize="8" fontWeight="700" fill="hsl(245 60% 80%)">{n.label}</text>
                         </g>
                       ))}
+                      {/* Animated particles */}
                       {[
-                        { path: "M150,100 L150,28", dur: 2 },
-                        { path: "M150,100 L222,76", dur: 2.4 },
-                        { path: "M150,100 L196,162", dur: 1.8 },
-                        { path: "M150,100 L104,162", dur: 2.2 },
-                        { path: "M150,100 L78,76", dur: 2.6 },
+                        { path: "M140,110 L140,22", dur: "1.8s" },
+                        { path: "M140,110 L236,66", dur: "2.2s" },
+                        { path: "M140,110 L220,175", dur: "1.6s" },
+                        { path: "M140,110 L60,175", dur: "2s" },
+                        { path: "M140,110 L44,66", dur: "2.4s" },
                       ].map((p, i) => (
-                        <circle key={i} r="3" fill="hsl(245 60% 72%)" opacity="0.8">
-                          <animateMotion path={p.path} dur={`${p.dur}s`} repeatCount="indefinite" />
+                        <circle key={i} r="4" fill="hsl(245 60% 75%)" opacity="0.9">
+                          <animateMotion path={p.path} dur={p.dur} repeatCount="indefinite" />
                         </circle>
                       ))}
                     </svg>
@@ -479,33 +502,53 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(35 70% 58% / 0.25)", background: "hsl(35 70% 58% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[3].title}</h3>
+                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[3].description}</p>
                   </div>
-                  <div className="flex-1 px-4 pb-4 flex flex-col items-center gap-3 min-h-[200px]">
-                    <div className="relative w-24 h-24">
-                      <svg viewBox="0 0 80 80" className="w-full h-full -rotate-90">
-                        <circle cx="40" cy="40" r="30" fill="none" stroke="hsl(35 70% 58% / 0.12)" strokeWidth="10" />
-                        <motion.circle cx="40" cy="40" r="30" fill="none" stroke="hsl(35 70% 58%)" strokeWidth="10"
-                          strokeLinecap="round"
-                          style={{ strokeDasharray: `${2 * Math.PI * 30}` }}
-                          initial={{ strokeDashoffset: 2 * Math.PI * 30 }}
-                          whileInView={{ strokeDashoffset: 2 * Math.PI * 30 * 0.13 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.5, ease: "easeOut" }} />
-                      </svg>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <p className="text-lg font-bold text-foreground">87%</p>
-                        <p className="text-[9px] text-foreground/50">Satisfacción</p>
+                  <div className="flex-1 mx-4 mb-4 rounded-2xl overflow-hidden min-h-[220px] flex flex-col"
+                    style={{ background: "hsl(35 70% 58% / 0.06)", border: "1px solid hsl(35 70% 58% / 0.18)" }}>
+                    {/* Dashboard header bar */}
+                    <div className="flex items-center justify-between px-3 py-2 border-b" style={{ borderColor: "hsl(35 70% 58% / 0.15)" }}>
+                      <div className="flex items-center gap-1.5">
+                        <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(35 70% 58%)" }}
+                          animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
+                        <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(35 70% 58%)" }}>Panel en vivo</span>
                       </div>
+                      <span className="text-[9px] text-foreground/35 font-mono">HOY · 09:41</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 w-full">
-                      {[{ label: "Llamadas", val: "1.4K" }, { label: "Campañas", val: "12" }, { label: "Agentes IA", val: "5" }, { label: "Resolución", val: "94%" }].map(({ label, val }) => (
-                        <div key={label} className="rounded-xl p-2.5 text-center" style={{ background: "hsl(35 70% 58% / 0.08)", border: "1px solid hsl(35 70% 58% / 0.2)" }}>
-                          <p className="text-sm font-bold text-foreground">{val}</p>
-                          <p className="text-[10px] text-foreground/50">{label}</p>
+                    {/* KPIs row */}
+                    <div className="grid grid-cols-3 gap-px border-b" style={{ borderColor: "hsl(35 70% 58% / 0.12)" }}>
+                      {[
+                        { label: "Llamadas", val: "247", up: true },
+                        { label: "Resolución", val: "94%", up: true },
+                        { label: "NPS", val: "72", up: false },
+                      ].map(({ label, val, up }) => (
+                        <div key={label} className="flex flex-col items-center justify-center py-2.5 px-1">
+                          <p className="text-base font-bold text-foreground leading-none">{val}</p>
+                          <p className="text-[9px] text-foreground/45 mt-0.5">{label}</p>
+                          <span className="text-[8px] font-bold mt-0.5" style={{ color: up ? "hsl(145 60% 50%)" : "hsl(35 70% 58%)" }}>{up ? "↑" : "→"}</span>
                         </div>
                       ))}
+                    </div>
+                    {/* Bar chart */}
+                    <div className="flex-1 px-3 pt-2 pb-3 flex flex-col justify-end">
+                      <p className="text-[8px] text-foreground/35 mb-2 uppercase tracking-wider">Llamadas · últimas 6h</p>
+                      <div className="flex items-end gap-1.5 h-16">
+                        {[38, 62, 45, 80, 55, 72].map((h, i) => (
+                          <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                            <motion.div className="w-full rounded-t-sm"
+                              style={{ background: i === 3 ? "hsl(35 70% 58%)" : "hsl(35 70% 58% / 0.3)", height: `${h}%` }}
+                              initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
+                              style={{ originY: 1, background: i === 3 ? "hsl(35 70% 58%)" : "hsl(35 70% 58% / 0.3)", height: `${h}%` }} />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="flex justify-between mt-1">
+                        {["04h", "05h", "06h", "07h", "08h", "09h"].map(t => (
+                          <span key={t} className="text-[7px] text-foreground/30 flex-1 text-center">{t}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -515,7 +558,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(340 55% 60% / 0.25)", background: "hsl(340 55% 60% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[4].title}</h3>
+                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[4].description}</p>
                   </div>
                   <div className="flex-1 px-4 pb-4 flex flex-col gap-2 min-h-[200px]">
