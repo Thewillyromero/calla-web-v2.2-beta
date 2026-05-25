@@ -948,92 +948,195 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Process pipeline */}
-            <div className="relative max-w-5xl mx-auto">
+            {/* Process pipeline — vertical cards */}
+            <div className="relative max-w-4xl mx-auto">
 
-              {/* Animated track line connecting all circles (desktop) */}
-              <div className="hidden lg:block absolute h-px overflow-hidden"
-                style={{ top: "124px", left: "11%", right: "11%", background: "hsl(0 0% 100% / 0.07)", zIndex: 0 }}>
-                <motion.div className="absolute inset-y-0 w-28"
-                  style={{ background: "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.45), transparent)" }}
-                  animate={{ x: ["-7rem", "calc(100% + 7rem)"] }}
+              {/* Vertical track line */}
+              <div className="hidden md:block absolute w-px overflow-hidden"
+                style={{ left: "27px", top: "3.5rem", bottom: "3.5rem", background: "hsl(0 0% 100% / 0.08)", zIndex: 0 }}>
+                <motion.div className="absolute w-full h-20"
+                  style={{ background: "linear-gradient(180deg, transparent, hsl(0 0% 100% / 0.5), transparent)" }}
+                  animate={{ y: ["-5rem", "calc(100% + 5rem)"] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }} />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6">
+              <div className="flex flex-col gap-4">
                 {steps.map((step, i) => {
                   const StepIcon = step.icon;
-                  const grad = `linear-gradient(140deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.55) 50%, hsl(${step.hsl} / 0.15) 100%)`;
                   return (
                     <motion.div
                       key={step.number}
-                      initial={{ opacity: 0, y: 32 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                      className="flex flex-col items-center text-center gap-5 relative z-10"
+                      transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex gap-4 md:gap-6 items-stretch"
                     >
-                      {/* Step number badge */}
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full font-mono font-black text-sm"
-                        style={{ background: `hsl(${step.hsl} / 0.12)`, border: `1.5px solid hsl(${step.hsl} / 0.4)`, color: `hsl(${step.hsl})` }}>
-                        {step.number}
-                      </span>
+                      {/* Timeline node */}
+                      <div className="shrink-0 flex flex-col items-center pt-5 z-10">
+                        <motion.div
+                          className="w-14 h-14 rounded-full flex items-center justify-center font-mono font-black text-sm"
+                          style={{ background: `hsl(${step.hsl} / 0.14)`, border: `2px solid hsl(${step.hsl} / 0.5)`, color: `hsl(${step.hsl})` }}
+                          animate={{ boxShadow: [`0 0 0px hsl(${step.hsl} / 0)`, `0 0 14px hsl(${step.hsl} / 0.25)`, `0 0 0px hsl(${step.hsl} / 0)`] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.7 }}>
+                          {step.number}
+                        </motion.div>
+                      </div>
 
-                      {/* Floating circle */}
-                      <motion.div
-                        animate={{ y: [0, -11, 0] }}
-                        transition={{ duration: 4.2 + i * 0.55, repeat: Infinity, ease: "easeInOut", delay: i * 0.85 }}
-                        className="relative"
-                      >
-                        {/* Connector arrow → next step (desktop) */}
-                        {i < 3 && (
-                          <motion.div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 z-20 items-center"
-                            style={{ right: "-1.65rem" }}
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}>
-                            <ChevronRight className="w-5 h-5" style={{ color: "hsl(0 0% 100% / 0.22)" }} />
-                          </motion.div>
-                        )}
-                        {/* Connector arrow ↓ next step (mobile) */}
-                        {i < 3 && (
-                          <motion.div className="lg:hidden absolute -bottom-8 left-1/2 -translate-x-1/2"
-                            animate={{ y: [0, 4, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-                            <ChevronDown className="w-5 h-5" style={{ color: "hsl(0 0% 100% / 0.2)" }} />
-                          </motion.div>
-                        )}
+                      {/* Card */}
+                      <div className="flex-1 rounded-2xl p-5 flex flex-col md:flex-row gap-5 md:gap-0"
+                        style={{ background: "hsl(0 0% 100% / 0.03)", border: `1px solid hsl(${step.hsl} / 0.18)` }}>
 
-                        <div className="rounded-full p-[2.5px]" style={{ backgroundImage: grad }}>
-                          <div className="w-36 h-36 rounded-full flex items-center justify-center overflow-hidden relative"
-                            style={{ background: `hsl(${step.hsl} / 0.07)` }}>
-                            <motion.div className="absolute rounded-full"
-                              style={{ width: "50%", height: "50%", border: `1.5px solid hsl(${step.hsl} / 0.45)` }}
-                              animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
-                              transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay: i * 0.5 }} />
-                            <motion.div className="absolute rounded-full"
-                              style={{ width: "72%", height: "72%", border: `1px solid hsl(${step.hsl} / 0.25)` }}
-                              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
-                              transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay: i * 0.5 + 0.45 }} />
-                            <StepIcon className="w-10 h-10 relative z-10" style={{ color: `hsl(${step.hsl})` }} />
+                        {/* Text section */}
+                        <div className="flex-1 flex flex-col justify-center md:pr-6">
+                          <div className="flex items-center gap-2.5 mb-3">
+                            <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                              style={{ background: `hsl(${step.hsl} / 0.15)` }}>
+                              <StepIcon className="w-3.5 h-3.5" style={{ color: `hsl(${step.hsl})` }} />
+                            </div>
+                            <h3 className="font-display font-extrabold text-base text-foreground uppercase tracking-widest leading-tight">
+                              {step.title}
+                            </h3>
+                          </div>
+                          <p className="text-sm text-foreground/60 font-light leading-relaxed mb-4">
+                            {step.description}
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {step.chips.map(chip => (
+                              <span key={chip} className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                                style={{ background: `hsl(${step.hsl} / 0.1)`, color: `hsl(${step.hsl} / 0.9)`, border: `1px solid hsl(${step.hsl} / 0.25)` }}>
+                                {chip}
+                              </span>
+                            ))}
                           </div>
                         </div>
-                      </motion.div>
 
-                      {/* Title + description + chips */}
-                      <div className="flex flex-col items-center gap-3">
-                        <h3 className="font-display font-extrabold text-base text-foreground leading-tight uppercase tracking-widest">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[190px]">
-                          {step.description}
-                        </p>
-                        <div className="flex flex-wrap gap-1.5 justify-center">
-                          {step.chips.map(chip => (
-                            <span key={chip} className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
-                              style={{ background: `hsl(${step.hsl} / 0.1)`, color: `hsl(${step.hsl} / 0.9)`, border: `1px solid hsl(${step.hsl} / 0.25)` }}>
-                              {chip}
-                            </span>
-                          ))}
+                        {/* Divider */}
+                        <div className="hidden md:block w-px self-stretch" style={{ background: `hsl(${step.hsl} / 0.12)` }} />
+
+                        {/* Animation panel */}
+                        <div className="md:w-56 rounded-xl overflow-hidden shrink-0 md:ml-6 flex flex-col justify-center min-h-[8rem]"
+                          style={{ background: `hsl(${step.hsl} / 0.06)` }}>
+
+                          {/* 01 — Diagnóstico: scan bars */}
+                          {i === 0 && (
+                            <div className="p-4 flex flex-col justify-center gap-2.5">
+                              {[
+                                { label: "Flujos entrantes", pct: 82 },
+                                { label: "Gestión de agenda", pct: 67 },
+                                { label: "Automatización",   pct: 54 },
+                                { label: "Integración CRM",  pct: 38 },
+                              ].map((item, j) => (
+                                <div key={item.label}>
+                                  <div className="flex justify-between mb-1">
+                                    <span className="text-[9px] text-foreground/50">{item.label}</span>
+                                    <motion.span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}
+                                      animate={{ opacity: [0.5, 1, 0.5] }}
+                                      transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.45 }}>
+                                      {item.pct}%
+                                    </motion.span>
+                                  </div>
+                                  <div className="h-1 rounded-full" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
+                                    <motion.div className="h-full rounded-full" style={{ background: `hsl(${step.hsl})` }}
+                                      animate={{ width: [`${item.pct * 0.25}%`, `${item.pct}%`, `${item.pct * 0.25}%`] }}
+                                      transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: j * 0.55 }} />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* 02 — Desarrollo: build checklist + test bar */}
+                          {i === 1 && (
+                            <div className="p-4 flex flex-col justify-center gap-2.5">
+                              {[
+                                "ARIA configurado",
+                                "Flujos integrados",
+                                "Tests ejecutados",
+                              ].map((label, j) => (
+                                <motion.div key={label} className="flex items-center gap-2.5"
+                                  initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: j * 0.35 }}>
+                                  <motion.div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                                    style={{ background: `hsl(${step.hsl} / 0.18)`, border: `1px solid hsl(${step.hsl} / 0.5)` }}
+                                    animate={{ scale: [1, 1.18, 1] }}
+                                    transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.6 }}>
+                                    <Check className="w-3 h-3" style={{ color: `hsl(${step.hsl})` }} />
+                                  </motion.div>
+                                  <span className="text-xs text-foreground/70">{label}</span>
+                                </motion.div>
+                              ))}
+                              <div className="mt-0.5">
+                                <div className="flex justify-between mb-1">
+                                  <span className="text-[9px] text-foreground/40">Tests pasados</span>
+                                  <span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}>12 / 12</span>
+                                </div>
+                                <div className="h-1 rounded-full" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
+                                  <motion.div className="h-full rounded-full" style={{ background: `hsl(${step.hsl})` }}
+                                    animate={{ width: ["0%", "100%", "100%", "0%"] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 0.85, 1] }} />
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 03 — Implementación: connected nodes SVG */}
+                          {i === 2 && (
+                            <div className="flex items-center justify-center p-3 h-full">
+                              <svg width="100%" height="72" viewBox="0 0 210 72">
+                                {/* dashed connector lines */}
+                                <line x1="54" y1="36" x2="86" y2="36" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
+                                <line x1="124" y1="36" x2="156" y2="36" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
+                                {/* nodes */}
+                                {([{ x: 30, label: "CRM" }, { x: 105, label: "CALLA" }, { x: 180, label: "Agenda" }] as const).map((node, j) => (
+                                  <g key={node.label}>
+                                    <motion.circle cx={node.x} cy={36} r={j === 1 ? 19 : 14}
+                                      fill={`hsl(${step.hsl} / ${j === 1 ? 0.2 : 0.1})`}
+                                      stroke={`hsl(${step.hsl} / ${j === 1 ? 0.7 : 0.4})`} strokeWidth="1.5"
+                                      animate={{ r: j === 1 ? [19, 21, 19] : [14, 15.5, 14] }}
+                                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: j * 0.45 }} />
+                                    <text x={node.x} y={40} textAnchor="middle" fontSize="7.5" fill={`hsl(${step.hsl})`} fontWeight="bold">{node.label}</text>
+                                  </g>
+                                ))}
+                                {/* travelling particles */}
+                                {[{ path: "M54,36 L86,36", delay: "0s" }, { path: "M124,36 L156,36", delay: "0.8s" }].map((p, j) => (
+                                  <circle key={j} r="2.5" fill={`hsl(${step.hsl})`} opacity="0.9">
+                                    <animateMotion path={p.path} dur="1.4s" begin={p.delay} repeatCount="indefinite" />
+                                  </circle>
+                                ))}
+                              </svg>
+                            </div>
+                          )}
+
+                          {/* 04 — Mantenimiento: uptime dashboard */}
+                          {i === 3 && (
+                            <div className="p-4 flex flex-col justify-around h-full gap-2">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[9px] uppercase tracking-widest text-foreground/40">Uptime</span>
+                                <motion.span className="text-base font-black font-mono" style={{ color: `hsl(${step.hsl})` }}
+                                  animate={{ opacity: [0.7, 1, 0.7] }}
+                                  transition={{ duration: 2.5, repeat: Infinity }}>
+                                  99.8%
+                                </motion.span>
+                              </div>
+                              <svg width="100%" height="28" viewBox="0 0 200 28" preserveAspectRatio="none">
+                                <path d="M0,22 L22,18 L44,20 L66,9 L88,13 L110,7 L132,11 L154,5 L176,9 L200,3"
+                                  fill="none" stroke={`hsl(${step.hsl} / 0.2)`} strokeWidth="1.5" />
+                                <motion.path d="M0,22 L22,18 L44,20 L66,9 L88,13 L110,7 L132,11 L154,5 L176,9 L200,3"
+                                  fill="none" stroke={`hsl(${step.hsl})`} strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 1, 0] }}
+                                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 0.85, 1] }} />
+                              </svg>
+                              <div className="flex items-center gap-1.5">
+                                <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "hsl(145 60% 50%)" }}
+                                  animate={{ opacity: [1, 0.3, 1] }}
+                                  transition={{ duration: 1.2, repeat: Infinity }} />
+                                <span className="text-[9px] text-foreground/45">Sistema activo · v2.1.4 · actualizado hoy</span>
+                              </div>
+                            </div>
+                          )}
+
                         </div>
                       </div>
                     </motion.div>
