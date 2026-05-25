@@ -336,7 +336,7 @@ const Index = () => {
                           <div className="flex items-center gap-2 mb-3">
                             <motion.div className="w-2.5 h-2.5 rounded-full bg-red-500" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
                             <span className="text-xs font-bold tracking-wider" style={{ color: "hsl(190 60% 55%)" }}>EN LLAMADA · ARIA</span>
-                            <motion.span className="ml-auto text-xs font-mono font-bold text-foreground/50" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.25, repeat: Infinity }}>00:02:34</motion.span>
+                            <motion.span className="ml-auto text-xs font-mono font-bold text-foreground/50" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2.2, repeat: Infinity }}>00:02:34</motion.span>
                           </div>
                           <div className="flex items-center gap-3 mb-3">
                             <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0" style={{ background: "hsl(190 60% 55% / 0.2)", color: "hsl(190 60% 55%)" }}>CM</div>
@@ -350,7 +350,7 @@ const Index = () => {
                               <motion.div key={i} className="flex-1 rounded-full"
                                 style={{ height: `${h}%`, background: `hsl(190 60% 55% / ${i % 3 === 0 ? "0.9" : "0.4"})` }}
                                 animate={{ scaleY: [1, 0.3 + (i % 5) * 0.15, 1] }}
-                                transition={{ duration: 0.625 + (i % 4) * 0.19, repeat: Infinity, delay: i * 0.04 }} />
+                                transition={{ duration: 1.0 + (i % 4) * 0.28, repeat: Infinity, delay: i * 0.06 }} />
                             ))}
                           </div>
 
@@ -411,7 +411,7 @@ const Index = () => {
                               {[0, 0.2, 0.4, 0.6].map((d, i) => (
                                 <motion.div key={i} className="w-[10px] h-[10px] rounded-full" style={{ background: "hsl(190 60% 55%)" }}
                                   animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
-                                  transition={{ duration: 1.25, repeat: Infinity, delay: d }} />
+                                  transition={{ duration: 1.9, repeat: Infinity, delay: d }} />
                               ))}
                             </div>
                           </div>
