@@ -411,23 +411,22 @@ const Index = () => {
                             ))}
                           </div>
 
-                          {/* Call queue */}
+                          {/* Next calls queue */}
                           <div className="flex-1 rounded-xl overflow-hidden flex flex-col" style={{ background: "hsl(190 60% 55% / 0.06)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
                             <div className="flex items-center justify-between px-3 py-1.5 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.12)" }}>
                               <div className="flex items-center gap-1.5">
                                 <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
                                   animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
-                                <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Cola de llamadas</span>
+                                <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Próximas llamadas</span>
                               </div>
-                              <span className="text-[9px] text-foreground/40 font-mono">3 en espera</span>
+                              <span className="text-[9px] text-foreground/40 font-mono">2 pendientes</span>
                             </div>
                             <div className="flex flex-col justify-around flex-1 px-3 py-2">
                               {[
-                                { initials: "JL", name: "Jorge López",    phone: "634 XXX XXX", wait: "siguiente" },
-                                { initials: "SR", name: "Sara Ruiz",      phone: "658 XXX XXX", wait: "~2 min"    },
-                                { initials: "PM", name: "Pablo Moreno",   phone: "691 XXX XXX", wait: "~4 min"    },
+                                { initials: "SR", name: "Sara Ruiz",    phone: "658 XXX XXX", label: "siguiente" },
+                                { initials: "PM", name: "Pablo Moreno", phone: "691 XXX XXX", label: "en 3 min"  },
                               ].map((c, i) => (
-                                <motion.div key={c.name} className="flex items-center gap-2.5 rounded-lg px-2.5 py-2"
+                                <motion.div key={c.name} className="flex items-center gap-2.5 rounded-lg px-2.5 py-2.5"
                                   style={{ background: i === 0 ? "hsl(190 60% 55% / 0.12)" : "transparent", border: `1px solid hsl(190 60% 55% / ${i === 0 ? "0.25" : "0.08"})` }}
                                   initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}>
                                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0" style={{ background: "hsl(190 60% 55% / 0.15)", color: "hsl(190 60% 55%)" }}>{c.initials}</div>
@@ -435,7 +434,7 @@ const Index = () => {
                                     <p className="text-xs font-semibold text-foreground truncate">{c.name}</p>
                                     <p className="text-[9px] text-foreground/40">{c.phone}</p>
                                   </div>
-                                  <span className="text-[9px] font-semibold shrink-0" style={{ color: i === 0 ? "hsl(145 60% 50%)" : "hsl(190 60% 55% / 0.5)" }}>{c.wait}</span>
+                                  <span className="text-[9px] font-semibold shrink-0" style={{ color: i === 0 ? "hsl(145 60% 50%)" : "hsl(190 60% 55% / 0.5)" }}>{c.label}</span>
                                 </motion.div>
                               ))}
                             </div>
