@@ -107,7 +107,7 @@ const steps = [
   {
     number: "2",
     title: "Desarrollo",
-    description: "Se configuran los agentes base y se desarrollan los asistentes específicos que requiera la operativa. Cada integración es validada en entorno de pruebas antes de pasar a producción.",
+    description: "Se configuran los agentes base y se desarrollan los asistentes IA específicos que requiera la empresa. Cada integración es validada en entorno de pruebas antes de pasar a implementación.",
     chips: ["Agentes base", "IA a medida", "Integraciones"],
     hsl: "248 76% 63%",
     icon: Code2,
