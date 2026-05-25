@@ -60,6 +60,7 @@ interface AgentData {
   testimonials: AgentTestimonial[];
   taglineBreakBefore?: boolean;
   taglineBreakAfter?: string;
+  taglineHighlight2?: string;
   showDemoCall?: boolean;
   showCallSimulator?: boolean;
   howItWorks?: AgentStep[];
@@ -221,7 +222,8 @@ const agentData: Record<string, AgentData> = {
     name: "BYTE",
     role: "Analista de Datos",
     tagline: "Datos que transforman decisiones",
-    taglineHighlight: "decisiones",
+    taglineHighlight: "transforman",
+    taglineHighlight2: "decisiones",
     taglineBreakBefore: true,
     description:
       "BYTE analiza cada llamada y genera reportes accionables.\n\nDetecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
@@ -423,7 +425,19 @@ const AgentPage = () => {
                 >
                   {highlight}
                 </span>
-                {taglineAfter}
+                {agent.taglineHighlight2 ? (
+                  <span
+                    className="block bg-clip-text text-transparent"
+                    style={{
+                      backgroundImage: agentGradient,
+                      textShadow: "none",
+                      WebkitTextStroke: "0",
+                      filter: `drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.15)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 3px 5px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 12px hsl(${agentHsl} / 0.3))`,
+                    }}
+                  >
+                    {agent.taglineHighlight2}
+                  </span>
+                ) : taglineAfter}
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
                 {agent.description}
@@ -491,6 +505,8 @@ const AgentPage = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Cómo trabaja — only if howItWorks data exists */}
       {agent.howItWorks && (
         <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
@@ -532,6 +548,8 @@ const AgentPage = () => {
         </section>
       )}
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Features (fallback for agents without featureCards) */}
       {!agent.howItWorks && (
         <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
@@ -553,6 +571,8 @@ const AgentPage = () => {
         </section>
       )}
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* DemoCall */}
       {agent.showDemoCall && (
         <div className="bg-white/[0.03]">
@@ -561,6 +581,8 @@ const AgentPage = () => {
           </Suspense>
         </div>
       )}
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Scenarios (rich) or Use Cases (fallback) */}
       {agent.scenarios ? (
@@ -610,10 +632,15 @@ const AgentPage = () => {
       )}
 
       {agent.showCallSimulator && (
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
-          <CallSimulator />
-        </Suspense>
+        <>
+          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+          <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
+            <CallSimulator />
+          </Suspense>
+        </>
       )}
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Testimonials */}
       <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">

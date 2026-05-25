@@ -202,10 +202,10 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Benefits */}
               <div className="space-y-3 mb-6">
                 {[
-                  "Todas tus llamadas contestadas, 24/7",
-                  "Citas agendadas automáticamente",
-                  "Cero llamadas perdidas",
-                  "Tu tiempo libre para lo que importa",
+                  "ARIA atiende cada llamada, 24/7 sin excepciones",
+                  "LUMI gestiona tu agenda y evita huecos vacíos",
+                  "NOVA hace el seguimiento de cada lead automáticamente",
+                  "BYTE mide y analiza toda tu atención en tiempo real",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2.5">
                     <Check className="w-4 h-4 text-brand-emerald shrink-0" />

@@ -101,6 +101,8 @@ const SectorPage = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Stats ── */}
       <section className="py-14 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
@@ -121,6 +123,8 @@ const SectorPage = () => {
           </div>
         </div>
       </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ── Pain Points ── */}
       <section className="py-16 md:py-24 px-5 md:px-6">
@@ -151,6 +155,8 @@ const SectorPage = () => {
           </div>
         </div>
       </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ── Capabilities (sector-specific) / Agentes en acción (fallback) ── */}
       {sector.capabilities ? (
@@ -249,6 +255,8 @@ const SectorPage = () => {
         </section>
       )}
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Casos de uso ── */}
       <section className="py-16 md:py-24 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
@@ -285,6 +293,8 @@ const SectorPage = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Testimonial ── */}
       <section className="py-16 md:py-20 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-3xl">
@@ -313,6 +323,8 @@ const SectorPage = () => {
           </motion.div>
         </div>
       </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ── CTA ── */}
       <section className="py-20 md:py-28 px-5 md:px-6">
