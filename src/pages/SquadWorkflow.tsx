@@ -407,11 +407,17 @@ const SquadWorkflow = () => {
                 <motion.div
                   key={i}
                   className="bg-card/40 rounded-2xl p-6 flex flex-col"
-                  style={{ border: `1px solid hsl(${haloHsl} / 0.28)` }}
-                  whileHover={{
-                    borderColor: `hsl(${haloHsl} / 0.7)`,
-                    boxShadow: `0 0 20px hsl(${haloHsl} / 0.18)`,
-                    transition: { duration: 0.15 },
+                  style={{
+                    border: `1px solid hsl(${haloHsl} / 0.28)`,
+                    transition: "border-color 0.15s ease, box-shadow 0.15s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = `hsl(${haloHsl} / 0.7)`;
+                    e.currentTarget.style.boxShadow = `0 0 22px hsl(${haloHsl} / 0.22)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = `hsl(${haloHsl} / 0.28)`;
+                    e.currentTarget.style.boxShadow = "none";
                   }}
                   {...fade}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
