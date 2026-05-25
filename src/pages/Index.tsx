@@ -345,7 +345,7 @@ const Index = () => {
                               <p className="text-xs text-foreground/50">647 XXX XXX · Entrante</p>
                             </div>
                           </div>
-                          <div className="flex items-end gap-[3px] h-10 mb-3">
+                          <div className="flex items-end gap-[3px] h-[30px] mb-3">
                             {[20,45,30,70,55,40,80,35,60,45,75,50,30,65,40,85,55,30,70,45,38,62,48,72,52].map((h, i) => (
                               <motion.div key={i} className="flex-1 rounded-full"
                                 style={{ height: `${h}%`, background: `hsl(190 60% 55% / ${i % 3 === 0 ? "0.9" : "0.4"})` }}
