@@ -300,34 +300,50 @@ const Index = () => {
                 className="md:col-span-2 rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
                 style={{ borderColor: `hsl(190 60% 55% / ${hoveredCap === 0 ? "0.40" : "0.18"})`, background: `hsl(190 60% 55% / ${hoveredCap === 0 ? "0.06" : "0.03"})` }}
               >
-                <div className="relative h-52 flex items-center justify-center overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.07)" }}>
+                <div className="relative h-44 flex items-center justify-center overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.07)" }}>
                   {[1, 2, 3].map(n => (
                     <motion.div key={n} className="absolute rounded-full border"
-                      style={{ width: n * 72, height: n * 72, borderColor: "hsl(190 60% 55% / 0.28)" }}
-                      animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                      style={{ width: n * 62, height: n * 62, borderColor: "hsl(190 60% 55% / 0.25)" }}
+                      animate={{ scale: [1, 1.35, 1], opacity: [0.45, 0, 0.45] }}
                       transition={{ duration: 2.8, repeat: Infinity, delay: n * 0.55, ease: "easeOut" }} />
                   ))}
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center relative z-10"
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center relative z-10"
                     style={{ background: "hsl(190 60% 55% / 0.18)", border: "1px solid hsl(190 60% 55% / 0.35)" }}>
-                    <Phone className="w-8 h-8" style={{ color: "hsl(190 60% 55%)" }} />
+                    <Phone className="w-7 h-7" style={{ color: "hsl(190 60% 55%)" }} />
                   </div>
-                  <motion.div
-                    className="absolute top-5 right-6 rounded-2xl px-4 py-2 text-xs font-semibold border backdrop-blur-sm"
+                  {/* Waveform */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-44 h-6 overflow-hidden">
+                    <svg viewBox="0 0 200 24" className="w-full h-full" preserveAspectRatio="none">
+                      <path d="M0,12 C14,2 28,22 42,12 C56,2 70,22 84,12 C98,2 112,22 126,12 C140,2 154,22 168,12 C182,2 196,22 210,12" fill="none" stroke="hsl(190 60% 55% / 0.18)" strokeWidth="1.5" strokeLinecap="round" />
+                      <motion.path
+                        d="M0,12 C14,2 28,22 42,12 C56,2 70,22 84,12 C98,2 112,22 126,12 C140,2 154,22 168,12 C182,2 196,22 210,12"
+                        fill="none" stroke="hsl(190 60% 55% / 0.65)" strokeWidth="2" strokeLinecap="round"
+                        strokeDasharray="28 10"
+                        animate={{ strokeDashoffset: [0, -38] }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+                      />
+                    </svg>
+                  </div>
+                  {/* Floating badges */}
+                  <motion.div className="absolute top-4 right-5 rounded-xl px-3 py-1.5 text-xs font-semibold border backdrop-blur-sm"
                     style={{ background: "hsl(190 60% 55% / 0.12)", borderColor: "hsl(190 60% 55% / 0.3)", color: "hsl(190 60% 55%)" }}
-                    animate={{ y: [0, -5, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    ● Llamada entrante
+                    animate={{ y: [0, -5, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+                    ↙ Entrante
+                  </motion.div>
+                  <motion.div className="absolute top-4 left-5 rounded-xl px-3 py-1.5 text-xs font-semibold border backdrop-blur-sm"
+                    style={{ background: "hsl(190 60% 55% / 0.12)", borderColor: "hsl(190 60% 55% / 0.3)", color: "hsl(190 60% 55%)" }}
+                    animate={{ y: [0, -5, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}>
+                    ↗ Saliente
+                  </motion.div>
+                  <motion.div className="absolute bottom-4 right-5 rounded-xl px-2.5 py-1 text-xs font-black border"
+                    style={{ background: "hsl(190 60% 55% / 0.18)", borderColor: "hsl(190 60% 55% / 0.45)", color: "hsl(190 60% 55%)" }}
+                    animate={{ opacity: [0.75, 1, 0.75] }} transition={{ duration: 2.2, repeat: Infinity }}>
+                    24 / 7
                   </motion.div>
                 </div>
                 <div className="p-7 md:p-8 flex-1">
                   <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-2 leading-tight">{capabilities[0].title}</h3>
-                  <p className="text-base text-foreground/65 font-light mb-5 leading-relaxed">{capabilities[0].description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {capabilities[0].chips.map(chip => (
-                      <span key={chip} className="text-xs font-semibold px-3 py-1.5 rounded-full"
-                        style={{ background: "hsl(190 60% 55% / 0.10)", color: "hsl(190 60% 55%)" }}>{chip}</span>
-                    ))}
-                  </div>
+                  <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[0].description}</p>
                 </div>
               </motion.div>
 
@@ -339,38 +355,49 @@ const Index = () => {
                 className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
                 style={{ borderColor: `hsl(160 50% 48% / ${hoveredCap === 1 ? "0.40" : "0.18"})`, background: `hsl(160 50% 48% / ${hoveredCap === 1 ? "0.06" : "0.03"})` }}
               >
-                <div className="relative h-52 flex items-center justify-center overflow-hidden" style={{ background: "hsl(160 50% 48% / 0.07)" }}>
-                  <div className="rounded-2xl p-3.5" style={{ background: "hsl(160 50% 48% / 0.10)", border: "1px solid hsl(160 50% 48% / 0.18)" }}>
-                    <p className="text-[10px] font-bold text-center mb-2.5 tracking-widest" style={{ color: "hsl(160 50% 48%)" }}>OCTUBRE</p>
-                    <div className="grid grid-cols-5 gap-1.5">
-                      {Array.from({ length: 15 }, (_, n) => {
+                <div className="relative h-56 flex items-center justify-center overflow-hidden" style={{ background: "hsl(160 50% 48% / 0.07)" }}>
+                  <motion.div className="absolute top-3.5 right-4 rounded-xl px-2.5 py-1 text-[10px] font-semibold border backdrop-blur-sm z-10"
+                    style={{ background: "hsl(160 50% 48% / 0.14)", borderColor: "hsl(160 50% 48% / 0.3)", color: "hsl(160 50% 48%)" }}
+                    animate={{ y: [0, -3, 0] }} transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}>
+                    📅 Mañana · 10:30
+                  </motion.div>
+                  <div className="rounded-2xl p-3" style={{ background: "hsl(160 50% 48% / 0.10)", border: "1px solid hsl(160 50% 48% / 0.18)" }}>
+                    <p className="text-[9px] font-bold text-center mb-1.5 tracking-widest" style={{ color: "hsl(160 50% 48%)" }}>OCTUBRE</p>
+                    <div className="grid grid-cols-7 gap-1 mb-1">
+                      {["L","M","X","J","V","S","D"].map(d => (
+                        <div key={d} className="w-5 h-4 flex items-center justify-center text-[8px] font-bold" style={{ color: "hsl(160 50% 48% / 0.5)" }}>{d}</div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-7 gap-1">
+                      {Array.from({ length: 28 }, (_, n) => {
                         const day = n + 1;
-                        const booked = [3, 8, 12].includes(day);
+                        const booked = [3, 8, 12, 17, 22].includes(day);
+                        const weekend = [6,7,13,14,20,21,27,28].includes(day);
                         return (
                           <motion.div key={day}
-                            className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold"
-                            style={{ background: booked ? "hsl(160 50% 48%)" : "hsl(160 50% 48% / 0.08)", color: booked ? "#fff" : "hsl(160 50% 48% / 0.6)" }}
-                            animate={booked ? { scale: [1, 1.12, 1] } : {}}
-                            transition={{ duration: 2.2, repeat: Infinity, delay: [3, 8, 12].indexOf(day) * 0.8 }}
+                            className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold"
+                            style={{ background: booked ? "hsl(160 50% 48%)" : weekend ? "transparent" : "hsl(160 50% 48% / 0.08)", color: booked ? "#fff" : weekend ? "hsl(160 50% 48% / 0.25)" : "hsl(160 50% 48% / 0.6)" }}
+                            animate={booked ? { scale: [1, 1.1, 1] } : {}}
+                            transition={{ duration: 2.2, repeat: Infinity, delay: [3,8,12,17,22].indexOf(day) * 0.5 }}
                           >{day}</motion.div>
                         );
                       })}
+                    </div>
+                    <div className="flex justify-center gap-1.5 mt-2">
+                      {["Google Cal", "Calendly", "CRM"].map(label => (
+                        <span key={label} className="text-[8px] font-semibold px-1.5 py-0.5 rounded-full"
+                          style={{ background: "hsl(160 50% 48% / 0.15)", color: "hsl(160 50% 48% / 0.8)" }}>{label}</span>
+                      ))}
                     </div>
                   </div>
                 </div>
                 <div className="p-6 flex-1">
                   <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[1].title}</h3>
-                  <p className="text-sm text-foreground/65 font-light mb-4 leading-relaxed">{capabilities[1].description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {capabilities[1].chips.map(chip => (
-                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
-                        style={{ background: "hsl(160 50% 48% / 0.10)", color: "hsl(160 50% 48%)" }}>{chip}</span>
-                    ))}
-                  </div>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
                 </div>
               </motion.div>
 
-              {/* FLUJOS — network nodes */}
+              {/* FLUJOS — labeled nodes */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
@@ -378,17 +405,27 @@ const Index = () => {
                 className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
                 style={{ borderColor: `hsl(245 60% 62% / ${hoveredCap === 2 ? "0.40" : "0.18"})`, background: `hsl(245 60% 62% / ${hoveredCap === 2 ? "0.06" : "0.03"})` }}
               >
-                <div className="relative h-40 flex items-center justify-center overflow-hidden" style={{ background: "hsl(245 60% 62% / 0.07)" }}>
+                <div className="relative h-52 flex items-center justify-center overflow-hidden" style={{ background: "hsl(245 60% 62% / 0.07)" }}>
                   <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                    {[["50%","50%","18%","18%"],["50%","50%","82%","18%"],["50%","50%","18%","82%"],["50%","50%","82%","82%"]].map(([x1,y1,x2,y2], i) => (
+                    {[["50%","50%","13%","16%"],["50%","50%","87%","16%"],["50%","50%","13%","84%"],["50%","50%","87%","84%"]].map(([x1,y1,x2,y2], i) => (
                       <motion.line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
-                        stroke="hsl(245 60% 62% / 0.45)" strokeWidth="1.5" strokeDasharray="4 3"
-                        animate={{ opacity: [0.2, 0.8, 0.2] }}
+                        stroke="hsl(245 60% 62% / 0.4)" strokeWidth="1.5" strokeDasharray="4 3"
+                        animate={{ opacity: [0.2, 0.9, 0.2] }}
                         transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }} />
                     ))}
                   </svg>
-                  {[{ top: "14%", left: "14%" },{ top: "14%", right: "14%" },{ bottom: "14%", left: "14%" },{ bottom: "14%", right: "14%" }].map((pos, i) => (
-                    <div key={i} className="absolute w-7 h-7 rounded-full z-10" style={{ ...pos, background: "hsl(245 60% 62% / 0.55)" }} />
+                  {[
+                    { pos: { top: "9%", left: "4%" }, label: "CRM" },
+                    { pos: { top: "9%", right: "4%" }, label: "API" },
+                    { pos: { bottom: "9%", left: "4%" }, label: "Slack" },
+                    { pos: { bottom: "9%", right: "4%" }, label: "Email" },
+                  ].map(({ pos, label }, i) => (
+                    <motion.div key={i} className="absolute z-10 rounded-lg px-2.5 py-1 text-[10px] font-bold border"
+                      style={{ ...pos, background: "hsl(245 60% 62% / 0.18)", borderColor: "hsl(245 60% 62% / 0.4)", color: "hsl(245 60% 62%)" }}
+                      animate={{ opacity: [0.6, 1, 0.6] }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.35 }}>
+                      {label}
+                    </motion.div>
                   ))}
                   <motion.div className="relative z-20 w-12 h-12 rounded-full flex items-center justify-center"
                     style={{ background: "hsl(245 60% 62%)" }}
@@ -398,17 +435,11 @@ const Index = () => {
                 </div>
                 <div className="p-5 md:p-6 flex-1">
                   <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[2].title}</h3>
-                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[2].description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {capabilities[2].chips.map(chip => (
-                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
-                        style={{ background: "hsl(245 60% 62% / 0.10)", color: "hsl(245 60% 62%)" }}>{chip}</span>
-                    ))}
-                  </div>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[2].description}</p>
                 </div>
               </motion.div>
 
-              {/* ANALÍTICA — animated bars */}
+              {/* ANALÍTICA — bars + trend line */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
@@ -416,28 +447,37 @@ const Index = () => {
                 className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
                 style={{ borderColor: `hsl(35 70% 58% / ${hoveredCap === 3 ? "0.40" : "0.18"})`, background: `hsl(35 70% 58% / ${hoveredCap === 3 ? "0.06" : "0.03"})` }}
               >
-                <div className="relative h-40 flex items-end justify-center gap-1.5 overflow-hidden pb-5 px-6" style={{ background: "hsl(35 70% 58% / 0.07)" }}>
-                  {[55, 80, 45, 90, 65, 75, 50].map((h, n) => (
-                    <motion.div key={n}
-                      className="flex-1 rounded-t-md"
-                      style={{ height: `${h}%`, background: `hsl(35 70% 58% / ${n === 3 ? "1" : "0.55"})`, transformOrigin: "bottom" }}
-                      animate={{ scaleY: [0.7, 1, 0.7] }}
-                      transition={{ duration: 2.5, repeat: Infinity, delay: n * 0.15, ease: "easeInOut" }} />
-                  ))}
+                <div className="relative h-52 overflow-hidden" style={{ background: "hsl(35 70% 58% / 0.07)" }}>
+                  <motion.div className="absolute top-3.5 left-4 rounded-xl px-3 py-1.5 text-[10px] font-semibold border backdrop-blur-sm z-10"
+                    style={{ background: "hsl(35 70% 58% / 0.14)", borderColor: "hsl(35 70% 58% / 0.35)", color: "hsl(35 70% 58%)" }}
+                    animate={{ y: [0, -3, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}>
+                    ↑ +32% satisfacción
+                  </motion.div>
+                  <div className="absolute inset-x-5 bottom-5 top-14 flex items-end gap-1.5">
+                    {[55, 80, 45, 90, 65, 75, 50].map((h, n) => (
+                      <motion.div key={n} className="flex-1 rounded-t-md"
+                        style={{ height: `${h}%`, background: `hsl(35 70% 58% / ${n === 3 ? "1" : "0.45"})`, transformOrigin: "bottom" }}
+                        animate={{ scaleY: [0.75, 1, 0.75] }}
+                        transition={{ duration: 2.5, repeat: Infinity, delay: n * 0.15, ease: "easeInOut" }} />
+                    ))}
+                  </div>
+                  <svg className="absolute pointer-events-none" style={{ left: "1.25rem", right: "1.25rem", top: "3.5rem", bottom: "1.25rem", width: "calc(100% - 2.5rem)", height: "calc(100% - 4.75rem)" }} viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <motion.polyline
+                      points="7,45 21,20 35,55 50,10 64,35 78,25 93,50"
+                      fill="none" stroke="hsl(35 70% 58%)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                      strokeDasharray="200"
+                      animate={{ strokeDashoffset: [200, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatDelay: 2 }}
+                    />
+                  </svg>
                 </div>
                 <div className="p-5 md:p-6 flex-1">
                   <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[3].title}</h3>
-                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[3].description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {capabilities[3].chips.map(chip => (
-                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
-                        style={{ background: "hsl(35 70% 58% / 0.10)", color: "hsl(35 70% 58%)" }}>{chip}</span>
-                    ))}
-                  </div>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[3].description}</p>
                 </div>
               </motion.div>
 
-              {/* FIDELIZACIÓN — avatars */}
+              {/* FIDELIZACIÓN — avatars + NPS */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
@@ -445,7 +485,7 @@ const Index = () => {
                 className="rounded-3xl overflow-hidden border flex flex-col transition-all duration-300 cursor-default"
                 style={{ borderColor: `hsl(340 55% 60% / ${hoveredCap === 4 ? "0.40" : "0.18"})`, background: `hsl(340 55% 60% / ${hoveredCap === 4 ? "0.06" : "0.03"})` }}
               >
-                <div className="relative h-40 flex items-center justify-center overflow-hidden" style={{ background: "hsl(340 55% 60% / 0.07)" }}>
+                <div className="relative h-52 flex flex-col items-center justify-center gap-5 overflow-hidden" style={{ background: "hsl(340 55% 60% / 0.07)" }}>
                   <div className="flex items-center">
                     {["JG", "MR", "LP", "AC"].map((initials, n) => (
                       <motion.div key={n}
@@ -470,16 +510,24 @@ const Index = () => {
                       viewport={{ once: true }} transition={{ delay: 0.75 }}
                     >+12</motion.div>
                   </div>
+                  <div className="w-44">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "hsl(340 55% 60% / 0.7)" }}>NPS Score</span>
+                      <motion.span className="text-sm font-display font-extrabold" style={{ color: "hsl(340 55% 60%)" }}
+                        animate={{ opacity: [0.75, 1, 0.75] }} transition={{ duration: 2.5, repeat: Infinity }}>
+                        72
+                      </motion.span>
+                    </div>
+                    <div className="h-2 rounded-full overflow-hidden" style={{ background: "hsl(340 55% 60% / 0.15)" }}>
+                      <motion.div className="h-full rounded-full" style={{ background: "hsl(340 55% 60%)" }}
+                        initial={{ width: "0%" }} whileInView={{ width: "72%" }}
+                        viewport={{ once: true }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.8 }} />
+                    </div>
+                  </div>
                 </div>
                 <div className="p-5 md:p-6 flex-1">
                   <h3 className="text-base font-display font-bold text-foreground mb-1.5 leading-tight">{capabilities[4].title}</h3>
-                  <p className="text-sm text-foreground/65 font-light mb-3 leading-relaxed">{capabilities[4].description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {capabilities[4].chips.map(chip => (
-                      <span key={chip} className="text-xs font-semibold px-2.5 py-1 rounded-full"
-                        style={{ background: "hsl(340 55% 60% / 0.10)", color: "hsl(340 55% 60%)" }}>{chip}</span>
-                    ))}
-                  </div>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[4].description}</p>
                 </div>
               </motion.div>
 
