@@ -196,7 +196,7 @@ const Pricing = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, margin: "-60px" }}
-                  className={`relative transition-all duration-500 ${tier.popular ? "md:-mt-4 md:mb-4" : ""}`}
+                  className="relative transition-all duration-500"
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 >
                   {/* Badge FUERA del glow-border para que overflow:hidden no lo corte */}
