@@ -221,7 +221,8 @@ const agentData: Record<string, AgentData> = {
     name: "BYTE",
     role: "Analista de Datos",
     tagline: "Datos que transforman decisiones",
-    taglineHighlight: "transforman decisiones",
+    taglineHighlight: "decisiones",
+    taglineBreakBefore: true,
     description:
       "BYTE analiza cada llamada y genera reportes accionables.\n\nDetecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
     image: agentAnalytics,
@@ -625,9 +626,13 @@ const AgentPage = () => {
               {agent.testimonials.map((t, i) => (
                 <motion.div
                   key={i}
-                  className="bg-card/40 rounded-2xl p-6 transition-all flex flex-col"
+                  className="bg-card/40 rounded-2xl p-6 flex flex-col"
                   style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }}
-                  whileHover={{ borderColor: `hsl(${agentHsl} / 0.6)` }}
+                  whileHover={{
+                    borderColor: `hsl(${agentHsl} / 0.7)`,
+                    boxShadow: `0 0 20px hsl(${agentHsl} / 0.18)`,
+                    transition: { duration: 0.15 },
+                  }}
                   {...fade}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
