@@ -83,7 +83,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="rounded-2xl border border-border/25 bg-card/35 p-5 sm:p-7 h-full flex flex-col">
+            <div className="rounded-2xl border border-border/35 bg-card/60 p-5 sm:p-7 h-full flex flex-col">
               <h3 className="font-display font-bold text-foreground flex items-center gap-2 mb-6">
                 <UserX className="w-4 h-4 text-brand-rose" />
                 Lo que gastas hoy
@@ -163,24 +163,27 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               </div>
 
               {/* Total today */}
-              <div className="border-t border-border/20 pt-4 mt-6">
-                <div className="flex items-baseline justify-between mb-2">
-                  <span className="text-sm text-muted-foreground/60">Tu gasto total hoy</span>
-                  <span className="text-xl font-display font-extrabold text-brand-rose">
-                    €{result.totalToday.toLocaleString("es-ES")}<span className="text-sm font-normal text-brand-rose/50">/mes</span>
-                  </span>
-                </div>
-                <div className="space-y-1 text-xs text-muted-foreground/60">
-                  <div className="flex justify-between">
-                    <span>Personal</span>
-                    <span>€{staffCost.toLocaleString("es-ES")}</span>
-                  </div>
-                  {ownHours > 0 && (
-                    <div className="flex justify-between">
-                      <span>Tu tiempo ({ownHours}h/día × €50/h)</span>
-                      <span>€{result.ownTimeCost.toLocaleString("es-ES")}</span>
+              <div className="mt-6">
+                <div className="bg-brand-rose/10 border border-brand-rose/20 rounded-xl p-5 text-center">
+                  <p className="text-[10px] text-brand-rose/70 uppercase tracking-wider font-semibold mb-2">
+                    Tu gasto total hoy
+                  </p>
+                  <p className="text-4xl font-display font-extrabold text-brand-rose leading-none">
+                    €{result.totalToday.toLocaleString("es-ES")}
+                    <span className="text-base font-normal text-brand-rose/50">/mes</span>
+                  </p>
+                  <div className="flex justify-between mt-4 pt-4 border-t border-brand-rose/15 text-sm">
+                    <div className="text-left">
+                      <span className="block text-xs text-muted-foreground/55 mb-0.5">Personal</span>
+                      <span className="font-display font-bold text-foreground/80">€{staffCost.toLocaleString("es-ES")}</span>
                     </div>
-                  )}
+                    {ownHours > 0 && (
+                      <div className="text-right">
+                        <span className="block text-xs text-muted-foreground/55 mb-0.5">Tu tiempo ({ownHours}h/día)</span>
+                        <span className="font-display font-bold text-foreground/80">€{result.ownTimeCost.toLocaleString("es-ES")}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
