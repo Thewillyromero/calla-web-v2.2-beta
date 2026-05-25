@@ -1087,39 +1087,41 @@ const Index = () => {
                             </div>
                           )}
 
-                          {/* 3 — Implementación: herramientas de la empresa conectadas */}
+                          {/* 3 — Implementación: verificación pre-lanzamiento */}
                           {i === 2 && (
-                            <div className="flex flex-col justify-center p-3 h-full gap-2">
-                              <div className="flex items-center justify-center">
-                                <svg width="100%" height="60" viewBox="0 0 220 60">
-                                  <line x1="56" y1="30" x2="88" y2="30" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
-                                  <line x1="132" y1="30" x2="164" y2="30" stroke={`hsl(${step.hsl} / 0.3)`} strokeWidth="1" strokeDasharray="4 3" />
-                                  {([
-                                    { x: 30,  label: "Tu CRM"   },
-                                    { x: 110, label: "CALLA"    },
-                                    { x: 190, label: "Tu agenda"},
-                                  ] as const).map((node, j) => (
-                                    <g key={node.label}>
-                                      <motion.circle cx={node.x} cy={30} r={j === 1 ? 18 : 13}
-                                        fill={`hsl(${step.hsl} / ${j === 1 ? 0.22 : 0.1})`}
-                                        stroke={`hsl(${step.hsl} / ${j === 1 ? 0.75 : 0.4})`} strokeWidth="1.5"
-                                        animate={{ r: j === 1 ? [18, 20, 18] : [13, 14.5, 13] }}
-                                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: j * 0.4 }} />
-                                      <text x={node.x} y={34} textAnchor="middle" fontSize="7" fill={`hsl(${step.hsl})`} fontWeight="bold">{node.label}</text>
-                                    </g>
-                                  ))}
-                                  {[{ path: "M56,30 L88,30", delay: "0s" }, { path: "M132,30 L164,30", delay: "0.7s" }].map((p, j) => (
-                                    <circle key={j} r="2.5" fill={`hsl(${step.hsl})`} opacity="0.9">
-                                      <animateMotion path={p.path} dur="1.3s" begin={p.delay} repeatCount="indefinite" />
-                                    </circle>
-                                  ))}
-                                </svg>
-                              </div>
-                              <div className="flex items-center justify-center gap-1.5 px-2">
-                                <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `hsl(${step.hsl})` }}
-                                  animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
-                                <span className="text-[9px] text-foreground/50">Equipo formado · Sistema verificado</span>
-                              </div>
+                            <div className="p-4 flex flex-col justify-center gap-2.5 h-full">
+                              {[
+                                "Herramientas conectadas",
+                                "Personal formado",
+                                "Sistema verificado",
+                              ].map((label, j) => (
+                                <div key={label} className="flex items-center justify-between gap-2">
+                                  <div className="flex items-center gap-2">
+                                    <motion.div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
+                                      style={{ background: `hsl(${step.hsl} / 0.18)`, border: `1px solid hsl(${step.hsl} / 0.55)` }}
+                                      animate={{ scale: [1, 1.2, 1] }}
+                                      transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.65 }}>
+                                      <Check className="w-2.5 h-2.5" style={{ color: `hsl(${step.hsl})` }} />
+                                    </motion.div>
+                                    <span className="text-[10px] text-foreground/70">{label}</span>
+                                  </div>
+                                  <motion.span className="text-[8px] font-bold font-mono px-1.5 py-0.5 rounded"
+                                    style={{ background: `hsl(${step.hsl} / 0.12)`, color: `hsl(${step.hsl})` }}
+                                    animate={{ opacity: [0.6, 1, 0.6] }}
+                                    transition={{ duration: 2, repeat: Infinity, delay: j * 0.5 }}>
+                                    OK
+                                  </motion.span>
+                                </div>
+                              ))}
+                              <motion.div className="mt-1 flex items-center justify-center gap-2 py-2 rounded-lg"
+                                style={{ background: `hsl(${step.hsl} / 0.14)`, border: `1px solid hsl(${step.hsl} / 0.4)` }}
+                                animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.02, 1] }}
+                                transition={{ duration: 2.2, repeat: Infinity }}>
+                                <Rocket className="w-3.5 h-3.5" style={{ color: `hsl(${step.hsl})` }} />
+                                <span className="text-[10px] font-extrabold uppercase tracking-widest" style={{ color: `hsl(${step.hsl})` }}>
+                                  Puesta en marcha
+                                </span>
+                              </motion.div>
                             </div>
                           )}
 
