@@ -424,7 +424,7 @@ const Index = () => {
                             <div className="flex flex-col justify-around flex-1 px-3 py-2">
                               {[
                                 { initials: "SR", name: "Sara Ruiz",    phone: "658 XXX XXX", label: "siguiente" },
-                                { initials: "PM", name: "Pablo Moreno", phone: "691 XXX XXX", label: "en 3 min"  },
+                                { initials: "PM", name: "Pablo Moreno", phone: "691 XXX XXX", label: "En cola"   },
                               ].map((c, i) => (
                                 <motion.div key={c.name} className="flex items-center gap-2.5 rounded-lg px-2.5 py-2.5"
                                   style={{ background: i === 0 ? "hsl(190 60% 55% / 0.12)" : "transparent", border: `1px solid hsl(190 60% 55% / ${i === 0 ? "0.25" : "0.08"})` }}
