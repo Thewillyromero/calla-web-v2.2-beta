@@ -303,7 +303,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(190 60% 55% / 0.25)", background: "hsl(190 60% 55% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
+                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[0].description}</p>
                   </div>
                   <div className="flex gap-2 px-5 pb-3">
@@ -403,11 +403,12 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(160 50% 48% / 0.25)", background: "hsl(160 50% 48% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
+                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
                   </div>
-                  <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col items-center justify-center gap-4 p-5 min-h-[180px]"
+                  <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col justify-center gap-3 p-4 min-h-[180px]"
                     style={{ background: "hsl(160 50% 48% / 0.08)", border: "1px solid hsl(160 50% 48% / 0.15)" }}>
+                    {/* Countdown */}
                     <div className="text-center">
                       <motion.p className="text-5xl font-bold font-display" style={{ color: "hsl(160 50% 48%)" }}
                         animate={{ opacity: [0.8, 1, 0.8] }} transition={{ duration: 2.5, repeat: Infinity }}>
@@ -415,9 +416,20 @@ const Index = () => {
                       </motion.p>
                       <p className="text-xs text-foreground/50 mt-1">Próxima cita</p>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-2">
+                    {/* Cita confirmada badge */}
+                    <motion.div className="flex items-center gap-3 p-3 rounded-xl mx-1"
+                      style={{ background: "hsl(160 50% 48% / 0.12)", border: "1px solid hsl(160 50% 48% / 0.28)" }}
+                      animate={{ y: [0, -2, 0] }} transition={{ duration: 3.2, repeat: Infinity }}>
+                      <span className="text-base shrink-0">📅</span>
+                      <div>
+                        <p className="text-xs font-bold text-foreground">Cita agendada automáticamente</p>
+                        <p className="text-[10px] text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
+                      </div>
+                    </motion.div>
+                    {/* Chips */}
+                    <div className="flex flex-wrap justify-center gap-1.5">
                       {["Google Calendar", "Calendly", "Apple Calendar"].map(chip => (
-                        <span key={chip} className="px-3 py-1 rounded-full text-xs font-semibold"
+                        <span key={chip} className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
                           style={{ background: "hsl(160 50% 48% / 0.12)", color: "hsl(160 50% 48%)", border: "1px solid hsl(160 50% 48% / 0.3)" }}>
                           {chip}
                         </span>
@@ -436,7 +448,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(245 60% 62% / 0.25)", background: "hsl(245 60% 62% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
+                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[2].description}</p>
                   </div>
                   <div className="flex-1 px-3 pb-4 min-h-[220px] flex items-center justify-center">
@@ -502,53 +514,51 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(35 70% 58% / 0.25)", background: "hsl(35 70% 58% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
+                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[3].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl overflow-hidden min-h-[220px] flex flex-col"
-                    style={{ background: "hsl(35 70% 58% / 0.06)", border: "1px solid hsl(35 70% 58% / 0.18)" }}>
-                    {/* Dashboard header bar */}
+                    style={{ background: "hsl(35 70% 58% / 0.05)", border: "1px solid hsl(35 70% 58% / 0.18)" }}>
+                    {/* Header */}
                     <div className="flex items-center justify-between px-3 py-2 border-b" style={{ borderColor: "hsl(35 70% 58% / 0.15)" }}>
                       <div className="flex items-center gap-1.5">
                         <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(35 70% 58%)" }}
                           animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
-                        <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(35 70% 58%)" }}>Panel en vivo</span>
+                        <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(35 70% 58%)" }}>Panel CALLA · En vivo</span>
                       </div>
-                      <span className="text-[9px] text-foreground/35 font-mono">HOY · 09:41</span>
+                      <span className="text-[9px] text-foreground/35 font-mono">09:41</span>
                     </div>
-                    {/* KPIs row */}
-                    <div className="grid grid-cols-3 gap-px border-b" style={{ borderColor: "hsl(35 70% 58% / 0.12)" }}>
-                      {[
-                        { label: "Llamadas", val: "247", up: true },
-                        { label: "Resolución", val: "94%", up: true },
-                        { label: "NPS", val: "72", up: false },
-                      ].map(({ label, val, up }) => (
-                        <div key={label} className="flex flex-col items-center justify-center py-2.5 px-1">
-                          <p className="text-base font-bold text-foreground leading-none">{val}</p>
-                          <p className="text-[9px] text-foreground/45 mt-0.5">{label}</p>
-                          <span className="text-[8px] font-bold mt-0.5" style={{ color: up ? "hsl(145 60% 50%)" : "hsl(35 70% 58%)" }}>{up ? "↑" : "→"}</span>
+                    {/* KPI strip */}
+                    <div className="grid grid-cols-3 divide-x" style={{ borderBottom: "1px solid hsl(35 70% 58% / 0.12)", borderColor: "hsl(35 70% 58% / 0.12)" }}>
+                      {[{ label: "Llamadas", val: "247", trend: "↑12%" }, { label: "Resolución", val: "94%" , trend: "↑" }, { label: "NPS", val: "72", trend: "→" }].map(({ label, val, trend }) => (
+                        <div key={label} className="flex flex-col items-center py-2 px-1" style={{ borderColor: "hsl(35 70% 58% / 0.12)" }}>
+                          <p className="text-sm font-bold text-foreground leading-none">{val}</p>
+                          <p className="text-[8px] text-foreground/40 mt-0.5">{label}</p>
+                          <span className="text-[8px] font-semibold mt-0.5" style={{ color: "hsl(35 70% 58%)" }}>{trend}</span>
                         </div>
                       ))}
                     </div>
-                    {/* Bar chart */}
-                    <div className="flex-1 px-3 pt-2 pb-3 flex flex-col justify-end">
-                      <p className="text-[8px] text-foreground/35 mb-2 uppercase tracking-wider">Llamadas · últimas 6h</p>
-                      <div className="flex items-end gap-1.5 h-16">
-                        {[38, 62, 45, 80, 55, 72].map((h, i) => (
-                          <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                            <motion.div className="w-full rounded-t-sm"
-                              style={{ background: i === 3 ? "hsl(35 70% 58%)" : "hsl(35 70% 58% / 0.3)", height: `${h}%` }}
-                              initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }}
-                              transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
-                              style={{ originY: 1, background: i === 3 ? "hsl(35 70% 58%)" : "hsl(35 70% 58% / 0.3)", height: `${h}%` }} />
+                    {/* Activity feed */}
+                    <div className="flex-1 flex flex-col justify-center gap-1.5 px-2.5 py-2">
+                      {[
+                        { icon: "📞", text: "Llamada entrante resuelta", sub: "hace 1 min · ARIA", ok: true },
+                        { icon: "📅", text: "Cita agendada · Clínica Norte", sub: "hace 3 min · LUMI", ok: true },
+                        { icon: "⚡", text: "Flujo CRM → Email ejecutado", sub: "hace 5 min · Auto", ok: true },
+                        { icon: "🤖", text: "Consulta resuelta por asistente", sub: "hace 8 min · Chat interno", ok: true },
+                        { icon: "⚠️", text: "Cliente en riesgo detectado", sub: "hace 12 min · CARE", ok: false },
+                      ].map((item, i) => (
+                        <motion.div key={i} className="flex items-center gap-2 rounded-lg px-2 py-1.5"
+                          style={{ background: "hsl(35 70% 58% / 0.06)", border: `1px solid hsl(35 70% 58% / ${item.ok ? "0.1" : "0.2"})` }}
+                          initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                          transition={{ duration: 0.35, delay: i * 0.07 }}>
+                          <span className="text-[11px] shrink-0">{item.icon}</span>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[9px] font-semibold text-foreground truncate">{item.text}</p>
+                            <p className="text-[8px] text-foreground/40 truncate">{item.sub}</p>
                           </div>
-                        ))}
-                      </div>
-                      <div className="flex justify-between mt-1">
-                        {["04h", "05h", "06h", "07h", "08h", "09h"].map(t => (
-                          <span key={t} className="text-[7px] text-foreground/30 flex-1 text-center">{t}</span>
-                        ))}
-                      </div>
+                          <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.ok ? "hsl(145 60% 50%)" : "hsl(35 90% 60%)" }} />
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
@@ -558,7 +568,7 @@ const Index = () => {
                   className="rounded-3xl overflow-hidden border flex flex-col"
                   style={{ borderColor: "hsl(340 55% 60% / 0.25)", background: "hsl(340 55% 60% / 0.04)" }}>
                   <div className="p-5 md:p-6">
-                    <h3 className="text-xs font-display font-bold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
+                    <h3 className="text-[11px] font-display font-extrabold text-foreground mb-1.5 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
                     <p className="text-sm text-foreground/65 font-light leading-relaxed">{capabilities[4].description}</p>
                   </div>
                   <div className="flex-1 px-4 pb-4 flex flex-col gap-2 min-h-[200px]">
