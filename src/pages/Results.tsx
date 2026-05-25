@@ -76,23 +76,37 @@ const Results = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Logo Marquee */}
       <LogoMarquee />
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Animated Stats */}
-      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando estadísticas...</div>}>
-        <Stats />
-      </Suspense>
+      <div className="bg-white/[0.03]">
+        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando estadísticas...</div>}>
+          <Stats />
+        </Suspense>
+      </div>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Campaign Results Dashboard */}
       <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando resultados...</div>}>
         <CampaignResults />
       </Suspense>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Call Recordings */}
-      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando llamadas...</div>}>
-        <CallPlayer />
-      </Suspense>
+      <div className="bg-white/[0.03]">
+        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando llamadas...</div>}>
+          <CallPlayer />
+        </Suspense>
+      </div>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Stats — simplified 4 numbers */}
       <section className="py-12 md:py-20 px-5 md:px-6">
@@ -112,11 +126,17 @@ const Results = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* System Flow */}
-      <SystemFlow />
+      <div className="bg-white/[0.03]">
+        <SystemFlow />
+      </div>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Testimonials */}
-      <section className="py-12 md:py-20 px-5 md:px-6 bg-white/[0.03]">
+      <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto">
           <SectionFade>
             <div className="text-center mb-12">
@@ -209,6 +229,8 @@ const Results = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* Case Studies */}
       <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto">
@@ -241,8 +263,10 @@ const Results = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* CTA */}
-      <section className="py-16 md:py-24 px-5 md:px-6">
+      <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto text-center">
           <SectionFade>
             <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">

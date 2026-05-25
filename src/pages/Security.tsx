@@ -163,6 +163,8 @@ const Security = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Three pillars ── */}
       <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-6xl">
@@ -230,6 +232,8 @@ const Security = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Call security flow ── */}
       <section className="py-16 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
@@ -281,6 +285,8 @@ const Security = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── Metrics ── */}
       <section className="py-12 md:py-16 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-5xl">
@@ -310,6 +316,8 @@ const Security = () => {
           </motion.div>
         </div>
       </section>
+
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* ── Never list ── */}
       <section className="py-16 md:py-20 px-5 md:px-6">
@@ -380,8 +388,10 @@ const Security = () => {
         </div>
       </section>
 
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+
       {/* ── CTA ── */}
-      <section className="py-20 md:py-28 px-5 md:px-6">
+      <section className="py-20 md:py-28 px-5 md:px-6 bg-white/[0.03]">
         <div className="container mx-auto max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -424,10 +424,10 @@ const SquadWorkflow = () => {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <TrustpilotStars rating={5} size={16} />
-                    <CheckCircle2 className="w-4 h-4" style={{ color: '#00b67a40' }} />
+                    <CheckCircle2 className="w-4 h-4" style={{ color: `hsl(${haloHsl} / 0.5)` }} />
                   </div>
                   <blockquote className="text-sm text-foreground/85 leading-relaxed mb-4 flex-1 font-light">
-                    <Quote className="inline h-3.5 w-3.5 text-primary/25 mr-1 -mt-1" />
+                    <Quote className="inline h-3.5 w-3.5 mr-1 -mt-1" style={{ color: `hsl(${haloHsl} / 0.4)` }} />
                     {t.quote}
                   </blockquote>
                   <div className="mb-3">

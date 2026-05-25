@@ -129,30 +129,24 @@ const Pricing = () => {
     <div className="min-h-screen bg-background noise-overlay">
       <Navbar onContact={() => setContactOpen(true)} />
 
+      {/* ── Calculadora ── */}
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full bg-brand-lavender/[0.05] blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-teal/[0.04] blur-[100px]" />
-
         <div className="container mx-auto relative z-10">
-          {/* Header */}
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mb-6 md:mb-8"
-          >
-          </motion.div>
-
-          {/* ROI Calculator */}
-          <div id="calculadora" className="mb-12 md:mb-16 scroll-mt-24">
+          <div id="calculadora" className="scroll-mt-24">
             <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
               <ROICalculator />
             </Suspense>
           </div>
+        </div>
+      </section>
 
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-12 md:mb-16" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
+      {/* ── Planes ── */}
+      <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
+        <div className="container mx-auto">
           {/* Title + toggle */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -271,40 +265,42 @@ const Pricing = () => {
               );
             })}
           </div>
+        </div>
+      </section>
 
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mt-16 md:mt-24 mb-16 md:mb-24" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-          {/* FAQ */}
-          <div className="max-w-3xl mx-auto rounded-2xl bg-white/[0.03] p-8 md:p-12">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6 }}
-              className="text-2xl md:text-3xl font-display font-extrabold text-center mb-8 md:mb-10 tracking-tight"
-            >
-              Preguntas <span className="text-gradient">frecuentes</span>
-            </motion.h2>
-            <div className="space-y-3 sm:space-y-4">
-              {faqs.map((faq, i) => (
-                <motion.details
-                  key={faq.q}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className="glass rounded-xl group"
-                >
-                  <summary className="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none font-display font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-base">
-                    {faq.q}
-                    <span className="text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl ml-4 shrink-0">+</span>
-                  </summary>
-                  <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-muted-foreground font-light leading-relaxed">
-                    {faq.a}
-                  </div>
-                </motion.details>
-              ))}
-            </div>
+      {/* ── FAQ ── */}
+      <section className="py-16 md:py-24 px-5 md:px-6">
+        <div className="container mx-auto max-w-3xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl md:text-3xl font-display font-extrabold text-center mb-8 md:mb-10 tracking-tight"
+          >
+            Preguntas <span className="text-gradient">frecuentes</span>
+          </motion.h2>
+          <div className="space-y-3 sm:space-y-4">
+            {faqs.map((faq, i) => (
+              <motion.details
+                key={faq.q}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="glass rounded-xl group"
+              >
+                <summary className="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none font-display font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-base">
+                  {faq.q}
+                  <span className="text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl ml-4 shrink-0">+</span>
+                </summary>
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-muted-foreground font-light leading-relaxed">
+                  {faq.a}
+                </div>
+              </motion.details>
+            ))}
           </div>
         </div>
       </section>
