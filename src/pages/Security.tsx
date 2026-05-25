@@ -428,9 +428,7 @@ const Security = () => {
               <ArrowRight className="w-4 h-4" />
             </a>
 
-            <p className="text-xs font-mono text-foreground/25 mt-8 relative z-10">
-              $ status: all_systems_secure · RGPD · AES-256 · Frankfurt EU
-            </p>
+
           </motion.div>
         </div>
       </section>
