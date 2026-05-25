@@ -30,6 +30,7 @@ import {
   Rocket,
   RefreshCw,
   ChevronRight,
+  ChevronDown,
   Bell,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -98,28 +99,32 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    shortDesc: "Auditoría de tu operativa y propuesta técnica a medida.",
+    description: "Análisis en profundidad de tus flujos operativos, puntos de fricción y oportunidades de automatización. El resultado: una propuesta técnica adaptada a tu empresa.",
+    chips: ["Auditoría de procesos", "Propuesta a medida"],
     hsl: "210 75% 52%",
     icon: Search,
   },
   {
     number: "02",
     title: "Desarrollo",
-    shortDesc: "Agentes base y asistentes específicos para tu empresa, probados antes de producción.",
+    description: "Configuramos los agentes base y desarrollamos los asistentes específicos para tu operativa. Cada integración se valida en entorno de pruebas antes de producción.",
+    chips: ["Agentes base", "IA a medida", "Integraciones"],
     hsl: "245 60% 62%",
     icon: Code2,
   },
   {
     number: "03",
     title: "Implementación",
-    shortDesc: "Conexión con tus herramientas actuales y formación del equipo para la puesta en marcha.",
+    description: "Conectamos el sistema con tus herramientas actuales, formamos a tu equipo y verificamos el funcionamiento completo antes de la puesta en marcha definitiva.",
+    chips: ["Puesta en marcha", "Formación de equipo"],
     hsl: "195 65% 42%",
     icon: Rocket,
   },
   {
     number: "04",
     title: "Mantenimiento",
-    shortDesc: "Rendimiento monitorizado de forma continua y sistema que evoluciona con tu negocio.",
+    description: "Monitorizamos el rendimiento de forma continua y aplicamos actualizaciones periódicas. El sistema evoluciona con las necesidades de tu negocio.",
+    chips: ["Monitorización", "Actualizaciones"],
     hsl: "220 50% 55%",
     icon: RefreshCw,
   },
@@ -943,100 +948,98 @@ const Index = () => {
               </p>
             </motion.div>
 
-            {/* Step circles — animated, floating, with pulsing rings */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-6 max-w-5xl mx-auto">
-              {steps.map((step, i) => {
-                const StepIcon = step.icon;
-                const grad = `linear-gradient(140deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.55) 50%, hsl(${step.hsl} / 0.15) 100%)`;
-                const floatDelay = i * 0.85;
-                const pulseDelay = i * 0.5;
-                return (
-                  <motion.div
-                    key={step.number}
-                    initial={{ opacity: 0, y: 32 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col items-center text-center gap-5"
-                  >
-                    {/* "Fase X" label */}
-                    <span
-                      className="text-[11px] font-display font-bold tracking-[0.18em] uppercase"
-                      style={{ color: `hsl(${step.hsl} / 0.75)` }}
-                    >
-                      Fase {i + 1}
-                    </span>
+            {/* Process pipeline */}
+            <div className="relative max-w-5xl mx-auto">
 
-                    {/* Floating circle */}
+              {/* Animated track line connecting all circles (desktop) */}
+              <div className="hidden lg:block absolute h-px overflow-hidden"
+                style={{ top: "124px", left: "11%", right: "11%", background: "hsl(0 0% 100% / 0.07)", zIndex: 0 }}>
+                <motion.div className="absolute inset-y-0 w-28"
+                  style={{ background: "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.45), transparent)" }}
+                  animate={{ x: ["-7rem", "calc(100% + 7rem)"] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }} />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6">
+                {steps.map((step, i) => {
+                  const StepIcon = step.icon;
+                  const grad = `linear-gradient(140deg, hsl(${step.hsl}) 0%, hsl(${step.hsl} / 0.55) 50%, hsl(${step.hsl} / 0.15) 100%)`;
+                  return (
                     <motion.div
-                      animate={{ y: [0, -11, 0] }}
-                      transition={{
-                        duration: 4.2 + i * 0.55,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: floatDelay,
-                      }}
-                      className="relative"
+                      key={step.number}
+                      initial={{ opacity: 0, y: 32 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex flex-col items-center text-center gap-5 relative z-10"
                     >
-                      {/* Gradient border ring */}
-                      <div className="rounded-full p-[2.5px]" style={{ backgroundImage: grad }}>
-                        <div
-                          className="w-44 h-44 rounded-full flex items-center justify-center overflow-hidden relative"
-                          style={{ background: `hsl(${step.hsl} / 0.07)` }}
-                        >
-                          {/* Pulsing concentric ring 1 */}
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "50%",
-                              height: "50%",
-                              border: `1.5px solid hsl(${step.hsl} / 0.45)`,
-                            }}
-                            animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
-                            transition={{
-                              duration: 2.8,
-                              repeat: Infinity,
-                              ease: "easeOut",
-                              delay: pulseDelay,
-                            }}
-                          />
-                          {/* Pulsing concentric ring 2 */}
-                          <motion.div
-                            className="absolute rounded-full"
-                            style={{
-                              width: "72%",
-                              height: "72%",
-                              border: `1px solid hsl(${step.hsl} / 0.25)`,
-                            }}
-                            animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
-                            transition={{
-                              duration: 2.8,
-                              repeat: Infinity,
-                              ease: "easeOut",
-                              delay: pulseDelay + 0.45,
-                            }}
-                          />
-                          {/* Icon */}
-                          <StepIcon
-                            className="w-12 h-12 relative z-10"
-                            style={{ color: `hsl(${step.hsl})` }}
-                          />
+                      {/* Step number badge */}
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full font-mono font-black text-sm"
+                        style={{ background: `hsl(${step.hsl} / 0.12)`, border: `1.5px solid hsl(${step.hsl} / 0.4)`, color: `hsl(${step.hsl})` }}>
+                        {step.number}
+                      </span>
+
+                      {/* Floating circle */}
+                      <motion.div
+                        animate={{ y: [0, -11, 0] }}
+                        transition={{ duration: 4.2 + i * 0.55, repeat: Infinity, ease: "easeInOut", delay: i * 0.85 }}
+                        className="relative"
+                      >
+                        {/* Connector arrow → next step (desktop) */}
+                        {i < 3 && (
+                          <motion.div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 z-20 items-center"
+                            style={{ right: "-1.65rem" }}
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}>
+                            <ChevronRight className="w-5 h-5" style={{ color: "hsl(0 0% 100% / 0.22)" }} />
+                          </motion.div>
+                        )}
+                        {/* Connector arrow ↓ next step (mobile) */}
+                        {i < 3 && (
+                          <motion.div className="lg:hidden absolute -bottom-8 left-1/2 -translate-x-1/2"
+                            animate={{ y: [0, 4, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+                            <ChevronDown className="w-5 h-5" style={{ color: "hsl(0 0% 100% / 0.2)" }} />
+                          </motion.div>
+                        )}
+
+                        <div className="rounded-full p-[2.5px]" style={{ backgroundImage: grad }}>
+                          <div className="w-36 h-36 rounded-full flex items-center justify-center overflow-hidden relative"
+                            style={{ background: `hsl(${step.hsl} / 0.07)` }}>
+                            <motion.div className="absolute rounded-full"
+                              style={{ width: "50%", height: "50%", border: `1.5px solid hsl(${step.hsl} / 0.45)` }}
+                              animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                              transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay: i * 0.5 }} />
+                            <motion.div className="absolute rounded-full"
+                              style={{ width: "72%", height: "72%", border: `1px solid hsl(${step.hsl} / 0.25)` }}
+                              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+                              transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", delay: i * 0.5 + 0.45 }} />
+                            <StepIcon className="w-10 h-10 relative z-10" style={{ color: `hsl(${step.hsl})` }} />
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Title + description + chips */}
+                      <div className="flex flex-col items-center gap-3">
+                        <h3 className="font-display font-extrabold text-base text-foreground leading-tight uppercase tracking-widest">
+                          {step.title}
+                        </h3>
+                        <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[190px]">
+                          {step.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 justify-center">
+                          {step.chips.map(chip => (
+                            <span key={chip} className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                              style={{ background: `hsl(${step.hsl} / 0.1)`, color: `hsl(${step.hsl} / 0.9)`, border: `1px solid hsl(${step.hsl} / 0.25)` }}>
+                              {chip}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </motion.div>
-
-                    {/* Text */}
-                    <div>
-                      <h3 className="font-display font-bold text-lg text-foreground mb-2 leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-foreground/60 font-light leading-relaxed max-w-[165px] mx-auto">
-                        {step.shortDesc}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
           </div>
