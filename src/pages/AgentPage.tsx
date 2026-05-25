@@ -516,7 +516,7 @@ const AgentPage = () => {
               <SectionFade>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {agent.featureCards.map((fc, i) => (
-                    <motion.div key={i} className="bg-card/40 border border-border/20 rounded-xl p-5 flex gap-3" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                    <motion.div key={i} className="bg-card/40 rounded-xl p-5 flex gap-3" style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }} {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                       <CircleDot className="h-4 w-4 text-primary shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
                       <div>
                         <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{fc.title}</h3>
@@ -541,7 +541,7 @@ const AgentPage = () => {
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {agent.features.map((feature, i) => (
-                  <motion.div key={i} className="flex items-start gap-3 bg-card/40 border border-border/20 rounded-xl p-4" {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                  <motion.div key={i} className="flex items-start gap-3 bg-card/40 rounded-xl p-4" style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }} {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}>
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <span className="text-sm text-foreground/85">{feature}</span>
                   </motion.div>
@@ -596,7 +596,8 @@ const AgentPage = () => {
               </h2>
               <div className="grid sm:grid-cols-2 gap-5">
                 {agent.useCases.map((uc, i) => (
-                  <motion.div key={i} className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all" {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                  <motion.div key={i} className="bg-card/40 rounded-2xl p-6 transition-all" style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }}
+                    whileHover={{ borderColor: `hsl(${agentHsl} / 0.6)` }} {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
                     <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
                     <p className="text-sm text-foreground/70 font-light">{uc.description}</p>
                   </motion.div>
@@ -624,7 +625,9 @@ const AgentPage = () => {
               {agent.testimonials.map((t, i) => (
                 <motion.div
                   key={i}
-                  className="bg-card/40 border border-border/20 rounded-2xl p-6 hover:border-primary/20 transition-all flex flex-col"
+                  className="bg-card/40 rounded-2xl p-6 transition-all flex flex-col"
+                  style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }}
+                  whileHover={{ borderColor: `hsl(${agentHsl} / 0.6)` }}
                   {...fade}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
