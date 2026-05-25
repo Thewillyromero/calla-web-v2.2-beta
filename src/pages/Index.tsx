@@ -521,7 +521,7 @@ const Index = () => {
                       </motion.span>
                     </div>
                     {/* Appointment list */}
-                    <div className="flex flex-col gap-1.5 p-3 flex-1">
+                    <div className="flex flex-col gap-1 p-2.5 flex-1">
                       {[
                         { time: "10:30", name: "Carlos Martínez", done: true  },
                         { time: "12:00", name: "Ana Pérez",        done: false, next: true },
@@ -529,18 +529,18 @@ const Index = () => {
                         { time: "17:00", name: "María López",      done: false },
                       ].map((appt, i) => (
                         <motion.div key={appt.time}
-                          className="flex items-center gap-3 rounded-xl px-3 py-2.5"
+                          className="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5"
                           style={{
                             background: appt.next ? "hsl(160 50% 48% / 0.18)" : appt.done ? "transparent" : "hsl(160 50% 48% / 0.07)",
                             border: `1px solid hsl(160 50% 48% / ${appt.next ? "0.35" : appt.done ? "0.08" : "0.13"})`,
                           }}
                           initial={{ opacity: 0, x: -6 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
                           transition={{ delay: i * 0.07 }}>
-                          <span className="text-xs font-mono font-bold shrink-0 w-10" style={{ color: appt.done ? "hsl(160 50% 48% / 0.4)" : "hsl(160 50% 48%)" }}>{appt.time}</span>
-                          <p className="text-sm font-semibold flex-1 truncate" style={{ color: appt.done ? "hsl(0 0% 50%)" : "hsl(0 0% 95%)" }}>{appt.name}</p>
-                          {appt.done && <span className="text-sm font-bold shrink-0" style={{ color: "hsl(160 50% 48% / 0.5)" }}>✓</span>}
+                          <span className="text-[11px] font-mono font-bold shrink-0 w-9" style={{ color: appt.done ? "hsl(160 50% 48% / 0.4)" : "hsl(160 50% 48%)" }}>{appt.time}</span>
+                          <p className="text-xs font-semibold flex-1 truncate" style={{ color: appt.done ? "hsl(0 0% 50%)" : "hsl(0 0% 95%)" }}>{appt.name}</p>
+                          {appt.done && <span className="text-xs font-bold shrink-0" style={{ color: "hsl(160 50% 48% / 0.5)" }}>✓</span>}
                           {appt.next && (
-                            <motion.span className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
+                            <motion.span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
                               style={{ background: "hsl(160 50% 48% / 0.2)", color: "hsl(160 50% 48%)" }}
                               animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 1.8, repeat: Infinity }}>
                               PRÓXIMA
@@ -550,14 +550,14 @@ const Index = () => {
                       ))}
                     </div>
                     {/* Footer badge + chips */}
-                    <div className="border-t px-3 py-2.5" style={{ borderColor: "hsl(160 50% 48% / 0.12)" }}>
-                      <motion.div className="flex items-center gap-2.5 rounded-xl px-3 py-2 mb-2"
+                    <div className="border-t px-3 py-3" style={{ borderColor: "hsl(160 50% 48% / 0.12)" }}>
+                      <motion.div className="flex items-center gap-3 rounded-xl px-3.5 py-3 mb-2.5"
                         style={{ background: "hsl(160 50% 48% / 0.1)", border: "1px solid hsl(160 50% 48% / 0.22)" }}
                         animate={{ y: [0, -2, 0] }} transition={{ duration: 3.2, repeat: Infinity }}>
-                        <span className="text-sm shrink-0">📅</span>
+                        <span className="text-base shrink-0">📅</span>
                         <div>
-                          <p className="text-xs font-bold text-foreground">Cita agendada automáticamente</p>
-                          <p className="text-[10px] text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
+                          <p className="text-sm font-bold text-foreground">Cita agendada automáticamente</p>
+                          <p className="text-xs text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
                         </div>
                       </motion.div>
                       <div className="flex gap-2 justify-center">
