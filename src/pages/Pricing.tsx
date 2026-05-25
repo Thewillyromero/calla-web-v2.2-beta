@@ -212,10 +212,11 @@ const Pricing = () => {
                   <div
                     className={`rounded-2xl h-full transition-all duration-500 ${
                       tier.popular
-                        ? "glass-warm glow-border border-brand-lavender/20 pt-8 px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8"
-                        : "glass border-border/20 hover:border-border/30 p-5 sm:p-6 lg:p-8"
+                        ? "glass-warm glow-border pt-8 px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8"
+                        : "glass p-5 sm:p-6 lg:p-8"
                     }`}
                     style={{
+                      border: `1px solid hsl(${tier.hsl} / 0.4)`,
                       boxShadow: tier.popular
                         ? `0 0 50px hsl(${tier.hsl} / 0.12)`
                         : undefined,
