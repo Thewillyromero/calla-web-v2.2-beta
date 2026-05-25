@@ -340,13 +340,52 @@ const Index = () => {
                               <p className="text-xs text-foreground/50">647 XXX XXX · Entrante</p>
                             </div>
                           </div>
-                          <div className="flex items-end gap-[3px] h-14">
+                          <div className="flex items-end gap-[3px] h-10 mb-3">
                             {[20,45,30,70,55,40,80,35,60,45,75,50,30,65,40,85,55,30,70,45,38,62,48,72,52].map((h, i) => (
                               <motion.div key={i} className="flex-1 rounded-full"
                                 style={{ height: `${h}%`, background: `hsl(190 60% 55% / ${i % 3 === 0 ? "0.9" : "0.4"})` }}
                                 animate={{ scaleY: [1, 0.3 + (i % 5) * 0.15, 1] }}
                                 transition={{ duration: 0.5 + (i % 4) * 0.15, repeat: Infinity, delay: i * 0.04 }} />
                             ))}
+                          </div>
+
+                          {/* Live transcription */}
+                          <div className="flex-1 rounded-xl overflow-hidden flex flex-col" style={{ background: "hsl(190 60% 55% / 0.06)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
+                            <div className="flex items-center gap-1.5 px-3 py-1.5 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.12)" }}>
+                              <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
+                                animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }} />
+                              <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Transcripción en vivo</span>
+                            </div>
+                            <div className="flex flex-col gap-2 p-2.5 flex-1 justify-end">
+                              {/* ARIA */}
+                              <motion.div className="flex gap-2 items-end"
+                                initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+                                <span className="text-[9px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
+                                <div className="rounded-2xl rounded-bl-sm px-3 py-1.5 text-xs text-foreground/85 leading-snug" style={{ background: "hsl(190 60% 55% / 0.18)" }}>
+                                  Buenos días, Calla S.L. ¿En qué puedo ayudarle?
+                                </div>
+                              </motion.div>
+                              {/* Caller */}
+                              <motion.div className="flex gap-2 items-end justify-end"
+                                initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
+                                <div className="rounded-2xl rounded-br-sm px-3 py-1.5 text-xs text-foreground/75 leading-snug" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.2)" }}>
+                                  Buenas, me gustaría implementar vuestros servicios en mi empresa.
+                                </div>
+                                <span className="text-[9px] font-extrabold shrink-0 mb-1 text-foreground/35">CM</span>
+                              </motion.div>
+                              {/* ARIA typing */}
+                              <motion.div className="flex gap-2 items-end"
+                                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
+                                <span className="text-[9px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
+                                <div className="rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center" style={{ background: "hsl(190 60% 55% / 0.18)" }}>
+                                  {[0, 0.18, 0.36].map((d, i) => (
+                                    <motion.div key={i} className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 65%)" }}
+                                      animate={{ opacity: [0.3, 1, 0.3], y: [0, -2, 0] }}
+                                      transition={{ duration: 0.8, repeat: Infinity, delay: d }} />
+                                  ))}
+                                </div>
+                              </motion.div>
+                            </div>
                           </div>
                         </motion.div>
                       )}
