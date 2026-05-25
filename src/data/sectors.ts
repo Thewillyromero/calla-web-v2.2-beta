@@ -28,6 +28,13 @@ export type Sector = {
     company: string;
   };
   cta: string;
+  capabilities?: {
+    iconName: string;
+    title: string;
+    description: string;
+  }[];
+  capabilitiesTitle?: string;
+  capabilitiesSubtitle?: string;
 };
 
 export const sectors: Sector[] = [
@@ -39,7 +46,31 @@ export const sectors: Sector[] = [
     description: "CALLA gestiona llamadas entrantes, agendas de revisiones, seguimiento de presupuestos y campañas de reactivación para concesionarios y talleres. Sin llamadas perdidas, sin clientes que se van a la competencia.",
     heroTitle: "Más ventas y revisiones para tu",
     heroHighlight: "concesionario o taller",
-    chips: ["Citas 24/7", "Seguimiento de presupuestos", "Reactivación de clientes", "Sin llamadas perdidas"],
+    chips: ["Citas 24/7", "Sin llamadas perdidas", "Clientes que vuelven"],
+    capabilitiesTitle: "Qué hace CALLA en tu concesionario o taller",
+    capabilitiesSubtitle: "Cuatro frentes críticos cubiertos desde el primer día.",
+    capabilities: [
+      {
+        iconName: "phone-call",
+        title: "Nunca más una llamada sin atender",
+        description: "Mientras el mecánico trabaja y el mostrador está ocupado, CALLA atiende el teléfono. El cliente habla con alguien, agenda su visita y no llama al taller de al lado.",
+      },
+      {
+        iconName: "calendar-check",
+        title: "Agenda sin huecos ni caos",
+        description: "Cambios de neumáticos, revisiones, ITV y entregas de vehículo. El cliente elige hora, recibe confirmación y la cita queda en el calendario sin llamadas de ida y vuelta.",
+      },
+      {
+        iconName: "file-check-2",
+        title: "Presupuestos que se cierran",
+        description: "Seguimiento automático de cada presupuesto pendiente. CALLA detecta la duda que frenaba la decisión, la resuelve y cierra el trabajo antes de que el cliente busque otro taller.",
+      },
+      {
+        iconName: "rotate-ccw",
+        title: "Clientes que vuelven a revisión",
+        description: "CALLA avisa a los vehículos con revisión próxima o mantenimiento pendiente. El cliente recibe el aviso en el momento exacto y agenda antes de que otro taller se lo lleve.",
+      },
+    ],
     painPoints: [
       {
         title: "Llamadas perdidas en el taller",

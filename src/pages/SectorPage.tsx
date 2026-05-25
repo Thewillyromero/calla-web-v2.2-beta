@@ -4,7 +4,18 @@ import { motion } from "framer-motion";
 import {
   ArrowRight, Quote, CheckCircle2, AlertTriangle,
   Phone, PhoneOutgoing, CalendarCheck, BarChart3, HeartHandshake,
+  PhoneCall, FileCheck2, RotateCcw,
 } from "lucide-react";
+
+const CAPABILITY_ICONS: Record<string, typeof PhoneCall> = {
+  "phone-call": PhoneCall,
+  "calendar-check": CalendarCheck,
+  "file-check-2": FileCheck2,
+  "rotate-ccw": RotateCcw,
+  "phone": Phone,
+  "phone-outgoing": PhoneOutgoing,
+  "bar-chart": BarChart3,
+};
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
@@ -141,49 +152,102 @@ const SectorPage = () => {
         </div>
       </section>
 
-      {/* ── Agentes en acción ── */}
-      <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div {...fade} className="mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
-              Tu equipo inteligente para {sector.name.toLowerCase()}
-            </h2>
-            <p className="text-foreground/60 font-light max-w-xl">
-              Cada agente con un rol concreto, coordinados por HALO las 24 horas.
-            </p>
-          </motion.div>
+      {/* ── Capabilities (sector-specific) / Agentes en acción (fallback) ── */}
+      {sector.capabilities ? (
+        <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03] relative overflow-hidden">
+          {/* Watermark sector icon */}
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none">
+            <Icon className="w-[28rem] h-[28rem] text-foreground/[0.025]" />
+          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {sector.agents.map(({ key, use }, i) => {
-              const agent = AGENT_META[key as AgentKey];
-              const AgentIcon = agent.Icon;
-              return (
-                <motion.div
-                  key={key} {...fade} transition={{ ...fade.transition, delay: i * 0.1 }}
-                  className="rounded-2xl border p-5 md:p-6 flex flex-col gap-3"
-                  style={{ background: `hsl(${agent.hsl} / 0.07)`, borderColor: `hsl(${agent.hsl} / 0.25)` }}>
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ background: `hsl(${agent.hsl} / 0.15)` }}>
-                      <AgentIcon className="w-4 h-4" style={{ color: `hsl(${agent.hsl})` }} />
+          <div className="container mx-auto max-w-5xl relative z-10">
+            <motion.div {...fade} className="mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
+                {sector.capabilitiesTitle ?? `Qué hace CALLA en tu ${sector.name.toLowerCase()}`}
+              </h2>
+              <p className="text-foreground/60 font-light max-w-xl">
+                {sector.capabilitiesSubtitle ?? "Cubierto desde el primer día."}
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
+              {sector.capabilities.map((cap, i) => {
+                const CapIcon = CAPABILITY_ICONS[cap.iconName] ?? Icon;
+                return (
+                  <motion.div
+                    key={i}
+                    {...fade}
+                    transition={{ ...fade.transition, delay: i * 0.1 }}
+                    className="bg-card/35 border border-border/20 rounded-2xl p-7 md:p-8 flex flex-col gap-5 hover:border-border/40 transition-colors"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                        style={{ background: "hsl(var(--primary) / 0.08)", border: "1px solid hsl(var(--primary) / 0.15)" }}
+                      >
+                        <CapIcon className="w-6 h-6 text-primary" />
+                      </div>
+                      <span className="text-6xl font-display font-extrabold text-foreground/[0.05] leading-none select-none">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
                     <div>
-                      <span
-                        className="font-display font-bold text-sm block leading-none mb-0.5"
-                        style={{ color: `hsl(${agent.hsl})` }}>
-                        {agent.label}
-                      </span>
-                      <span className="text-xs text-foreground/50">{agent.role}</span>
+                      <h3 className="font-display font-bold text-xl text-foreground mb-2 leading-tight">
+                        {cap.title}
+                      </h3>
+                      <p className="text-base text-foreground/65 font-light leading-relaxed">
+                        {cap.description}
+                      </p>
                     </div>
-                  </div>
-                  <p className="text-sm text-foreground/75 font-light leading-relaxed">{use}</p>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
+          <div className="container mx-auto max-w-5xl">
+            <motion.div {...fade} className="mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
+                Tu equipo inteligente para {sector.name.toLowerCase()}
+              </h2>
+              <p className="text-foreground/60 font-light max-w-xl">
+                Cada agente con un rol concreto, coordinados por HALO las 24 horas.
+              </p>
+            </motion.div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {sector.agents.map(({ key, use }, i) => {
+                const agent = AGENT_META[key as AgentKey];
+                const AgentIcon = agent.Icon;
+                return (
+                  <motion.div
+                    key={key} {...fade} transition={{ ...fade.transition, delay: i * 0.1 }}
+                    className="rounded-2xl border p-5 md:p-6 flex flex-col gap-3"
+                    style={{ background: `hsl(${agent.hsl} / 0.07)`, borderColor: `hsl(${agent.hsl} / 0.25)` }}>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                        style={{ background: `hsl(${agent.hsl} / 0.15)` }}>
+                        <AgentIcon className="w-4 h-4" style={{ color: `hsl(${agent.hsl})` }} />
+                      </div>
+                      <div>
+                        <span
+                          className="font-display font-bold text-sm block leading-none mb-0.5"
+                          style={{ color: `hsl(${agent.hsl})` }}>
+                          {agent.label}
+                        </span>
+                        <span className="text-xs text-foreground/50">{agent.role}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-foreground/75 font-light leading-relaxed">{use}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Casos de uso ── */}
       <section className="py-16 md:py-24 px-5 md:px-6">
