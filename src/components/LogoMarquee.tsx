@@ -106,7 +106,7 @@ const LogoItem = ({ src, id }: { src: string; id: string }) => (
 const LogoMarquee = memo(() => {
   return (
     <section className="border-y border-white/[0.04] overflow-hidden relative bg-black/20">
-      <p className="text-center text-xs sm:text-sm font-display font-semibold tracking-[0.2em] uppercase text-foreground pt-6 md:pt-8 pb-4 md:pb-5">
+      <p className="text-center text-xs sm:text-sm font-display font-semibold tracking-[0.2em] uppercase text-foreground pt-6 md:pt-8 pb-7 md:pb-9">
         Empresas que ya confían en CALLA
       </p>
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
