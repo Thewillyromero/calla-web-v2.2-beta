@@ -56,38 +56,38 @@ const comparisonRows: { label: string; values: (boolean | "partial")[] }[] = [
 
 const capabilities = [
   {
-    number: "01",
     title: "Atendemos toda tu comunicación telefónica",
     description: "Entrante, saliente, 24 horas al día, 7 días a la semana. Nunca una llamada perdida.",
     chips: ["Llamadas entrantes", "Llamadas salientes", "24/7", "Voz natural"],
+    hsl: "190 60% 55%",
     Icon: Phone,
   },
   {
-    number: "02",
     title: "Agendamos citas sin intervención humana",
     description: "Tu calendario se llena solo. Sin errores ni dobles reservas.",
     chips: ["Google Calendar", "Calendly", "CRM", "Recordatorios"],
+    hsl: "160 50% 48%",
     Icon: CalendarCheck,
   },
   {
-    number: "03",
     title: "Automatizamos flujos y procesos internos",
     description: "Transferencias inteligentes, integraciones y asistentes IA a medida para tu operativa.",
     chips: ["Integraciones", "Workflows", "Asistentes IA", "API"],
+    hsl: "245 60% 62%",
     Icon: Network,
   },
   {
-    number: "04",
     title: "Analizamos cada conversación en tiempo real",
     description: "Dashboard con todo lo que pasa en tu atención. Sabes qué funciona y dónde mejorar.",
     chips: ["Analytics", "Sentimiento", "Patrones", "Informes semanales"],
+    hsl: "35 70% 58%",
     Icon: BarChart3,
   },
   {
-    number: "05",
     title: "Fidelizamos a tus clientes post-venta",
     description: "Seguimiento automático, NPS y detección de churn antes de que se vayan.",
     chips: ["Post-venta", "NPS", "Retención", "Cross-sell"],
+    hsl: "340 55% 60%",
     Icon: Users,
   },
 ];
@@ -263,12 +263,10 @@ const Index = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ─── 2. WHAT WE DO — capability map ─── */}
+      {/* ─── 2. WHAT WE DO — editorial list ─── */}
       <SectionFade className="bg-white/[0.03]">
-        <section className="py-16 md:py-24 px-5 md:px-6 relative overflow-hidden">
-          <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] rounded-full bg-brand-teal/[0.03] blur-[160px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-lavender/[0.025] blur-[140px] pointer-events-none" />
-          <div className="container mx-auto relative z-10">
+        <section className="py-16 md:py-24 px-5 md:px-6">
+          <div className="container mx-auto max-w-4xl">
 
             {/* Header */}
             <motion.div
@@ -276,111 +274,102 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="text-center mb-12"
+              className="mb-14"
             >
               <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Cobertura total</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-[1.1] text-foreground mb-4">
-                Todo lo que desarrollamos{" "}
-                <span className="text-gradient">en tu empresa</span>
+                Todo lo que hacemos{" "}
+                <span className="text-gradient">por tu empresa</span>
               </h2>
-              <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
-                Un ecosistema que lo gestiona todo.
+              <p className="text-foreground/70 max-w-lg text-base font-light">
+                Un ecosistema completo. Cinco líneas de acción, un solo sistema.
               </p>
             </motion.div>
 
-            {/* Capability grid — B1 */}
-            <div className="max-w-5xl mx-auto">
-              {/* Row 1: 3 cards */}
-              <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-4 md:mb-5"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {capabilities.slice(0, 3).map((cap, i) => (
-                  <motion.div
-                    key={cap.number}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    onMouseEnter={() => setHoveredCap(i)}
-                    onMouseLeave={() => setHoveredCap(null)}
-                    className="relative overflow-hidden rounded-2xl border border-border/20 bg-card/30 p-6 md:p-7 flex flex-col transition-all duration-300 cursor-default"
+            {/* Editorial list */}
+            <div className="divide-y divide-border/12">
+              {capabilities.map((cap, i) => (
+                <motion.div
+                  key={cap.title}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  onMouseEnter={() => setHoveredCap(i)}
+                  onMouseLeave={() => setHoveredCap(null)}
+                  className="group relative flex items-center gap-6 md:gap-10 py-7 md:py-9 cursor-default transition-colors duration-300"
+                  style={{
+                    background: hoveredCap === i ? `hsl(${cap.hsl} / 0.03)` : "transparent",
+                  }}
+                >
+                  {/* Left accent bar */}
+                  <div
+                    className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-opacity duration-300"
                     style={{
-                      background: hoveredCap === i ? "hsl(var(--primary) / 0.04)" : "hsl(var(--card) / 0.30)",
-                      borderColor: hoveredCap === i ? "hsl(var(--primary) / 0.20)" : undefined,
+                      background: `hsl(${cap.hsl})`,
+                      opacity: hoveredCap === i ? 1 : 0,
                     }}
-                  >
-                    {/* Icon */}
-                    <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
-                      <cap.Icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
-                      {cap.title}
-                    </h3>
-                    <p className="text-sm text-foreground/80 font-light mb-4 leading-relaxed flex-1">
-                      {cap.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {cap.chips.map((chip) => (
-                        <span key={chip} className="text-xs font-medium px-3 py-1 rounded-full border border-primary/30 bg-primary/[0.12] text-foreground/90">
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  />
 
-              {/* Row 2: 2 cards centered */}
-              <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 max-w-2xl lg:max-w-[calc(66.666%+0.625rem)] mx-auto"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {capabilities.slice(3).map((cap, i) => (
-                  <motion.div
-                    key={cap.number}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    onMouseEnter={() => setHoveredCap(i + 3)}
-                    onMouseLeave={() => setHoveredCap(null)}
-                    className="relative overflow-hidden rounded-2xl border border-border/20 bg-card/30 p-6 md:p-7 flex flex-col transition-all duration-300 cursor-default"
+                  {/* Large watermark number */}
+                  <span
+                    className="absolute right-0 top-1/2 -translate-y-1/2 text-[110px] font-display font-black leading-none pointer-events-none select-none tabular-nums transition-opacity duration-300"
                     style={{
-                      background: hoveredCap === i + 3 ? "hsl(var(--primary) / 0.04)" : "hsl(var(--card) / 0.30)",
-                      borderColor: hoveredCap === i + 3 ? "hsl(var(--primary) / 0.20)" : undefined,
+                      color: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.07" : "0.04"})`,
                     }}
                   >
-                    {/* Icon */}
-                    <div className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/15 flex items-center justify-center mb-5">
-                      <cap.Icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 leading-snug">
+                    {i + 1}
+                  </span>
+
+                  {/* Step number */}
+                  <span
+                    className="text-3xl md:text-4xl font-display font-black tabular-nums leading-none shrink-0 w-10 md:w-14 transition-colors duration-300"
+                    style={{ color: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.85" : "0.45"})` }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0 relative z-10">
+                    <h3 className="text-lg md:text-2xl font-display font-bold text-foreground mb-1.5 leading-tight">
                       {cap.title}
                     </h3>
-                    <p className="text-sm text-foreground/80 font-light mb-4 leading-relaxed flex-1">
+                    <p className="text-sm md:text-base text-foreground/65 font-light leading-relaxed mb-3">
                       {cap.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {cap.chips.map((chip) => (
-                        <span key={chip} className="text-xs font-medium px-3 py-1 rounded-full border border-primary/30 bg-primary/[0.12] text-foreground/90">
+                        <span
+                          key={chip}
+                          className="text-xs font-semibold px-2.5 py-1 rounded-full transition-colors duration-300"
+                          style={{
+                            background: `hsl(${cap.hsl} / 0.10)`,
+                            color: `hsl(${cap.hsl})`,
+                          }}
+                        >
                           {chip}
                         </span>
                       ))}
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  </div>
+
+                  {/* Icon */}
+                  <div
+                    className="hidden md:flex w-14 h-14 rounded-2xl items-center justify-center shrink-0 relative z-10 transition-all duration-300"
+                    style={{
+                      background: `hsl(${cap.hsl} / ${hoveredCap === i ? "0.14" : "0.08"})`,
+                      border: `1px solid hsl(${cap.hsl} / 0.25)`,
+                    }}
+                  >
+                    <cap.Icon className="w-6 h-6" style={{ color: `hsl(${cap.hsl})` }} />
+                  </div>
+                </motion.div>
+              ))}
             </div>
+
           </div>
         </section>
       </SectionFade>
