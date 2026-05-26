@@ -13,8 +13,8 @@ import {
 import haloConductor from "@/assets/halo-conductor.png";
 import { BOOKING_URL } from "@/lib/constants";
 
-const haloHsl = "215 20% 60%";
-const haloGradient = "linear-gradient(135deg, hsl(215 18% 55%), hsl(210 10% 96%), hsl(215 22% 58%))";
+const haloHsl = "215 22% 62%";
+const haloGradient = "linear-gradient(135deg, hsl(210 38% 52%), hsl(200 8% 94%), hsl(228 32% 62%))";
 
 const fade = {
   initial: { opacity: 0, y: 20 },
@@ -118,9 +118,11 @@ const SquadWorkflow = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 tracking-tight text-foreground leading-[1.1]">
                 El director que mantiene<br />al equipo en{" "}
                 <span
-                  className="bg-clip-text text-transparent"
+                  className="bg-clip-text text-transparent whitespace-nowrap"
                   style={{
                     backgroundImage: haloGradient,
+                    textShadow: "none",
+                    WebkitTextStroke: "0",
                     filter: `drop-shadow(0 -1px 0 hsl(0 0% 100% / 0.15)) drop-shadow(0 1px 0 hsl(0 0% 0% / 0.55)) drop-shadow(0 3px 5px hsl(0 0% 0% / 0.45)) drop-shadow(0 0 12px hsl(${haloHsl} / 0.3))`,
                   }}
                 >
