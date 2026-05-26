@@ -242,8 +242,8 @@ const Pricing = () => {
                             <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Setup - Puesta en marcha</span>
                             <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                           </div>
-                          {/* Flecha */}
-                          <div className="flex justify-center text-muted-foreground/40 text-xs leading-none select-none">↓</div>
+                          {/* Separador */}
+                          <div className="flex justify-center text-lg font-bold leading-none select-none" style={{ color: `hsl(${tier.hsl})` }}>+</div>
                           {/* Paso 2 — Cuota mensual */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
                             <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Cuota mensual</span>
