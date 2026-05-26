@@ -15,6 +15,7 @@ const tiers = [
     icon: Zap,
     price: "299",
     annualDiscount: 15,
+    setupNote: "Puesta en marcha · presupuesto a medida",
     period: "/mes",
     description: "Para pequeños negocios que quieren atender cada llamada y olvidarse de tareas repetitivas.",
     accent: "brand-teal",
