@@ -13,7 +13,7 @@ interface NavbarProps {
 const agentLinks = [
   { name: "ARIA", subtitle: "Recepcionista", icon: Phone,         path: "/aria",   hsl: "190 70% 55%" },
   { name: "NOVA", subtitle: "Ventas",         icon: PhoneOutgoing, path: "/nova",   hsl: "260 60% 65%" },
-  { name: "LUMI", subtitle: "Citas",          icon: CalendarCheck, path: "/lumi",   hsl: "160 50% 48%" },
+  { name: "LUMI", subtitle: "Agenda",         icon: CalendarCheck, path: "/lumi",   hsl: "160 50% 48%" },
   { name: "BYTE", subtitle: "Analítica",      icon: BarChart3,     path: "/byte",   hsl: "35 70% 58%"  },
   { name: "CARE", subtitle: "Post-Venta",     icon: HeartHandshake,path: "/care",   hsl: "340 55% 60%" },
   { name: "HALO", subtitle: "Orquestación",   icon: Sparkles,      path: "/equipo", hsl: "220 12% 62%" },
