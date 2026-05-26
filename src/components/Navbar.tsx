@@ -11,12 +11,12 @@ interface NavbarProps {
 }
 
 const agentLinks = [
-  { name: "ARIA", subtitle: "Recepcionista", icon: Phone, path: "/aria" },
-  { name: "NOVA", subtitle: "Ventas", icon: PhoneOutgoing, path: "/nova" },
-  { name: "LUMI", subtitle: "Citas", icon: CalendarCheck, path: "/lumi" },
-  { name: "BYTE", subtitle: "Analítica", icon: BarChart3, path: "/byte" },
-  { name: "CARE", subtitle: "Post-Venta", icon: HeartHandshake, path: "/care" },
-  { name: "HALO", subtitle: "Orquestación", icon: Sparkles, path: "/equipo" },
+  { name: "ARIA", subtitle: "Recepcionista", icon: Phone,         path: "/aria",   hsl: "190 70% 55%" },
+  { name: "NOVA", subtitle: "Ventas",         icon: PhoneOutgoing, path: "/nova",   hsl: "260 60% 65%" },
+  { name: "LUMI", subtitle: "Citas",          icon: CalendarCheck, path: "/lumi",   hsl: "160 50% 48%" },
+  { name: "BYTE", subtitle: "Analítica",      icon: BarChart3,     path: "/byte",   hsl: "35 70% 58%"  },
+  { name: "CARE", subtitle: "Post-Venta",     icon: HeartHandshake,path: "/care",   hsl: "340 55% 60%" },
+  { name: "HALO", subtitle: "Orquestación",   icon: Sparkles,      path: "/equipo", hsl: "220 12% 62%" },
 ];
 
 const Navbar = ({ onContact }: NavbarProps = {}) => {
@@ -107,7 +107,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                       onClick={() => setTeamOpen(false)}
                       className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:text-white hover:bg-white/10 transition-all"
                     >
-                      <Icon className="h-4 w-4 text-primary/70 shrink-0" />
+                      <Icon className="h-4 w-4 shrink-0" style={{ color: `hsl(${a.hsl})` }} />
                       <div>
                         <span className="font-semibold text-white">{a.name}</span>
                         <span className="text-foreground/60 ml-1.5">{a.subtitle}</span>
@@ -200,7 +200,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                     onClick={() => { setOpen(false); setMobileTeamOpen(false); }}
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
-                    <Icon className="h-3.5 w-3.5 text-primary/70" />
+                    <Icon className="h-3.5 w-3.5 shrink-0" style={{ color: `hsl(${a.hsl})` }} />
                     {a.name} — {a.subtitle}
                   </Link>
                 );
