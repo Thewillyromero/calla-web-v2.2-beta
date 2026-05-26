@@ -13,8 +13,8 @@ import {
 import haloConductor from "@/assets/halo-conductor.png";
 import { BOOKING_URL } from "@/lib/constants";
 
-const haloHsl = "220 12% 62%";
-const haloGradient = "linear-gradient(110deg, hsl(215 15% 55%) 0%, hsl(210 22% 80%) 30%, hsl(215 8% 97%) 55%, hsl(220 18% 83%) 78%, hsl(215 15% 62%) 100%)";
+const haloHsl = "215 20% 60%";
+const haloGradient = "linear-gradient(135deg, hsl(220 22% 38%), hsl(210 12% 93%), hsl(215 25% 52%))";
 
 const fade = {
   initial: { opacity: 0, y: 20 },
