@@ -71,6 +71,8 @@ const tiers = [
     name: "Enterprise",
     icon: Building2,
     price: "Custom",
+    annualDiscount: 0,
+    setupNote: "Setup - Puesta en marcha · a medida",
     period: "",
     description: "Solución a medida para grandes volúmenes y necesidades específicas.",
     accent: "brand-amber",
@@ -221,20 +223,19 @@ const Pricing = () => {
                     }}
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 rounded-xl bg-${tier.accent}/10 flex items-center justify-center shrink-0`}>
-                        <tier.icon className={`h-5 w-5 ${tier.accentClass}`} />
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                        style={{ background: `hsl(${tier.hsl} / 0.12)`, border: `1px solid hsl(${tier.hsl} / 0.25)` }}>
+                        <tier.icon className="h-5 w-5" style={{ color: `hsl(${tier.hsl})` }} />
                       </div>
                       <h3 className="font-display font-bold text-lg sm:text-xl text-foreground">{tier.name}</h3>
                     </div>
 
                     <div className="mb-4">
-                      {displayPrice === "Custom" ? (
-                        <span className="text-3xl sm:text-4xl font-display font-extrabold text-gradient">A medida</span>
-                      ) : "setupNote" in tier && tier.setupNote ? (
+                      {"setupNote" in tier && tier.setupNote ? (
                         <div className="flex flex-col gap-2">
                           {/* Paso 1 — Setup */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
-                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Puesta en marcha</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Setup - Puesta en marcha</span>
                             <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                           </div>
                           {/* Flecha */}
@@ -242,20 +243,24 @@ const Pricing = () => {
                           {/* Paso 2 — Cuota mensual */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
                             <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Cuota mensual</span>
-                            <div className="flex items-baseline gap-1.5">
-                              <span className="text-2xl sm:text-3xl font-display font-extrabold text-foreground">€{displayPrice}</span>
-                              <span className="text-muted-foreground text-sm">{tier.period}</span>
-                              {annual && (
-                                <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full">-{discount}%</span>
-                              )}
-                            </div>
+                            {displayPrice === "Custom" ? (
+                              <span className="text-2xl sm:text-3xl font-display font-extrabold text-gradient">A medida</span>
+                            ) : (
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-2xl sm:text-3xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                                <span className="text-muted-foreground text-sm">{tier.period}</span>
+                                {annual && discount > 0 && (
+                                  <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full">-{discount}%</span>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       ) : (
                         <div className="flex items-baseline gap-1.5">
                           <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
                           <span className="text-muted-foreground text-sm">{tier.period}</span>
-                          {annual && (
+                          {annual && discount > 0 && (
                             <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full ml-1">-{discount}%</span>
                           )}
                         </div>
