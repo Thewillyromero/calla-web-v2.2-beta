@@ -196,8 +196,13 @@ const Pricing = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, margin: "-60px" }}
-                  className="relative transition-all duration-500 h-full"
-                  whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  className="relative h-full"
+                  whileHover={{
+                    y: -10,
+                    filter: `drop-shadow(0 20px 32px hsl(${tier.hsl} / 0.22)) drop-shadow(0 6px 12px rgba(0,0,0,0.30))`,
+                    transition: { duration: 0.22, ease: "easeOut" },
+                  }}
+                  whileTap={{ y: -4 }}
                 >
                   {/* Badge FUERA del glow-border para que overflow:hidden no lo corte */}
                   {tier.badge && (
