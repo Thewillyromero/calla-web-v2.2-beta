@@ -18,6 +18,7 @@ const CAPABILITY_ICONS: Record<string, typeof PhoneCall> = {
 };
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import mercedesSilhouette from "@/assets/automocion-mercedes.webp";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import { sectors } from "@/data/sectors";
 import { BOOKING_URL } from "@/lib/constants";
@@ -58,64 +59,21 @@ const SectorPage = () => {
       <section className="pt-28 sm:pt-36 pb-20 px-5 md:px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full bg-primary/[0.04] blur-[130px] pointer-events-none" />
 
-        {/* Automoción: silueta Mercedes Clase C Coupé C205 */}
+        {/* Automoción: silueta Mercedes */}
         {sector.slug === "automocion" && (
           <motion.div
             className="absolute right-0 bottom-0 pointer-events-none select-none hidden lg:block"
-            style={{ opacity: 0.08 }}
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           >
-            <svg width="440" height="162" viewBox="0 0 440 142" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/*
-                Mercedes C-Class C205 Coupé:
-                - capó largo y muy bajo (casi plano)
-                - parabrisas con inclinación extrema (A-pillar ~55° de vertical)
-                - techo plano y bajo
-                - pilar C tipo fastback que baja de forma continua
-                - maletero corto
-                - batalla: eje delantero ~x=90, eje trasero ~x=354
-              */}
-              <path
-                fill="white"
-                d="
-                  M 16 108
-                  C 5 108 2 98 8 88
-                  C 11 84 22 81 40 80
-                  L 90 78
-                  C 104 78 112 78 120 77
-                  L 148 77
-                  C 158 77 166 70 176 57
-                  C 190 38 214 18 244 13
-                  L 316 11
-                  C 352 11 390 50 406 80
-                  L 420 84
-                  C 428 84 434 94 432 105
-                  L 432 108
-                  L 376 108 A 24 24 0 0 0 328 108
-                  L 112 108 A 24 24 0 0 0 64  108
-                  L 16 108 Z
-                "
-              />
-              {/* Línea de carácter / hombro (detalle lateral) */}
-              <path
-                stroke="white"
-                strokeWidth="0.8"
-                strokeOpacity="0.5"
-                fill="none"
-                d="M 40 80 C 120 80 200 82 280 84 C 340 86 390 88 406 80"
-              />
-              {/* Rueda delantera */}
-              <circle cx="88"  cy="122" r="20" stroke="white" strokeWidth="2.5" fill="none"/>
-              <circle cx="88"  cy="122" r="8.5" stroke="white" strokeWidth="1.5" fill="none"/>
-              <circle cx="88"  cy="122" r="2.5" fill="white"/>
-              {/* Rueda trasera */}
-              <circle cx="352" cy="122" r="20" stroke="white" strokeWidth="2.5" fill="none"/>
-              <circle cx="352" cy="122" r="8.5" stroke="white" strokeWidth="1.5" fill="none"/>
-              <circle cx="352" cy="122" r="2.5" fill="white"/>
-              {/* Línea de suelo */}
-              <line x1="0" y1="140" x2="440" y2="140" stroke="white" strokeWidth="0.8" strokeOpacity="0.18"/>
-            </svg>
+            <img
+              src={mercedesSilhouette}
+              alt=""
+              width={480}
+              height={380}
+              style={{ mixBlendMode: "screen", opacity: 0.22 }}
+              className="object-contain"
+            />
           </motion.div>
         )}
 

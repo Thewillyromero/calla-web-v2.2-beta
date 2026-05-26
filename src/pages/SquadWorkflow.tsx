@@ -258,210 +258,261 @@ const SquadWorkflow = () => {
       <section className="py-12 md:py-20 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
           <SectionFade>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-3">
-              Lo que HALO coordina
-            </h2>
-            <p className="text-center text-foreground/60 font-light max-w-xl mx-auto mb-10">
-              Un solo sistema que mantiene todo en marcha: los cinco agentes base y cualquier agente o automatización que construyamos para tu empresa.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-10 text-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
+                Lo que HALO coordina
+              </h2>
+              <p className="text-foreground/60 font-light max-w-xl mx-auto">
+                Un solo sistema que mantiene todo en marcha: los cinco agentes base y cualquier agente o automatización que construyamos para tu empresa.
+              </p>
+            </motion.div>
 
             <div className="flex flex-col gap-4 md:gap-5">
 
-              {/* ── Fila 1: red de orquestación ── */}
-              <motion.div
-                {...fade}
-                className="rounded-3xl overflow-hidden border flex flex-col md:flex-row"
-                style={{ borderColor: `hsl(${haloHsl} / 0.28)`, background: `hsl(${haloHsl} / 0.05)` }}
-              >
-                {/* Texto izquierda */}
-                <div className="p-6 md:p-8 flex flex-col justify-center md:w-1/2">
-                  <h3 className="text-base font-display font-extrabold text-foreground uppercase tracking-widest mb-2">
-                    Núcleo de orquestación
-                  </h3>
-                  <p className="text-base text-foreground/65 font-light leading-relaxed mb-5">
-                    Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {["Tiempo real", "Contexto compartido", "Sin fricciones", "Escalado a humanos"].map((chip) => (
-                      <span key={chip} className="px-2.5 py-1 rounded-full text-xs font-semibold"
-                        style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {/* ── Fila 1: orquestación (ancha) + memoria ── */}
+              <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-4 md:gap-5">
 
-                {/* Animación red derecha */}
-                <div className="md:w-1/2 relative flex items-center justify-center h-64 md:h-72 overflow-hidden"
-                  style={{ borderTop: "1px solid hsl(220 12% 62% / 0.12)", background: "hsl(220 12% 62% / 0.03)" }}>
-                  <svg viewBox="0 0 300 240" className="w-full h-full" fill="none">
-                    {/* Líneas de conexión */}
-                    {[
-                      { x: 150, y: 35,  hsl: "190 60% 55%" },
-                      { x: 231, y: 94,  hsl: "260 50% 65%" },
-                      { x: 200, y: 189, hsl: "160 50% 48%" },
-                      { x: 100, y: 189, hsl: "35 70% 58%"  },
-                      { x: 69,  y: 94,  hsl: "340 55% 60%" },
-                    ].map((pos, i) => (
-                      <g key={i}>
-                        <line x1={150} y1={120} x2={pos.x} y2={pos.y}
-                          stroke={`hsl(${pos.hsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
-
-                        {/* Señal viajando de HALO al agente */}
-                        <motion.circle r="3.5" fill={`hsl(${pos.hsl})`}
-                          animate={{
-                            cx: [150, pos.x],
-                            cy: [120, pos.y],
-                            opacity: [0, 1, 0],
-                          }}
-                          transition={{ duration: 1.6, delay: i * 0.9, repeat: Infinity, repeatDelay: 2.8, ease: "easeIn" }}
-                        />
-
-                        {/* Nodo agente */}
-                        <motion.circle cx={pos.x} cy={pos.y} r={15}
-                          fill={`hsl(${pos.hsl} / 0.12)`} stroke={`hsl(${pos.hsl} / 0.4)`} strokeWidth="1.5"
-                          animate={{ r: [14, 16.5, 14] }}
-                          transition={{ duration: 2.4 + i * 0.35, repeat: Infinity, ease: "easeInOut", delay: i * 0.55 }}
-                        />
-                        <text x={pos.x} y={pos.y + 4} textAnchor="middle"
-                          fill={`hsl(${pos.hsl})`} fontSize="7" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.06em">
-                          {squadAgents[i].name}
-                        </text>
-                      </g>
-                    ))}
-
-                    {/* Pulso exterior de HALO */}
-                    <motion.circle cx={150} cy={120} r={32} fill="none"
-                      stroke={`hsl(${haloHsl} / 0.18)`} strokeWidth="1.5"
-                      animate={{ r: [32, 46, 32], opacity: [0.6, 0, 0.6] }}
-                      transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
-                    />
-                    {/* Nodo HALO central */}
-                    <circle cx={150} cy={120} r={27}
-                      fill={`hsl(${haloHsl} / 0.18)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2"/>
-                    <text x={150} y={117} textAnchor="middle"
-                      fill={`hsl(${haloHsl})`} fontSize="9.5" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.08em">
-                      HALO
-                    </text>
-                    <text x={150} y={130} textAnchor="middle"
-                      fill={`hsl(${haloHsl} / 0.5)`} fontSize="6.5" fontFamily="sans-serif">
-                      orquestador
-                    </text>
-                  </svg>
-                </div>
-              </motion.div>
-
-              {/* ── Fila 2: capacidades clave ── */}
-              <div className="grid sm:grid-cols-3 gap-4">
-
-                {/* Memoria compartida */}
+                {/* ORQUESTACIÓN */}
                 <motion.div
-                  {...fade} transition={{ ...fade.transition, delay: 0.05 }}
-                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
-                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6 }}
+                  className="rounded-3xl overflow-hidden border flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.28)`, background: `hsl(${haloHsl} / 0.05)` }}
                 >
-                  <div className="h-16">
-                    <svg viewBox="0 0 200 50" className="w-full h-full" fill="none">
+                  <div className="p-6 md:p-8">
+                    <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">
+                      Núcleo de orquestación
+                    </h3>
+                    <p className="text-base text-foreground/65 font-light leading-relaxed mb-5">
+                      Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Tiempo real", "Contexto compartido", "Sin fricciones", "Escalado a humanos"].map((chip) => (
+                        <span key={chip} className="px-2.5 py-1 rounded-full text-xs font-semibold"
+                          style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="h-52 relative flex items-center justify-center overflow-hidden"
+                    style={{ background: `hsl(${haloHsl} / 0.03)`, borderTop: `1px solid hsl(${haloHsl} / 0.10)` }}>
+                    <svg viewBox="0 0 300 210" className="w-full h-full" fill="none">
                       {[
-                        { x: 25, label: "ARIA", hsl: "190 60% 55%" },
-                        { x: 100, label: "HALO", hsl: haloHsl },
-                        { x: 175, label: "NOVA", hsl: "260 50% 65%" },
-                      ].map((n, i) => (
+                        { x: 150, y: 32,  hsl: "190 60% 55%" },
+                        { x: 233, y: 91,  hsl: "260 50% 65%" },
+                        { x: 202, y: 183, hsl: "160 50% 48%" },
+                        { x: 98,  y: 183, hsl: "35 70% 58%"  },
+                        { x: 67,  y: 91,  hsl: "340 55% 60%" },
+                      ].map((pos, i) => (
                         <g key={i}>
-                          <circle cx={n.x} cy={25} r={12} fill={`hsl(${n.hsl} / 0.12)`} stroke={`hsl(${n.hsl} / 0.4)`} strokeWidth="1.5"/>
-                          <text x={n.x} y={29} textAnchor="middle" fill={`hsl(${n.hsl})`} fontSize="6" fontWeight="800" fontFamily="sans-serif">{n.label}</text>
+                          <line x1={150} y1={112} x2={pos.x} y2={pos.y}
+                            stroke={`hsl(${pos.hsl} / 0.20)`} strokeWidth="1.5" strokeDasharray="4 6"/>
+                          <motion.circle r="3.5" fill={`hsl(${pos.hsl})`}
+                            animate={{ cx: [150, pos.x], cy: [112, pos.y], opacity: [0, 1, 0] }}
+                            transition={{ duration: 1.6, delay: i * 0.9, repeat: Infinity, repeatDelay: 2.8, ease: "easeIn" }}
+                          />
+                          <motion.circle cx={pos.x} cy={pos.y} r={16}
+                            fill={`hsl(${pos.hsl} / 0.10)`} stroke={`hsl(${pos.hsl} / 0.38)`} strokeWidth="1.5"
+                            animate={{ r: [15, 17, 15] }}
+                            transition={{ duration: 2.4 + i * 0.35, repeat: Infinity, ease: "easeInOut", delay: i * 0.55 }}
+                          />
+                          <text x={pos.x} y={pos.y + 4} textAnchor="middle"
+                            fill={`hsl(${pos.hsl})`} fontSize="7" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.06em">
+                            {squadAgents[i].name}
+                          </text>
                         </g>
                       ))}
-                      <line x1={37} y1={25} x2={88} y2={25} stroke={`hsl(${haloHsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
-                      <line x1={112} y1={25} x2={163} y2={25} stroke={`hsl(${haloHsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
-                      <motion.circle r={3} fill="hsl(190 60% 55%)"
-                        animate={{ cx: [25, 175], cy: [25, 25], opacity: [0, 1, 1, 0] }}
-                        transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1.5, ease: "linear" }}
+                      <motion.circle cx={150} cy={112} r={34} fill="none"
+                        stroke={`hsl(${haloHsl} / 0.16)`} strokeWidth="1.5"
+                        animate={{ r: [34, 48, 34], opacity: [0.5, 0, 0.5] }}
+                        transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
                       />
+                      <circle cx={150} cy={112} r={28}
+                        fill={`hsl(${haloHsl} / 0.16)`} stroke={`hsl(${haloHsl} / 0.50)`} strokeWidth="2"/>
+                      <text x={150} y={109} textAnchor="middle"
+                        fill={`hsl(${haloHsl})`} fontSize="9.5" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.08em">
+                        HALO
+                      </text>
+                      <text x={150} y={122} textAnchor="middle"
+                        fill={`hsl(${haloHsl} / 0.45)`} fontSize="6.5" fontFamily="sans-serif">
+                        orquestador
+                      </text>
                     </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Memoria compartida del cliente</h3>
-                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
-                      El historial completo viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. El cliente no repite nada.
-                    </p>
                   </div>
                 </motion.div>
 
-                {/* Decisión inteligente */}
+                {/* MEMORIA COMPARTIDA */}
                 <motion.div
-                  {...fade} transition={{ ...fade.transition, delay: 0.10 }}
-                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
-                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+                  className="rounded-3xl overflow-hidden border flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.22)`, background: `hsl(${haloHsl} / 0.04)` }}
                 >
-                  <div className="h-16">
-                    <svg viewBox="0 0 200 52" className="w-full h-full" fill="none">
-                      <circle cx={30} cy={26} r={11} fill={`hsl(${haloHsl} / 0.10)`} stroke={`hsl(${haloHsl} / 0.30)`} strokeWidth="1.5"/>
-                      <text x={30} y={30.5} textAnchor="middle" fill={`hsl(${haloHsl} / 0.7)`} fontSize="9" fontWeight="700" fontFamily="sans-serif">✦</text>
-                      <circle cx={100} cy={26} r={14} fill={`hsl(${haloHsl} / 0.18)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2"/>
-                      <text x={100} y={30} textAnchor="middle" fill={`hsl(${haloHsl})`} fontSize="6" fontWeight="800" fontFamily="sans-serif">HALO</text>
-                      <circle cx={170} cy={11} r={10} fill="hsl(190 60% 55% / 0.10)" stroke="hsl(190 60% 55% / 0.35)" strokeWidth="1.5"/>
-                      <text x={170} y={15} textAnchor="middle" fill="hsl(190 60% 55%)" fontSize="5.5" fontWeight="800" fontFamily="sans-serif">ARIA</text>
-                      <circle cx={170} cy={41} r={10} fill="hsl(160 50% 48% / 0.10)" stroke="hsl(160 50% 48% / 0.35)" strokeWidth="1.5"/>
-                      <text x={170} y={45} textAnchor="middle" fill="hsl(160 50% 48%)" fontSize="5.5" fontWeight="800" fontFamily="sans-serif">LUMI</text>
-                      <line x1={41} y1={26} x2={86} y2={26} stroke={`hsl(${haloHsl} / 0.25)`} strokeWidth="1.5" strokeDasharray="4 5"/>
-                      <line x1={114} y1={20} x2={160} y2={13} stroke="hsl(190 60% 55% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
-                      <line x1={114} y1={32} x2={160} y2={39} stroke="hsl(160 50% 48% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
-                      <motion.circle r={2.5} fill={`hsl(${haloHsl})`}
-                        animate={{ cx: [30, 100, 100, 170], cy: [26, 26, 26, 11], opacity: [0, 1, 1, 0] }}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">
+                      Memoria compartida
+                    </h3>
+                    <p className="text-sm text-foreground/65 font-light leading-relaxed mb-6">
+                      El historial completo del cliente viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. Sin repeticiones.
+                    </p>
+                    <div className="mt-auto rounded-2xl p-4"
+                      style={{ background: `hsl(${haloHsl} / 0.07)`, border: `1px solid hsl(${haloHsl} / 0.15)` }}>
+                      <p className="text-[9px] font-bold tracking-widest uppercase mb-4" style={{ color: `hsl(${haloHsl} / 0.55)` }}>
+                        VIAJE DEL CLIENTE
+                      </p>
+                      <div className="flex items-start gap-1">
+                        {[
+                          { name: "ARIA", hsl: "190 60% 55%", label: "Recibe" },
+                          { name: "NOVA", hsl: "260 50% 65%", label: "Vende" },
+                          { name: "LUMI", hsl: "160 50% 48%", label: "Agenda" },
+                          { name: "CARE", hsl: "340 55% 60%", label: "Fideliza" },
+                        ].map((a, i) => (
+                          <div key={a.name} className="flex items-center flex-1 min-w-0">
+                            <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
+                              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-[8px] font-extrabold shrink-0"
+                                style={{ background: `hsl(${a.hsl} / 0.15)`, color: `hsl(${a.hsl})`, border: `1px solid hsl(${a.hsl} / 0.3)` }}>
+                                {a.name}
+                              </div>
+                              <span className="text-[8px] text-foreground/40 text-center">{a.label}</span>
+                            </div>
+                            {i < 3 && (
+                              <div className="w-5 flex items-start pt-3.5 justify-center shrink-0">
+                                <motion.div className="w-1.5 h-1.5 rounded-full"
+                                  style={{ background: `hsl(${haloHsl} / 0.5)` }}
+                                  animate={{ x: [-3, 3, -3] }}
+                                  transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.3 }}
+                                />
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 pt-3 border-t flex items-center gap-1.5" style={{ borderColor: `hsl(${haloHsl} / 0.12)` }}>
+                        <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${haloHsl})` }}
+                          animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
+                        <span className="text-[9px] text-foreground/45">Carlos M. · 647 XXX XXX</span>
+                        <span className="ml-auto text-[9px] font-bold" style={{ color: `hsl(${haloHsl})` }}>Sin repetir datos</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* ── Fila 2: panel + decisión + escalado ── */}
+              <div className="grid sm:grid-cols-3 gap-4 md:gap-5">
+
+                {/* PANEL */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6 }}
+                  className="rounded-3xl overflow-hidden border flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.22)`, background: `hsl(${haloHsl} / 0.04)` }}
+                >
+                  <div className="p-5">
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 uppercase tracking-widest">Panel de supervisión</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">Trazabilidad completa. Qué hizo cada agente, cuándo y con qué resultado.</p>
+                  </div>
+                  <div className="px-5 pb-5 flex-1 flex flex-col justify-end gap-1">
+                    <div className="h-24 flex items-end gap-1.5">
+                      {[38, 62, 48, 82, 56, 72, 92, 44, 68, 54].map((h, i) => (
+                        <motion.div key={i} className="flex-1 rounded-t-sm"
+                          style={{ background: `hsl(${haloHsl} / ${0.18 + (h / 100) * 0.52})`, height: `${h}%`, originY: 1 }}
+                          initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={{ once: true }}
+                          transition={{ duration: 0.55, delay: i * 0.07, ease: "easeOut" }}
+                        />
+                      ))}
+                    </div>
+                    <div className="flex justify-between pt-1" style={{ borderTop: `1px solid hsl(${haloHsl} / 0.10)` }}>
+                      <span className="text-[8px] text-foreground/30">Lun</span>
+                      <span className="text-[8px] text-foreground/30">Hoy</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* DECISIÓN */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.08 }}
+                  className="rounded-3xl overflow-hidden border flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.22)`, background: `hsl(${haloHsl} / 0.04)` }}
+                >
+                  <div className="p-5">
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 uppercase tracking-widest">Decisión inteligente</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">HALO elige qué agente interviene en cada momento. Sin solapamientos.</p>
+                  </div>
+                  <div className="flex-1 flex items-center justify-center px-5 pb-6">
+                    <svg viewBox="0 0 160 100" className="w-full max-w-[200px]" fill="none">
+                      <circle cx={26} cy={50} r={16} fill={`hsl(${haloHsl} / 0.10)`} stroke={`hsl(${haloHsl} / 0.28)`} strokeWidth="1.5"/>
+                      <text x={26} y={55} textAnchor="middle" fill={`hsl(${haloHsl} / 0.55)`} fontSize="10" fontFamily="sans-serif">✦</text>
+                      <circle cx={80} cy={50} r={21} fill={`hsl(${haloHsl} / 0.16)`} stroke={`hsl(${haloHsl} / 0.58)`} strokeWidth="2"/>
+                      <text x={80} y={54} textAnchor="middle" fill={`hsl(${haloHsl})`} fontSize="8.5" fontWeight="800" fontFamily="sans-serif">HALO</text>
+                      <circle cx={142} cy={20} r={13} fill="hsl(190 60% 55% / 0.10)" stroke="hsl(190 60% 55% / 0.38)" strokeWidth="1.5"/>
+                      <text x={142} y={24} textAnchor="middle" fill="hsl(190 60% 55%)" fontSize="6.5" fontWeight="800" fontFamily="sans-serif">ARIA</text>
+                      <circle cx={142} cy={80} r={13} fill="hsl(160 50% 48% / 0.10)" stroke="hsl(160 50% 48% / 0.38)" strokeWidth="1.5"/>
+                      <text x={142} y={84} textAnchor="middle" fill="hsl(160 50% 48%)" fontSize="6.5" fontWeight="800" fontFamily="sans-serif">LUMI</text>
+                      <line x1={42} y1={50} x2={59} y2={50} stroke={`hsl(${haloHsl} / 0.28)`} strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <line x1={101} y1={42} x2={129} y2={24} stroke="hsl(190 60% 55% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <line x1={101} y1={58} x2={129} y2={76} stroke="hsl(160 50% 48% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <motion.circle r={3} fill={`hsl(${haloHsl})`}
+                        animate={{ cx: [26, 80, 80, 142], cy: [50, 50, 50, 20], opacity: [0, 1, 1, 0] }}
                         transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5, ease: "easeIn" }}
                       />
                     </svg>
                   </div>
-                  <div>
-                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Decisión inteligente de flujo</h3>
-                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
-                      HALO elige qué agente interviene en cada momento. Sin solapamientos, sin lagunas, sin llamadas perdidas.
-                    </p>
-                  </div>
                 </motion.div>
 
-                {/* Panel de supervisión */}
+                {/* ESCALADO */}
                 <motion.div
-                  {...fade} transition={{ ...fade.transition, delay: 0.15 }}
-                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
-                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.16 }}
+                  className="rounded-3xl overflow-hidden border flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.22)`, background: `hsl(${haloHsl} / 0.04)` }}
                 >
-                  <div className="h-16 flex items-end gap-1.5 px-2">
-                    {[35, 60, 45, 80, 55, 70, 90, 40, 65, 50].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        className="flex-1 rounded-sm"
-                        style={{
-                          background: `hsl(${haloHsl} / ${0.22 + (h / 100) * 0.48})`,
-                          height: `${h}%`,
-                          originY: 1,
-                        }}
-                        initial={{ scaleY: 0 }}
-                        whileInView={{ scaleY: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
-                      />
+                  <div className="p-5">
+                    <h3 className="text-sm font-display font-extrabold text-foreground mb-1.5 uppercase tracking-widest">Escalado a humanos</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">Detecta urgencias y transfiere al instante con todo el contexto ya explicado.</p>
+                  </div>
+                  <div className="flex-1 flex flex-col justify-end px-5 pb-5 gap-2.5">
+                    {[
+                      { label: "ARIA detecta urgencia",     hsl: "190 60% 55%", pulse: false },
+                      { label: "HALO clasifica y prioriza", hsl: haloHsl,       pulse: false },
+                      { label: "Transfiere con contexto",   hsl: haloHsl,       pulse: false },
+                      { label: "Agente humano informado",   hsl: "160 50% 48%", pulse: true  },
+                    ].map((step, i) => (
+                      <motion.div key={i} className="flex items-center gap-2.5"
+                        initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }} transition={{ delay: 0.3 + i * 0.12, duration: 0.4 }}>
+                        <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0"
+                          style={{ background: `hsl(${step.hsl} / 0.15)`, border: `1px solid hsl(${step.hsl} / 0.4)` }}>
+                          {step.pulse
+                            ? <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${step.hsl})` }}
+                                animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1, repeat: Infinity }} />
+                            : <div className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${step.hsl})` }} />
+                          }
+                        </div>
+                        <span className="text-[10px] text-foreground/65 font-medium leading-snug">{step.label}</span>
+                      </motion.div>
                     ))}
                   </div>
-                  <div>
-                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Panel de supervisión total</h3>
-                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
-                      Trazabilidad completa. Qué hizo cada agente, cuándo y con qué resultado. Control total en tiempo real.
-                    </p>
-                  </div>
                 </motion.div>
-
               </div>
 
               {/* ── Fila 3: a medida ── */}
-              <motion.div
-                {...fade} transition={{ ...fade.transition, delay: 0.15 }}
-                className="rounded-3xl border p-6 md:p-8 grid md:grid-cols-2 gap-6 md:gap-10"
-                style={{ borderColor: `hsl(${haloHsl} / 0.2)`, background: `hsl(${haloHsl} / 0.04)` }}
-              >
-                <div>
-                  <span className="inline-flex items-center gap-1.5 mb-3 px-3 py-1 rounded-full text-xs font-semibold"
+              <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6 }}
+                  className="rounded-3xl border p-6 md:p-8"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.20)`, background: `hsl(${haloHsl} / 0.04)` }}
+                >
+                  <span className="inline-flex items-center gap-1.5 mb-4 px-3 py-1 rounded-full text-xs font-semibold"
                     style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})` }}>
                     + Ilimitado · a medida
                   </span>
@@ -469,9 +520,15 @@ const SquadWorkflow = () => {
                   <p className="text-sm text-foreground/65 font-light leading-relaxed">
                     Diseñados para los procesos exactos de tu empresa. HALO los integra como uno más del equipo.
                   </p>
-                </div>
-                <div>
-                  <span className="inline-flex items-center gap-1.5 mb-3 px-3 py-1 rounded-full text-xs font-semibold"
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+                  className="rounded-3xl border p-6 md:p-8"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.20)`, background: `hsl(${haloHsl} / 0.04)` }}
+                >
+                  <span className="inline-flex items-center gap-1.5 mb-4 px-3 py-1 rounded-full text-xs font-semibold"
                     style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})` }}>
                     ⇄ Sin límite
                   </span>
@@ -479,9 +536,8 @@ const SquadWorkflow = () => {
                   <p className="text-sm text-foreground/65 font-light leading-relaxed">
                     Automatizamos los flujos propios de tu operativa. HALO los orquesta junto al resto sin fricciones.
                   </p>
-                  <p className="text-xs text-foreground/40 font-light mt-3">Crece con tu empresa sin límite</p>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
 
             </div>
           </SectionFade>
