@@ -75,7 +75,7 @@ const capabilities = [
   {
     title: "Agentes IA a medida y automatización de tus procesos",
     description: "Automatizamos los procesos internos de tu empresa y creamos agentes IA a medida para necesidades específicas.",
-    chips: ["CRM", "ERP", "WhatsApp", "Slack", "API"],
+    chips: ["CRM", "ERP", "Telegram", "Email", "API"],
     hsl: "245 60% 62%",
     Icon: Network,
   },
