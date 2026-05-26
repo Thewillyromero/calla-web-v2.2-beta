@@ -154,6 +154,8 @@ const SquadWorkflow = () => {
                   style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.32), hsl(${haloHsl} / 0.08) 45%, transparent 70%)` }} />
                 <div className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
                   style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.45), transparent 65%)` }} />
+                <div className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
+                  style={{ boxShadow: `0 0 60px hsl(${haloHsl} / 0.5), inset 0 0 40px hsl(${haloHsl} / 0.2)` }} />
                 <motion.img
                   src={haloConductor}
                   alt="HALO"
