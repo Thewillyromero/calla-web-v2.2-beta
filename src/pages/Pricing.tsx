@@ -51,7 +51,7 @@ const tiers = [
     badge: "Más popular",
     setupNote: "Puesta en marcha · presupuesto a medida",
     features: [
-      "Agentes de IA",
+      "Agentes de IA (Inbound y Outbound)",
       "Hasta 2.000 llamadas/mes",
       "Campañas outbound automatizadas",
       "CRM integrado",
