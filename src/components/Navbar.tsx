@@ -96,7 +96,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? "rotate-180" : ""}`} />
             </button>
             {teamOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[260px] glass-elevated rounded-xl p-2 animate-in fade-in-0 zoom-in-95 duration-200">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[260px] bg-card/97 backdrop-blur-2xl border border-border/50 rounded-xl p-2 shadow-2xl shadow-black/40 animate-in fade-in-0 zoom-in-95 duration-200">
                 {agentLinks.map((a) => {
                   const Icon = a.icon;
                   return (
@@ -104,12 +104,12 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                       key={a.name}
                       to={a.path}
                       onClick={() => setTeamOpen(false)}
-                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-all"
+                      className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:text-white hover:bg-white/10 transition-all"
                     >
                       <Icon className="h-4 w-4 text-primary/70 shrink-0" />
                       <div>
-                        <span className="font-semibold text-foreground">{a.name}</span>
-                        <span className="text-muted-foreground ml-1.5">{a.subtitle}</span>
+                        <span className="font-semibold text-white">{a.name}</span>
+                        <span className="text-foreground/60 ml-1.5">{a.subtitle}</span>
                       </div>
                     </Link>
                   );
@@ -128,7 +128,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${sectorsOpen ? "rotate-180" : ""}`} />
             </button>
             {sectorsOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] glass-elevated rounded-xl p-2 animate-in fade-in-0 zoom-in-95 duration-200">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] bg-card/97 backdrop-blur-2xl border border-border/50 rounded-xl p-2 shadow-2xl shadow-black/40 animate-in fade-in-0 zoom-in-95 duration-200">
                 <div className="grid grid-cols-3 grid-rows-4 grid-flow-col gap-0.5">
                   {[...sectors].sort((a, b) => a.name.localeCompare(b.name, "es")).map((s) => {
                     const Icon = s.icon;
@@ -137,7 +137,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                         key={s.slug}
                         to={`/sectores/${s.slug}`}
                         onClick={() => setSectorsOpen(false)}
-                        className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-all"
+                        className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:text-white hover:bg-white/10 transition-all"
                       >
                         <Icon className="h-4 w-4 text-primary/70 shrink-0" />
                         {s.name}
