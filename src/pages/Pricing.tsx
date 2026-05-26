@@ -230,32 +230,35 @@ const Pricing = () => {
                     <div className="mb-4">
                       {displayPrice === "Custom" ? (
                         <span className="text-3xl sm:text-4xl font-display font-extrabold text-gradient">A medida</span>
-                      ) : (
-                        <>
-                          {"setupNote" in tier && tier.setupNote && (
-                            <div className="flex items-center gap-2 mb-2.5">
-                              <span
-                                className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shrink-0"
-                                style={{ background: `hsl(${tier.hsl} / 0.12)`, color: `hsl(${tier.hsl})` }}
-                              >
-                                Setup
-                              </span>
-                              <span className="text-xs text-muted-foreground">Presupuesto a medida</span>
-                            </div>
-                          )}
-                          {"setupNote" in tier && tier.setupNote && (
-                            <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground block mb-1">
-                              Cuota mensual
-                            </span>
-                          )}
-                          <div className="flex items-baseline gap-1.5">
-                            <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
-                            <span className="text-muted-foreground text-sm">{tier.period}</span>
-                            {annual && (
-                              <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full ml-1">-{discount}%</span>
-                            )}
+                      ) : "setupNote" in tier && tier.setupNote ? (
+                        <div className="flex flex-col gap-2">
+                          {/* Paso 1 — Setup */}
+                          <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
+                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Puesta en marcha</span>
+                            <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                           </div>
-                        </>
+                          {/* Flecha */}
+                          <div className="flex justify-center text-muted-foreground/40 text-xs leading-none select-none">↓</div>
+                          {/* Paso 2 — Cuota mensual */}
+                          <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
+                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Cuota mensual</span>
+                            <div className="flex items-baseline gap-1.5">
+                              <span className="text-2xl sm:text-3xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                              <span className="text-muted-foreground text-sm">{tier.period}</span>
+                              {annual && (
+                                <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full">-{discount}%</span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                          <span className="text-muted-foreground text-sm">{tier.period}</span>
+                          {annual && (
+                            <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full ml-1">-{discount}%</span>
+                          )}
+                        </div>
                       )}
                     </div>
 
