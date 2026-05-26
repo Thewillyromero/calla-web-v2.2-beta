@@ -61,9 +61,10 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
 
   return (
     <nav
+      style={scrolled ? { backgroundColor: "hsl(240 10% 4% / 0.97)" } : {}}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-2xl border-b border-border/30 shadow-lg shadow-black/20"
+          ? "backdrop-blur-2xl border-b border-border/30 shadow-xl shadow-black/40"
           : "bg-transparent"
       }`}
     >
@@ -96,7 +97,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? "rotate-180" : ""}`} />
             </button>
             {teamOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[260px] bg-card/97 backdrop-blur-2xl border border-border/50 rounded-xl p-2 shadow-2xl shadow-black/40 animate-in fade-in-0 zoom-in-95 duration-200">
+              <div style={{ backgroundColor: "hsl(240 8% 6%)" }} className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[260px] backdrop-blur-2xl border border-border/40 rounded-xl p-2 shadow-2xl shadow-black/50 animate-in fade-in-0 zoom-in-95 duration-200">
                 {agentLinks.map((a) => {
                   const Icon = a.icon;
                   return (
@@ -128,7 +129,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${sectorsOpen ? "rotate-180" : ""}`} />
             </button>
             {sectorsOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] bg-card/97 backdrop-blur-2xl border border-border/50 rounded-xl p-2 shadow-2xl shadow-black/40 animate-in fade-in-0 zoom-in-95 duration-200">
+              <div style={{ backgroundColor: "hsl(240 8% 6%)" }} className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] backdrop-blur-2xl border border-border/40 rounded-xl p-2 shadow-2xl shadow-black/50 animate-in fade-in-0 zoom-in-95 duration-200">
                 <div className="grid grid-cols-3 grid-rows-4 grid-flow-col gap-0.5">
                   {[...sectors].sort((a, b) => a.name.localeCompare(b.name, "es")).map((s) => {
                     const Icon = s.icon;
