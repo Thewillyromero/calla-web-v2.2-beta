@@ -40,7 +40,7 @@ const tiers = [
   {
     name: "Pro",
     icon: Crown,
-    price: "697",
+    price: "699",
     annualDiscount: 20,
     period: "/mes",
     description: "Para empresas que necesitan inbound + outbound, analítica avanzada y automatizaciones.",
