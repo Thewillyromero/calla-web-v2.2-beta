@@ -34,7 +34,7 @@ const squadAgents = [
 const capabilities = [
   {
     title: "Memoria compartida del cliente",
-    description: "El historial viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. El cliente no repite nada.",
+    description: "Cada agente conoce el historial completo del cliente. Lo que registra ARIA, lo usa NOVA. Lo que agenda LUMI, lo sigue CARE: sin lagunas y sin fallos.",
   },
   {
     title: "Decisión inteligente en cada paso",
@@ -47,6 +47,27 @@ const capabilities = [
   {
     title: "Panel de supervisión total",
     description: "Trazabilidad completa. Qué hizo cada agente, cuándo y con qué resultado. Control en tiempo real.",
+  },
+];
+
+const scenarios = [
+  {
+    time: "09:15h — 09:28h",
+    title: "Un lead entra mientras el equipo está en reunión",
+    description: "Un potencial cliente llama a primera hora. El equipo está ocupado y nadie puede atenderle. En otro escenario, la llamada se perdería para siempre.",
+    result: "ARIA atiende, recoge la necesidad y los datos de contacto. NOVA registra el perfil del lead y programa el seguimiento automático. Cero oportunidades perdidas.",
+  },
+  {
+    time: "13:00h — 13:18h",
+    title: "Un cliente habitual cambia su cita y reporta una incidencia",
+    description: "Es cliente desde hace dos años. Llama para adelantar su cita del día siguiente y, de paso, comenta que el último servicio no fue lo esperado.",
+    result: "LUMI reorganiza la agenda sin conflictos en segundos. CARE registra la incidencia y programa el seguimiento. El cliente cuelga satisfecho en menos de 4 minutos.",
+  },
+  {
+    time: "16:30h — 17:45h",
+    title: "Un cliente que compra, agenda y necesita soporte en la misma tarde",
+    description: "Un cliente llama interesado en un servicio. Necesita información, cerrar la contratación, fijar la instalación y resolver una duda técnica. Cuatro procesos distintos, un solo cliente.",
+    result: "HALO orquesta cuatro agentes en 75 minutos: ARIA recibe la llamada, NOVA cierra la venta, LUMI agenda la instalación y CARE programa el seguimiento. El cliente no repite su nombre ni una sola vez.",
   },
 ];
 
@@ -168,7 +189,7 @@ const SquadWorkflow = () => {
                     Todo coordinado.<br />En tiempo real.
                   </h2>
                   <p className="text-foreground/65 font-light leading-relaxed mb-6">
-                    HALO conecta todos los agentes del sistema. Cada transición es invisible para el cliente: el contexto completo viaja con él de agente en agente.
+                    Cinco agentes trabajando como uno solo. HALO decide en tiempo real qué agente actúa y cuándo, con toda la información disponible. El cliente no percibe ninguna transición.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["24/7", "Sin fricción", "Contexto compartido", "A medida"].map((chip) => (
@@ -184,17 +205,17 @@ const SquadWorkflow = () => {
                   style={{ borderTop: "1px solid hsl(220 12% 62% / 0.10)", background: "hsl(220 12% 62% / 0.02)" }}>
                   <svg viewBox="0 0 300 220" className="w-full h-full" fill="none">
                     {[
-                      { x: 150, y: 34,  hsl: "190 60% 55%" },
-                      { x: 234, y: 94,  hsl: "260 50% 65%" },
-                      { x: 202, y: 186, hsl: "160 50% 48%" },
-                      { x: 98,  y: 186, hsl: "35 70% 58%"  },
-                      { x: 66,  y: 94,  hsl: "340 55% 60%" },
+                      { x: 150, y: 34,  hsl: "190 60% 55%", sx: 150, sy: 86  },
+                      { x: 234, y: 94,  hsl: "260 50% 65%", sx: 177, sy: 107 },
+                      { x: 202, y: 186, hsl: "160 50% 48%", sx: 166, sy: 137 },
+                      { x: 98,  y: 186, hsl: "35 70% 58%",  sx: 134, sy: 137 },
+                      { x: 66,  y: 94,  hsl: "340 55% 60%", sx: 123, sy: 107 },
                     ].map((pos, i) => (
                       <g key={i}>
                         <line x1={150} y1={114} x2={pos.x} y2={pos.y}
                           stroke={`hsl(${pos.hsl} / 0.18)`} strokeWidth="1.5" strokeDasharray="4 6" />
                         <motion.circle r="3.5" fill={`hsl(${pos.hsl})`}
-                          animate={{ cx: [150, pos.x], cy: [114, pos.y], opacity: [0, 1, 0] }}
+                          animate={{ cx: [pos.sx, pos.x], cy: [pos.sy, pos.y], opacity: [0, 1, 0] }}
                           transition={{ duration: 1.6, delay: i * 0.9, repeat: Infinity, repeatDelay: 2.8, ease: "easeIn" }}
                         />
                         <motion.circle cx={pos.x} cy={pos.y} r={16}
@@ -252,9 +273,9 @@ const SquadWorkflow = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ── Un ejemplo real ── */}
+      {/* ── Un día con HALO ── */}
       <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <motion.div className="text-center mb-10" {...fade}>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
@@ -265,29 +286,34 @@ const SquadWorkflow = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              className="rounded-3xl border p-8 md:p-10"
-              style={{ borderColor: `hsl(${haloHsl} / 0.25)`, background: `hsl(${haloHsl} / 0.04)` }}
-              {...fade} transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center rounded-full px-3 py-1 mb-6"
-                style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
-                <span className="text-xs font-mono font-bold" style={{ color: `hsl(${haloHsl})` }}>16:30h — 17:45h</span>
-              </div>
-              <h3 className="font-display font-bold text-xl md:text-2xl text-foreground mb-4 leading-snug">
-                Un cliente que compra, agenda y necesita soporte en la misma tarde
-              </h3>
-              <p className="text-foreground/65 font-light leading-relaxed mb-8 text-base md:text-lg">
-                Un cliente llama interesado en un servicio. Necesita información, cerrar la contratación, fijar la instalación y resolver una duda técnica. Cuatro procesos distintos, un solo cliente, una sola tarde.
-              </p>
-              <div className="rounded-2xl p-5 flex items-start gap-4"
-                style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}>
-                <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
-                <p className="text-base font-medium leading-relaxed text-foreground">
-                  HALO orquesta cuatro agentes en 75 minutos: ARIA recibe la llamada, NOVA cierra la venta, LUMI agenda la instalación y CARE programa el seguimiento. El cliente no repite su nombre ni una sola vez.
-                </p>
-              </div>
-            </motion.div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {scenarios.map((s, i) => (
+                <motion.div
+                  key={i}
+                  className="rounded-3xl border p-7 flex flex-col"
+                  style={{ borderColor: `hsl(${haloHsl} / 0.25)`, background: `hsl(${haloHsl} / 0.04)` }}
+                  {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <div className="inline-flex items-center rounded-full px-3 py-1 mb-5 self-start"
+                    style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
+                    <span className="text-xs font-mono font-bold" style={{ color: `hsl(${haloHsl})` }}>{s.time}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-base md:text-lg text-foreground mb-3 leading-snug">
+                    {s.title}
+                  </h3>
+                  <p className="text-foreground/60 font-light leading-relaxed mb-5 text-sm flex-1">
+                    {s.description}
+                  </p>
+                  <div className="rounded-2xl p-4 flex items-start gap-3"
+                    style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}>
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
+                    <p className="text-sm font-medium leading-relaxed text-foreground">
+                      {s.result}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </SectionFade>
         </div>
       </section>
