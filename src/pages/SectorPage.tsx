@@ -58,40 +58,41 @@ const SectorPage = () => {
       <section className="pt-28 sm:pt-36 pb-20 px-5 md:px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full bg-primary/[0.04] blur-[130px] pointer-events-none" />
 
-        {/* Automoción: silueta de sedán */}
+        {/* Automoción: silueta coupé */}
         {sector.slug === "automocion" && (
           <motion.div
-            className="absolute -right-6 bottom-0 pointer-events-none select-none hidden lg:block"
+            className="absolute right-0 bottom-0 pointer-events-none select-none hidden lg:block"
             style={{ opacity: 0.07 }}
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -8, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           >
-            <svg width="580" height="215" viewBox="0 0 480 182" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Carrocería — perfil sedán, arcos de rueda integrados */}
+            <svg width="420" height="160" viewBox="0 0 420 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Coupé: techo muy plano y largo, maletero corto, morro bajo */}
               <path
                 fill="white"
-                d="M 26 138 C 12 138 5 126 10 116
-                   L 36 97 L 72 86 L 158 78
-                   Q 172 78 184 62
-                   L 220 35 Q 228 28 242 28
-                   L 302 28 Q 315 28 326 37
-                   L 364 68 Q 374 77 390 82
-                   L 428 88 L 452 106 L 462 122
-                   L 462 135 L 456 138
-                   L 402 138 A 22 22 0 0 0 358 138
-                   L 134 138 A 22 22 0 0 0 90 138
+                d="M 22 106
+                   C 10 106 4 96 8 87
+                   L 28 72 L 58 62 L 108 56
+                   Q 126 55 142 40
+                   L 192 16 Q 204 8 226 7
+                   L 298 7 Q 318 7 332 18
+                   L 358 44 Q 366 52 378 56
+                   L 396 60 L 408 70 L 412 84
+                   L 412 100 L 408 106
+                   L 364 106 A 20 20 0 0 0 324 106
+                   L 118 106 A 20 20 0 0 0 78 106
                    Z"
               />
               {/* Rueda delantera */}
-              <circle cx="112" cy="157" r="21" stroke="white" strokeWidth="3.5" fill="none"/>
-              <circle cx="112" cy="157" r="9"  stroke="white" strokeWidth="2"   fill="none"/>
-              <circle cx="112" cy="157" r="2.5" fill="white"/>
+              <circle cx="98"  cy="120" r="18" stroke="white" strokeWidth="3"   fill="none"/>
+              <circle cx="98"  cy="120" r="7.5" stroke="white" strokeWidth="1.8" fill="none"/>
+              <circle cx="98"  cy="120" r="2"  fill="white"/>
               {/* Rueda trasera */}
-              <circle cx="380" cy="157" r="21" stroke="white" strokeWidth="3.5" fill="none"/>
-              <circle cx="380" cy="157" r="9"  stroke="white" strokeWidth="2"   fill="none"/>
-              <circle cx="380" cy="157" r="2.5" fill="white"/>
+              <circle cx="344" cy="120" r="18" stroke="white" strokeWidth="3"   fill="none"/>
+              <circle cx="344" cy="120" r="7.5" stroke="white" strokeWidth="1.8" fill="none"/>
+              <circle cx="344" cy="120" r="2"  fill="white"/>
               {/* Línea de suelo */}
-              <line x1="0" y1="178" x2="480" y2="178" stroke="white" strokeWidth="1.5" strokeOpacity="0.25"/>
+              <line x1="0" y1="137" x2="420" y2="137" stroke="white" strokeWidth="1" strokeOpacity="0.2"/>
             </svg>
           </motion.div>
         )}
