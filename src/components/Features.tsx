@@ -110,8 +110,8 @@ const features = [
       "Dirige y coordina a todos los asistentes: los cinco agentes base y cualquiera que desarrollemos a medida para tu negocio.",
     personality: "El director del equipo",
     color: "brand-silver",
-    hsl: "220 12% 62%",
-    gradient: "linear-gradient(110deg, hsl(215 8% 38%), hsl(210 28% 74%), hsl(218 5% 93%), hsl(215 18% 58%))",
+    hsl: "215 20% 60%",
+    gradient: "linear-gradient(135deg, hsl(215 18% 55%), hsl(210 10% 96%), hsl(215 22% 58%))",
     expandedDetails: [
       "Pasa el contexto del cliente entre agentes en tiempo real",
       "Decide qué agente entra en cada momento sin que nadie tropiece",
