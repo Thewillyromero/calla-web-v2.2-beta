@@ -158,8 +158,8 @@ const SectorPage = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ── Capabilities (sector-specific) / Agentes en acción (fallback) ── */}
-      {sector.capabilities ? (
+      {/* ── Capabilities (sector-specific) ── */}
+      {sector.capabilities && (
         <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03] relative overflow-hidden">
           {/* Watermark sector icon */}
           <div className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none">
@@ -205,48 +205,6 @@ const SectorPage = () => {
                         {cap.description}
                       </p>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      ) : (
-        <section className="py-16 md:py-24 px-5 md:px-6 bg-white/[0.03]">
-          <div className="container mx-auto max-w-5xl">
-            <motion.div {...fade} className="mb-10 md:mb-12">
-              <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
-                Tu equipo inteligente para {sector.name.toLowerCase()}
-              </h2>
-              <p className="text-foreground/60 font-light max-w-xl">
-                Cada agente con un rol concreto, coordinados por HALO las 24 horas.
-              </p>
-            </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {sector.agents.map(({ key, use }, i) => {
-                const agent = AGENT_META[key as AgentKey];
-                const AgentIcon = agent.Icon;
-                return (
-                  <motion.div
-                    key={key} {...fade} transition={{ ...fade.transition, delay: i * 0.1 }}
-                    className="rounded-2xl border p-5 md:p-6 flex flex-col gap-3"
-                    style={{ background: `hsl(${agent.hsl} / 0.07)`, borderColor: `hsl(${agent.hsl} / 0.25)` }}>
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                        style={{ background: `hsl(${agent.hsl} / 0.15)` }}>
-                        <AgentIcon className="w-4 h-4" style={{ color: `hsl(${agent.hsl})` }} />
-                      </div>
-                      <div>
-                        <span
-                          className="font-display font-bold text-sm block leading-none mb-0.5"
-                          style={{ color: `hsl(${agent.hsl})` }}>
-                          {agent.label}
-                        </span>
-                        <span className="text-xs text-foreground/50">{agent.role}</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-foreground/75 font-light leading-relaxed">{use}</p>
                   </motion.div>
                 );
               })}
