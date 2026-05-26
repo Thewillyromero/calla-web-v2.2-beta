@@ -57,6 +57,43 @@ const SectorPage = () => {
       {/* ── Hero ── */}
       <section className="pt-28 sm:pt-36 pb-20 px-5 md:px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[600px] h-[400px] rounded-full bg-primary/[0.04] blur-[130px] pointer-events-none" />
+
+        {/* Automoción: volante + velocímetro */}
+        {sector.slug === "automocion" && (
+          <motion.div
+            className="absolute -right-20 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden md:block"
+            style={{ opacity: 0.07 }}
+            animate={{ y: [0, -16, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg width="500" height="500" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Aro exterior */}
+              <circle cx="160" cy="160" r="120" stroke="white" strokeWidth="4" />
+              {/* Aro interior (zona de agarre) */}
+              <circle cx="160" cy="160" r="108" stroke="white" strokeWidth="1.5" strokeOpacity="0.35" />
+              {/* Radio superior */}
+              <line x1="160" y1="40" x2="160" y2="134" stroke="white" strokeWidth="7" strokeLinecap="round" />
+              {/* Radio inferior derecho */}
+              <line x1="264" y1="220" x2="183" y2="173" stroke="white" strokeWidth="7" strokeLinecap="round" />
+              {/* Radio inferior izquierdo */}
+              <line x1="56" y1="220" x2="137" y2="173" stroke="white" strokeWidth="7" strokeLinecap="round" />
+              {/* Buje */}
+              <circle cx="160" cy="160" r="26" stroke="white" strokeWidth="4" />
+              <circle cx="160" cy="160" r="10" fill="white" />
+              {/* Arco velocímetro */}
+              <path d="M 22 248 C 62 305 258 305 298 248" stroke="white" strokeWidth="2.5" strokeDasharray="6 9" strokeLinecap="round" />
+              {/* Marcas velocímetro */}
+              <line x1="30" y1="244" x2="38" y2="230" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              <line x1="80" y1="279" x2="86" y2="265" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              <line x1="140" y1="296" x2="140" y2="282" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="160" y1="299" x2="160" y2="284" stroke="white" strokeWidth="3" strokeLinecap="round" />
+              <line x1="180" y1="296" x2="180" y2="282" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="240" y1="279" x2="234" y2="265" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              <line x1="290" y1="244" x2="282" y2="230" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </motion.div>
+        )}
+
         <div className="container mx-auto max-w-4xl text-center relative z-10">
 
           <motion.div {...fade}
