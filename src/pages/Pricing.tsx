@@ -13,7 +13,8 @@ const tiers = [
   {
     name: "Starter",
     icon: Zap,
-    price: "297",
+    price: "299",
+    annualDiscount: 15,
     period: "/mes",
     description: "Para pequeños negocios que quieren atender cada llamada y olvidarse de tareas repetitivas.",
     accent: "brand-teal",
@@ -40,6 +41,7 @@ const tiers = [
     name: "Pro",
     icon: Crown,
     price: "697",
+    annualDiscount: 20,
     period: "/mes",
     description: "Para empresas que necesitan inbound + outbound, analítica avanzada y automatizaciones.",
     accent: "brand-lavender",
@@ -174,7 +176,7 @@ const Pricing = () => {
               </button>
               <span className={`text-sm font-medium transition-colors ${annual ? "text-foreground" : "text-muted-foreground"}`}>Anual</span>
               {annual && (
-                <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-2 py-0.5 rounded-full">-20%</span>
+                <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-2 py-0.5 rounded-full">Hasta -20%</span>
               )}
             </div>
           </motion.div>
@@ -182,7 +184,8 @@ const Pricing = () => {
           {/* Pricing cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start pt-10">
             {tiers.map((tier, i) => {
-              const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * 0.8).toString() : tier.price;
+              const discount = "annualDiscount" in tier ? (tier.annualDiscount as number) : 20;
+              const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * (1 - discount / 100)).toString() : tier.price;
 
               return (
                 <motion.div
@@ -244,9 +247,12 @@ const Pricing = () => {
                               Cuota mensual
                             </span>
                           )}
-                          <div className="flex items-baseline gap-1">
+                          <div className="flex items-baseline gap-1.5">
                             <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
                             <span className="text-muted-foreground text-sm">{tier.period}</span>
+                            {annual && (
+                              <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full ml-1">-{discount}%</span>
+                            )}
                           </div>
                         </>
                       )}
