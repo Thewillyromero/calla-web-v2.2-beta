@@ -46,6 +46,7 @@ const tiers = [
     accentClass: "text-brand-lavender",
     hsl: "260 50% 65%",
     badge: "Más popular",
+    setupNote: "Puesta en marcha · presupuesto a medida",
     features: [
       "3 agentes IA (Inbound + Outbound)",
       "Hasta 2.000 llamadas/mes",
@@ -226,10 +227,28 @@ const Pricing = () => {
                       {displayPrice === "Custom" ? (
                         <span className="text-3xl sm:text-4xl font-display font-extrabold text-gradient">A medida</span>
                       ) : (
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
-                          <span className="text-muted-foreground text-sm">{tier.period}</span>
-                        </div>
+                        <>
+                          {"setupNote" in tier && tier.setupNote && (
+                            <div className="flex items-center gap-2 mb-2.5">
+                              <span
+                                className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shrink-0"
+                                style={{ background: `hsl(${tier.hsl} / 0.12)`, color: `hsl(${tier.hsl})` }}
+                              >
+                                Setup
+                              </span>
+                              <span className="text-xs text-muted-foreground">Presupuesto a medida</span>
+                            </div>
+                          )}
+                          {"setupNote" in tier && tier.setupNote && (
+                            <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground block mb-1">
+                              Cuota mensual
+                            </span>
+                          )}
+                          <div className="flex items-baseline gap-1">
+                            <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                            <span className="text-muted-foreground text-sm">{tier.period}</span>
+                          </div>
+                        </>
                       )}
                     </div>
 
