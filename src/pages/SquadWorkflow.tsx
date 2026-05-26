@@ -127,8 +127,8 @@ const SquadWorkflow = () => {
                   sincronía
                 </span>
               </h1>
-              <p className="text-foreground/75 max-w-xl text-base md:text-lg font-light mb-8 leading-relaxed">
-                HALO coordina los cinco agentes base y cualquier agente personalizado que desarrollemos para tu empresa. El cliente siempre recibe una experiencia continua, sin notar ninguna transición.
+              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-8 whitespace-pre-line">
+                {"Halo mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nCon HALO, cada pieza encaja."}
               </p>
               <div
                 className="inline-block rounded-full p-[2px] hover:opacity-90 transition-opacity shadow-lg"
@@ -149,23 +149,21 @@ const SquadWorkflow = () => {
             </div>
 
             <div className="shrink-0 relative flex items-center justify-center p-6 md:p-8">
-              <div className="relative">
-                <div className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
-                  style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.32), hsl(${haloHsl} / 0.08) 45%, transparent 70%)` }} />
-                <div className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
-                  style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.45), transparent 65%)` }} />
-                <div className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
-                  style={{ boxShadow: `0 0 60px hsl(${haloHsl} / 0.5), inset 0 0 40px hsl(${haloHsl} / 0.2)` }} />
-                <motion.img
-                  src={haloConductor}
-                  alt="HALO"
-                  className="w-48 sm:w-64 md:w-[22rem] lg:w-[26rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-                  width={512} height={512}
-                  initial={{ opacity: 0, scale: 0, rotate: -12 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.3 }}
-                />
-              </div>
+              <div className="absolute inset-0 scale-[2] md:scale-[3] rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+                style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.32), hsl(${haloHsl} / 0.08) 45%, transparent 70%)` }} />
+              <div className="absolute inset-0 scale-[1.4] md:scale-[1.6] rounded-full blur-2xl pointer-events-none"
+                style={{ background: `radial-gradient(circle, hsl(${haloHsl} / 0.45), transparent 65%)` }} />
+              <div className="absolute inset-0 scale-[1.1] md:scale-[1.15] rounded-full pointer-events-none"
+                style={{ boxShadow: `0 0 60px hsl(${haloHsl} / 0.5), inset 0 0 40px hsl(${haloHsl} / 0.2)` }} />
+              <motion.img
+                src={haloConductor}
+                alt="HALO"
+                className="w-48 sm:w-64 md:w-[22rem] lg:w-[26rem] object-contain relative z-10 animate-float-gentle drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                width={512} height={512}
+                initial={{ opacity: 0, scale: 0, rotate: -12 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.3 }}
+              />
             </div>
           </motion.div>
         </div>
