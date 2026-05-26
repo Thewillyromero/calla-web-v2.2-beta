@@ -184,7 +184,7 @@ const Pricing = () => {
           </motion.div>
 
           {/* Pricing cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-start pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-stretch pt-10">
             {tiers.map((tier, i) => {
               const discount = "annualDiscount" in tier ? (tier.annualDiscount as number) : 20;
               const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * (1 - discount / 100)).toString() : tier.price;
@@ -196,7 +196,7 @@ const Pricing = () => {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, margin: "-60px" }}
-                  className="relative transition-all duration-500"
+                  className="relative transition-all duration-500 h-full"
                   whileHover={{ y: -6, transition: { duration: 0.3 } }}
                 >
                   {/* Badge FUERA del glow-border para que overflow:hidden no lo corte */}
@@ -209,7 +209,7 @@ const Pricing = () => {
                   )}
 
                   <div
-                    className={`rounded-2xl h-full transition-all duration-500 ${
+                    className={`rounded-2xl h-full flex flex-col transition-all duration-500 ${
                       tier.popular
                         ? "glass-warm glow-border pt-8 px-5 sm:px-6 lg:px-8 pb-5 sm:pb-6 lg:pb-8"
                         : "glass p-5 sm:p-6 lg:p-8"
@@ -297,7 +297,7 @@ const Pricing = () => {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
 
-                    <ul className="space-y-2.5 sm:space-y-3">
+                    <ul className="space-y-2.5 sm:space-y-3 flex-1">
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-2.5 sm:gap-3 text-sm">
                           <Check className={`h-4 w-4 mt-0.5 shrink-0 ${tier.accentClass}`} />
