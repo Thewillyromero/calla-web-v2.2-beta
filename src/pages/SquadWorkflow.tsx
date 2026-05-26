@@ -255,9 +255,9 @@ const SquadWorkflow = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* ── Lo que HALO coordina ── */}
+      {/* ── Lo que HALO coordina — bento ── */}
       <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-5xl">
           <SectionFade>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center mb-3">
               Lo que HALO coordina
@@ -266,97 +266,146 @@ const SquadWorkflow = () => {
               Un solo sistema que mantiene todo en marcha: los cinco agentes base y cualquier agente o automatización que construyamos para tu empresa.
             </p>
 
-            {/* HALO — nodo central */}
-            <motion.div
-              {...fade}
-              className="rounded-2xl p-[2px] mb-0 relative"
-              style={{ backgroundImage: haloGradient }}
-            >
-              <div className="rounded-2xl px-6 py-5 flex items-center gap-4" style={{ background: "hsl(220 15% 8%)" }}>
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: `hsl(${haloHsl} / 0.15)` }}>
-                  <Sparkles className="w-6 h-6" style={{ color: `hsl(${haloHsl})` }} />
-                </div>
-                <div className="flex-1">
-                  <span className="font-display font-extrabold text-2xl text-foreground tracking-tight">HALO</span>
-                  <span className="text-foreground/50 text-sm font-light ml-3">Núcleo de orquestación</span>
-                  <p className="text-base text-foreground/70 font-light mt-1 leading-relaxed">
+            <div className="flex flex-col gap-4 md:gap-5">
+
+              {/* ── Fila 1: red de orquestación ── */}
+              <motion.div
+                {...fade}
+                className="rounded-3xl overflow-hidden border flex flex-col md:flex-row"
+                style={{ borderColor: `hsl(${haloHsl} / 0.28)`, background: `hsl(${haloHsl} / 0.05)` }}
+              >
+                {/* Texto izquierda */}
+                <div className="p-6 md:p-8 flex flex-col justify-center md:w-1/2">
+                  <h3 className="text-base font-display font-extrabold text-foreground uppercase tracking-widest mb-2">
+                    Núcleo de orquestación
+                  </h3>
+                  <p className="text-base text-foreground/65 font-light leading-relaxed mb-5">
                     Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa. Sin HALO, no hay sistema.
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Tiempo real", "Contexto compartido", "Sin fricciones", "Escalado a humanos"].map((chip) => (
+                      <span key={chip} className="px-2.5 py-1 rounded-full text-xs font-semibold"
+                        style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
 
-            {/* Conector visual */}
-            <div className="flex justify-center my-1">
-              <div className="flex flex-col items-center">
-                <div className="w-px h-5" style={{ background: `hsl(${haloHsl} / 0.4)` }} />
-                <div className="flex gap-24 md:gap-40">
-                  <div className="w-px h-5" style={{ background: `hsl(${haloHsl} / 0.3)` }} />
-                  <div className="w-px h-5" style={{ background: `hsl(${haloHsl} / 0.3)` }} />
+                {/* Animación red derecha */}
+                <div className="md:w-1/2 relative flex items-center justify-center h-64 md:h-72 overflow-hidden"
+                  style={{ borderTop: "1px solid hsl(220 12% 62% / 0.12)", background: "hsl(220 12% 62% / 0.03)" }}>
+                  <svg viewBox="0 0 300 240" className="w-full h-full" fill="none">
+                    {/* Líneas de conexión */}
+                    {[
+                      { x: 150, y: 35,  hsl: "190 60% 55%" },
+                      { x: 231, y: 94,  hsl: "260 50% 65%" },
+                      { x: 200, y: 189, hsl: "160 50% 48%" },
+                      { x: 100, y: 189, hsl: "35 70% 58%"  },
+                      { x: 69,  y: 94,  hsl: "340 55% 60%" },
+                    ].map((pos, i) => (
+                      <g key={i}>
+                        <line x1={150} y1={120} x2={pos.x} y2={pos.y}
+                          stroke={`hsl(${pos.hsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
+
+                        {/* Señal viajando de HALO al agente */}
+                        <motion.circle r="3.5" fill={`hsl(${pos.hsl})`}
+                          animate={{
+                            cx: [150, pos.x],
+                            cy: [120, pos.y],
+                            opacity: [0, 1, 0],
+                          }}
+                          transition={{ duration: 1.6, delay: i * 0.9, repeat: Infinity, repeatDelay: 2.8, ease: "easeIn" }}
+                        />
+
+                        {/* Nodo agente */}
+                        <motion.circle cx={pos.x} cy={pos.y} r={15}
+                          fill={`hsl(${pos.hsl} / 0.12)`} stroke={`hsl(${pos.hsl} / 0.4)`} strokeWidth="1.5"
+                          animate={{ r: [14, 16.5, 14] }}
+                          transition={{ duration: 2.4 + i * 0.35, repeat: Infinity, ease: "easeInOut", delay: i * 0.55 }}
+                        />
+                        <text x={pos.x} y={pos.y + 4} textAnchor="middle"
+                          fill={`hsl(${pos.hsl})`} fontSize="7" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.06em">
+                          {squadAgents[i].name}
+                        </text>
+                      </g>
+                    ))}
+
+                    {/* Pulso exterior de HALO */}
+                    <motion.circle cx={150} cy={120} r={32} fill="none"
+                      stroke={`hsl(${haloHsl} / 0.18)`} strokeWidth="1.5"
+                      animate={{ r: [32, 46, 32], opacity: [0.6, 0, 0.6] }}
+                      transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
+                    />
+                    {/* Nodo HALO central */}
+                    <circle cx={150} cy={120} r={27}
+                      fill={`hsl(${haloHsl} / 0.18)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2"/>
+                    <text x={150} y={117} textAnchor="middle"
+                      fill={`hsl(${haloHsl})`} fontSize="9.5" fontWeight="800" fontFamily="sans-serif" letterSpacing="0.08em">
+                      HALO
+                    </text>
+                    <text x={150} y={130} textAnchor="middle"
+                      fill={`hsl(${haloHsl} / 0.5)`} fontSize="6.5" fontFamily="sans-serif">
+                      orquestador
+                    </text>
+                  </svg>
                 </div>
-              </div>
-            </div>
+              </motion.div>
 
-            {/* Dos columnas: agentes base + a medida */}
-            <div className="grid md:grid-cols-2 gap-4">
-
-              {/* Columna izquierda — 5 agentes base */}
-              <motion.div
-                {...fade} transition={{ duration: 0.5, delay: 0.2 }}
-                className="rounded-2xl p-5 flex flex-col gap-4"
-                style={{ background: "hsl(220 15% 10% / 0.6)", border: `1px solid hsl(${haloHsl} / 0.18)` }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>5 agentes base</span>
-                  <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                </div>
-                <div className="grid grid-cols-5 gap-2">
-                  {squadAgents.map((agent, i) => {
-                    const Icon = agent.icon;
-                    return (
-                      <Link key={agent.name} to={agent.path} className="flex flex-col items-center gap-2 rounded-xl p-3 transition-all hover:bg-card/40">
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: `hsl(${agent.hsl} / 0.12)` }}>
-                          <Icon className="h-4 w-4" style={{ color: `hsl(${agent.hsl})` }} />
+              {/* ── Fila 2: 5 agentes ── */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+                {squadAgents.map((agent, i) => {
+                  const Icon = agent.icon;
+                  return (
+                    <motion.div key={agent.name} {...fade} transition={{ ...fade.transition, delay: i * 0.08 }}>
+                      <Link to={agent.path}
+                        className="rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 text-center transition-all duration-300 hover:-translate-y-1 h-full block"
+                        style={{ background: `hsl(${agent.hsl} / 0.06)`, border: `1px solid hsl(${agent.hsl} / 0.22)` }}>
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                          style={{ background: `hsl(${agent.hsl} / 0.15)` }}>
+                          <Icon className="h-5 w-5" style={{ color: `hsl(${agent.hsl})` }} />
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wide" style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</span>
-                        <span className="text-xs text-foreground/60 text-center leading-tight">{agent.role}</span>
+                        <div>
+                          <p className="font-display font-extrabold text-sm uppercase tracking-wide mb-0.5"
+                            style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</p>
+                          <p className="text-xs text-foreground/50 leading-snug">{agent.role}</p>
+                        </div>
+                        <ArrowRight className="h-3.5 w-3.5 mt-auto" style={{ color: `hsl(${agent.hsl} / 0.4)` }} />
                       </Link>
-                    );
-                  })}
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* ── Fila 3: a medida ── */}
+              <motion.div
+                {...fade} transition={{ ...fade.transition, delay: 0.15 }}
+                className="rounded-3xl border p-6 md:p-8 grid md:grid-cols-2 gap-6 md:gap-10"
+                style={{ borderColor: `hsl(${haloHsl} / 0.2)`, background: `hsl(${haloHsl} / 0.04)` }}
+              >
+                <div>
+                  <span className="inline-flex items-center gap-1.5 mb-3 px-3 py-1 rounded-full text-xs font-semibold"
+                    style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})` }}>
+                    + Ilimitado · a medida
+                  </span>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-2">Agentes personalizados</h3>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">
+                    Diseñados para los procesos exactos de tu empresa. HALO los integra como uno más del equipo.
+                  </p>
                 </div>
-                <p className="text-sm text-foreground/50 font-light text-center">Incluidos en todos los planes</p>
+                <div>
+                  <span className="inline-flex items-center gap-1.5 mb-3 px-3 py-1 rounded-full text-xs font-semibold"
+                    style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})` }}>
+                    ⇄ Sin límite
+                  </span>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-2">Flujos y automatizaciones</h3>
+                  <p className="text-sm text-foreground/65 font-light leading-relaxed">
+                    Automatizamos los flujos propios de tu operativa. HALO los orquesta junto al resto sin fricciones.
+                  </p>
+                  <p className="text-xs text-foreground/40 font-light mt-3">Crece con tu empresa sin límite</p>
+                </div>
               </motion.div>
 
-              {/* Columna derecha — A medida */}
-              <motion.div
-                {...fade} transition={{ duration: 0.5, delay: 0.3 }}
-                className="rounded-2xl p-5 flex flex-col gap-4"
-                style={{ background: "hsl(220 15% 10% / 0.6)", border: `1px solid hsl(${haloHsl} / 0.18)` }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: `hsl(${haloHsl})` }}>Ilimitado · a medida</span>
-                  <div className="h-px flex-1" style={{ background: `hsl(${haloHsl} / 0.25)` }} />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-start gap-3 rounded-xl p-4" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
-                    <span className="text-xl font-display font-bold leading-none mt-0.5 shrink-0" style={{ color: `hsl(${haloHsl})` }}>+</span>
-                    <div>
-                      <p className="text-base font-semibold text-foreground mb-1">Agentes personalizados</p>
-                      <p className="text-sm text-foreground/65 font-light leading-relaxed">Diseñados para los procesos exactos de tu empresa. HALO los integra como uno más del equipo.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 rounded-xl p-4" style={{ background: `hsl(${haloHsl} / 0.07)` }}>
-                    <span className="text-xl font-display font-bold leading-none mt-0.5 shrink-0" style={{ color: `hsl(${haloHsl})` }}>⇄</span>
-                    <div>
-                      <p className="text-base font-semibold text-foreground mb-1">Flujos y automatizaciones</p>
-                      <p className="text-sm text-foreground/65 font-light leading-relaxed">Automatizamos los flujos propios de tu operativa. HALO los orquesta junto al resto sin fricciones.</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-sm text-foreground/50 font-light text-center">Crece con tu empresa sin límite</p>
-              </motion.div>
             </div>
           </SectionFade>
         </div>
