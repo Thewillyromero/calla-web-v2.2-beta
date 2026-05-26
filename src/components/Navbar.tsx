@@ -140,7 +140,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                         onClick={() => setSectorsOpen(false)}
                         className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:text-white hover:bg-white/10 transition-all"
                       >
-                        <Icon className="h-4 w-4 text-primary/70 shrink-0" />
+                        <Icon className="h-4 w-4 text-primary shrink-0" />
                         {s.name}
                       </Link>
                     );
@@ -227,7 +227,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                     onClick={() => { setOpen(false); setMobileSectorsOpen(false); }}
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
-                    <Icon className="h-3.5 w-3.5 text-primary/70" />
+                    <Icon className="h-3.5 w-3.5 text-primary shrink-0" />
                     {s.name}
                   </Link>
                 );

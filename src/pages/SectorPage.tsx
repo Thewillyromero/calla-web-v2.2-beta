@@ -218,11 +218,11 @@ const SectorPage = () => {
       {/* ── Casos de uso ── */}
       <section className="py-16 md:py-24 px-5 md:px-6">
         <div className="container mx-auto max-w-5xl">
-          <motion.div {...fade} className="mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
+          <motion.div {...fade} className="mb-10 md:mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight mb-3">
               Un día con CALLA en {sector.name.toLowerCase()}
             </h2>
-            <p className="text-foreground/60 font-light max-w-xl">
+            <p className="text-foreground/60 font-light">
               Situaciones reales del sector, resueltas automáticamente.
             </p>
           </motion.div>
@@ -230,20 +230,26 @@ const SectorPage = () => {
           <div className="grid md:grid-cols-3 gap-4 md:gap-5">
             {sector.useCases.map((uc, i) => (
               <motion.div
-                key={i} {...fade} transition={{ ...fade.transition, delay: i * 0.12 }}
-                className="bg-card/35 border border-border/20 rounded-2xl p-5 md:p-6 flex flex-col gap-4">
-                <div className="inline-flex items-center bg-card/70 border border-border/30 rounded-full px-3 py-1 self-start">
-                  <span className="text-xs font-mono font-bold text-primary">{uc.time}</span>
+                key={i} {...fade} transition={{ ...fade.transition, delay: i * 0.1 }}
+                className="bg-card/40 border border-border/20 rounded-2xl p-5 md:p-6 flex flex-col gap-4">
+                <div
+                  className="inline-flex items-center rounded-full px-3 py-1 self-start"
+                  style={{ background: "hsl(var(--primary) / 0.10)", border: "1px solid hsl(var(--primary) / 0.25)" }}
+                >
+                  <span className="text-xs font-mono font-bold" style={{ color: "hsl(var(--primary))" }}>{uc.time}</span>
                 </div>
-                <h3 className="font-display font-bold text-base text-foreground leading-snug">
+                <h3 className="font-display font-bold text-lg text-foreground leading-snug">
                   {uc.title}
                 </h3>
-                <p className="text-sm text-foreground/65 font-light leading-relaxed flex-1">
+                <p className="text-base text-foreground/65 font-light leading-relaxed flex-1">
                   {uc.scenario}
                 </p>
-                <div className="flex items-start gap-2.5 pt-3 border-t border-border/15">
-                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <span className="text-xs text-foreground/80 font-medium leading-snug">{uc.result}</span>
+                <div
+                  className="rounded-xl p-4 flex items-start gap-3 mt-1"
+                  style={{ background: "hsl(var(--primary) / 0.10)", border: "1px solid hsl(var(--primary) / 0.20)" }}
+                >
+                  <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "hsl(var(--primary))" }} />
+                  <span className="text-sm font-medium leading-snug text-foreground">{uc.result}</span>
                 </div>
               </motion.div>
             ))}
