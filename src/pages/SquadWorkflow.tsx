@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionFade from "@/components/SectionFade";
@@ -158,7 +157,7 @@ const SquadWorkflow = () => {
                 </span>
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
-                {"Halo mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nSin HALO, no hay sistema. Con HALO, cada pieza encaja."}
+                {"Halo mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nCon HALO, cada pieza encaja."}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <div
@@ -280,7 +279,7 @@ const SquadWorkflow = () => {
                     Núcleo de orquestación
                   </h3>
                   <p className="text-base text-foreground/65 font-light leading-relaxed mb-5">
-                    Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa. Sin HALO, no hay sistema.
+                    Coordina en tiempo real todos los agentes del sistema: los cinco base y los que creamos específicamente para tu empresa.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["Tiempo real", "Contexto compartido", "Sin fricciones", "Escalado a humanos"].map((chip) => (
@@ -352,29 +351,107 @@ const SquadWorkflow = () => {
                 </div>
               </motion.div>
 
-              {/* ── Fila 2: 5 agentes ── */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
-                {squadAgents.map((agent, i) => {
-                  const Icon = agent.icon;
-                  return (
-                    <motion.div key={agent.name} {...fade} transition={{ ...fade.transition, delay: i * 0.08 }}>
-                      <Link to={agent.path}
-                        className="rounded-2xl p-4 md:p-5 flex flex-col items-center gap-3 text-center transition-all duration-300 hover:-translate-y-1 h-full block"
-                        style={{ background: `hsl(${agent.hsl} / 0.06)`, border: `1px solid hsl(${agent.hsl} / 0.22)` }}>
-                        <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                          style={{ background: `hsl(${agent.hsl} / 0.15)` }}>
-                          <Icon className="h-5 w-5" style={{ color: `hsl(${agent.hsl})` }} />
-                        </div>
-                        <div>
-                          <p className="font-display font-extrabold text-sm uppercase tracking-wide mb-0.5"
-                            style={{ color: `hsl(${agent.hsl})` }}>{agent.name}</p>
-                          <p className="text-xs text-foreground/50 leading-snug">{agent.role}</p>
-                        </div>
-                        <ArrowRight className="h-3.5 w-3.5 mt-auto" style={{ color: `hsl(${agent.hsl} / 0.4)` }} />
-                      </Link>
-                    </motion.div>
-                  );
-                })}
+              {/* ── Fila 2: capacidades clave ── */}
+              <div className="grid sm:grid-cols-3 gap-4">
+
+                {/* Memoria compartida */}
+                <motion.div
+                  {...fade} transition={{ ...fade.transition, delay: 0.05 }}
+                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
+                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                >
+                  <div className="h-16">
+                    <svg viewBox="0 0 200 50" className="w-full h-full" fill="none">
+                      {[
+                        { x: 25, label: "ARIA", hsl: "190 60% 55%" },
+                        { x: 100, label: "HALO", hsl: haloHsl },
+                        { x: 175, label: "NOVA", hsl: "260 50% 65%" },
+                      ].map((n, i) => (
+                        <g key={i}>
+                          <circle cx={n.x} cy={25} r={12} fill={`hsl(${n.hsl} / 0.12)`} stroke={`hsl(${n.hsl} / 0.4)`} strokeWidth="1.5"/>
+                          <text x={n.x} y={29} textAnchor="middle" fill={`hsl(${n.hsl})`} fontSize="6" fontWeight="800" fontFamily="sans-serif">{n.label}</text>
+                        </g>
+                      ))}
+                      <line x1={37} y1={25} x2={88} y2={25} stroke={`hsl(${haloHsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <line x1={112} y1={25} x2={163} y2={25} stroke={`hsl(${haloHsl} / 0.22)`} strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <motion.circle r={3} fill="hsl(190 60% 55%)"
+                        animate={{ cx: [25, 175], cy: [25, 25], opacity: [0, 1, 1, 0] }}
+                        transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 1.5, ease: "linear" }}
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Memoria compartida del cliente</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
+                      El historial completo viaja entre agentes. Lo que sabe ARIA, lo sabe NOVA. El cliente no repite nada.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Decisión inteligente */}
+                <motion.div
+                  {...fade} transition={{ ...fade.transition, delay: 0.10 }}
+                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
+                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                >
+                  <div className="h-16">
+                    <svg viewBox="0 0 200 52" className="w-full h-full" fill="none">
+                      <circle cx={30} cy={26} r={11} fill={`hsl(${haloHsl} / 0.10)`} stroke={`hsl(${haloHsl} / 0.30)`} strokeWidth="1.5"/>
+                      <text x={30} y={30.5} textAnchor="middle" fill={`hsl(${haloHsl} / 0.7)`} fontSize="9" fontWeight="700" fontFamily="sans-serif">✦</text>
+                      <circle cx={100} cy={26} r={14} fill={`hsl(${haloHsl} / 0.18)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2"/>
+                      <text x={100} y={30} textAnchor="middle" fill={`hsl(${haloHsl})`} fontSize="6" fontWeight="800" fontFamily="sans-serif">HALO</text>
+                      <circle cx={170} cy={11} r={10} fill="hsl(190 60% 55% / 0.10)" stroke="hsl(190 60% 55% / 0.35)" strokeWidth="1.5"/>
+                      <text x={170} y={15} textAnchor="middle" fill="hsl(190 60% 55%)" fontSize="5.5" fontWeight="800" fontFamily="sans-serif">ARIA</text>
+                      <circle cx={170} cy={41} r={10} fill="hsl(160 50% 48% / 0.10)" stroke="hsl(160 50% 48% / 0.35)" strokeWidth="1.5"/>
+                      <text x={170} y={45} textAnchor="middle" fill="hsl(160 50% 48%)" fontSize="5.5" fontWeight="800" fontFamily="sans-serif">LUMI</text>
+                      <line x1={41} y1={26} x2={86} y2={26} stroke={`hsl(${haloHsl} / 0.25)`} strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <line x1={114} y1={20} x2={160} y2={13} stroke="hsl(190 60% 55% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <line x1={114} y1={32} x2={160} y2={39} stroke="hsl(160 50% 48% / 0.3)" strokeWidth="1.5" strokeDasharray="4 5"/>
+                      <motion.circle r={2.5} fill={`hsl(${haloHsl})`}
+                        animate={{ cx: [30, 100, 100, 170], cy: [26, 26, 26, 11], opacity: [0, 1, 1, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5, ease: "easeIn" }}
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Decisión inteligente de flujo</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
+                      HALO elige qué agente interviene en cada momento. Sin solapamientos, sin lagunas, sin llamadas perdidas.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Panel de supervisión */}
+                <motion.div
+                  {...fade} transition={{ ...fade.transition, delay: 0.15 }}
+                  className="rounded-2xl p-5 flex flex-col gap-4 overflow-hidden"
+                  style={{ background: `hsl(${haloHsl} / 0.05)`, border: `1px solid hsl(${haloHsl} / 0.20)` }}
+                >
+                  <div className="h-16 flex items-end gap-1.5 px-2">
+                    {[35, 60, 45, 80, 55, 70, 90, 40, 65, 50].map((h, i) => (
+                      <motion.div
+                        key={i}
+                        className="flex-1 rounded-sm"
+                        style={{
+                          background: `hsl(${haloHsl} / ${0.22 + (h / 100) * 0.48})`,
+                          height: `${h}%`,
+                          originY: 1,
+                        }}
+                        initial={{ scaleY: 0 }}
+                        whileInView={{ scaleY: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-sm text-foreground mb-1.5">Panel de supervisión total</h3>
+                    <p className="text-xs text-foreground/60 font-light leading-relaxed">
+                      Trazabilidad completa. Qué hizo cada agente, cuándo y con qué resultado. Control total en tiempo real.
+                    </p>
+                  </div>
+                </motion.div>
+
               </div>
 
               {/* ── Fila 3: a medida ── */}
