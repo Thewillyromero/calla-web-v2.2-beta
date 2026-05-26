@@ -90,7 +90,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
           <div ref={teamRef} className="relative">
             <button
               onClick={() => { setTeamOpen(!teamOpen); setSectorsOpen(false); }}
-              className="flex items-center gap-1 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+              className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white hover:text-white/80 transition-colors rounded-lg hover:bg-white/10"
             >
               Nuestro equipo
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? "rotate-180" : ""}`} />
@@ -122,7 +122,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
           <div ref={sectorsRef} className="relative">
             <button
               onClick={() => { setSectorsOpen(!sectorsOpen); setTeamOpen(false); }}
-              className="flex items-center gap-1 px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+              className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white hover:text-white/80 transition-colors rounded-lg hover:bg-white/10"
             >
               Sectores
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${sectorsOpen ? "rotate-180" : ""}`} />
@@ -149,13 +149,13 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
             )}
           </div>
 
-          <Link to="/resultados" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50">
+          <Link to="/resultados" className="px-4 py-2 text-sm font-medium text-white hover:text-white/80 transition-colors rounded-lg hover:bg-white/10">
             Resultados
           </Link>
-          <Link to="/precios" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50">
+          <Link to="/precios" className="px-4 py-2 text-sm font-medium text-white hover:text-white/80 transition-colors rounded-lg hover:bg-white/10">
             Precios
           </Link>
-          <Link to="/seguridad" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50">
+          <Link to="/seguridad" className="px-4 py-2 text-sm font-medium text-white hover:text-white/80 transition-colors rounded-lg hover:bg-white/10">
             Seguridad
           </Link>
         </div>
@@ -183,7 +183,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
           {/* Nuestro equipo */}
           <button
             onClick={() => setMobileTeamOpen(!mobileTeamOpen)}
-            className="flex items-center justify-between py-2.5 text-sm text-muted-foreground"
+            className="flex items-center justify-between py-2.5 text-sm font-medium text-white"
           >
             Nuestro equipo
             <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileTeamOpen ? "rotate-180" : ""}`} />
@@ -210,7 +210,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
           {/* Sectores */}
           <button
             onClick={() => setMobileSectorsOpen(!mobileSectorsOpen)}
-            className="flex items-center justify-between py-2.5 text-sm text-muted-foreground"
+            className="flex items-center justify-between py-2.5 text-sm font-medium text-white"
           >
             Sectores
             <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileSectorsOpen ? "rotate-180" : ""}`} />
@@ -234,13 +234,13 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
             </div>
           )}
 
-          <Link to="/resultados" className="py-2.5 text-sm text-muted-foreground" onClick={() => setOpen(false)}>
+          <Link to="/resultados" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Resultados
           </Link>
-          <Link to="/precios" className="py-2.5 text-sm text-muted-foreground" onClick={() => setOpen(false)}>
+          <Link to="/precios" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Precios
           </Link>
-          <Link to="/seguridad" className="py-2.5 text-sm text-muted-foreground" onClick={() => setOpen(false)}>
+          <Link to="/seguridad" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Seguridad
           </Link>
           <Button
