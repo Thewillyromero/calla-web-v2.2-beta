@@ -72,7 +72,6 @@ const tiers = [
     icon: Building2,
     price: "Custom",
     annualDiscount: 0,
-    setupNote: "Setup - Puesta en marcha · a medida",
     period: "",
     description: "Solución a medida para grandes volúmenes y necesidades específicas.",
     accent: "brand-amber",
@@ -256,6 +255,18 @@ const Pricing = () => {
                             )}
                           </div>
                         </div>
+                      ) : displayPrice === "Custom" ? (
+                        <span
+                          className="text-3xl sm:text-4xl font-display font-extrabold bg-clip-text text-transparent whitespace-nowrap"
+                          style={{
+                            backgroundImage: "linear-gradient(135deg, hsl(35 90% 52%), hsl(45 100% 70%), hsl(30 85% 55%))",
+                            textShadow: "none",
+                            WebkitTextStroke: "0",
+                            filter: `drop-shadow(0 0 10px hsl(40 80% 55% / 0.4))`,
+                          }}
+                        >
+                          A medida
+                        </span>
                       ) : (
                         <div className="flex items-baseline gap-1.5">
                           <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
