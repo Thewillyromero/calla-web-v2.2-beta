@@ -301,8 +301,11 @@ const SectorPage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
               ¿Listo para transformar tu {sector.name.toLowerCase()}?
             </h2>
-            <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-8 relative z-10">
-              Habla con nosotros y te mostramos exactamente cómo CALLA funciona en tu sector. Sin compromiso.
+            <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-2 relative z-10">
+              Contacta con nosotros y te informamos cómo CALLA te ayudaría en tu sector.
+            </p>
+            <p className="text-foreground/45 max-w-xl mx-auto text-sm font-light mb-8 relative z-10">
+              Solicita información sin compromiso.
             </p>
             <a
               href={BOOKING_URL} target="_blank" rel="noopener noreferrer"
