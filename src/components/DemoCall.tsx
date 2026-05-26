@@ -14,8 +14,8 @@ import Vapi from "@vapi-ai/web";
 import { useLiveMetricsContext } from "@/contexts/LiveMetricsContext";
 import { BOOKING_URL as CALENDAR_URL } from "@/lib/constants";
 
-const VAPI_PUBLIC_KEY = "47ea7042-5d4a-4bb0-9995-0762b2f51ee2";
-const ASSISTANT_ID = "c54bd4a1-68ef-4913-9207-906c44d625b0";
+const VAPI_PUBLIC_KEY = import.meta.env.VITE_VAPI_PUBLIC_KEY as string;
+const ASSISTANT_ID = import.meta.env.VITE_ASSISTANT_ID as string;
 
 type CallState = "idle" | "connecting" | "active" | "ended";
 

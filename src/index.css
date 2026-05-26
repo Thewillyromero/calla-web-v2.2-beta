@@ -178,35 +178,6 @@
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg) translateY(0); }
-  15% { transform: rotate(4deg) translateY(-3px); }
-  30% { transform: rotate(-3deg) translateY(0); }
-  45% { transform: rotate(3deg) translateY(-2px); }
-  60% { transform: rotate(-2deg) translateY(0); }
-  75% { transform: rotate(1deg) translateY(-1px); }
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  20% { transform: rotate(-3deg) scale(1.02); }
-  40% { transform: rotate(2deg) scale(0.98); }
-  60% { transform: rotate(-2deg) scale(1.01); }
-  80% { transform: rotate(1deg) scale(0.99); }
-}
-
-@keyframes nod {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  30% { transform: translateY(-4px) rotate(-1deg); }
-  50% { transform: translateY(2px) rotate(1deg); }
-  70% { transform: translateY(-3px) rotate(-0.5deg); }
-}
-
-/* ══════════════════════════════════════════════════════════════
-   CALLA — Design Polish Additions
-   Add these to the END of src/index.css (after existing styles)
-   ══════════════════════════════════════════════════════════════ */
-
 /* ── Animation utility classes ── */
 .animate-float-gentle { animation: float-gentle 4s ease-in-out infinite; }
 .animate-character-bounce { animation: character-bounce 3s ease-in-out infinite; }

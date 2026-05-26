@@ -28,3 +28,11 @@ MANUAL_EQUIPO_CALLA.md
 MAPA_WORKFLOWS_CALLA.md
 ECOSISTEMAS_CALLA.md
 .vercel
+
+# Local Netlify folder
+.netlify
+
+# Environment variables
+.env
+.env.local
+.env.*.local
