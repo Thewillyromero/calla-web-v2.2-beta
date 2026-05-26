@@ -76,114 +76,575 @@ const SectorPage = () => {
 
           const svgMap: Record<string, JSX.Element> = {
 
+            /* ── City skyline with detailed buildings, windows, antenna ── */
             inmobiliaria: (
-              <svg width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" fillRule="evenodd" d="M0 132L72 132L72 300L0 300ZM10 150L30 150L30 164L10 164ZM40 150L62 150L62 164L40 164ZM10 174L30 174L30 188L10 188ZM40 174L62 174L62 188L40 188ZM10 198L30 198L30 212L10 212ZM40 198L62 198L62 212L40 212Z"/>
-                <path fill="white" fillRule="evenodd" d="M82 54L176 54L176 300L82 300ZM94 72L113 72L113 86L94 86ZM126 72L145 72L145 86L126 86ZM160 72L166 72L166 86L160 86ZM94 96L113 96L113 110L94 110ZM126 96L145 96L145 110L126 110ZM94 120L113 120L113 134L94 134ZM126 120L145 120L145 134L126 134ZM160 120L166 120L166 134L160 134ZM94 144L113 144L113 158L94 158ZM126 144L145 144L145 158L126 158ZM94 168L113 168L113 182L94 182ZM126 168L145 168L145 182L126 182ZM160 168L166 168L166 182L160 182Z"/>
-                <path fill="white" fillRule="evenodd" d="M186 172L250 172L250 300L186 300ZM197 190L216 190L216 204L197 204ZM228 190L240 190L240 204L228 204ZM197 214L216 214L216 228L197 228ZM228 214L240 214L240 228L228 228Z"/>
-                <path fill="white" fillRule="evenodd" d="M260 28L356 28L356 300L260 300ZM272 46L290 46L290 60L272 60ZM302 46L320 46L320 60L302 60ZM332 46L346 46L346 60L332 60ZM272 70L290 70L290 84L272 84ZM302 70L320 70L320 84L302 84ZM332 70L346 70L346 84L332 84ZM272 94L290 94L290 108L272 108ZM302 94L320 94L320 108L302 108ZM272 118L290 118L290 132L272 132ZM302 118L320 118L320 132L302 132ZM332 118L346 118L346 132L332 132ZM272 142L290 142L290 156L272 156ZM302 142L320 142L320 156L302 156ZM272 166L290 166L290 180L272 180ZM302 166L320 166L320 180L302 180ZM332 166L346 166L346 180L332 180Z"/>
-                <path fill="white" fillRule="evenodd" d="M366 90L420 90L420 300L366 300ZM374 106L392 106L392 120L374 120ZM402 106L414 106L414 120L402 120ZM374 130L392 130L392 144L374 144ZM402 130L414 130L414 144L402 144ZM374 154L392 154L392 168L374 168Z"/>
-                <line x1="0" y1="298" x2="420" y2="298" stroke="white" strokeWidth="1" strokeOpacity="0.25"/>
+              <svg width="480" height="320" viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Ground line */}
+                <rect x="0" y="308" width="480" height="4" fill="white" fillOpacity="0.3"/>
+                {/* Building 1 – far left low */}
+                <rect x="0" y="220" width="56" height="88" fill="white"/>
+                <rect x="6" y="228" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="20" y="228" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="34" y="228" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="6" y="246" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="20" y="246" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="34" y="246" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="6" y="264" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="20" y="264" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="34" y="264" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="6" y="282" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="34" y="282" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                {/* Building 2 – mid left tall */}
+                <rect x="62" y="80" width="78" height="228" fill="white"/>
+                <rect x="116" y="58" width="18" height="24" fill="white"/>
+                <rect x="123" y="38" width="4" height="22" fill="white"/>
+                <rect x="70" y="90" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="90" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="90" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="108" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="108" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="108" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="126" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="126" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="126" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="144" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="144" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="144" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="162" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="162" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="162" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="180" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="180" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="180" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="198" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="198" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="198" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="216" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="216" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="216" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="234" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="234" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="234" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="252" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="252" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="252" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="70" y="270" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="88" y="270" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="106" y="270" width="12" height="10" fill="black" fillOpacity="0.35"/>
+                {/* Building 3 – centre medium */}
+                <rect x="148" y="160" width="68" height="148" fill="white"/>
+                <rect x="156" y="170" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="170" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="170" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="190" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="190" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="190" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="210" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="210" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="210" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="230" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="230" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="230" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="250" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="250" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="250" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="270" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="174" y="270" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="270" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="156" y="290" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="192" y="290" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                {/* Building 4 – tallest centre-right, tapered top */}
+                <path fill="white" d="M226 20L248 20L260 50L260 308L222 308L222 50Z"/>
+                <rect x="228" y="30" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="60" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="60" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="76" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="76" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="92" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="92" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="108" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="108" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="124" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="124" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="140" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="140" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="156" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="156" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="172" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="172" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="188" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="188" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="204" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="204" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="220" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="220" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="236" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="236" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="252" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="252" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="268" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="268" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="228" y="284" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                <rect x="242" y="284" width="8" height="8" fill="black" fillOpacity="0.3"/>
+                {/* Antenna on tallest */}
+                <rect x="238" y="6" width="4" height="16" fill="white"/>
+                <rect x="234" y="8" width="12" height="3" fill="white"/>
+                {/* Building 5 – right mid */}
+                <rect x="268" y="130" width="72" height="178" fill="white"/>
+                <rect x="276" y="140" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="140" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="140" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="160" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="160" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="160" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="180" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="180" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="180" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="200" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="200" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="200" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="220" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="220" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="220" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="240" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="240" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="240" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="260" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="294" y="260" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="260" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="276" y="280" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                <rect x="312" y="280" width="12" height="12" fill="black" fillOpacity="0.35"/>
+                {/* Building 6 – far right */}
+                <rect x="348" y="186" width="60" height="122" fill="white"/>
+                <rect x="356" y="196" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="372" y="196" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="196" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="356" y="214" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="372" y="214" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="214" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="356" y="232" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="372" y="232" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="232" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="356" y="250" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="372" y="250" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="250" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="356" y="268" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="372" y="268" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="268" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="356" y="286" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                <rect x="388" y="286" width="10" height="10" fill="black" fillOpacity="0.35"/>
+                {/* Tiny building far right edge */}
+                <rect x="416" y="240" width="40" height="68" fill="white"/>
+                <rect x="422" y="248" width="8" height="8" fill="black" fillOpacity="0.35"/>
+                <rect x="436" y="248" width="8" height="8" fill="black" fillOpacity="0.35"/>
+                <rect x="422" y="262" width="8" height="8" fill="black" fillOpacity="0.35"/>
+                <rect x="436" y="262" width="8" height="8" fill="black" fillOpacity="0.35"/>
+                <rect x="422" y="276" width="8" height="8" fill="black" fillOpacity="0.35"/>
+                <rect x="436" y="276" width="8" height="8" fill="black" fillOpacity="0.35"/>
               </svg>
             ),
 
+            /* ── Graduation cap – detailed mortarboard with tassel ── */
             educacion: (
-              <svg width="280" height="240" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="140,18 266,72 140,126 14,72" fill="white"/>
-                <rect x="92" y="118" width="96" height="74" fill="white"/>
-                <ellipse cx="140" cy="118" rx="48" ry="13" fill="white"/>
-                <ellipse cx="140" cy="192" rx="48" ry="13" fill="white"/>
-                <line x1="266" y1="72" x2="266" y2="158" stroke="white" strokeWidth="5" strokeLinecap="round"/>
-                <rect x="253" y="154" width="26" height="34" rx="7" fill="white"/>
+              <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Board shadow base */}
+                <ellipse cx="160" cy="110" rx="138" ry="22" fill="white" fillOpacity="0.15"/>
+                {/* Main diamond board */}
+                <path fill="white" d="M160 26L294 90L160 154L26 90Z"/>
+                {/* Top cap relief */}
+                <path fill="white" fillOpacity="0.5" d="M160 44L256 90L160 136L64 90Z"/>
+                {/* Centre button */}
+                <circle cx="160" cy="90" r="10" fill="white"/>
+                {/* Tassel string from right corner */}
+                <line x1="294" y1="90" x2="294" y2="176" stroke="white" strokeWidth="5" strokeLinecap="round"/>
+                {/* Tassel knot */}
+                <circle cx="294" cy="176" r="9" fill="white"/>
+                {/* Tassel fringe lines */}
+                <line x1="282" y1="185" x2="276" y2="218" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="291" y1="187" x2="289" y2="222" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="300" y1="185" x2="304" y2="218" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="307" y1="183" x2="314" y2="215" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                {/* Cap underside / body */}
+                <path fill="white" d="M100 104L220 104L220 148C220 148 200 162 160 162C120 162 100 148 100 148Z"/>
+                {/* Diploma scroll below */}
+                <rect x="112" y="195" width="96" height="58" rx="8" fill="white"/>
+                <path fill="white" d="M108 195Q112 185 120 195Z"/>
+                <path fill="white" d="M208 195Q204 185 196 195Z"/>
+                <path fill="white" d="M108 253Q112 263 120 253Z"/>
+                <path fill="white" d="M208 253Q204 263 196 253Z"/>
+                {/* Lines on scroll */}
+                <line x1="126" y1="213" x2="194" y2="213" stroke="black" strokeWidth="3" strokeOpacity="0.3" strokeLinecap="round"/>
+                <line x1="126" y1="225" x2="194" y2="225" stroke="black" strokeWidth="3" strokeOpacity="0.3" strokeLinecap="round"/>
+                <line x1="126" y1="237" x2="172" y2="237" stroke="black" strokeWidth="3" strokeOpacity="0.3" strokeLinecap="round"/>
+                {/* Ribbon seal */}
+                <circle cx="160" cy="224" r="10" fill="black" fillOpacity="0.2"/>
               </svg>
             ),
 
+            /* ── Wind turbine – detailed three-blade + tower ── */
             energia: (
-              <svg width="200" height="320" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" d="M100 8L80 76L58 76L36 320L62 320L80 194L96 194L100 218L104 194L120 194L138 320L164 320L142 76L120 76Z"/>
-                <rect x="6" y="72" width="188" height="8" rx="4" fill="white"/>
-                <rect x="20" y="148" width="160" height="8" rx="4" fill="white"/>
-                <circle cx="18" cy="76" r="7" fill="white"/>
-                <circle cx="100" cy="76" r="7" fill="white"/>
-                <circle cx="182" cy="76" r="7" fill="white"/>
-                <circle cx="32" cy="152" r="6" fill="white"/>
-                <circle cx="168" cy="152" r="6" fill="white"/>
+              <svg width="280" height="380" viewBox="0 0 280 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Tower – tapered */}
+                <path fill="white" d="M127 172L153 172L166 370L114 370Z"/>
+                {/* Tower door */}
+                <rect x="132" y="336" width="16" height="28" rx="5" fill="black" fillOpacity="0.3"/>
+                {/* Nacelle (hub housing) */}
+                <rect x="118" y="158" width="44" height="22" rx="8" fill="white"/>
+                {/* Hub centre */}
+                <circle cx="140" cy="169" r="11" fill="white"/>
+                <circle cx="140" cy="169" r="5" fill="black" fillOpacity="0.3"/>
+                {/* Blade 1 – up-right */}
+                <path fill="white" d="M145 163C148 148 162 92 156 24C154 16 142 14 138 22C134 60 136 130 140 158Z"/>
+                {/* Blade 2 – lower-left */}
+                <path fill="white" d="M133 175C118 178 62 192 14 220C6 226 8 238 16 238C52 232 120 206 140 178Z"/>
+                {/* Blade 3 – lower-right */}
+                <path fill="white" d="M148 175C161 182 206 216 244 250C250 256 260 248 256 240C236 218 174 190 140 178Z"/>
+                {/* Base foundation */}
+                <path fill="white" d="M94 368L186 368L194 380L86 380Z"/>
+                {/* Horizon line subtle */}
+                <line x1="10" y1="368" x2="270" y2="368" stroke="white" strokeWidth="2" strokeOpacity="0.2"/>
+                {/* Small turbine silhouette in background – scale 0.4 */}
+                <path fill="white" fillOpacity="0.25" d="M218 280C219 274 224 252 221 228C220 224 216 224 215 228C213 244 214 262 215 274Z"/>
+                <path fill="white" fillOpacity="0.25" d="M215 282C210 283 196 287 184 294C182 295 182 298 184 298C194 296 210 290 215 284Z"/>
+                <path fill="white" fillOpacity="0.25" d="M219 282C223 285 234 292 244 300C246 302 248 300 247 298C242 292 228 286 216 282Z"/>
+                <rect x="215" y="280" width="5" height="60" fill="white" fillOpacity="0.25"/>
               </svg>
             ),
 
+            /* ── Hotel building – classical facade with flag + entrance ── */
             hosteleria: (
-              <svg width="320" height="310" viewBox="0 0 320 310" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" fillRule="evenodd" d="M58 88L262 88L262 310L58 310ZM78 106L104 106L104 124L78 124ZM118 106L144 106L144 124L118 124ZM158 106L184 106L184 124L158 124ZM198 106L224 106L224 124L198 124ZM78 134L104 134L104 152L78 152ZM118 134L144 134L144 152L118 152ZM158 134L184 134L184 152L158 152ZM198 134L224 134L224 152L198 152ZM78 162L104 162L104 180L78 180ZM118 162L144 162L144 180L118 180ZM158 162L184 162L184 180L158 162ZM198 162L224 162L224 180L198 180ZM78 190L104 190L104 208L78 208ZM198 190L224 190L224 208L198 208ZM128 230L192 230L192 310L128 310Z"/>
-                <path fill="white" d="M54 90L160 46L266 90Z"/>
-                <rect x="157" y="14" width="6" height="34" rx="3" fill="white"/>
-                <path fill="white" d="M163 16L196 26L163 36Z"/>
+              <svg width="360" height="340" viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Ground */}
+                <rect x="0" y="330" width="360" height="6" fill="white" fillOpacity="0.25"/>
+                {/* Main body */}
+                <rect x="36" y="96" width="288" height="234" fill="white"/>
+                {/* Roofline cornice */}
+                <rect x="28" y="88" width="304" height="12" fill="white"/>
+                {/* Triangular pediment centre */}
+                <path fill="white" d="M130 88L180 48L230 88Z"/>
+                {/* Flag mast */}
+                <rect x="178" y="20" width="4" height="30" fill="white"/>
+                {/* Flag */}
+                <path fill="white" d="M182 22L210 30L182 38Z"/>
+                {/* Wing extensions */}
+                <rect x="0" y="148" width="40" height="182" fill="white"/>
+                <rect x="320" y="148" width="40" height="182" fill="white"/>
+                {/* Windows row 1 */}
+                <rect x="54" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="90" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="126" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="208" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="244" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="280" y="112" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                {/* Windows row 2 */}
+                <rect x="54" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="90" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="126" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="208" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="244" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="280" y="146" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                {/* Windows row 3 */}
+                <rect x="54" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="90" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="126" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="208" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="244" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="280" y="180" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                {/* Windows row 4 */}
+                <rect x="54" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="90" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="126" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="208" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="244" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="280" y="214" width="26" height="22" rx="2" fill="black" fillOpacity="0.3"/>
+                {/* Wing windows */}
+                <rect x="8" y="162" width="22" height="18" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="8" y="190" width="22" height="18" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="330" y="162" width="22" height="18" rx="2" fill="black" fillOpacity="0.3"/>
+                <rect x="330" y="190" width="22" height="18" rx="2" fill="black" fillOpacity="0.3"/>
+                {/* Entrance arch */}
+                <path fill="black" fillOpacity="0.25" d="M148 330L148 268C148 252 212 252 212 268L212 330Z"/>
+                {/* Columns */}
+                <rect x="154" y="258" width="8" height="72" fill="white" fillOpacity="0.5"/>
+                <rect x="198" y="258" width="8" height="72" fill="white" fillOpacity="0.5"/>
+                {/* Awning */}
+                <path fill="white" fillOpacity="0.6" d="M140 258L220 258L214 246L146 246Z"/>
+                {/* Stars decoration */}
+                <circle cx="160" cy="68" r="4" fill="black" fillOpacity="0.2"/>
+                <circle cx="180" cy="62" r="4" fill="black" fillOpacity="0.2"/>
+                <circle cx="200" cy="68" r="4" fill="black" fillOpacity="0.2"/>
               </svg>
             ),
 
+            /* ── Scales of justice – detailed beam, chains, pans, base ── */
             legal: (
-              <svg width="280" height="340" viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="133" y="18" width="14" height="272" rx="7" fill="white"/>
-                <rect x="18" y="74" width="244" height="12" rx="6" fill="white"/>
-                <line x1="55" y1="86" x2="55" y2="150" stroke="white" strokeWidth="5" strokeLinecap="round"/>
-                <ellipse cx="55" cy="160" rx="50" ry="14" fill="white"/>
-                <line x1="225" y1="86" x2="225" y2="166" stroke="white" strokeWidth="5" strokeLinecap="round"/>
-                <ellipse cx="225" cy="176" rx="50" ry="14" fill="white"/>
-                <path fill="white" d="M104 286L176 286L193 310L87 310Z"/>
-                <rect x="126" y="272" width="28" height="18" rx="5" fill="white"/>
+              <svg width="320" height="380" viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Base pedestal */}
+                <rect x="106" y="346" width="108" height="16" rx="4" fill="white"/>
+                <path fill="white" d="M88 362L232 362L244 378L76 378Z"/>
+                {/* Vertical staff */}
+                <rect x="153" y="24" width="14" height="324" rx="7" fill="white"/>
+                {/* Top orb */}
+                <circle cx="160" cy="24" r="14" fill="white"/>
+                {/* Horizontal beam */}
+                <rect x="22" y="78" width="276" height="12" rx="6" fill="white"/>
+                {/* Left chain */}
+                <line x1="60" y1="90" x2="54" y2="108" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="54" y1="108" x2="60" y2="126" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="60" y1="126" x2="54" y2="144" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="54" y1="144" x2="60" y2="162" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="60" y1="162" x2="54" y2="180" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="54" y1="180" x2="60" y2="198" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                {/* Left pan */}
+                <path fill="white" d="M18 204C18 204 32 232 60 232C88 232 102 204 102 204Z"/>
+                <rect x="18" y="198" width="84" height="8" rx="4" fill="white"/>
+                {/* Right chain – hangs lower (unbalanced) */}
+                <line x1="260" y1="90" x2="264" y2="108" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="264" y1="108" x2="260" y2="126" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="260" y1="126" x2="264" y2="144" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="264" y1="144" x2="260" y2="162" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="260" y1="162" x2="264" y2="180" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="264" y1="180" x2="260" y2="198" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                <line x1="260" y1="198" x2="264" y2="218" stroke="white" strokeWidth="4" strokeLinecap="round"/>
+                {/* Right pan – slightly lower */}
+                <path fill="white" d="M218 228C218 228 232 256 260 256C288 256 302 228 302 228Z"/>
+                <rect x="218" y="222" width="84" height="8" rx="4" fill="white"/>
+                {/* Beam tilt – visual cue */}
+                <path fill="white" fillOpacity="0.3" d="M22 84L298 84L298 78L22 78Z"/>
               </svg>
             ),
 
+            /* ── Semi-truck – detailed cab, trailer, wheels, grille ── */
             logistica: (
-              <svg width="440" height="168" viewBox="0 0 440 165" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="5" y="18" width="288" height="118" rx="5" fill="white"/>
-                <path fill="white" d="M293 85L293 18L318 18C348 18 382 52 402 80L420 102L422 132L422 136L293 136Z"/>
-                <rect x="0" y="134" width="440" height="5" rx="2" fill="white" fillOpacity="0.22"/>
-                <circle cx="365" cy="135" r="22" stroke="white" strokeWidth="6" fill="none"/>
-                <circle cx="365" cy="135" r="8" fill="white"/>
-                <circle cx="78"  cy="135" r="22" stroke="white" strokeWidth="6" fill="none"/>
-                <circle cx="78"  cy="135" r="8" fill="white"/>
-                <circle cx="130" cy="135" r="22" stroke="white" strokeWidth="6" fill="none"/>
-                <circle cx="130" cy="135" r="8" fill="white"/>
+              <svg width="480" height="200" viewBox="0 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Trailer body */}
+                <rect x="4" y="28" width="296" height="122" rx="6" fill="white"/>
+                {/* Trailer rear door details */}
+                <line x1="150" y1="34" x2="150" y2="144" stroke="black" strokeWidth="3" strokeOpacity="0.25"/>
+                <rect x="10" y="34" width="136" height="110" fill="black" fillOpacity="0.08"/>
+                <rect x="154" y="34" width="140" height="110" fill="black" fillOpacity="0.08"/>
+                {/* Trailer ridge lines */}
+                <line x1="4" y1="84" x2="300" y2="84" stroke="black" strokeWidth="2" strokeOpacity="0.15"/>
+                {/* Trailer undercarriage frame */}
+                <rect x="4" y="148" width="296" height="8" fill="white" fillOpacity="0.6"/>
+                {/* Fifth wheel coupling */}
+                <rect x="290" y="140" width="24" height="12" rx="3" fill="white" fillOpacity="0.7"/>
+                {/* Cab body */}
+                <path fill="white" d="M308 62L308 28L340 28C374 28 416 60 438 96L454 120L458 150L458 152L308 152Z"/>
+                {/* Cab roof fairing */}
+                <path fill="white" d="M308 28L308 8L334 8C354 8 372 18 386 32L340 28Z"/>
+                {/* Cab windshield */}
+                <path fill="black" fillOpacity="0.3" d="M318 36L318 68L350 68C350 68 370 60 386 36Z"/>
+                {/* Cab side window */}
+                <rect x="318" y="76" width="34" height="28" rx="4" fill="black" fillOpacity="0.3"/>
+                {/* Grille */}
+                <rect x="440" y="100" width="16" height="50" rx="4" fill="black" fillOpacity="0.25"/>
+                <line x1="440" y1="108" x2="456" y2="108" stroke="white" strokeWidth="2" strokeOpacity="0.5"/>
+                <line x1="440" y1="118" x2="456" y2="118" stroke="white" strokeWidth="2" strokeOpacity="0.5"/>
+                <line x1="440" y1="128" x2="456" y2="128" stroke="white" strokeWidth="2" strokeOpacity="0.5"/>
+                <line x1="440" y1="138" x2="456" y2="138" stroke="white" strokeWidth="2" strokeOpacity="0.5"/>
+                {/* Headlight */}
+                <rect x="454" y="92" width="18" height="12" rx="3" fill="white" fillOpacity="0.7"/>
+                {/* Bumper */}
+                <path fill="white" d="M440 150L476 150L476 162L438 162Z"/>
+                {/* Road line */}
+                <rect x="0" y="170" width="480" height="4" rx="2" fill="white" fillOpacity="0.18"/>
+                {/* Trailer wheels (4) */}
+                <circle cx="56" cy="162" r="24" fill="white"/>
+                <circle cx="56" cy="162" r="14" fill="black" fillOpacity="0.35"/>
+                <circle cx="56" cy="162" r="6" fill="white"/>
+                <circle cx="112" cy="162" r="24" fill="white"/>
+                <circle cx="112" cy="162" r="14" fill="black" fillOpacity="0.35"/>
+                <circle cx="112" cy="162" r="6" fill="white"/>
+                <circle cx="200" cy="162" r="24" fill="white"/>
+                <circle cx="200" cy="162" r="14" fill="black" fillOpacity="0.35"/>
+                <circle cx="200" cy="162" r="6" fill="white"/>
+                <circle cx="256" cy="162" r="24" fill="white"/>
+                <circle cx="256" cy="162" r="14" fill="black" fillOpacity="0.35"/>
+                <circle cx="256" cy="162" r="6" fill="white"/>
+                {/* Drive axle wheels */}
+                <circle cx="380" cy="162" r="26" fill="white"/>
+                <circle cx="380" cy="162" r="15" fill="black" fillOpacity="0.35"/>
+                <circle cx="380" cy="162" r="6" fill="white"/>
+                <circle cx="436" cy="162" r="26" fill="white"/>
+                <circle cx="436" cy="162" r="15" fill="black" fillOpacity="0.35"/>
+                <circle cx="436" cy="162" r="6" fill="white"/>
+                {/* Steer wheel */}
+                <circle cx="456" cy="166" r="20" fill="white"/>
+                <circle cx="456" cy="166" r="11" fill="black" fillOpacity="0.35"/>
+                <circle cx="456" cy="166" r="5" fill="white"/>
+                {/* Exhaust stack */}
+                <rect x="318" y="2" width="8" height="28" rx="4" fill="white"/>
+                <rect x="316" y="2" width="12" height="5" rx="2" fill="white"/>
               </svg>
             ),
 
+            /* ── People org-chart – 3 levels with connectors ── */
             rrhh: (
-              <svg width="320" height="300" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="160" cy="52" r="32" fill="white"/>
-                <path fill="white" d="M116 90C116 84 138 78 160 78C182 78 204 84 204 90L204 158L116 158Z"/>
-                <circle cx="52"  cy="186" r="26" fill="white"/>
-                <path fill="white" d="M16 218C16 213 34 207 52 207C70 207 88 213 88 218L88 275L16 275Z"/>
-                <circle cx="268" cy="186" r="26" fill="white"/>
-                <path fill="white" d="M232 218C232 213 250 207 268 207C286 207 304 213 304 218L304 275L232 275Z"/>
-                <line x1="128" y1="138" x2="76"  y2="174" stroke="white" strokeWidth="5" strokeLinecap="round"/>
-                <line x1="192" y1="138" x2="244" y2="174" stroke="white" strokeWidth="5" strokeLinecap="round"/>
+              <svg width="360" height="320" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Level 1 – CEO */}
+                <circle cx="180" cy="40" r="28" fill="white"/>
+                <path fill="white" d="M140 76C140 65 158 58 180 58C202 58 220 65 220 76L220 130L140 130Z"/>
+                {/* Connector down */}
+                <rect x="177" y="130" width="6" height="32" fill="white" fillOpacity="0.6"/>
+                {/* Horizontal bar */}
+                <rect x="62" y="162" width="236" height="6" fill="white" fillOpacity="0.6"/>
+                {/* Connector to left */}
+                <rect x="62" y="162" width="6" height="28" fill="white" fillOpacity="0.6"/>
+                {/* Connector to centre */}
+                <rect x="177" y="162" width="6" height="28" fill="white" fillOpacity="0.6"/>
+                {/* Connector to right */}
+                <rect x="292" y="162" width="6" height="28" fill="white" fillOpacity="0.6"/>
+                {/* Level 2 – left */}
+                <circle cx="65" cy="212" r="22" fill="white"/>
+                <path fill="white" d="M34 242C34 233 48 228 65 228C82 228 96 233 96 242L96 288L34 288Z"/>
+                {/* Level 2 – centre */}
+                <circle cx="180" cy="212" r="22" fill="white"/>
+                <path fill="white" d="M149 242C149 233 163 228 180 228C197 228 211 233 211 242L211 288L149 288Z"/>
+                {/* Level 2 – right */}
+                <circle cx="295" cy="212" r="22" fill="white"/>
+                <path fill="white" d="M264 242C264 233 278 228 295 228C312 228 326 233 326 242L326 288L264 288Z"/>
+                {/* Detail badges on persons */}
+                <circle cx="180" cy="40" r="10" fill="black" fillOpacity="0.15"/>
+                <circle cx="65" cy="212" r="8" fill="black" fillOpacity="0.15"/>
+                <circle cx="180" cy="212" r="8" fill="black" fillOpacity="0.15"/>
+                <circle cx="295" cy="212" r="8" fill="black" fillOpacity="0.15"/>
+                {/* Tie on CEO */}
+                <path fill="black" fillOpacity="0.2" d="M176 76L180 118L184 76C183 74 177 74 176 76Z"/>
               </svg>
             ),
 
+            /* ── Stethoscope – detailed chest piece, tubing, earpieces ── */
             salud: (
-              <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" d="M78 18L162 18L162 78L222 78L222 162L162 162L162 222L78 222L78 162L18 162L18 78L78 78Z"/>
+              <svg width="280" height="320" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Earpieces */}
+                <ellipse cx="78" cy="28" rx="12" ry="7" fill="white" transform="rotate(-30 78 28)"/>
+                <ellipse cx="202" cy="28" rx="12" ry="7" fill="white" transform="rotate(30 202 28)"/>
+                {/* Ear tips */}
+                <circle cx="66" cy="22" r="8" fill="white"/>
+                <circle cx="214" cy="22" r="8" fill="white"/>
+                {/* Binaurals (metal rods) */}
+                <line x1="76" y1="32" x2="100" y2="56" stroke="white" strokeWidth="8" strokeLinecap="round"/>
+                <line x1="204" y1="32" x2="180" y2="56" stroke="white" strokeWidth="8" strokeLinecap="round"/>
+                {/* Y-piece junction */}
+                <circle cx="140" cy="60" r="12" fill="white"/>
+                {/* Tube left down to curve */}
+                <path fill="none" stroke="white" strokeWidth="10" strokeLinecap="round" d="M100 56 Q106 60 140 60"/>
+                <path fill="none" stroke="white" strokeWidth="10" strokeLinecap="round" d="M180 56 Q174 60 140 60"/>
+                {/* Main tube going down and curving */}
+                <path fill="none" stroke="white" strokeWidth="10" strokeLinecap="round" d="M140 72 Q140 150 80 200 Q40 235 60 280"/>
+                {/* Diaphragm chest piece – large circle */}
+                <circle cx="72" cy="292" r="26" fill="white"/>
+                <circle cx="72" cy="292" r="16" fill="black" fillOpacity="0.2"/>
+                {/* Chest piece rim detail */}
+                <circle cx="72" cy="292" r="22" stroke="white" strokeWidth="4" fill="none"/>
+                {/* Bell (open end) underneath */}
+                <path fill="white" fillOpacity="0.6" d="M58 314C58 314 60 320 72 320C84 320 86 314 86 314Z"/>
+                {/* Tube highlight */}
+                <path fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.4" d="M140 72 Q140 150 80 200 Q40 235 60 280"/>
               </svg>
             ),
 
+            /* ── Shield with checkmark – ornate security badge ── */
             seguros: (
-              <svg width="240" height="284" viewBox="0 0 240 284" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" fillRule="evenodd" d="M120 8L224 50L224 150C224 214 174 264 120 284C66 264 16 214 16 150L16 50ZM74 140L102 168L172 98L156 82L102 136L88 122Z"/>
+              <svg width="280" height="320" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Outer shield shadow */}
+                <path fill="white" fillOpacity="0.15" d="M140 10L252 52L252 158C252 232 200 288 140 312C80 288 28 232 28 158L28 52Z"/>
+                {/* Main shield body */}
+                <path fill="white" d="M140 22L238 60L238 158C238 222 192 272 140 294C88 272 42 222 42 158L42 60Z"/>
+                {/* Inner shield border */}
+                <path fill="white" fillOpacity="0.25" stroke="black" strokeOpacity="0.15" strokeWidth="3" d="M140 40L220 72L220 158C220 208 182 252 140 272C98 252 60 208 60 158L60 72Z"/>
+                {/* Shield centre detail – ornate cross lines */}
+                <line x1="140" y1="72" x2="140" y2="260" stroke="black" strokeWidth="3" strokeOpacity="0.12"/>
+                <line x1="72" y1="160" x2="208" y2="160" stroke="black" strokeWidth="3" strokeOpacity="0.12"/>
+                {/* Large checkmark */}
+                <path fill="none" stroke="black" strokeOpacity="0.3" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" d="M88 160L122 196L196 116"/>
+                {/* Checkmark white fill */}
+                <path fill="none" stroke="white" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" d="M88 160L122 196L196 116"/>
+                {/* Top crest ornament */}
+                <path fill="white" fillOpacity="0.5" d="M118 22C118 22 126 10 140 10C154 10 162 22 162 22Z"/>
+                {/* Side ornaments */}
+                <circle cx="70" cy="108" r="8" fill="white" fillOpacity="0.4"/>
+                <circle cx="210" cy="108" r="8" fill="white" fillOpacity="0.4"/>
+                {/* Bottom tip jewel */}
+                <path fill="white" fillOpacity="0.5" d="M128 286L140 306L152 286Z"/>
               </svg>
             ),
 
+            /* ── Wrench & gear combined – detailed industrial tool ── */
             servicios: (
-              <svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" fillRule="evenodd" d="M240 130L209 97L208 52L163 51L130 20L97 51L52 52L51 97L20 130L51 163L52 208L97 209L130 240L163 209L208 208L209 163ZM130 86A44 44 0 0 1 174 130A44 44 0 0 1 130 174A44 44 0 0 1 86 130A44 44 0 0 1 130 86Z"/>
-                <circle cx="130" cy="130" r="18" fill="white"/>
+              <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Large gear */}
+                <path fill="white" fillRule="evenodd" d="
+                  M150 20
+                  L163 20 L170 38 L186 32 L196 46 L182 56
+                  L192 70 L180 82 L168 72
+                  L164 88 L150 90 L136 88
+                  L132 72 L120 82 L108 70
+                  L118 56 L104 46 L114 32
+                  L130 38 Z
+                  M150 60 A38 38 0 0 1 188 98 A38 38 0 0 1 150 136 A38 38 0 0 1 112 98 A38 38 0 0 1 150 60Z
+                " transform="scale(1.5) translate(-50 -10)"/>
+                {/* Gear inner ring cutout */}
+                <circle cx="150" cy="118" r="30" fill="black" fillOpacity="0.3"/>
+                <circle cx="150" cy="118" r="12" fill="white" fillOpacity="0.6"/>
+                {/* Wrench handle diagonal */}
+                <path fill="white" d="M172 148L256 264C258 267 262 268 265 266C268 264 268 260 266 257L182 141C184 134 184 126 180 119C174 108 162 102 150 104C146 105 144 108 146 112L158 130C160 133 158 137 154 137L143 134C140 132 137 134 136 138C132 152 140 168 154 170C162 171 170 162 172 148Z"/>
+                {/* Wrench open end ring */}
+                <path fill="none" stroke="white" strokeWidth="12" d="M136 104 A30 30 0 0 1 180 120" strokeLinecap="round"/>
               </svg>
             ),
 
+            /* ── Commercial airplane – detailed fuselage, wings, tail, engines ── */
             turismo: (
-              <svg width="420" height="190" viewBox="0 0 420 185" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="white" d="M12 108C12 108 130 92 202 90L282 90C314 90 346 80 374 60L404 40C414 36 418 50 410 58L380 78C358 94 328 102 298 104L258 106L238 144L196 144L218 106L138 108L106 128L74 128L92 108C48 108 12 114 12 108Z"/>
-                <path fill="white" d="M18 108L26 60L58 80L58 108Z"/>
-                <ellipse cx="250" cy="118" rx="32" ry="13" fill="white"/>
+              <svg width="480" height="220" viewBox="0 0 480 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Main fuselage */}
+                <path fill="white" d="M38 96C38 96 60 84 100 82L380 82C408 82 428 88 446 100C462 110 472 120 472 120C472 120 464 132 446 140C428 152 408 158 380 158L100 158C60 156 38 144 38 144C28 140 22 130 22 130C22 130 26 102 38 96Z"/>
+                {/* Nose cone */}
+                <path fill="white" d="M22 130C22 130 8 122 4 118C2 115 6 110 10 112C16 114 22 118 22 118Z"/>
+                {/* Cockpit windows */}
+                <ellipse cx="34" cy="108" rx="8" ry="6" fill="black" fillOpacity="0.3"/>
+                <ellipse cx="50" cy="104" rx="7" ry="5" fill="black" fillOpacity="0.3"/>
+                {/* Fuselage windows row */}
+                <rect x="110" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="134" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="158" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="182" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="206" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="230" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="254" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="278" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="302" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="326" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                <rect x="350" y="104" width="14" height="10" rx="5" fill="black" fillOpacity="0.25"/>
+                {/* Main wing – left upper sweep */}
+                <path fill="white" d="M340 102L170 46L148 62L292 106Z"/>
+                {/* Main wing – right lower */}
+                <path fill="white" d="M340 138L170 192L148 178L292 134Z"/>
+                {/* Wing tip winglets */}
+                <path fill="white" d="M170 46L162 28L172 28L178 46Z"/>
+                <path fill="white" d="M170 192L162 210L172 210L178 192Z"/>
+                {/* Engine left – upper wing */}
+                <ellipse cx="230" cy="58" rx="24" ry="10" fill="white"/>
+                <rect x="210" y="56" width="40" height="10" rx="5" fill="white"/>
+                <ellipse cx="210" cy="61" rx="8" ry="8" fill="black" fillOpacity="0.25"/>
+                {/* Engine right – lower wing */}
+                <ellipse cx="230" cy="182" rx="24" ry="10" fill="white"/>
+                <rect x="210" y="176" width="40" height="10" rx="5" fill="white"/>
+                <ellipse cx="210" cy="181" rx="8" ry="8" fill="black" fillOpacity="0.25"/>
+                {/* Tail section */}
+                <path fill="white" d="M420 120L380 82L380 158Z"/>
+                {/* Vertical stabiliser */}
+                <path fill="white" d="M420 120L444 56L460 68L436 120Z"/>
+                {/* Horizontal stabiliser upper */}
+                <path fill="white" d="M420 108L460 90L464 100L424 114Z"/>
+                {/* Horizontal stabiliser lower */}
+                <path fill="white" d="M420 132L460 150L464 140L424 126Z"/>
+                {/* Ventral fin */}
+                <path fill="white" fillOpacity="0.5" d="M430 152L448 172L438 174L422 154Z"/>
+                {/* Landing gear bay hints */}
+                <rect x="270" y="154" width="20" height="6" rx="3" fill="black" fillOpacity="0.2"/>
+                <rect x="80" y="150" width="16" height="6" rx="3" fill="black" fillOpacity="0.2"/>
               </svg>
             ),
           };
