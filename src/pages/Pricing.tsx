@@ -283,7 +283,7 @@ const Pricing = () => {
                       )}
                     </div>
 
-                    <p className="text-sm text-muted-foreground mb-5 sm:mb-6 font-light leading-relaxed">{tier.description}</p>
+                    <p className="text-sm text-foreground/85 mb-5 sm:mb-6 font-light leading-relaxed">{tier.description}</p>
 
                     <Button
                       size="lg"
@@ -306,7 +306,7 @@ const Pricing = () => {
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-2.5 sm:gap-3 text-sm">
                           <Check className={`h-4 w-4 mt-0.5 shrink-0 ${tier.accentClass}`} />
-                          <span className="text-muted-foreground text-[13px] sm:text-sm">{feature}</span>
+                          <span className="text-foreground/90 text-[13px] sm:text-sm">{feature}</span>
                         </li>
                       ))}
                     </ul>
