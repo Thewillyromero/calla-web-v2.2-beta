@@ -53,12 +53,12 @@ const tiers = [
     features: [
       "Agentes de IA (Inbound y Outbound)",
       "Hasta 750 llamadas/mes",
-      "Campañas outbound automatizadas",
       "CRM integrado",
       "Analítica avanzada con BYTE",
       "Soporte prioritario",
       "Personalización de voz y tono",
       "Webhook e integraciones API",
+      "Campañas outbound automatizadas (Opcional)",
     ],
     cta: "Solicitar demo",
     popular: true,
