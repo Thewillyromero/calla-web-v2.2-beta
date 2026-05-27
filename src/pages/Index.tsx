@@ -691,8 +691,8 @@ const Index = () => {
                       {/* Outer nodes */}
                       {[
                         { x: 140, y: 22, label: "CRM", w: 42 },
-                        { x: 236, y: 66, label: "WhatsApp", w: 62 },
-                        { x: 220, y: 175, label: "Slack", w: 44 },
+                        { x: 236, y: 66, label: "Telegram", w: 58 },
+                        { x: 220, y: 175, label: "ERP", w: 38 },
                         { x: 60, y: 175, label: "Email", w: 44 },
                         { x: 44, y: 66, label: "API", w: 36 },
                       ].map((n, i) => (
