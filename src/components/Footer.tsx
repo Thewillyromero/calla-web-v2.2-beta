@@ -57,9 +57,6 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
           <p className="text-xs text-muted-foreground/70">
             © 2026 CALLA. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-muted-foreground/65">
-            callao.app
-          </p>
         </div>
       </div>
     </footer>
