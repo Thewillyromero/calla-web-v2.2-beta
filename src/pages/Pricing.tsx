@@ -79,7 +79,7 @@ const tiers = [
     hsl: "35 70% 58%",
     badge: null,
     features: [
-      "Agentes IA ilimitados",
+      "Agentes IA a medida",
       "Llamadas ilimitadas",
       "Squad completo personalizado",
       "Onboarding dedicado",
