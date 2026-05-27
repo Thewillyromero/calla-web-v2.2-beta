@@ -2,6 +2,7 @@
 import { useRef, useState, lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactFormDialog from "@/components/ContactFormDialog";
 import Features from "@/components/Features";
 import LogoMarquee from "@/components/LogoMarquee";
 import { TrustpilotStars } from "@/components/TrustpilotStars";
@@ -141,6 +142,7 @@ const fade = {
 
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
+  const [contactOpen, setContactOpen] = useState(false);
   const [hoveredAgent, setHoveredAgent] = useState<number | null>(null);
   const [hoveredCap, setHoveredCap] = useState<number | null>(null);
   const [llamadasTab, setLlamadasTab] = useState<"entrante" | "saliente" | "campana">("entrante");
@@ -1275,6 +1277,7 @@ const Index = () => {
       </SectionFade>
 
       <Footer onContact={() => setContactOpen(true)} />
+      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="home" />
       <FOMONotifications />
       <LiveViewers />
     </div>
