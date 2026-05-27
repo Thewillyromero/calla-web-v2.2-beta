@@ -24,7 +24,7 @@ const tiers = [
     badge: null,
     features: [
       "1 agente IA (Inbound)",
-      "Hasta 500 llamadas/mes",
+      "Hasta 200 llamadas/mes",
       "Agenda de citas automática",
       "Horario personalizado",
       "Transcripción de llamadas",
@@ -52,7 +52,7 @@ const tiers = [
     setupNote: "Puesta en marcha · presupuesto a medida",
     features: [
       "Agentes de IA (Inbound y Outbound)",
-      "Hasta 2.000 llamadas/mes",
+      "Hasta 750 llamadas/mes",
       "Campañas outbound automatizadas",
       "CRM integrado",
       "Analítica avanzada con BYTE",
