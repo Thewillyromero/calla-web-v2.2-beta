@@ -306,8 +306,8 @@ const SquadWorkflow = () => {
                     {...fade} transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}>
                     <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                     <div>
-                      <h3 className="font-display font-semibold text-sm text-foreground mb-1.5">{fc.title}</h3>
-                      <p className="text-xs text-foreground/60 font-light leading-relaxed">{fc.description}</p>
+                      <h3 className="font-display font-semibold text-base text-foreground mb-2">{fc.title}</h3>
+                      <p className="text-sm text-foreground/60 font-light leading-relaxed">{fc.description}</p>
                     </div>
                   </motion.div>
                 ))}
