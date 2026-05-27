@@ -107,7 +107,7 @@ const BlogPost = () => {
             <Button
               size="lg"
               className="rounded-xl glow-box text-sm sm:text-base"
-              onClick={() => window.open(BOOKING_URL, "_blank")}
+              onClick={() => setContactOpen(true)}
             >
               Reservar consulta gratuita
               <ArrowRight className="ml-2 h-4 w-4" />

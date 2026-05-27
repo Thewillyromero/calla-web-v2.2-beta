@@ -267,7 +267,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 <Button
                   size="lg"
                   className="w-full rounded-xl text-sm sm:text-base h-13 font-display font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.01] transition-all duration-300"
-                  onClick={() => window.open(CALENDAR_URL, "_blank")}
+                  onClick={() => onContact?.()}
                 >
                   <Sparkles className="mr-2 h-4 w-4" />
                   Reservar consulta gratuita

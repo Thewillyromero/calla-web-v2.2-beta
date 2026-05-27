@@ -274,7 +274,7 @@ const CaseStudy = () => {
                 <Button
                   size="lg"
                   className="glow-box text-base px-8"
-                  onClick={() => window.open(BOOKING_URL, "_blank")}
+                  onClick={() => setContactOpen(true)}
                 >
                   Reservar consulta gratuita <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

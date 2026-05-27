@@ -451,7 +451,7 @@ const AgentPage = () => {
                     size="lg"
                     className="rounded-full px-8 w-full"
                     style={{ background: "#000", color: "transparent" }}
-                    onClick={() => window.open(BOOKING_URL, "_blank")}
+                    onClick={() => setContactOpen(true)}
                   >
                     <span
                       className="bg-clip-text text-transparent flex items-center gap-2"
@@ -577,7 +577,7 @@ const AgentPage = () => {
       {agent.showDemoCall && (
         <div className="bg-white/[0.03]">
           <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
-            <DemoCall />
+            <DemoCall onContact={() => setContactOpen(true)} />
           </Suspense>
         </div>
       )}

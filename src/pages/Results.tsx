@@ -267,15 +267,13 @@ const Results = () => {
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
               Agenda una demo y descubre cómo CALLA puede transformar las comunicaciones de tu empresa.
             </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setContactOpen(true)}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
             >
               Solicitar demo
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </SectionFade>
         </div>
       </section>

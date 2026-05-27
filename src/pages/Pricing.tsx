@@ -141,7 +141,7 @@ const Pricing = () => {
         <div className="container mx-auto relative z-10">
           <div id="calculadora" className="scroll-mt-24">
             <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
-              <ROICalculator />
+              <ROICalculator onContact={() => setContactOpen(true)} />
             </Suspense>
           </div>
         </div>
@@ -296,7 +296,7 @@ const Pricing = () => {
                         borderColor: `hsl(${tier.hsl} / 0.6)`,
                         color: `hsl(${tier.hsl})`,
                       } : {}}
-                      onClick={() => window.open(BOOKING_URL, "_blank")}
+                      onClick={() => setContactOpen(true)}
                     >
                       {tier.cta}
                       <ArrowRight className="ml-2 h-4 w-4" />

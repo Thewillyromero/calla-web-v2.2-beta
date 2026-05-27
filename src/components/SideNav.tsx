@@ -12,7 +12,7 @@ const teamLinks = [
   { label: "HALO", icon: Sparkles, path: "/equipo" },
 ] as const;
 
-const SideNav = () => {
+const SideNav = ({ onContact }: { onContact?: () => void } = {}) => {
   const location = useLocation();
   const [teamOpen, setTeamOpen] = useState(
     teamLinks.some((l) => location.pathname === l.path)
@@ -111,15 +111,13 @@ const SideNav = () => {
         <Shield className="h-5 w-5 shrink-0" />
         <span className="truncate">Seguridad</span>
       </Link>
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onClick={() => onContact?.()}
         className={itemClass(false)}
       >
         <Mail className="h-5 w-5 shrink-0" />
         <span className="truncate">Contacto</span>
-      </a>
+      </button>
     </nav>
   );
 };

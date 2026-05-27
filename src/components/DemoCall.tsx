@@ -73,7 +73,7 @@ const CallTimer = ({ startTime }: { startTime: number }) => {
   );
 };
 
-const DemoCall = () => {
+const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
   const [loading, setLoading] = useState(false);
   const [callState, setCallState] = useState<CallState>("idle");
@@ -118,7 +118,7 @@ const DemoCall = () => {
   const startWebCall = useCallback(async () => {
     if (getTodayCalls() >= CALL_LIMIT) {
       toast.error("Has alcanzado el límite de demos por hoy. ¡Agenda una llamada con el equipo!");
-      window.open(CALENDAR_URL, "_blank");
+      onContact?.();
       return;
     }
 
@@ -149,7 +149,7 @@ const DemoCall = () => {
         }
         micStream.getTracks().forEach(t => t.stop());
         toast.error("No se pudo conectar. Te redirigimos para agendar una demo.");
-        window.open(CALENDAR_URL, "_blank");
+        onContact?.();
         setCallState("idle");
         vapiRef.current = null;
       }, 12000);
@@ -424,7 +424,7 @@ const DemoCall = () => {
                           size="lg"
                           className="rounded-xl text-base font-display font-semibold"
                           style={{ background: "linear-gradient(135deg, hsl(190 60% 50%), hsl(190 60% 42%))" }}
-                          onClick={() => window.open(CALENDAR_URL, "_blank")}
+                          onClick={() => onContact?.()}
                         >
                           Agendar demo personalizada
                         </Button>
@@ -613,7 +613,7 @@ const DemoCall = () => {
                               size="sm"
                               className="rounded-full text-sm"
                               style={{ background: "linear-gradient(135deg, hsl(190 60% 50%), hsl(190 60% 42%))" }}
-                              onClick={() => window.open(CALENDAR_URL, "_blank")}
+                              onClick={() => onContact?.()}
                             >
                               Agendar demo personalizada
                             </Button>
@@ -640,7 +640,7 @@ const DemoCall = () => {
                                 size="sm"
                                 className="rounded-full text-sm"
                                 style={{ background: "linear-gradient(135deg, hsl(190 60% 50%), hsl(190 60% 42%))" }}
-                                onClick={() => window.open(CALENDAR_URL, "_blank")}
+                                onClick={() => onContact?.()}
                               >
                                 Agendar demo personalizada
                               </Button>

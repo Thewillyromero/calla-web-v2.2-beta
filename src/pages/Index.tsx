@@ -214,7 +214,7 @@ const Index = () => {
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 text-base shadow-lg shadow-primary/20"
-                    onClick={() => window.open(BOOKING_URL, "_blank")}
+                    onClick={() => setContactOpen(true)}
                   >
                     Solicitar demo
                   </Button>
@@ -1176,7 +1176,7 @@ const Index = () => {
       {/* ─── 6. DEMO — Habla con ARIA ─── */}
       <div id="como-funciona" className="bg-white/[0.03]">
         <Suspense fallback={<div className="py-20" />}>
-          <DemoCall />
+          <DemoCall onContact={() => setContactOpen(true)} />
         </Suspense>
       </div>
 
@@ -1218,7 +1218,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 text-base w-full sm:w-auto"
-                  onClick={() => window.open(BOOKING_URL, "_blank")}
+                  onClick={() => setContactOpen(true)}
                 >
                   Solicitar demo gratuita <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
