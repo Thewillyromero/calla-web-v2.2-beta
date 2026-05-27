@@ -87,25 +87,23 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
+              <div className="space-y-1.5">
+                <Label htmlFor="name">Nombre y Apellidos *</Label>
+                <Input id="name" placeholder="Tu nombre y apellidos" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required className="bg-secondary/50 border-border/40" />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="name">Nombre *</Label>
-                  <Input id="name" placeholder="Tu nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required className="bg-secondary/50 border-border/40" />
-                </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="email">Email *</Label>
                   <Input id="email" type="email" placeholder="tu@empresa.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} required className="bg-secondary/50 border-border/40" />
                 </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="phone">Teléfono</Label>
                   <Input id="phone" placeholder="+34 600 000 000" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={30} className="bg-secondary/50 border-border/40" />
                 </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="company">Empresa</Label>
-                  <Input id="company" placeholder="Tu empresa" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} maxLength={100} className="bg-secondary/50 border-border/40" />
-                </div>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="company">Empresa</Label>
+                <Input id="company" placeholder="Tu empresa" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} maxLength={100} className="bg-secondary/50 border-border/40" />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="message">Mensaje</Label>
@@ -114,7 +112,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar demo <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
-              <p className="text-xs text-muted-foreground/65 text-center">Sin compromiso · Respuesta en &lt;24h · Setup en 30 min</p>
+              <p className="text-xs text-muted-foreground/65 text-center">Sin compromiso · Respuesta en &lt;24h</p>
             </form>
           </>
         )}
