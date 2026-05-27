@@ -284,7 +284,7 @@ const CaseStudy = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="case-study-edommo" />
     </div>
   );

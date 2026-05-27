@@ -93,7 +93,7 @@ const Questions = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="preguntas" />
     </div>
   );

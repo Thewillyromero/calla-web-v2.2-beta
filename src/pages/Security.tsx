@@ -431,7 +431,7 @@ const Security = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="seguridad" />
     </div>
   );

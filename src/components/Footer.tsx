@@ -1,9 +1,8 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import heroRobot from "@/assets/hero-robot.webp";
-import { BOOKING_URL } from "@/lib/constants";
 
-const Footer = memo(() => {
+const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
   return (
     <footer className="border-t border-border/20 pt-12 md:pt-16 pb-8 px-5 md:px-6">
       <div className="container mx-auto">
@@ -49,7 +48,7 @@ const Footer = memo(() => {
               <li><Link to="/legal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Aviso legal</Link></li>
               <li><Link to="/legal#privacidad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de privacidad</Link></li>
               <li><Link to="/seguridad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Seguridad</Link></li>
-              <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contacto</a></li>
+              <li><button onClick={() => onContact?.()} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left">Contacto</button></li>
             </ul>
           </div>
         </div>

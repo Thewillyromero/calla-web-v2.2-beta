@@ -1,0 +1,1058 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#content-area"
+    - generic [ref=e5]:
+      - banner [ref=e6]:
+        - generic [ref=e9]:
+          - generic [ref=e12]:
+            - link "Lovable Documentation home page light logo" [ref=e14] [cursor=pointer]:
+              - /url: https://lovable.dev/
+              - generic [ref=e15]: Lovable Documentation home page
+              - img "light logo" [ref=e16]
+            - generic [ref=e17]:
+              - button "Open search" [ref=e18] [cursor=pointer]:
+                - generic [ref=e19]:
+                  - img [ref=e20]
+                  - generic [ref=e23]: Search...
+                - generic [ref=e24]: ⌘K
+              - button "Toggle assistant panel" [ref=e25] [cursor=pointer]:
+                - img [ref=e26]
+                - generic [ref=e29]: Ask Assistant
+            - generic [ref=e30]:
+              - navigation "Main" [ref=e31]:
+                - list [ref=e32]:
+                  - listitem [ref=e33]:
+                    - link "Support" [ref=e34] [cursor=pointer]:
+                      - /url: https://lovable.dev/support
+                      - img [ref=e35]
+                      - text: Support
+                  - listitem [ref=e36]:
+                    - link "Blog" [ref=e37] [cursor=pointer]:
+                      - /url: https://lovable.dev/blog
+                      - img [ref=e38]
+                      - text: Blog
+              - button "Toggle dark mode" [ref=e40] [cursor=pointer]:
+                - img [ref=e41]
+          - generic [ref=e49]:
+            - link "Introduction" [ref=e50] [cursor=pointer]:
+              - /url: /introduction/welcome
+              - text: Introduction
+            - link "Features" [ref=e52] [cursor=pointer]:
+              - /url: /features/plan-mode
+              - text: Features
+            - link "Integrations" [ref=e54] [cursor=pointer]:
+              - /url: /integrations/introduction
+              - text: Integrations
+            - link "Tips & Tricks" [ref=e56] [cursor=pointer]:
+              - /url: /tips-tricks/best-practice
+              - text: Tips & Tricks
+            - link "Changelog" [ref=e58] [cursor=pointer]:
+              - /url: /changelog
+              - text: Changelog
+      - generic [ref=e60]:
+        - navigation "Pages" [ref=e61]:
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - heading "About integrations" [level=3] [ref=e67]
+              - list [ref=e68]:
+                - listitem [ref=e69]:
+                  - link "Lovable integrations" [ref=e70] [cursor=pointer]:
+                    - /url: /integrations/introduction
+                    - img [ref=e72]
+                    - generic [ref=e75]: Lovable integrations
+            - generic [ref=e76]:
+              - heading "App connectors" [level=3] [ref=e78]
+              - list [ref=e79]:
+                - listitem [ref=e80]:
+                  - link "Lovable Cloud" [ref=e81] [cursor=pointer]:
+                    - /url: /integrations/cloud
+                    - img [ref=e83]
+                    - generic [ref=e86]: Lovable Cloud
+                - listitem [ref=e87]:
+                  - link "AI for your app" [ref=e88] [cursor=pointer]:
+                    - /url: /integrations/ai
+                    - img [ref=e90]
+                    - generic [ref=e93]: AI for your app
+                - listitem [ref=e94]:
+                  - link "Aikido" [ref=e95] [cursor=pointer]:
+                    - /url: /integrations/aikido
+                    - img [ref=e97]
+                    - generic [ref=e100]: Aikido
+                - listitem [ref=e101]:
+                  - link "Airtable" [ref=e102] [cursor=pointer]:
+                    - /url: /integrations/airtable
+                    - img [ref=e104]
+                    - generic [ref=e107]: Airtable
+                - listitem [ref=e108]:
+                  - link "Algolia" [ref=e109] [cursor=pointer]:
+                    - /url: /integrations/algolia
+                    - img [ref=e111]
+                    - generic [ref=e114]: Algolia
+                - listitem [ref=e115]:
+                  - link "Asana" [ref=e116] [cursor=pointer]:
+                    - /url: /integrations/asana
+                    - img [ref=e118]
+                    - generic [ref=e121]: Asana
+                - listitem [ref=e122]:
+                  - link "Ashby" [ref=e123] [cursor=pointer]:
+                    - /url: /integrations/ashby
+                    - img [ref=e125]
+                    - generic [ref=e128]: Ashby
+                - listitem [ref=e129]:
+                  - link "Attention" [ref=e130] [cursor=pointer]:
+                    - /url: /integrations/attention
+                    - img [ref=e132]
+                    - generic [ref=e135]: Attention
+                - listitem [ref=e136]:
+                  - link "AWS S3" [ref=e137] [cursor=pointer]:
+                    - /url: /integrations/aws-s3
+                    - img [ref=e139]
+                    - generic [ref=e142]: AWS S3
+                - listitem [ref=e143]:
+                  - link "BigQuery" [ref=e144] [cursor=pointer]:
+                    - /url: /integrations/bigquery
+                    - img [ref=e146]
+                    - generic [ref=e149]: BigQuery
+                - listitem [ref=e150]:
+                  - link "Brevo" [ref=e151] [cursor=pointer]:
+                    - /url: /integrations/brevo
+                    - img [ref=e153]
+                    - generic [ref=e156]: Brevo
+                - listitem [ref=e157]:
+                  - link "Contentful" [ref=e158] [cursor=pointer]:
+                    - /url: /integrations/contentful
+                    - img [ref=e160]
+                    - generic [ref=e163]: Contentful
+                - listitem [ref=e164]:
+                  - link "Databricks" [ref=e165] [cursor=pointer]:
+                    - /url: /integrations/databricks
+                    - img [ref=e167]
+                    - generic [ref=e170]: Databricks
+                - listitem [ref=e171]:
+                  - link "ElevenLabs" [ref=e172] [cursor=pointer]:
+                    - /url: /integrations/eleven-labs
+                    - img [ref=e174]
+                    - generic [ref=e177]: ElevenLabs
+                - listitem [ref=e178]:
+                  - link "Firecrawl" [ref=e179] [cursor=pointer]:
+                    - /url: /integrations/firecrawl
+                    - img [ref=e181]
+                    - generic [ref=e184]: Firecrawl
+                - listitem [ref=e185]:
+                  - link "Fireflies" [ref=e186] [cursor=pointer]:
+                    - /url: /integrations/fireflies
+                    - img [ref=e188]
+                    - generic [ref=e191]: Fireflies
+                - listitem [ref=e192]:
+                  - link "Gemini Enterprise" [ref=e193] [cursor=pointer]:
+                    - /url: /integrations/gemini-enterprise
+                    - img [ref=e195]
+                    - generic [ref=e198]: Gemini Enterprise
+                - listitem [ref=e199]:
+                  - link "Google Maps Platform" [ref=e200] [cursor=pointer]:
+                    - /url: /integrations/google-maps
+                    - img [ref=e202]
+                    - generic [ref=e205]: Google Maps Platform
+                - listitem [ref=e206]:
+                  - link "Google Search Console" [ref=e207] [cursor=pointer]:
+                    - /url: /integrations/google-search-console
+                    - img [ref=e209]
+                    - generic [ref=e212]: Google Search Console
+                - listitem [ref=e213]:
+                  - link "Google Workspace" [ref=e214] [cursor=pointer]:
+                    - /url: /integrations/google-workspace
+                    - img [ref=e216]
+                    - generic [ref=e219]: Google Workspace
+                - listitem [ref=e220]:
+                  - link "Granola" [ref=e221] [cursor=pointer]:
+                    - /url: /integrations/granola
+                    - img [ref=e223]
+                    - generic [ref=e226]: Granola
+                - listitem [ref=e227]:
+                  - link "HubSpot" [ref=e228] [cursor=pointer]:
+                    - /url: /integrations/hubspot
+                    - img [ref=e230]
+                    - generic [ref=e233]: HubSpot
+                - listitem [ref=e234]:
+                  - link "Inngest" [ref=e235] [cursor=pointer]:
+                    - /url: /integrations/inngest
+                    - img [ref=e237]
+                    - generic [ref=e240]: Inngest
+                - listitem [ref=e241]:
+                  - link "Linear" [ref=e242] [cursor=pointer]:
+                    - /url: /integrations/linear
+                    - img [ref=e244]
+                    - generic [ref=e247]: Linear
+                - listitem [ref=e248]:
+                  - link "Mailgun" [ref=e249] [cursor=pointer]:
+                    - /url: /integrations/mailgun
+                    - img [ref=e251]
+                    - generic [ref=e254]: Mailgun
+                - listitem [ref=e255]:
+                  - link "Microsoft" [ref=e256] [cursor=pointer]:
+                    - /url: /integrations/microsoft
+                    - img [ref=e258]
+                    - generic [ref=e261]: Microsoft
+                - listitem [ref=e262]:
+                  - link "Notion" [ref=e263] [cursor=pointer]:
+                    - /url: /integrations/notion
+                    - img [ref=e265]
+                    - generic [ref=e268]: Notion
+                - listitem [ref=e269]:
+                  - link "Perplexity" [ref=e270] [cursor=pointer]:
+                    - /url: /integrations/perplexity
+                    - img [ref=e272]
+                    - generic [ref=e275]: Perplexity
+                - listitem [ref=e276]:
+                  - link "Resend" [ref=e277] [cursor=pointer]:
+                    - /url: /integrations/resend
+                    - img [ref=e279]
+                    - generic [ref=e282]: Resend
+                - listitem [ref=e283]:
+                  - link "Semrush" [ref=e284] [cursor=pointer]:
+                    - /url: /integrations/semrush
+                    - img [ref=e286]
+                    - generic [ref=e289]: Semrush
+                - listitem [ref=e290]:
+                  - link "Shopify" [ref=e291] [cursor=pointer]:
+                    - /url: /integrations/shopify
+                    - img [ref=e293]
+                    - generic [ref=e296]: Shopify
+                - listitem [ref=e297]:
+                  - link "Slack" [ref=e298] [cursor=pointer]:
+                    - /url: /integrations/slack
+                    - img [ref=e300]
+                    - generic [ref=e303]: Slack
+                - listitem [ref=e304]:
+                  - link "Snowflake" [ref=e305] [cursor=pointer]:
+                    - /url: /integrations/snowflake
+                    - img [ref=e307]
+                    - generic [ref=e310]: Snowflake
+                - listitem [ref=e311]:
+                  - link "Storyblok" [ref=e312] [cursor=pointer]:
+                    - /url: /integrations/storyblok
+                    - img [ref=e314]
+                    - generic [ref=e317]: Storyblok
+                - listitem [ref=e318]:
+                  - link "Stripe" [ref=e319] [cursor=pointer]:
+                    - /url: /integrations/stripe
+                    - img [ref=e321]
+                    - generic [ref=e324]: Stripe
+                - listitem [ref=e325]:
+                  - link "Supabase" [ref=e326] [cursor=pointer]:
+                    - /url: /integrations/supabase
+                    - img [ref=e328]
+                    - generic [ref=e331]: Supabase
+                - listitem [ref=e332]:
+                  - link "Telegram" [ref=e333] [cursor=pointer]:
+                    - /url: /integrations/telegram
+                    - img [ref=e335]
+                    - generic [ref=e338]: Telegram
+                - listitem [ref=e339]:
+                  - link "TikTok" [ref=e340] [cursor=pointer]:
+                    - /url: /integrations/tiktok
+                    - img [ref=e342]
+                    - generic [ref=e345]: TikTok
+                - listitem [ref=e346]:
+                  - link "Twilio" [ref=e347] [cursor=pointer]:
+                    - /url: /integrations/twilio
+                    - img [ref=e349]
+                    - generic [ref=e352]: Twilio
+                - listitem [ref=e353]:
+                  - link "Twitch" [ref=e354] [cursor=pointer]:
+                    - /url: /integrations/twitch
+                    - img [ref=e356]
+                    - generic [ref=e359]: Twitch
+                - listitem [ref=e360]:
+                  - link "Wiz" [ref=e361] [cursor=pointer]:
+                    - /url: /integrations/wiz
+                    - img [ref=e363]
+                    - generic [ref=e366]: Wiz
+                - listitem [ref=e367]:
+                  - link "WordPress" [ref=e368] [cursor=pointer]:
+                    - /url: /integrations/wordpress-com
+                    - img [ref=e370]
+                    - generic [ref=e373]: WordPress
+            - generic [ref=e374]:
+              - heading "Chat connectors (MCP)" [level=3] [ref=e376]
+              - list [ref=e377]:
+                - listitem [ref=e378]:
+                  - link "Chat connectors" [ref=e379] [cursor=pointer]:
+                    - /url: /integrations/mcp-servers
+                    - img [ref=e381]
+                    - generic [ref=e384]: Chat connectors
+            - generic [ref=e385]:
+              - heading "Git" [level=3] [ref=e387]
+              - list [ref=e388]:
+                - listitem [ref=e389]:
+                  - link "GitHub" [ref=e390] [cursor=pointer]:
+                    - /url: /integrations/github
+                    - img [ref=e392]
+                    - generic [ref=e395]: GitHub
+                - listitem [ref=e396]:
+                  - link "GitLab" [ref=e397] [cursor=pointer]:
+                    - /url: /integrations/gitlab
+                    - img [ref=e399]
+                    - generic [ref=e402]: GitLab
+        - main [ref=e403]:
+          - generic [ref=e405]:
+            - generic [ref=e406]:
+              - generic [ref=e407]:
+                - generic [ref=e408]: Git
+                - generic [ref=e409]:
+                  - heading "Connect to GitHub" [level=1] [ref=e410]
+                  - button "Copy page" [ref=e412] [cursor=pointer]:
+                    - generic [ref=e413]:
+                      - img [ref=e414]
+                      - generic [ref=e417]: Copy page
+              - paragraph [ref=e419]: Connect your Lovable project to github.com, GitHub Enterprise Cloud (data residency), or self-hosted GitHub Enterprise Server for code backup, collaboration, and deployment.
+            - generic [ref=e420]:
+              - blockquote [ref=e421]:
+                - heading "Documentation Index" [level=2] [ref=e422]
+                - paragraph [ref=e423]:
+                  - text: "Fetch the complete documentation index at:"
+                  - link "https://docs.lovable.dev/llms.txt" [ref=e424] [cursor=pointer]:
+                    - /url: https://docs.lovable.dev/llms.txt
+                - paragraph [ref=e425]: Use this file to discover all available pages before exploring further.
+              - generic [ref=e426]: When you build with Lovable, your project code is stored and managed inside the Lovable platform.
+              - generic [ref=e427]: If you want your own copy, plan to collaborate with developers, or move your project elsewhere, you can export and sync your project to GitHub.
+              - heading "Navigate to header Why connect Lovable to GitHub" [level=2] [ref=e428]:
+                - link "Navigate to header" [ref=e429] [cursor=pointer]:
+                  - /url: "#why-connect-lovable-to-github"
+                  - img [ref=e431]
+                - generic [ref=e433] [cursor=pointer]: Why connect Lovable to GitHub
+              - generic [ref=e434]: "Connecting your Lovable project to GitHub lets you:"
+              - list [ref=e435]:
+                - listitem [ref=e436]:
+                  - strong [ref=e437]: Back up your code
+                  - text: ": Store your project safely outside Lovable."
+                - listitem [ref=e438]:
+                  - strong [ref=e439]: Collaborate easily
+                  - text: ": Invite developers, use pull requests, branches, and code reviews."
+                - listitem [ref=e440]:
+                  - strong [ref=e441]: "Sync changes automatically:"
+                  - text: Edits in Lovable appear in GitHub, and changes pushed to the active GitHub branch sync back into Lovable.
+                - listitem [ref=e442]:
+                  - strong [ref=e443]: Work locally in your IDE
+                  - text: ": Clone, edit, and commit in your IDE while keeping your project synced."
+                - listitem [ref=e444]:
+                  - strong [ref=e445]: Deploy outside Lovable
+                  - text: ": Self-host or deploy to alternative platforms, see"
+                  - link "Deployment, hosting, and ownership options with Lovable Cloud" [ref=e446] [cursor=pointer]:
+                    - /url: /tips-tricks/deployment-hosting-ownership
+                  - text: .
+                - listitem [ref=e447]:
+                  - strong [ref=e448]: Test safely
+                  - text: ": Use branches and pull requests to develop features on a separate branch before merging changes to your live project."
+                - listitem [ref=e449]:
+                  - strong [ref=e450]: Keep a copy of your code within your own infrastructure (Enterprise)
+                  - text: ": connect to GitHub Enterprise Cloud with data residency, or to GitHub Enterprise Server running on your own hardware."
+              - generic [ref=e451]:
+                - img "Note" [ref=e453]
+                - generic [ref=e456]:
+                  - text: You don’t need GitHub to use Lovable. Many users build and launch entirely within Lovable. If you only need a copy of your code, you can download your code directly from Lovable. Open the
+                  - link "Code editor" [ref=e457] [cursor=pointer]:
+                    - /url: /features/code-mode
+                  - text: and click
+                  - strong [ref=e458]: Download codebase
+                  - text: at the bottom of the file tree sidebar (paid plans).
+              - heading "Navigate to header How GitHub integration works" [level=2] [ref=e459]:
+                - link "Navigate to header" [ref=e460] [cursor=pointer]:
+                  - /url: "#how-github-integration-works"
+                  - img [ref=e462]
+                - generic [ref=e464] [cursor=pointer]: How GitHub integration works
+              - generic [ref=e465]: "Lovable’s GitHub integration has two layers:"
+              - list [ref=e466]:
+                - listitem [ref=e467]:
+                  - text: A
+                  - strong [ref=e468]: workspace connection
+                - listitem [ref=e469]:
+                  - text: A
+                  - strong [ref=e470]: project repository link
+              - heading "Navigate to header Workspace connection" [level=3] [ref=e471]:
+                - link "Navigate to header" [ref=e472] [cursor=pointer]:
+                  - /url: "#workspace-connection"
+                  - img [ref=e474]
+                - generic [ref=e476] [cursor=pointer]: Workspace connection
+              - generic [ref=e477]: A workspace connection authorizes Lovable to access a GitHub account or organization through the Lovable GitHub app. This grants Lovable permission to create and update repositories in your chosen account or organization.
+              - generic [ref=e478]: Workspace connections are shared across the workspace and can be reused by multiple projects.
+              - generic [ref=e479]: "A workspace can contain:"
+              - list [ref=e480]:
+                - listitem [ref=e481]: Multiple GitHub connections
+                - listitem [ref=e482]: Multiple GitHub accounts and organizations
+                - listitem [ref=e483]: Multiple GitHub connection types
+              - generic [ref=e484]: This is useful if your team works across personal accounts, client accounts, or multiple organizations.
+              - heading "Navigate to header Project repository connection" [level=3] [ref=e485]:
+                - link "Navigate to header" [ref=e486] [cursor=pointer]:
+                  - /url: "#project-repository-connection"
+                  - img [ref=e488]
+                - generic [ref=e490] [cursor=pointer]: Project repository connection
+              - generic [ref=e491]: A project repository connection links one Lovable project to one GitHub repository.
+              - generic [ref=e492]: "When connected:"
+              - list [ref=e493]:
+                - listitem [ref=e494]: Changes made in Lovable sync to GitHub
+                - listitem [ref=e495]: Changes pushed to the active GitHub branch sync back into Lovable
+                - listitem [ref=e496]: Lovable only edits and syncs one branch at a time
+              - heading "Navigate to header GitHub connection types" [level=3] [ref=e497]:
+                - link "Navigate to header" [ref=e498] [cursor=pointer]:
+                  - /url: "#github-connection-types"
+                  - img [ref=e500]
+                - generic [ref=e502] [cursor=pointer]: GitHub connection types
+              - generic [ref=e503]: "Lovable supports three GitHub connection types:"
+              - list [ref=e504]:
+                - listitem [ref=e505]:
+                  - strong [ref=e506]: github.com
+                  - text: (available on all plans)
+                  - text: The standard hosted GitHub platform used by most teams. Lovable manages the GitHub app installation for you.
+                - listitem [ref=e507]:
+                  - strong [ref=e508]: GitHub Enterprise Cloud - Data residency
+                  - text: (available on the Enterprise plan)
+                  - text: GitHub Enterprise Cloud using a
+                  - code [ref=e509]: "*.ghe.com"
+                  - text: hostname so repository data stays in a specific region. Lovable manages the GitHub app installation for you.
+                - listitem [ref=e510]:
+                  - strong [ref=e511]: GitHub Enterprise Server
+                  - text: (available on the Enterprise plan)
+                  - text: Self-hosted GitHub running on infrastructure your organization controls. With this setup, you create your own copy of the Lovable GitHub app inside your GitHub organization, so credentials remain under your control.
+              - generic [ref=e512]: When you add a new connection, you choose which type to set up. All three types support the same two-way sync, branch operations, and pull request creation between Lovable and your GitHub repository.
+              - heading "Navigate to header Role-based access for GitHub integration" [level=3] [ref=e513]:
+                - link "Navigate to header" [ref=e514] [cursor=pointer]:
+                  - /url: "#role-based-access-for-github-integration"
+                  - img [ref=e516]
+                - generic [ref=e518] [cursor=pointer]: Role-based access for GitHub integration
+              - table [ref=e521]:
+                - rowgroup [ref=e522]:
+                  - row "Role Allowed action" [ref=e523]:
+                    - columnheader "Role" [ref=e524]
+                    - columnheader "Allowed action" [ref=e525]
+                - rowgroup [ref=e526]:
+                  - row "Workspace owner or admin only Install the Lovable GitHub app on a new account or organization Add a workspace connection Update a workspace connection Reconnect a workspace connection (re-authorize the GitHub app for the workspace connection) Delete a workspace connection" [ref=e527]:
+                    - cell "Workspace owner or admin only" [ref=e528]
+                    - cell "Install the Lovable GitHub app on a new account or organization Add a workspace connection Update a workspace connection Reconnect a workspace connection (re-authorize the GitHub app for the workspace connection) Delete a workspace connection" [ref=e529]:
+                      - list [ref=e530]:
+                        - listitem [ref=e531]: Install the Lovable GitHub app on a new account or organization
+                        - listitem [ref=e532]: Add a workspace connection
+                        - listitem [ref=e533]: Update a workspace connection
+                        - listitem [ref=e534]: Reconnect a workspace connection (re-authorize the GitHub app for the workspace connection)
+                        - listitem [ref=e535]: Delete a workspace connection
+                  - row "Workspace owner or admin Project owner or admin Connect a project to a repository Disconnect a project from a repository Reconnect a project to a repository" [ref=e536]:
+                    - cell "Workspace owner or admin Project owner or admin" [ref=e537]:
+                      - list [ref=e538]:
+                        - listitem [ref=e539]: Workspace owner or admin
+                        - listitem [ref=e540]: Project owner or admin
+                    - cell "Connect a project to a repository Disconnect a project from a repository Reconnect a project to a repository" [ref=e541]:
+                      - list [ref=e542]:
+                        - listitem [ref=e543]: Connect a project to a repository
+                        - listitem [ref=e544]: Disconnect a project from a repository
+                        - listitem [ref=e545]: Reconnect a project to a repository
+                  - row "Workspace editor or higher Project editor or higher View sync status Switch branches Create branches" [ref=e546]:
+                    - cell "Workspace editor or higher Project editor or higher" [ref=e547]:
+                      - list [ref=e548]:
+                        - listitem [ref=e549]: Workspace editor or higher
+                        - listitem [ref=e550]: Project editor or higher
+                    - cell "View sync status Switch branches Create branches" [ref=e551]:
+                      - list [ref=e552]:
+                        - listitem [ref=e553]: View sync status
+                        - listitem [ref=e554]: Switch branches
+                        - listitem [ref=e555]: Create branches
+                  - row "Any workspace member, including external collaborators View the connection in Workspace settings → Git → GitHub (read-only mode)" [ref=e556]:
+                    - cell "Any workspace member, including external collaborators" [ref=e557]
+                    - cell "View the connection in Workspace settings → Git → GitHub (read-only mode)" [ref=e558]
+              - heading "Navigate to header Create a workspace GitHub connection" [level=2] [ref=e559]:
+                - link "Navigate to header" [ref=e560] [cursor=pointer]:
+                  - /url: "#create-a-workspace-github-connection"
+                  - img [ref=e562]
+                - generic [ref=e564] [cursor=pointer]: Create a workspace GitHub connection
+              - generic [ref=e565]:
+                - strong [ref=e566]: Workspace admins and owners
+                - text: "can create workspace connections from:"
+              - list [ref=e567]:
+                - listitem [ref=e568]:
+                  - strong [ref=e569]: Workspace settings → Git → GitHub → Add connection
+                - listitem [ref=e570]:
+                  - strong [ref=e571]: Project settings → Git → GitHub → Add connection
+                  - text: (if a project has not been connected yet).
+              - generic [ref=e572]:
+                - text: To use an
+                - strong [ref=e573]: existing GitHub installation
+                - text: ", click"
+                - strong [ref=e574]: Connect
+                - text: next to the account or organization you want to use. The list shows installations on accounts and organizations you have access to on your GitHub identity.
+              - generic [ref=e575]:
+                - img "Note" [ref=e577]
+                - generic [ref=e580]: If someone else installed the Lovable GitHub app on an organization you’re not a member of, you won’t see that installation. Ask them to add you to the GitHub organization, or to set up the Lovable workspace connection themselves.
+              - generic [ref=e581]: "To set up a new connection, follow the steps for your connection type:"
+              - list [ref=e582]:
+                - listitem [ref=e583]: github.com
+                - listitem [ref=e584]: GitHub Enterprise Cloud (data residency)
+                - listitem [ref=e585]: GitHub Enterprise Server
+              - generic [ref=e586]:
+                - tablist [ref=e587]:
+                  - tab "github.com" [selected] [ref=e588] [cursor=pointer]:
+                    - generic [ref=e589]: github.com
+                  - tab "GitHub Enterprise Cloud (data residency)" [ref=e590] [cursor=pointer]:
+                    - generic [ref=e591]: GitHub Enterprise Cloud (data residency)
+                  - tab "GitHub Enterprise Server (self-hosted)" [ref=e592] [cursor=pointer]:
+                    - generic [ref=e593]: GitHub Enterprise Server (self-hosted)
+                - tabpanel "github.com GitHub Enterprise Cloud (data residency) GitHub Enterprise Server (self-hosted) github.com is the standard hosted GitHub service used by most teams. Available on all plans. You need to have a GitHub account. You can create one for free at github.com. 1 Navigate to header Add account Click Add account. On Free, Pro, and Business plans, you’ll go straight to the github.com installation flow. On Enterprise plan, Lovable shows three connection types. Select github.com. 2 Navigate to header Install and authorize the Lovable GitHub app A GitHub popup opens. Choose the account or organization. Choose All repositories or Only select repositories. Click Install & Authorize. Lovable automatically detects the installation and adds it as a reusable workspace connection. You can now link projects to repositories under this account or organization." [ref=e595]:
+                  - generic [ref=e596]:
+                    - text: github.com is the standard hosted GitHub service used by most teams. Available on all plans. You need to have a GitHub account. You can create one for free at
+                    - link "github.com" [ref=e597] [cursor=pointer]:
+                      - /url: https://github.com/
+                    - text: .
+                  - list [ref=e598]:
+                    - listitem [ref=e599]:
+                      - generic [ref=e602]:
+                        - generic [ref=e603]: "1"
+                        - link "Navigate to header" [ref=e605] [cursor=pointer]:
+                          - /url: "#"
+                          - img [ref=e607]
+                      - generic [ref=e609]:
+                        - paragraph [ref=e610]: Add account
+                        - generic [ref=e611]:
+                          - generic [ref=e612]:
+                            - text: Click
+                            - strong [ref=e613]: Add account
+                            - text: .
+                          - list [ref=e614]:
+                            - listitem [ref=e615]:
+                              - text: On Free, Pro, and Business plans, you’ll go straight to the
+                              - strong [ref=e616]: github.com
+                              - text: installation flow.
+                            - listitem [ref=e617]:
+                              - text: On Enterprise plan, Lovable shows three connection types. Select
+                              - strong [ref=e618]: github.com.
+                    - listitem [ref=e619]:
+                      - generic [ref=e622]:
+                        - generic [ref=e623]: "2"
+                        - link "Navigate to header" [ref=e625] [cursor=pointer]:
+                          - /url: "#"
+                          - img [ref=e627]
+                      - generic [ref=e629]:
+                        - paragraph [ref=e630]: Install and authorize the Lovable GitHub app
+                        - generic [ref=e631]:
+                          - generic [ref=e632]: A GitHub popup opens.
+                          - list [ref=e633]:
+                            - listitem [ref=e634]: Choose the account or organization.
+                            - listitem [ref=e635]:
+                              - text: Choose
+                              - strong [ref=e636]: All repositories
+                              - text: or
+                              - strong [ref=e637]: Only select repositories
+                              - text: .
+                            - listitem [ref=e638]:
+                              - text: Click
+                              - strong [ref=e639]: Install & Authorize
+                              - text: .
+                          - generic [ref=e640]: Lovable automatically detects the installation and adds it as a reusable workspace connection. You can now link projects to repositories under this account or organization.
+              - heading "Navigate to header Connect a project to GitHub" [level=2] [ref=e641]:
+                - link "Navigate to header" [ref=e642] [cursor=pointer]:
+                  - /url: "#connect-a-project-to-github"
+                  - img [ref=e644]
+                - generic [ref=e646] [cursor=pointer]: Connect a project to GitHub
+              - generic [ref=e647]:
+                - text: When there is an active workspace GitHub connection,
+                - strong [ref=e648]: workspace or project admins and owners
+                - text: can connect a Lovable project to a GitHub repository.
+              - list [ref=e649]:
+                - listitem [ref=e650]: Connecting a project creates a new GitHub repository.
+                - listitem [ref=e651]: Each Lovable project can connect to one repository.
+              - list [ref=e652]:
+                - listitem [ref=e653]:
+                  - generic [ref=e656]:
+                    - generic [ref=e657]: "1"
+                    - link "Navigate to header" [ref=e659] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e661]
+                  - generic [ref=e663]:
+                    - paragraph [ref=e664]: Open the project's GitHub settings
+                    - generic [ref=e665]:
+                      - generic [ref=e666]: "You can access project GitHub settings from:"
+                      - list [ref=e667]:
+                        - listitem [ref=e668]:
+                          - strong [ref=e669]: Project settings → Git → GitHub
+                        - listitem [ref=e670]:
+                          - text: The
+                          - code [ref=e671]: +
+                          - strong [ref=e672]: (plus) menu
+                          - text: in the chat
+                - listitem [ref=e673]:
+                  - generic [ref=e676]:
+                    - generic [ref=e677]: "2"
+                    - link "Navigate to header" [ref=e679] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e681]
+                  - generic [ref=e683]:
+                    - paragraph [ref=e684]: Connect the project
+                    - generic [ref=e685]:
+                      - generic [ref=e686]:
+                        - text: Existing workspace connections appear under
+                        - strong [ref=e687]: Accounts.
+                      - generic [ref=e688]:
+                        - text: Click
+                        - strong [ref=e689]: Connect
+                        - text: next to the workspace connection where the new repository should be created.
+                      - generic [ref=e690]: Lovable creates a new GitHub repository and starts two-way sync automatically.
+              - generic [ref=e691]:
+                - img "Warning" [ref=e693]
+                - generic [ref=e696]: Don’t rename, move, or delete your GitHub repository after connecting. Doing so will break the sync, and Lovable won’t be able to update your project.
+              - heading "Navigate to header Manage a project’s repository connection" [level=2] [ref=e697]:
+                - link "Navigate to header" [ref=e698] [cursor=pointer]:
+                  - /url: "#manage-a-project’s-repository-connection"
+                  - img [ref=e700]
+                - generic [ref=e702] [cursor=pointer]: Manage a project’s repository connection
+              - generic [ref=e703]: "After connecting a project to a GitHub repository, you see the following in the project’s GitHub settings:"
+              - list [ref=e704]:
+                - listitem [ref=e705]:
+                  - text: Repository status as
+                  - strong [ref=e706]: Connected
+                - listitem [ref=e707]: Branch picker with active branch name (GitHub branch synced with Lovable)
+                - listitem [ref=e708]: Clone URLs (HTTPS, SSH, GitHub CLI)
+                - listitem [ref=e709]:
+                  - text: Option to
+                  - strong [ref=e710]: View on GitHub
+                  - text: (available from the dropdown)
+                - listitem [ref=e711]:
+                  - text: Option to
+                  - strong [ref=e712]: Disconnect
+                  - text: (available from the dropdown)
+              - generic [ref=e713]:
+                - text: Lovable only edits and syncs one branch at a time. By default, this is the repository’s default branch (usually
+                - code [ref=e714]: main
+                - text: ). Changes pushed to the currently active branch sync back into Lovable.
+              - heading "Navigate to header Switch branches" [level=3] [ref=e715]:
+                - link "Navigate to header" [ref=e716] [cursor=pointer]:
+                  - /url: "#switch-branches"
+                  - img [ref=e718]
+                - generic [ref=e720] [cursor=pointer]: Switch branches
+              - list [ref=e721]:
+                - listitem [ref=e722]: Click the branch picker.
+                - listitem [ref=e723]: Search or select a branch.
+                - listitem [ref=e724]: Click the branch to switch.
+              - generic [ref=e725]: Lovable immediately starts editing and syncing the branch you switched to.
+              - generic [ref=e726]: You can switch back to the default branch at any time.
+              - heading "Navigate to header Create a new branch" [level=3] [ref=e727]:
+                - link "Navigate to header" [ref=e728] [cursor=pointer]:
+                  - /url: "#create-a-new-branch"
+                  - img [ref=e730]
+                - generic [ref=e732] [cursor=pointer]: Create a new branch
+              - list [ref=e733]:
+                - listitem [ref=e734]: Click the branch picker.
+                - listitem [ref=e735]:
+                  - text: Click
+                  - strong [ref=e736]: + Create branch
+                  - text: at the bottom of the list.
+                - listitem [ref=e737]:
+                  - text: Enter a branch name. Lovable validates it against empty names, invalid characters, and duplicates.
+                  - generic [ref=e738]:
+                    - img "Info" [ref=e740]
+                    - generic [ref=e743]: "Branch names must follow Git naming rules (no spaces, .., leading or trailing dots or dashes, and special characters like ~ ^ : ? * [ ] \\)."
+              - generic [ref=e744]:
+                - text: The new branch is created from the
+                - strong [ref=e745]: currently active branch
+                - text: as its source (shown as
+                - code [ref=e746]: "Source: <active branch>"
+                - text: in the dialog). Lovable automatically switches to the new branch and starts editing and syncing it.
+              - generic [ref=e747]:
+                - img "Warning" [ref=e749]
+                - generic [ref=e752]:
+                  - text: The source is your
+                  - strong [ref=e753]: currently active branch
+                  - text: ", not the repository’s default branch. If you want to start a new feature branch from"
+                  - code [ref=e754]: main
+                  - text: ", switch to"
+                  - code [ref=e755]: main
+                  - text: first, then create the new branch.
+              - generic [ref=e756]:
+                - img "Note" [ref=e758]
+                - generic [ref=e761]: You can’t switch branches or create new branches while Lovable is editing the project.
+              - heading "Navigate to header Clone the repository locally" [level=3] [ref=e762]:
+                - link "Navigate to header" [ref=e763] [cursor=pointer]:
+                  - /url: "#clone-the-repository-locally"
+                  - img [ref=e765]
+                - generic [ref=e767] [cursor=pointer]: Clone the repository locally
+              - generic [ref=e768]: "After connecting a project, Lovable provides clone URLs for:"
+              - list [ref=e769]:
+                - listitem [ref=e770]: HTTPS
+                - listitem [ref=e771]: SSH
+                - listitem [ref=e772]: GitHub CLI
+              - generic [ref=e773]: You can clone the repository locally and continue working in your preferred IDE.
+              - heading "Navigate to header View the repository on GitHub" [level=3] [ref=e774]:
+                - link "Navigate to header" [ref=e775] [cursor=pointer]:
+                  - /url: "#view-the-repository-on-github"
+                  - img [ref=e777]
+                - generic [ref=e779] [cursor=pointer]: View the repository on GitHub
+              - generic [ref=e780]:
+                - text: You can quickly access the synced repository directly in GitHub from
+                - strong [ref=e781]: Project settings → Git → GitHub.
+              - generic [ref=e782]:
+                - text: Use
+                - strong [ref=e783]: View on GitHub
+                - text: from the repository connection dropdown. This opens GitHub in a new tab.
+              - heading "Navigate to header Commit attribution" [level=3] [ref=e784]:
+                - link "Navigate to header" [ref=e785] [cursor=pointer]:
+                  - /url: "#commit-attribution"
+                  - img [ref=e787]
+                - generic [ref=e789] [cursor=pointer]: Commit attribution
+              - generic [ref=e790]: "Commits made by Lovable are authored by the Lovable GitHub app identity:"
+              - list [ref=e791]:
+                - listitem [ref=e792]:
+                  - code [ref=e793]: lovable-dev[bot]
+                  - text: for github.com and GitHub Enterprise Cloud
+                - listitem [ref=e794]:
+                  - code [ref=e795]: <your-app-name>[bot]
+                  - text: for GitHub Enterprise Server
+              - generic [ref=e796]:
+                - text: Commits are also co-attributed to the Lovable user who triggered them using GitHub’s
+                - code [ref=e797]: noreply
+                - text: email format.
+              - heading "Navigate to header Disconnect a project from a GitHub repository" [level=3] [ref=e798]:
+                - link "Navigate to header" [ref=e799] [cursor=pointer]:
+                  - /url: "#disconnect-a-project-from-a-github-repository"
+                  - img [ref=e801]
+                - generic [ref=e803] [cursor=pointer]: Disconnect a project from a GitHub repository
+              - generic [ref=e804]: Disconnecting removes the sync relationship between a Lovable project and a GitHub repository.
+              - generic [ref=e805]: "When you disconnect:"
+              - list [ref=e806]:
+                - listitem [ref=e807]:
+                  - strong [ref=e808]: Sync stops.
+                  - text: The two-way connection between Lovable and GitHub ends.
+                - listitem [ref=e809]:
+                  - strong [ref=e810]: Your repository stays on GitHub.
+                  - text: It remains intact with all history and files.
+                - listitem [ref=e811]:
+                  - strong [ref=e812]: Your project and its code stay in Lovable.
+                  - text: Future changes are stored only inside Lovable.
+              - generic [ref=e813]: Disconnecting a project does not remove the workspace connection itself.
+              - generic [ref=e814]: There are two ways to disconnect a repository connection.
+              - list [ref=e815]:
+                - listitem [ref=e816]: Disconnect from the project GitHub settings
+                - listitem [ref=e817]: Disconnect from the workspace GitHub settings
+              - generic [ref=e818]:
+                - tablist [ref=e819]:
+                  - tab "Disconnect from project GitHub settings" [selected] [ref=e820] [cursor=pointer]:
+                    - generic [ref=e821]: Disconnect from project GitHub settings
+                  - tab "Disconnect from workspace GitHub settings" [ref=e822] [cursor=pointer]:
+                    - generic [ref=e823]: Disconnect from workspace GitHub settings
+                - 'tabpanel "Disconnect from project GitHub settings Disconnect from workspace GitHub settings Workspace or project admins and owners can disconnect from the project’s GitHub settings. 1 Navigate to header Open GitHub settings You can access project GitHub settings from: Project settings → Git → GitHub The + (plus) menu in the chat 2 Navigate to header Disconnect the project In the active repository connection, open the dropdown and select Disconnect. 3 Navigate to header Confirm Type the required info Click Disconnect to confirm" [ref=e825]':
+                  - generic [ref=e826]:
+                    - strong [ref=e827]: Workspace or project admins and owners
+                    - text: can disconnect from the project’s GitHub settings.
+                  - list [ref=e828]:
+                    - listitem [ref=e829]:
+                      - generic [ref=e832]:
+                        - generic [ref=e833]: "1"
+                        - link "Navigate to header" [ref=e835] [cursor=pointer]:
+                          - /url: "#"
+                          - img [ref=e837]
+                      - generic [ref=e839]:
+                        - paragraph [ref=e840]: Open GitHub settings
+                        - generic [ref=e841]:
+                          - generic [ref=e842]: "You can access project GitHub settings from:"
+                          - list [ref=e843]:
+                            - listitem [ref=e844]:
+                              - strong [ref=e845]: Project settings → Git → GitHub
+                            - listitem [ref=e846]:
+                              - text: The
+                              - code [ref=e847]: +
+                              - strong [ref=e848]: (plus) menu
+                              - text: in the chat
+                    - listitem [ref=e849]:
+                      - generic [ref=e852]:
+                        - generic [ref=e853]: "2"
+                        - link "Navigate to header" [ref=e855] [cursor=pointer]:
+                          - /url: "#"
+                          - img [ref=e857]
+                      - generic [ref=e859]:
+                        - paragraph [ref=e860]: Disconnect the project
+                        - generic [ref=e862]:
+                          - text: In the active repository connection, open the dropdown and select
+                          - strong [ref=e863]: Disconnect
+                          - text: .
+                    - listitem [ref=e864]:
+                      - generic [ref=e867]:
+                        - generic [ref=e868]: "3"
+                        - link "Navigate to header" [ref=e870] [cursor=pointer]:
+                          - /url: "#"
+                          - img [ref=e872]
+                      - generic [ref=e874]:
+                        - paragraph [ref=e875]: Confirm
+                        - list [ref=e877]:
+                          - listitem [ref=e878]: Type the required info
+                          - listitem [ref=e879]:
+                            - text: Click
+                            - strong [ref=e880]: Disconnect
+                            - text: to confirm
+              - generic [ref=e881]: "If a project needs GitHub again, you can link it to any available connection. If you reconnect later:"
+              - list [ref=e882]:
+                - listitem [ref=e883]: Lovable creates a new repository with the current version of your project.
+                - listitem [ref=e884]: The original repository stays unchanged on GitHub and is no longer linked to Lovable.
+              - heading "Navigate to header Delete a workspace GitHub connection" [level=2] [ref=e885]:
+                - link "Navigate to header" [ref=e886] [cursor=pointer]:
+                  - /url: "#delete-a-workspace-github-connection"
+                  - img [ref=e888]
+                - generic [ref=e890] [cursor=pointer]: Delete a workspace GitHub connection
+              - generic [ref=e891]:
+                - strong [ref=e892]: Workspace admins and owners
+                - text: can delete GitHub connections.
+              - generic [ref=e893]: "Deleting a workspace GitHub connection:"
+              - list [ref=e894]:
+                - listitem [ref=e895]: Removes the connection for all projects
+                - listitem [ref=e896]: Stops syncing for linked projects
+                - listitem [ref=e897]: Does not delete repositories on GitHub
+                - listitem [ref=e898]: Deletes stored credentials
+                - listitem [ref=e899]: For GitHub Enterprise Server, deleting a connection also schedules destruction of the stored GitHub app signing key.
+              - list [ref=e900]:
+                - listitem [ref=e901]:
+                  - generic [ref=e904]:
+                    - generic [ref=e905]: "1"
+                    - link "Navigate to header" [ref=e907] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e909]
+                  - generic [ref=e911]:
+                    - paragraph [ref=e912]: Open GitHub settings
+                    - generic [ref=e914]:
+                      - text: Go to
+                      - strong [ref=e915]: Workspace settings → Git → GitHub
+                      - text: .
+                - listitem [ref=e916]:
+                  - generic [ref=e919]:
+                    - generic [ref=e920]: "2"
+                    - link "Navigate to header" [ref=e922] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e924]
+                  - generic [ref=e926]:
+                    - paragraph [ref=e927]: Open the connection you want to remove
+                    - generic [ref=e929]: Select the connection from the list.
+                - listitem [ref=e930]:
+                  - generic [ref=e933]:
+                    - generic [ref=e934]: "3"
+                    - link "Navigate to header" [ref=e936] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e938]
+                  - generic [ref=e940]:
+                    - paragraph [ref=e941]: Review linked projects
+                    - generic [ref=e943]: Review the list of linked projects carefully before deleting the connection to avoid unintentionally removing GitHub sync.
+                - listitem [ref=e944]:
+                  - generic [ref=e947]:
+                    - generic [ref=e948]: "4"
+                    - link "Navigate to header" [ref=e950] [cursor=pointer]:
+                      - /url: "#"
+                      - img [ref=e952]
+                  - generic [ref=e954]:
+                    - paragraph [ref=e955]: Delete
+                    - generic [ref=e956]:
+                      - generic [ref=e957]:
+                        - text: Under
+                        - strong [ref=e958]: Delete this connection
+                        - text: ":"
+                      - list [ref=e959]:
+                        - listitem [ref=e960]:
+                          - text: Click
+                          - strong [ref=e961]: Delete
+                        - listitem [ref=e962]: Type the required info
+                        - listitem [ref=e963]:
+                          - text: Click
+                          - strong [ref=e964]: Delete
+                          - text: to confirm the deletion
+              - heading "Navigate to header Limitations" [level=2] [ref=e965]:
+                - link "Navigate to header" [ref=e966] [cursor=pointer]:
+                  - /url: "#limitations"
+                  - img [ref=e968]
+                - generic [ref=e970] [cursor=pointer]: Limitations
+              - generic [ref=e971]: "The GitHub integration currently does not support:"
+              - list [ref=e972]:
+                - listitem [ref=e973]: Importing existing GitHub repositories into Lovable. You can only export from Lovable to GitHub.
+                - listitem [ref=e974]: Reconnecting to the same repository after disconnecting. A new repository is created on reconnect.
+                - listitem [ref=e975]: Installing the Lovable GitHub app multiple times on the same account or organization.
+              - heading "Navigate to header Troubleshooting" [level=2] [ref=e976]:
+                - link "Navigate to header" [ref=e977] [cursor=pointer]:
+                  - /url: "#troubleshooting"
+                  - img [ref=e979]
+                - generic [ref=e981] [cursor=pointer]: Troubleshooting
+              - generic [ref=e982]:
+                - text: When something goes wrong, Lovable shows a
+                - strong [ref=e983]: Reconnect
+                - text: prompt in the affected project’s GitHub settings.
+              - heading "Navigate to header Workspace connection issues" [level=3] [ref=e984]:
+                - link "Navigate to header" [ref=e985] [cursor=pointer]:
+                  - /url: "#workspace-connection-issues"
+                  - img [ref=e987]
+                - generic [ref=e989] [cursor=pointer]: Workspace connection issues
+              - generic [ref=e990]:
+                - text: These problems affect the workspace-level GitHub connection itself, so the fix usually applies to
+                - strong [ref=e991]: every project linked to that connection
+                - text: .
+              - generic [ref=e992]: A workspace owner or admin only needs to perform the fix once from any affected project, and the other projects on the same connection resume automatically.
+              - generic [ref=e993]:
+                - group [ref=e994]:
+                  - generic "The Lovable GitHub app is suspended. Reconnect and unsuspend it to resume syncing." [ref=e995] [cursor=pointer]:
+                    - img [ref=e997]
+                    - paragraph [ref=e999]: The Lovable GitHub app is suspended. Reconnect and unsuspend it to resume syncing.
+                - group [ref=e1000]:
+                  - generic "The Lovable GitHub app has been uninstalled. Reconnect to reinstall it and restore access." [ref=e1001] [cursor=pointer]:
+                    - img [ref=e1003]
+                    - paragraph [ref=e1005]: The Lovable GitHub app has been uninstalled. Reconnect to reinstall it and restore access.
+                - group [ref=e1006]:
+                  - generic "Lovable no longer has access to this repository. Reconnect and grant access to it." [ref=e1007] [cursor=pointer]:
+                    - img [ref=e1009]
+                    - paragraph [ref=e1011]: Lovable no longer has access to this repository. Reconnect and grant access to it.
+                - group [ref=e1012]:
+                  - generic "Install the GitHub app for <owner> to enable gitsync." [ref=e1013] [cursor=pointer]:
+                    - img [ref=e1015]
+                    - paragraph [ref=e1017]: Install the GitHub app for <owner> to enable gitsync.
+                - group [ref=e1018]:
+                  - generic "Clicking \"Add account\" or \"Connect GitHub\" does nothing." [ref=e1019] [cursor=pointer]:
+                    - img [ref=e1021]
+                    - paragraph [ref=e1023]: Clicking "Add account" or "Connect GitHub" does nothing.
+                - group [ref=e1024]:
+                  - generic "(Enterprise) My GitHub organization uses an IP allow list and the connection fails." [ref=e1025] [cursor=pointer]:
+                    - img [ref=e1027]
+                    - paragraph [ref=e1029]: (Enterprise) My GitHub organization uses an IP allow list and the connection fails.
+                - group [ref=e1030]:
+                  - generic "(Enterprise Server) The setup popup can't reach my instance." [ref=e1031] [cursor=pointer]:
+                    - img [ref=e1033]
+                    - paragraph [ref=e1035]: (Enterprise Server) The setup popup can't reach my instance.
+              - heading "Navigate to header Project repository issues" [level=3] [ref=e1036]:
+                - link "Navigate to header" [ref=e1037] [cursor=pointer]:
+                  - /url: "#project-repository-issues"
+                  - img [ref=e1039]
+                - generic [ref=e1041] [cursor=pointer]: Project repository issues
+              - generic [ref=e1042]: These problems affect a single project’s link to its repository.
+              - generic [ref=e1043]:
+                - text: Workspace or project admins and owners can resolve them from the
+                - strong [ref=e1044]: project’s GitHub settings
+                - text: .
+              - generic [ref=e1045]:
+                - group [ref=e1046]:
+                  - generic "This repository is no longer accessible. Disconnect the project and connect it to a different repository." [ref=e1047] [cursor=pointer]:
+                    - img [ref=e1049]
+                    - paragraph [ref=e1051]: This repository is no longer accessible. Disconnect the project and connect it to a different repository.
+                - group [ref=e1052]:
+                  - generic "My commits and pushes from GitHub aren't showing up in Lovable." [ref=e1053] [cursor=pointer]:
+                    - img [ref=e1055]
+                    - paragraph [ref=e1057]: My commits and pushes from GitHub aren't showing up in Lovable.
+                - group [ref=e1058]:
+                  - generic "I see a \"lovable-fallback\" branch in the branch picker." [ref=e1059] [cursor=pointer]:
+                    - img [ref=e1061]
+                    - paragraph [ref=e1063]: I see a "lovable-fallback" branch in the branch picker.
+                - group [ref=e1064]:
+                  - generic "My push from Lovable ended up on a \"lovable-sync-<timestamp>\" branch instead of the synced branch." [ref=e1065] [cursor=pointer]:
+                    - img [ref=e1067]
+                    - paragraph [ref=e1069]: My push from Lovable ended up on a "lovable-sync-<timestamp>" branch instead of the synced branch.
+              - heading "Navigate to header FAQ" [level=2] [ref=e1070]:
+                - link "Navigate to header" [ref=e1071] [cursor=pointer]:
+                  - /url: "#faq"
+                  - img [ref=e1073]
+                - generic [ref=e1075] [cursor=pointer]: FAQ
+              - generic [ref=e1076]:
+                - group [ref=e1077]:
+                  - generic "Do I need to know GitHub to use this feature?" [ref=e1078] [cursor=pointer]:
+                    - img [ref=e1080]
+                    - paragraph [ref=e1082]: Do I need to know GitHub to use this feature?
+                - group [ref=e1083]:
+                  - generic "Do I need GitHub just to download my code?" [ref=e1084] [cursor=pointer]:
+                    - img [ref=e1086]
+                    - paragraph [ref=e1088]: Do I need GitHub just to download my code?
+                - group [ref=e1089]:
+                  - generic "What's the difference between github.com, GitHub Enterprise Cloud, and GitHub Enterprise Server?" [ref=e1090] [cursor=pointer]:
+                    - img [ref=e1092]
+                    - paragraph [ref=e1094]: What's the difference between github.com, GitHub Enterprise Cloud, and GitHub Enterprise Server?
+                - group [ref=e1095]:
+                  - generic "What permissions does the Lovable GitHub app request?" [ref=e1096] [cursor=pointer]:
+                    - img [ref=e1098]
+                    - paragraph [ref=e1100]: What permissions does the Lovable GitHub app request?
+                - group [ref=e1101]:
+                  - generic "What happens if I rename, move, or delete my GitHub repository?" [ref=e1102] [cursor=pointer]:
+                    - img [ref=e1104]
+                    - paragraph [ref=e1106]: What happens if I rename, move, or delete my GitHub repository?
+                - group [ref=e1107]:
+                  - generic "What happens if I rename my GitHub username or organization?" [ref=e1108] [cursor=pointer]:
+                    - img [ref=e1110]
+                    - paragraph [ref=e1112]: What happens if I rename my GitHub username or organization?
+                - group [ref=e1113]:
+                  - generic "What happens if I transfer my project to another workspace?" [ref=e1114] [cursor=pointer]:
+                    - img [ref=e1116]
+                    - paragraph [ref=e1118]: What happens if I transfer my project to another workspace?
+                - group [ref=e1119]:
+                  - generic "How can I switch to a different GitHub account or organization?" [ref=e1120] [cursor=pointer]:
+                    - img [ref=e1122]
+                    - paragraph [ref=e1124]: How can I switch to a different GitHub account or organization?
+                - group [ref=e1125]:
+                  - generic "Can I connect multiple GitHub accounts or organizations?" [ref=e1126] [cursor=pointer]:
+                    - img [ref=e1128]
+                    - paragraph [ref=e1130]: Can I connect multiple GitHub accounts or organizations?
+                - group [ref=e1131]:
+                  - generic "Can I disconnect from GitHub?" [ref=e1132] [cursor=pointer]:
+                    - img [ref=e1134]
+                    - paragraph [ref=e1136]: Can I disconnect from GitHub?
+                - group [ref=e1137]:
+                  - generic "Can I import an existing GitHub repo into Lovable?" [ref=e1138] [cursor=pointer]:
+                    - img [ref=e1140]
+                    - paragraph [ref=e1142]: Can I import an existing GitHub repo into Lovable?
+                - group [ref=e1143]:
+                  - generic "Can I edit a non-default branch from inside Lovable?" [ref=e1144] [cursor=pointer]:
+                    - img [ref=e1146]
+                    - paragraph [ref=e1148]: Can I edit a non-default branch from inside Lovable?
+                - group [ref=e1149]:
+                  - generic "Are commits made by Lovable attributed to me?" [ref=e1150] [cursor=pointer]:
+                    - img [ref=e1152]
+                    - paragraph [ref=e1154]: Are commits made by Lovable attributed to me?
+                - group [ref=e1155]:
+                  - generic "My GitHub Enterprise Server is behind a VPN or firewall. Will it work?" [ref=e1156] [cursor=pointer]:
+                    - img [ref=e1158]
+                    - paragraph [ref=e1160]: My GitHub Enterprise Server is behind a VPN or firewall. Will it work?
+                - group [ref=e1161]:
+                  - generic "Where is my data stored for GitHub Enterprise Cloud (data residency)?" [ref=e1162] [cursor=pointer]:
+                    - img [ref=e1164]
+                    - paragraph [ref=e1166]: Where is my data stored for GitHub Enterprise Cloud (data residency)?
+            - generic [ref=e1168]:
+              - paragraph [ref=e1169]: Was this page helpful?
+              - generic [ref=e1171]:
+                - button "Yes" [ref=e1172] [cursor=pointer]:
+                  - img [ref=e1173]
+                  - generic [ref=e1175]: "Yes"
+                - button "No" [ref=e1176] [cursor=pointer]:
+                  - img [ref=e1177]
+                  - generic [ref=e1179]: "No"
+            - generic [ref=e1180]:
+              - link "Chat connectors" [ref=e1181] [cursor=pointer]:
+                - /url: /integrations/mcp-servers
+                - img [ref=e1182]
+                - generic [ref=e1184]: Chat connectors
+              - link "GitLab" [ref=e1185] [cursor=pointer]:
+                - /url: /integrations/gitlab
+                - generic [ref=e1186]: GitLab
+                - img [ref=e1187]
+            - generic [ref=e1190]:
+              - textbox "Ask a question..." [ref=e1191]
+              - generic: ⌘I
+              - button "Send message" [disabled] [ref=e1192]:
+                - img [ref=e1193]
+            - generic [ref=e1196]:
+              - link "x" [ref=e1197] [cursor=pointer]:
+                - /url: https://x.com/Lovable
+                - generic [ref=e1198]: x
+                - img [ref=e1199]
+              - link "github" [ref=e1200] [cursor=pointer]:
+                - /url: https://github.com/lovablelabs
+                - generic [ref=e1201]: github
+                - img [ref=e1202]
+              - link "linkedin" [ref=e1203] [cursor=pointer]:
+                - /url: https://linkedin.com/company/lovable-dev
+                - generic [ref=e1204]: linkedin
+                - img [ref=e1205]
+              - link "youtube" [ref=e1206] [cursor=pointer]:
+                - /url: https://youtube.com/@lovable
+                - generic [ref=e1207]: youtube
+                - img [ref=e1208]
+              - link "discord" [ref=e1209] [cursor=pointer]:
+                - /url: https://discord.gg/lovable-dev
+                - generic [ref=e1210]: discord
+                - img [ref=e1211]
+              - link "reddit" [ref=e1212] [cursor=pointer]:
+                - /url: https://www.reddit.com/r/lovable
+                - generic [ref=e1213]: reddit
+                - img [ref=e1214]
+  - alert [ref=e1215]

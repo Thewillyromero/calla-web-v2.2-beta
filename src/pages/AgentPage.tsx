@@ -361,7 +361,7 @@ const AgentPage = () => {
             </h1>
           </div>
         </section>
-        <Footer />
+        <Footer onContact={() => setContactOpen(true)} />
         <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source={`agent-${agentSlug}`} />
       </div>
     );
@@ -695,7 +695,7 @@ const AgentPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source={`agent-${agentSlug}`} />
     </div>
   );

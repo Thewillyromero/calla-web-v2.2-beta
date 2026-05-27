@@ -278,7 +278,7 @@ const Results = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="resultados" />
     </div>
   );

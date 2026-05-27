@@ -31,7 +31,7 @@ const BlogPost = () => {
             <ArrowLeft className="mr-2 h-4 w-4" /> Volver al blog
           </Button>
         </div>
-        <Footer />
+        <Footer onContact={() => setContactOpen(true)} />
         <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="blog" />
       </div>
     );
@@ -116,7 +116,7 @@ const BlogPost = () => {
         </motion.div>
       </section>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="blog-post" />
     </div>
   );

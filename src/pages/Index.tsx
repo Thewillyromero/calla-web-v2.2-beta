@@ -158,7 +158,7 @@ const Index = () => {
   return (
     <LiveMetricsProvider>
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
+      <Navbar onContact={() => setContactOpen(true)} />
 
       {/* ─── 1. HERO — What we do ─── */}
       <SectionFade>
@@ -1274,7 +1274,7 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      <Footer />
+      <Footer onContact={() => setContactOpen(true)} />
       <FOMONotifications />
       <LiveViewers />
     </div>
