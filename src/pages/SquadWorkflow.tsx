@@ -215,32 +215,32 @@ const SquadWorkflow = () => {
               </div>
 
               {/* Visual de relay: HALO → 5 agentes en línea (elemento distintivo) */}
-              <div className="px-4 md:px-10 py-6"
+              <div className="px-2 md:px-6 py-4"
                 style={{ borderTop: `1px solid hsl(${haloHsl} / 0.12)`, borderBottom: `1px solid hsl(${haloHsl} / 0.12)`, background: `hsl(${haloHsl} / 0.02)` }}>
                 {(() => {
-                  const ly = 43;
-                  const hx = 44;
-                  const agentXs = [138, 218, 298, 378, 458];
+                  const ly = 90;
+                  const hx = 65;
+                  const agentXs = [165, 261, 357, 453, 549];
                   const cycle = squadAgents.length * 1.1 + 2.2;
                   return (
-                    <svg viewBox="0 0 500 86" className="w-full" style={{ maxHeight: 90 }} fill="none">
+                    <svg viewBox="0 0 600 180" className="w-full" style={{ maxHeight: 200 }} fill="none">
                       <defs>
                         <filter id="rglow" x="-60%" y="-60%" width="220%" height="220%">
-                          <feGaussianBlur stdDeviation="3" result="blur" />
+                          <feGaussianBlur stdDeviation="4.5" result="blur" />
                           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                         </filter>
                       </defs>
 
                       {/* Línea horizontal */}
-                      <line x1={hx} y1={ly} x2={458} y2={ly}
-                        stroke={`hsl(${haloHsl} / 0.18)`} strokeWidth="1" strokeDasharray="3 6" />
+                      <line x1={hx} y1={ly} x2={549} y2={ly}
+                        stroke={`hsl(${haloHsl} / 0.18)`} strokeWidth="1.5" strokeDasharray="4 7" />
 
                       {/* Pulsos HALO → cada agente */}
                       {squadAgents.map((a, i) => (
-                        <motion.circle key={`p${i}`} r={3} cy={ly}
+                        <motion.circle key={`p${i}`} r={5} cy={ly}
                           fill={`hsl(${a.hsl})`} filter="url(#rglow)"
                           animate={{ cx: [hx, agentXs[i]], opacity: [0, 1, 1, 0] }}
-                          transition={{ duration: 0.70, delay: i * 1.1, repeat: Infinity, repeatDelay: cycle - 0.70, ease: "easeOut" }}
+                          transition={{ duration: 0.75, delay: i * 1.1, repeat: Infinity, repeatDelay: cycle - 0.75, ease: "easeOut" }}
                         />
                       ))}
 
@@ -248,35 +248,48 @@ const SquadWorkflow = () => {
                       {squadAgents.map((a, i) => (
                         <g key={i}>
                           <motion.circle cx={agentXs[i]} cy={ly} fill="none"
-                            stroke={`hsl(${a.hsl})`} strokeWidth="1.5"
-                            animate={{ r: [13, 23, 13], opacity: [0, 0.65, 0] }}
-                            transition={{ duration: 0.55, delay: i * 1.1 + 0.65, repeat: Infinity, repeatDelay: cycle - 0.55, ease: "easeOut" }}
+                            stroke={`hsl(${a.hsl})`} strokeWidth="2"
+                            animate={{ r: [30, 48, 30], opacity: [0, 0.65, 0] }}
+                            transition={{ duration: 0.60, delay: i * 1.1 + 0.70, repeat: Infinity, repeatDelay: cycle - 0.60, ease: "easeOut" }}
                           />
-                          <circle cx={agentXs[i]} cy={ly} r={13}
-                            fill={`hsl(${a.hsl} / 0.08)`} stroke={`hsl(${a.hsl} / 0.45)`} strokeWidth="1.5" />
-                          <text x={agentXs[i]} y={ly + 4.5} textAnchor="middle"
-                            fill={`hsl(${a.hsl})`} fontSize="7.5" fontWeight="800"
+                          <motion.circle cx={agentXs[i]} cy={ly} fill="none"
+                            stroke={`hsl(${a.hsl} / 0.22)`} strokeWidth="1.5"
+                            animate={{ r: [31, 37, 31], opacity: [0.28, 0.50, 0.28] }}
+                            transition={{ duration: 3.0 + i * 0.2, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+                          />
+                          <circle cx={agentXs[i]} cy={ly} r={30}
+                            fill={`hsl(${a.hsl} / 0.09)`} stroke={`hsl(${a.hsl} / 0.50)`} strokeWidth="2" />
+                          <text x={agentXs[i]} y={ly + 5} textAnchor="middle"
+                            fill={`hsl(${a.hsl})`} fontSize="11" fontWeight="800"
                             fontFamily="sans-serif" letterSpacing="0.07em">
                             {a.name}
                           </text>
                         </g>
                       ))}
 
-                      {/* HALO node */}
+                      {/* HALO: pulso radar */}
                       <motion.circle cx={hx} cy={ly} fill="none"
-                        stroke={`hsl(${haloHsl} / 0.35)`} strokeWidth="1.5"
-                        animate={{ r: [22, 36], opacity: [0.50, 0] }}
+                        stroke={`hsl(${haloHsl} / 0.35)`} strokeWidth="2"
+                        animate={{ r: [45, 72], opacity: [0.50, 0] }}
                         transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut", repeatDelay: 0.5 }}
                       />
-                      <circle cx={hx} cy={ly} r={22}
-                        fill={`hsl(${haloHsl} / 0.10)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="1.5" />
-                      <text x={hx} y={ly - 3} textAnchor="middle"
-                        fill={`hsl(${haloHsl})`} fontSize="8.5" fontWeight="800"
+                      {/* HALO: anillo rotante */}
+                      <motion.g style={{ transformOrigin: `${hx}px ${ly}px` }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <circle cx={hx} cy={ly} r={55}
+                          stroke={`hsl(${haloHsl} / 0.14)`} strokeWidth="1" strokeDasharray="5 9" />
+                      </motion.g>
+                      {/* HALO: círculo principal */}
+                      <circle cx={hx} cy={ly} r={45}
+                        fill={`hsl(${haloHsl} / 0.10)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2" />
+                      <text x={hx} y={ly - 5} textAnchor="middle"
+                        fill={`hsl(${haloHsl})`} fontSize="14" fontWeight="800"
                         fontFamily="sans-serif" letterSpacing="0.09em">
                         HALO
                       </text>
-                      <text x={hx} y={ly + 11} textAnchor="middle"
-                        fill={`hsl(${haloHsl} / 0.45)`} fontSize="5.5" fontFamily="sans-serif">
+                      <text x={hx} y={ly + 13} textAnchor="middle"
+                        fill={`hsl(${haloHsl} / 0.45)`} fontSize="8" fontFamily="sans-serif">
                         orquestador
                       </text>
                     </svg>
