@@ -208,8 +208,8 @@ const SquadWorkflow = () => {
                       style={{ background: `hsl(${haloHsl} / 0.10)`, border: `1px solid hsl(${haloHsl} / 0.25)` }}>
                       <span className="font-display font-extrabold text-base" style={{ color: `hsl(${haloHsl})` }}>{s.step}</span>
                     </div>
-                    <h3 className="font-display font-bold text-base text-foreground">{s.title}</h3>
-                    <p className="text-sm text-foreground/65 font-light leading-relaxed">{s.description}</p>
+                    <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
+                    <p className="text-base text-foreground/65 font-light leading-relaxed">{s.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -306,8 +306,8 @@ const SquadWorkflow = () => {
                     {...fade} transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}>
                     <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                     <div>
-                      <h3 className="font-display font-semibold text-base text-foreground mb-2">{fc.title}</h3>
-                      <p className="text-sm text-foreground/60 font-light leading-relaxed">{fc.description}</p>
+                      <h3 className="font-display font-semibold text-lg text-foreground mb-2">{fc.title}</h3>
+                      <p className="text-base text-foreground/60 font-light leading-relaxed">{fc.description}</p>
                     </div>
                   </motion.div>
                 ))}
