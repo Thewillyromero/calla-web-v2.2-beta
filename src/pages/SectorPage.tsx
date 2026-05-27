@@ -63,7 +63,7 @@ const SectorPage = () => {
         {(() => {
           const cls = "absolute right-0 bottom-0 pointer-events-none select-none hidden lg:block";
           const anim = {
-            animate: { y: [0, -6, 0] } as const,
+            animate: { y: [0, -6, 0] },
             transition: { duration: 14, repeat: Infinity, ease: "easeInOut" as const },
           };
 

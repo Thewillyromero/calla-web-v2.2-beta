@@ -238,15 +238,45 @@ async function handleChat(body: any) {
     });
   }
 
+  // Sanitize: only allow user/assistant roles, cap content length to prevent
+  // prompt injection (e.g. injected "system" roles) and context stuffing.
+  const sanitizedMessages = messages
+    .filter((m: any) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
+    .map((m: any) => ({ role: m.role, content: m.content.slice(0, 2000) }));
+
+  if (sanitizedMessages.length === 0 || sanitizedMessages[sanitizedMessages.length - 1].role !== "user") {
+    return new Response(JSON.stringify({ error: "Invalid messages" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
   const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
   if (!LOVABLE_API_KEY) {
     throw new Error("LOVABLE_API_KEY is not configured");
   }
 
-  // Load conversation history from DB for memory
-  let contextMessages = messages;
+  // Load conversation history from DB for memory + enforce rate limiting
+  let contextMessages = sanitizedMessages;
   if (conversation_id) {
     const supabase = getSupabase();
+
+    // Rate limit: max 30 user messages per hour per conversation
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    const { count: recentCount } = await supabase
+      .from("chat_messages")
+      .select("id", { count: "exact", head: true })
+      .eq("conversation_id", conversation_id)
+      .eq("role", "user")
+      .gte("created_at", oneHourAgo);
+
+    if (recentCount !== null && recentCount >= 30) {
+      return new Response(
+        JSON.stringify({ error: "Demasiadas solicitudes. Inténtalo más tarde." }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
     const { data: dbMessages } = await supabase
       .from("chat_messages")
       .select("role, content")
@@ -255,9 +285,11 @@ async function handleChat(body: any) {
       .limit(50);
 
     if (dbMessages && dbMessages.length > 0) {
-      // Use DB history as context, append the latest user message
-      const lastUserMsg = messages[messages.length - 1];
-      contextMessages = [...dbMessages, lastUserMsg];
+      const validDb = dbMessages
+        .filter((m: any) => m.role === "user" || m.role === "assistant")
+        .map((m: any) => ({ role: m.role, content: String(m.content).slice(0, 2000) }));
+      const lastUserMsg = sanitizedMessages[sanitizedMessages.length - 1];
+      contextMessages = [...validDb, lastUserMsg];
     }
   }
 

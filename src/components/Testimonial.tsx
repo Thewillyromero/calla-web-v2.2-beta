@@ -7,6 +7,11 @@ import agentSupport from "@/assets/characters/agent-support.webp";
 import CharacterReveal from "@/components/CharacterReveal";
 
 import { testimonials } from "@/data/testimonials";
+import avatarSergio from "@/assets/avatars/sergio-lopez.webp";
+import avatarElena from "@/assets/avatars/elena-garcia.webp";
+import avatarTim from "@/assets/avatars/tim-bissonnette.webp";
+import avatarPatricia from "@/assets/avatars/patricia-ruiz.webp";
+import avatarLaurence from "@/assets/avatars/laurence-fendrich.webp";
 
 const caseStudies = [
   { company: "Clínica Dental", logo: null, result: "$5,000", description: "en ventas primera semana", metric: "25 leads a $30/lead", detail: "ROI positivo desde la primera semana" },
