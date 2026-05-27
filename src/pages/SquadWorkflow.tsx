@@ -183,86 +183,89 @@ const SquadWorkflow = () => {
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="rounded-3xl overflow-hidden border"
-              style={{ borderColor: `hsl(${haloHsl} / 0.25)`, background: `hsl(${haloHsl} / 0.04)` }}
+              style={{ borderColor: `hsl(${haloHsl} / 0.18)`, background: `hsl(${haloHsl} / 0.05)` }}
             >
-              {/* Cabecera: título + descripción + chips — centrado */}
-              <div className="px-8 md:px-20 pt-12 pb-6 text-center">
-                <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground mb-4 leading-tight tracking-tight">
+              {/* Título */}
+              <div className="text-center px-6 md:px-20 pt-12 pb-2">
+                <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight tracking-tight">
                   Todo coordinado.<br />En tiempo real.
                 </h2>
-                <p className="text-foreground/65 font-light leading-relaxed mb-6 max-w-xl mx-auto">
-                  Cinco agentes trabajando como uno solo. HALO decide en tiempo real qué agente actúa y cuándo, con toda la información disponible. El cliente no percibe ninguna transición.
+                <p className="text-foreground/60 font-light leading-relaxed max-w-md mx-auto">
+                  Cinco agentes trabajando como uno solo. HALO decide en cada momento qué agente actúa y con qué información. El cliente no percibe ninguna transición.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {["24/7", "Sin fricción", "Contexto compartido", "A medida"].map((chip) => (
-                    <span key={chip} className="px-3 py-1 rounded-full text-xs font-semibold"
-                      style={{ background: `hsl(${haloHsl} / 0.12)`, color: `hsl(${haloHsl})`, border: `1px solid hsl(${haloHsl} / 0.22)` }}>
-                      {chip}
-                    </span>
-                  ))}
-                </div>
               </div>
 
-              {/* Animación SVG — ancho completo */}
+              {/* Animación SVG — ancho completo, pentágono matemático */}
               {(() => {
-                const ox = 240, oy = 130;
-                const nodes = [
-                  { x: 240, y: 25,  ...squadAgents[0] },
-                  { x: 340, y: 97,  ...squadAgents[1] },
-                  { x: 302, y: 215, ...squadAgents[2] },
-                  { x: 178, y: 215, ...squadAgents[3] },
-                  { x: 140, y: 97,  ...squadAgents[4] },
-                ];
+                const ox = 230, oy = 155;
+                const toRad = (d: number) => d * Math.PI / 180;
+                const nodes = squadAgents.map((a, i) => ({
+                  ...a,
+                  x: Math.round(ox + 108 * Math.cos(toRad(-90 + i * 72))),
+                  y: Math.round(oy + 108 * Math.sin(toRad(-90 + i * 72))),
+                }));
                 const cycle = nodes.length * 0.9 + 3.0;
                 return (
-                  <svg viewBox="0 0 480 250" className="w-full" style={{ maxHeight: 260 }} fill="none">
+                  <svg viewBox="0 0 460 295" className="w-full" style={{ maxHeight: 310 }} fill="none">
                     <defs>
                       {nodes.map((n, i) => (
-                        <linearGradient key={i} id={`hlg${i}`}
+                        <linearGradient key={i} id={`lg${i}`}
                           x1={ox} y1={oy} x2={n.x} y2={n.y} gradientUnits="userSpaceOnUse">
-                          <stop offset="0%"   stopColor={`hsl(${haloHsl})`} stopOpacity={0.7} />
-                          <stop offset="100%" stopColor={`hsl(${n.hsl})`}   stopOpacity={0.2} />
+                          <stop offset="0%"   stopColor={`hsl(${haloHsl})`} stopOpacity={0.85} />
+                          <stop offset="100%" stopColor={`hsl(${n.hsl})`}   stopOpacity={0.12} />
                         </linearGradient>
                       ))}
-                      <filter id="hglow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="3" result="blur" />
+                      <radialGradient id="hfill" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%"   stopColor={`hsl(${haloHsl})`} stopOpacity={0.28} />
+                        <stop offset="100%" stopColor={`hsl(${haloHsl})`} stopOpacity={0.03} />
+                      </radialGradient>
+                      <filter id="pglow" x="-80%" y="-80%" width="260%" height="260%">
+                        <feGaussianBlur stdDeviation="3.5" result="blur" />
+                        <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                      </filter>
+                      <filter id="hglow" x="-80%" y="-80%" width="260%" height="260%">
+                        <feGaussianBlur stdDeviation="9" result="blur" />
                         <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                       </filter>
                     </defs>
 
+                    {/* Líneas de conexión */}
                     {nodes.map((n, i) => (
                       <line key={i} x1={ox} y1={oy} x2={n.x} y2={n.y}
-                        stroke={`url(#hlg${i})`} strokeWidth="1.5" strokeDasharray="4 8" />
+                        stroke={`url(#lg${i})`} strokeWidth="1" strokeDasharray="3 7" opacity={0.50} />
                     ))}
 
+                    {/* Pulsos salientes */}
                     {nodes.map((n, i) => (
-                      <motion.circle key={`out${i}`} r={3.5} fill={`hsl(${n.hsl})`} filter="url(#hglow)"
+                      <motion.circle key={`p${i}`} r={3.5} fill={`hsl(${n.hsl})`} filter="url(#pglow)"
                         animate={{ cx: [ox, n.x], cy: [oy, n.y], opacity: [0, 1, 1, 0] }}
-                        transition={{ duration: 0.9, delay: i * 0.9, repeat: Infinity, repeatDelay: cycle - 0.9, ease: "easeOut" }}
+                        transition={{ duration: 0.85, delay: i * 0.9, repeat: Infinity, repeatDelay: cycle - 0.85, ease: "easeOut" }}
                       />
                     ))}
 
+                    {/* Pulsos de retorno */}
                     {nodes.map((n, i) => (
-                      <motion.circle key={`ret${i}`} r={2} fill={`hsl(${haloHsl})`}
-                        animate={{ cx: [n.x, ox], cy: [n.y, oy], opacity: [0, 0.65, 0] }}
-                        transition={{ duration: 0.65, delay: i * 0.9 + 1.05, repeat: Infinity, repeatDelay: cycle - 0.65, ease: "easeIn" }}
+                      <motion.circle key={`rp${i}`} r={2} fill={`hsl(${haloHsl})`}
+                        animate={{ cx: [n.x, ox], cy: [n.y, oy], opacity: [0, 0.60, 0] }}
+                        transition={{ duration: 0.60, delay: i * 0.9 + 1.0, repeat: Infinity, repeatDelay: cycle - 0.60, ease: "easeIn" }}
                       />
                     ))}
 
+                    {/* Nodos de agentes */}
                     {nodes.map((n, i) => (
                       <g key={i}>
                         <motion.circle cx={n.x} cy={n.y} fill="none"
                           stroke={`hsl(${n.hsl})`} strokeWidth="1.5"
-                          animate={{ r: [16, 30, 16], opacity: [0, 0.85, 0] }}
-                          transition={{ duration: 0.65, delay: i * 0.9 + 0.9, repeat: Infinity, repeatDelay: cycle - 0.65, ease: "easeOut" }}
+                          animate={{ r: [17, 31, 17], opacity: [0, 0.68, 0] }}
+                          transition={{ duration: 0.60, delay: i * 0.9 + 0.85, repeat: Infinity, repeatDelay: cycle - 0.60, ease: "easeOut" }}
                         />
                         <motion.circle cx={n.x} cy={n.y} fill="none"
-                          stroke={`hsl(${n.hsl} / 0.28)`} strokeWidth="1"
-                          animate={{ r: [17, 21, 17], opacity: [0.35, 0.65, 0.35] }}
-                          transition={{ duration: 2.8 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.45 }}
+                          stroke={`hsl(${n.hsl} / 0.22)`} strokeWidth="1"
+                          animate={{ r: [18, 22, 18], opacity: [0.28, 0.50, 0.28] }}
+                          transition={{ duration: 3.2 + i * 0.25, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
                         />
                         <circle cx={n.x} cy={n.y} r={17}
-                          fill={`hsl(${n.hsl} / 0.10)`} stroke={`hsl(${n.hsl} / 0.45)`} strokeWidth="1.5" />
+                          fill={`hsl(${n.hsl} / 0.09)`} stroke={`hsl(${n.hsl} / 0.48)`} strokeWidth="1.5" />
                         <text x={n.x} y={n.y + 4.5} textAnchor="middle"
                           fill={`hsl(${n.hsl})`} fontSize="8.5" fontWeight="800"
                           fontFamily="sans-serif" letterSpacing="0.07em">
@@ -271,46 +274,61 @@ const SquadWorkflow = () => {
                       </g>
                     ))}
 
+                    {/* HALO: anillo rotante */}
                     <motion.g style={{ transformOrigin: `${ox}px ${oy}px` }}
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
-                      <circle cx={ox} cy={oy} r={52}
-                        stroke={`hsl(${haloHsl} / 0.20)`} strokeWidth="1" strokeDasharray="5 9" />
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
+                      <circle cx={ox} cy={oy} r={58}
+                        stroke={`hsl(${haloHsl} / 0.15)`} strokeWidth="1" strokeDasharray="6 11" />
                     </motion.g>
 
+                    {/* HALO: pulso radar */}
                     <motion.circle cx={ox} cy={oy} fill="none"
-                      stroke={`hsl(${haloHsl} / 0.45)`} strokeWidth="1.5"
-                      animate={{ r: [32, 62], opacity: [0.55, 0] }}
-                      transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut", repeatDelay: 0.4 }}
+                      stroke={`hsl(${haloHsl} / 0.36)`} strokeWidth="1.5"
+                      animate={{ r: [38, 72], opacity: [0.50, 0] }}
+                      transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut", repeatDelay: 0.6 }}
                     />
 
-                    <circle cx={ox} cy={oy} r={32}
-                      fill={`hsl(${haloHsl} / 0.13)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="2" />
-                    <text x={ox} y={oy - 3.5} textAnchor="middle"
-                      fill={`hsl(${haloHsl})`} fontSize="11" fontWeight="800"
-                      fontFamily="sans-serif" letterSpacing="0.08em">
+                    {/* HALO: capa glow */}
+                    <circle cx={ox} cy={oy} r={38} fill="url(#hfill)" filter="url(#hglow)" />
+                    {/* HALO: círculo principal */}
+                    <circle cx={ox} cy={oy} r={38}
+                      fill={`hsl(${haloHsl} / 0.07)`} stroke={`hsl(${haloHsl} / 0.55)`} strokeWidth="1.5" />
+                    <text x={ox} y={oy - 4} textAnchor="middle"
+                      fill={`hsl(${haloHsl})`} fontSize="12" fontWeight="800"
+                      fontFamily="sans-serif" letterSpacing="0.09em">
                       HALO
                     </text>
-                    <text x={ox} y={oy + 12} textAnchor="middle"
-                      fill={`hsl(${haloHsl} / 0.45)`} fontSize="7" fontFamily="sans-serif">
+                    <text x={ox} y={oy + 13} textAnchor="middle"
+                      fill={`hsl(${haloHsl} / 0.48)`} fontSize="7" fontFamily="sans-serif">
                       orquestador
                     </text>
                   </svg>
                 );
               })()}
 
-              {/* 4 capacidades — franja inferior */}
-              <div className="grid grid-cols-2 sm:grid-cols-4"
-                style={{ borderTop: `1px solid hsl(${haloHsl} / 0.15)` }}>
+              {/* Capacidades — franja inferior */}
+              <div className="grid grid-cols-2 md:grid-cols-4"
+                style={{ borderTop: `1px solid hsl(${haloHsl} / 0.12)` }}>
                 {capabilities.map((item, i) => (
                   <motion.div key={i}
-                    className={`p-5 md:p-6 ${i === 1 || i === 3 ? 'border-l' : ''} ${i >= 2 ? 'border-t sm:border-t-0' : ''} ${i === 2 ? 'sm:border-l' : ''} border-foreground/[0.08]`}
-                    {...fade} transition={{ duration: 0.4, delay: i * 0.08 }}
-                  >
-                    <div className="w-6 h-0.5 rounded-full mb-3"
-                      style={{ background: `hsl(${haloHsl} / 0.55)` }} />
-                    <h3 className="font-display font-semibold text-foreground text-sm mb-2">{item.title}</h3>
-                    <p className="text-xs text-foreground/55 font-light leading-relaxed">{item.description}</p>
+                    className={[
+                      "p-5 md:p-6",
+                      i === 1 || i === 3 ? "border-l border-foreground/[0.07]" : "",
+                      i >= 2 ? "border-t md:border-t-0 border-foreground/[0.07]" : "",
+                      i === 2 ? "md:border-l" : "",
+                    ].join(" ")}
+                    {...fade} transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}>
+                    <span className="block text-[10px] font-bold tracking-[0.14em] mb-2.5"
+                      style={{ color: `hsl(${haloHsl} / 0.48)` }}>
+                      0{i + 1}
+                    </span>
+                    <h3 className="font-display font-semibold text-foreground text-sm mb-1.5 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-foreground/50 font-light leading-relaxed">
+                      {item.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
