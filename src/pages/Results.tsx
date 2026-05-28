@@ -101,7 +101,7 @@ const Results = () => {
       {/* Call Recordings */}
       <div className="bg-white/[0.03]">
         <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando llamadas...</div>}>
-          <CallPlayer />
+          <CallPlayer onContact={() => setContactOpen(true)} />
         </Suspense>
       </div>
 
