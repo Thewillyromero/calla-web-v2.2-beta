@@ -84,7 +84,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="rounded-2xl border border-border/35 bg-card/60 p-5 sm:p-7 h-full flex flex-col">
-              <h3 className="font-display font-bold text-foreground flex items-center gap-2 mb-6">
+              <h3 className="font-display font-bold text-lg text-foreground flex items-center gap-2 mb-6">
                 <UserX className="w-4 h-4 text-brand-rose" />
                 Lo que gastas hoy
               </h3>
@@ -92,7 +92,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               <div className="space-y-5 flex-1">
                 {/* Sector dropdown */}
                 <div>
-                  <label className="text-xs text-foreground/70 font-medium block mb-1.5">Tu sector</label>
+                  <label className="text-sm text-foreground/80 font-semibold block mb-1.5">Tu sector</label>
                   <div className="relative">
                     <button
                       onClick={() => setDropOpen(!dropOpen)}
@@ -121,7 +121,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
 
                 {/* Staff cost */}
                 <div>
-                  <label className="text-xs text-foreground/70 font-medium block mb-1.5">
+                  <label className="text-sm text-foreground/80 font-semibold block mb-1.5">
                     ¿Cuánto pagas al mes a quien contesta las llamadas?
                     <span className="block text-xs text-muted-foreground/50 font-normal mt-0.5">(Salario Bruto + Seguridad Social)</span>
                   </label>
@@ -139,7 +139,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
 
                 {/* Hours chips */}
                 <div>
-                  <label className="text-xs text-foreground/70 font-medium block mb-2">
+                  <label className="text-sm text-foreground/80 font-semibold block mb-2">
                     ¿Cuántas horas al día dedicas TÚ al teléfono?
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -147,7 +147,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                       <button
                         key={h}
                         onClick={() => setOwnHours(h)}
-                        className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                        className={`px-4 py-2 rounded-full text-base font-semibold transition-all duration-200 ${
                           ownHours === h
                             ? "bg-brand-rose text-white shadow-md"
                             : "bg-secondary/40 text-muted-foreground hover:bg-secondary/60"
@@ -157,7 +157,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                       </button>
                     ))}
                   </div>
-                  <p className="text-xs text-muted-foreground/55 mt-1.5">
+                  <p className="text-sm text-muted-foreground/70 mt-2 font-medium">
                     Tu tiempo como CEO vale mínimo €50/h
                   </p>
                 </div>
