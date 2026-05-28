@@ -123,6 +123,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 <div>
                   <label className="text-xs text-foreground/70 font-medium block mb-1.5">
                     ¿Cuánto pagas al mes a quien contesta las llamadas?
+                    <span className="block text-xs text-muted-foreground/50 font-normal mt-0.5">(Salario Bruto + Seguridad Social)</span>
                   </label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground/60">€</span>
