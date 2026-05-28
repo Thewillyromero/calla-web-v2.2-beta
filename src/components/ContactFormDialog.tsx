@@ -83,7 +83,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 Empieza con <span className="text-gradient-blue">CALLA</span>
               </DialogTitle>
               <DialogDescription className="text-muted-foreground">
-                Contacta con nosotros y te llamamos en menos de 24 horas para ver cómo CALLA encaja en tu negocio.
+                Contacta con nosotros y analizamos tu caso de forma personalizada.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
