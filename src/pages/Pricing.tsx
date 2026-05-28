@@ -187,7 +187,8 @@ const Pricing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-6xl mx-auto items-stretch pt-10">
             {tiers.map((tier, i) => {
               const discount = "annualDiscount" in tier ? (tier.annualDiscount as number) : 20;
-              const displayPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * (1 - discount / 100)).toString() : tier.price;
+              const rawPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * (1 - discount / 100)) : parseInt(tier.price);
+              const displayPrice = rawPrice === "Custom" ? "Custom" : new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(rawPrice as number);
 
               return (
                 <motion.div
