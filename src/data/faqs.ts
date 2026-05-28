@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: "¿En qué sectores funciona CALLA?",
-    a: "CALLA funciona en cualquier sector donde haya comunicación telefónica con clientes. Está especialmente implantada en automoción, salud, legal, inmobiliaria, hostelería, logística y seguros, entre otros, pero los agentes se adaptan al vocabulario y los procesos específicos de cualquier industria.",
+    a: "CALLA funciona en cualquier sector. Automatizamos la comunicación, desplegamos asistentes IA y desarrollamos soluciones a medida para empresas de automoción, salud, legal, inmobiliaria, hostelería, logística, seguros y muchos más. Si tu empresa tiene procesos repetitivos de atención o gestión, CALLA puede encargarse de ellos.",
   },
   {
     q: "¿Qué pasa si un cliente necesita hablar con una persona real?",
