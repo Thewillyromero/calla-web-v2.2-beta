@@ -31,6 +31,7 @@ const PLANS = {
     name: "Starter",
     Icon: Zap,
     price: 299,
+    hsl: "190 60% 55%",
     color: "text-brand-teal",
     borderActive: "border-brand-teal/40",
     bgActive: "bg-brand-teal/10",
@@ -40,6 +41,7 @@ const PLANS = {
     name: "Pro",
     Icon: Crown,
     price: 699,
+    hsl: "260 50% 65%",
     color: "text-brand-lavender",
     borderActive: "border-brand-lavender/40",
     bgActive: "bg-brand-lavender/10",
@@ -270,22 +272,31 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               </div>
 
               {/* CALLA cost breakdown */}
-              <div className="bg-card/40 rounded-xl p-4 mb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-foreground">Setup · Puesta en marcha</span>
-                  <span className="text-sm font-display font-bold text-foreground">Presupuesto a medida</span>
-                </div>
-                <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-foreground font-medium">Cuota mensual</span>
-                  <span className={`text-sm font-display font-bold ${plan.color}`}>
-                    €{plan.price.toLocaleString("es-ES")}/mes
+              <div className="flex flex-col gap-2 mb-4">
+                {/* Setup */}
+                <div
+                  className="rounded-xl p-3"
+                  style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
+                    Setup - Puesta en marcha
                   </span>
+                  <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                 </div>
-                <div className="border-t border-border/15 mt-3 pt-3 flex items-baseline justify-between">
-                  <span className="text-base font-display font-extrabold text-foreground">Total CALLA</span>
-                  <span className="text-xl font-display font-extrabold text-brand-emerald">
-                    €{plan.price.toLocaleString("es-ES")}<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
+                {/* Separator */}
+                <div className="flex justify-center text-lg font-bold leading-none select-none" style={{ color: `hsl(${plan.hsl})` }}>+</div>
+                {/* Cuota mensual */}
+                <div
+                  className="rounded-xl p-3"
+                  style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
+                >
+                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
+                    Cuota mensual
                   </span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-2xl font-display font-extrabold text-foreground">€{plan.price.toLocaleString("es-ES")}</span>
+                    <span className="text-muted-foreground text-sm">/mes</span>
+                  </div>
                 </div>
               </div>
 
