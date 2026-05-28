@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   Calculator, ArrowRight, Sparkles, ChevronDown,
-  UserX, Check, Zap, Crown,
+  UserX, Check, Zap, Crown, Info,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -72,8 +72,8 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
   const { clients, value } = plan.breakeven;
   const breakevenText =
     clients === 1
-      ? `si solo 1 llamada extra al mes se convierte en un cliente de €${value.toLocaleString("es-ES")}… CALLA se paga sola.`
-      : `si solo ${clients} nuevos clientes al mes a €${value.toLocaleString("es-ES")} cada uno… CALLA se paga sola.`;
+      ? `si solo 1 llamada extra al mes se convierte en un cliente de €${value.toLocaleString("es-ES")}… La mensualidad de CALLA se paga sola.`
+      : `si solo ${clients} nuevos clientes al mes a €${value.toLocaleString("es-ES")} cada uno… La mensualidad de CALLA se paga sola.`;
 
   return (
     <section id="calculadora" className="px-5 md:px-6 relative overflow-hidden">
@@ -273,7 +273,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               <div className="bg-card/40 rounded-xl p-4 mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Setup · Puesta en marcha</span>
-                  <span className="text-sm font-display font-semibold text-foreground/70">Presupuesto a medida</span>
+                  <span className={`text-sm font-display font-bold ${plan.color}`}>Presupuesto a medida</span>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-sm text-muted-foreground/60">Cuota mensual</span>
@@ -315,11 +315,11 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               <div className="mt-auto">
                 <Button
                   size="lg"
-                  className="w-full rounded-xl text-sm sm:text-base h-13 font-display font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.01] transition-all duration-300"
+                  className="w-full rounded-xl text-sm sm:text-base h-13 font-display font-semibold bg-brand-emerald hover:bg-brand-emerald/90 text-white shadow-lg shadow-brand-emerald/20 hover:shadow-brand-emerald/30 hover:scale-[1.01] transition-all duration-300"
                   onClick={() => onContact?.()}
                 >
-                  <Sparkles className="mr-2 h-4 w-4" />
-                  Reservar consulta gratuita
+                  <Info className="mr-2 h-4 w-4" />
+                  Solicitar información
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <p className="text-xs text-muted-foreground/55 text-center mt-2">
