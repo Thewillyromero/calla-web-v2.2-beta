@@ -13,7 +13,7 @@ export const faqs = [
   },
   {
     q: "¿En qué sectores funciona CALLA?",
-    a: "CALLA está disponible para 12 sectores: automoción, educación, energía, hostelería, inmobiliaria, legal, logística, recursos humanos, salud, seguros, servicios y turismo. Cada agente se adapta al vocabulario y los procesos específicos de cada industria.",
+    a: "CALLA funciona en cualquier sector donde haya comunicación telefónica con clientes. Está especialmente implantada en automoción, salud, legal, inmobiliaria, hostelería, logística y seguros, entre otros, pero los agentes se adaptan al vocabulario y los procesos específicos de cualquier industria.",
   },
   {
     q: "¿Qué pasa si un cliente necesita hablar con una persona real?",
