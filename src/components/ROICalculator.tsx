@@ -295,19 +295,24 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
 
                 {/* Resultado */}
                 <div className="flex-1 bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5 text-brand-emerald/75">
+                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-1.5 text-brand-emerald/75">
                     Ahorras
                   </span>
                   {result.monthlySaving > 0 ? (
-                    <>
+                    <div className="flex items-end justify-between gap-2">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-xl font-display font-extrabold text-brand-emerald">
+                        <span className="text-3xl font-display font-extrabold text-brand-emerald leading-none">
                           €{result.monthlySaving.toLocaleString("es-ES")}
                         </span>
-                        <span className="text-xs text-muted-foreground/60">/mes</span>
+                        <span className="text-sm text-brand-emerald/60">/mes</span>
                       </div>
-                      <span className="text-xs text-muted-foreground/60">€{result.annualSaving.toLocaleString("es-ES")} al año</span>
-                    </>
+                      <div className="text-right shrink-0">
+                        <span className="text-xs text-muted-foreground/50 block leading-tight">al año</span>
+                        <span className="text-base font-display font-bold text-brand-emerald/70 leading-tight">
+                          €{result.annualSaving.toLocaleString("es-ES")}
+                        </span>
+                      </div>
+                    </div>
                   ) : (
                     <span className="text-sm text-foreground/50">Introduce tus datos</span>
                   )}
