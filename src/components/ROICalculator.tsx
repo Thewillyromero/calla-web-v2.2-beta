@@ -27,7 +27,7 @@ const sectors = [
 const hourOptions = [0, 1, 2, 3, 4];
 
 const fmt = (n: number) =>
-  new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(Math.round(n));
+  Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const PLANS = {
   starter: {

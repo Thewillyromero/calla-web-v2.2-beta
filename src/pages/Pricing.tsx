@@ -188,7 +188,7 @@ const Pricing = () => {
             {tiers.map((tier, i) => {
               const discount = "annualDiscount" in tier ? (tier.annualDiscount as number) : 20;
               const rawPrice = tier.price === "Custom" ? "Custom" : annual ? Math.round(parseInt(tier.price) * (1 - discount / 100)) : parseInt(tier.price);
-              const displayPrice = rawPrice === "Custom" ? "Custom" : new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(rawPrice as number);
+              const displayPrice = rawPrice === "Custom" ? "Custom" : Math.round(rawPrice as number).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
               return (
                 <motion.div
