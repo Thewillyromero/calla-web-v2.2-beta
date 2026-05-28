@@ -34,7 +34,7 @@ const Questions = () => {
               FAQ
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight text-foreground">
-              Preguntas frecuentes
+              Preguntas <span className="text-gradient">frecuentes</span>
             </h1>
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light">
               Resolvemos las dudas para impulsarte a dar el paso.
