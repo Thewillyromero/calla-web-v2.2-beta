@@ -26,6 +26,9 @@ const sectors = [
 
 const hourOptions = [0, 1, 2, 3, 4];
 
+const fmt = (n: number) =>
+  new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 }).format(Math.round(n));
+
 const PLANS = {
   starter: {
     name: "Starter",
@@ -74,8 +77,8 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
   const { clients, value } = plan.breakeven;
   const breakevenText =
     clients === 1
-      ? `si solo 1 llamada extra al mes se convierte en un cliente de ${value.toLocaleString("es-ES")} €… La mensualidad de CALLA se paga sola.`
-      : `si solo ${clients} nuevos clientes al mes a ${value.toLocaleString("es-ES")} € cada uno… La mensualidad de CALLA se paga sola.`;
+      ? `si solo 1 llamada extra al mes se convierte en un cliente de ${fmt(value)} €… La mensualidad de CALLA se paga sola.`
+      : `si solo ${clients} nuevos clientes al mes a ${fmt(value)} € cada uno… La mensualidad de CALLA se paga sola.`;
 
   return (
     <section id="calculadora" className="px-5 md:px-6 relative overflow-hidden">
@@ -200,18 +203,18 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     Tu gasto total hoy
                   </p>
                   <p className="text-4xl font-display font-extrabold text-brand-rose leading-none">
-                    {result.totalToday.toLocaleString("es-ES")} €
+                    {fmt(result.totalToday)} €
                     <span className="text-base font-normal text-brand-rose/50">/mes</span>
                   </p>
                   <div className="flex justify-between mt-4 pt-4 border-t border-brand-rose/15 text-sm">
                     <div className="text-left">
                       <span className="block text-xs text-muted-foreground/55 mb-0.5">Personal</span>
-                      <span className="font-display font-bold text-foreground/80">{staffCost.toLocaleString("es-ES")} €</span>
+                      <span className="font-display font-bold text-foreground/80">{fmt(staffCost)} €</span>
                     </div>
                     {ownHours > 0 && (
                       <div className="text-right">
                         <span className="block text-xs text-muted-foreground/55 mb-0.5">Tu tiempo ({ownHours}h/día)</span>
-                        <span className="font-display font-bold text-foreground/80">{result.ownTimeCost.toLocaleString("es-ES")} €</span>
+                        <span className="font-display font-bold text-foreground/80">{fmt(result.ownTimeCost)} €</span>
                       </div>
                     )}
                   </div>
@@ -284,7 +287,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     Cuota mensual
                   </span>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-xl font-display font-extrabold text-foreground">{plan.price.toLocaleString("es-ES")} €</span>
+                    <span className="text-xl font-display font-extrabold text-foreground">{fmt(plan.price)} €</span>
                     <span className="text-muted-foreground text-xs">/mes</span>
                   </div>
                 </div>
@@ -301,14 +304,14 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     <div className="flex items-end justify-between gap-2">
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-display font-extrabold text-brand-emerald leading-none">
-                          {result.monthlySaving.toLocaleString("es-ES")} €
+                          {fmt(result.monthlySaving)} €
                         </span>
                         <span className="text-sm text-brand-emerald/60">/mes</span>
                       </div>
                       <div className="text-right shrink-0">
                         <span className="text-xs text-muted-foreground/50 block leading-tight">al año</span>
                         <span className="text-base font-display font-bold text-brand-emerald/70 leading-tight">
-                          {result.annualSaving.toLocaleString("es-ES")} €
+                          {fmt(result.annualSaving)} €
                         </span>
                       </div>
                     </div>
