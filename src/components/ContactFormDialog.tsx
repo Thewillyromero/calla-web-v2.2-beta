@@ -22,8 +22,8 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim()) {
-      toast.error("Por favor, completa al menos tu nombre y email.");
+    if (!form.name.trim() || !form.email.trim() || !form.company.trim() || !form.message.trim()) {
+      toast.error("Por favor, completa todos los campos obligatorios.");
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,7 +83,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 Empieza con <span className="text-gradient-blue">CALLA</span>
               </DialogTitle>
               <DialogDescription className="text-muted-foreground">
-                Déjanos tus datos y te contactamos para configurar tu asistente virtual.
+                Contacta con nosotros y te llamamos en menos de 24 horas para ver cómo CALLA encaja en tu negocio.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
@@ -102,15 +102,15 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 </div>
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="company">Empresa</Label>
-                <Input id="company" placeholder="Tu empresa" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} maxLength={100} className="bg-secondary/50 border-border/40" />
+                <Label htmlFor="company">Empresa *</Label>
+                <Input id="company" placeholder="Tu empresa" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} maxLength={100} required className="bg-secondary/50 border-border/40" />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="message">Mensaje</Label>
-                <Textarea id="message" placeholder="Cuéntanos qué necesitas..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={3} className="bg-secondary/50 border-border/40 resize-none" />
+                <Label htmlFor="message">Mensaje *</Label>
+                <Textarea id="message" placeholder="Cuéntanos qué necesitas..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={3} required className="bg-secondary/50 border-border/40 resize-none" />
               </div>
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar demo <ArrowRight className="ml-2 h-5 w-5" /></>}
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar información <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
               <p className="text-xs text-muted-foreground/65 text-center">Sin compromiso · Respuesta en &lt;24h</p>
             </form>
