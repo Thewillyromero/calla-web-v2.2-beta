@@ -259,7 +259,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
 
               {/* Ecuación: Setup + Cuota = Ahorro */}
               {/* Móvil: columna (A) · Desktop: fila (B) */}
-              <div className="flex flex-col sm:flex-row sm:items-stretch gap-2 mb-4">
+              <div className="flex flex-col gap-2 mb-4">
 
                 {/* Setup card */}
                 <div
@@ -274,7 +274,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 </div>
 
                 {/* + */}
-                <div className="flex sm:flex-col items-center justify-center text-base font-bold leading-none select-none px-1" style={{ color: `hsl(${plan.hsl})` }}>+</div>
+                <div className="flex items-center justify-center text-base font-bold leading-none select-none" style={{ color: `hsl(${plan.hsl})` }}>+</div>
 
                 {/* Cuota card */}
                 <div
@@ -291,7 +291,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 </div>
 
                 {/* = */}
-                <div className="flex sm:flex-col items-center justify-center text-base font-bold leading-none select-none px-1 text-brand-emerald">=</div>
+                <div className="flex items-center justify-center text-base font-bold leading-none select-none text-brand-emerald">=</div>
 
                 {/* Resultado */}
                 <div className="flex-1 bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-3">
