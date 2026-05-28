@@ -80,7 +80,7 @@ const Questions = () => {
               ¿Tienes <span className="text-gradient">más preguntas?</span>
             </h2>
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
-              Habla con nuestro equipo y resuelve cualquier duda sobre cómo CALLA puede ayudar a tu negocio.
+              Contacta con nuestro equipo y resuelve cualquier duda sobre cómo CALLA puede ayudar a tu negocio.
             </p>
             <button
               onClick={() => setContactOpen(true)}
