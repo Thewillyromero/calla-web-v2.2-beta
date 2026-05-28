@@ -89,7 +89,7 @@ const tiers = [
       "Multi-idioma y multi-sede",
       "Facturación personalizada",
     ],
-    cta: "Hablar con el equipo",
+    cta: "Contacta con el equipo",
     popular: false,
     paymentLinks: null,
   },
