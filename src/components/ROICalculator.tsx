@@ -38,7 +38,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
   const result = useMemo(() => {
     const ownTimeCost = ownHours * 50 * 22;
     const totalToday = staffCost + ownTimeCost;
-    const callaTotal = 503; // 297 plan + 206 estimated usage
+    const callaTotal = 505; // 299 plan + 206 estimated usage
     const monthlySaving = totalToday - callaTotal;
     const annualSaving = monthlySaving * 12;
 
@@ -222,7 +222,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               <div className="bg-card/40 rounded-xl p-4 mb-4">
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-sm text-muted-foreground/60">Plan Starter</span>
-                  <span className="text-sm font-display font-bold text-foreground">€297/mes</span>
+                  <span className="text-sm font-display font-bold text-foreground">€299/mes</span>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-sm text-muted-foreground/60">Consumo estimado</span>
@@ -231,7 +231,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 <div className="border-t border-border/15 mt-3 pt-3 flex items-baseline justify-between">
                   <span className="text-sm font-medium text-foreground">Total CALLA</span>
                   <span className="text-xl font-display font-extrabold text-brand-emerald">
-                    €503<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
+                    €505<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
                   </span>
                 </div>
               </div>
