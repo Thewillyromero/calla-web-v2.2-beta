@@ -1,15 +1,13 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Quote, ArrowRight, TrendingUp, Building2, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Quote, ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { TrustpilotStars } from "@/components/TrustpilotStars";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
 import LogoMarquee from "@/components/LogoMarquee";
-import { BOOKING_URL } from "@/lib/constants";
-
 const CampaignResults = lazy(() => import("@/components/CampaignResults"));
 const CallPlayer = lazy(() => import("@/components/CallPlayer"));
 const Stats = lazy(() => import("@/components/Stats"));
@@ -17,24 +15,7 @@ const Stats = lazy(() => import("@/components/Stats"));
 import { testimonials } from "@/data/testimonials";
 
 
-const caseStudies = [
-  { company: "Cl\u00ednica Dental", result: "5.000\u20AC", description: "en ventas primera semana", metric: "25 leads a 30\u20AC/lead", detail: "ROI positivo desde la primera semana" },
-  { company: "Startup M\u00e9dica", result: "400K\u20AC", description: "en capital captado", metric: "Inversores a <15\u20AC/lead", detail: "Estrategia de pre-framing y retargeting" },
-  { company: "Empresa de Fontaner\u00eda", result: "7.200\u20AC", description: "en ventas en 14 d\u00edas", metric: "Leads a 6\u20AC \u00b7 Citas a 26\u20AC", detail: "Posicionamiento en cuidado preventivo" },
-  { company: "Empresa de Suelos", result: "18K\u20AC", description: "en ventas el primer mes", metric: "Presupuestos a 10,53\u20AC", detail: "Leads desde 0,93\u20AC" },
-  { company: "Agente Inmobiliario", result: "17-25\u20AC", description: "por lead cualificado", metric: "Evaluaciones agendadas", detail: "Vendedores interesados cualificados" },
-  { company: "Agencia de Marketing", result: "+25K\u20AC/mes", description: "en ingresos recurrentes", metric: "En solo 45 d\u00edas", detail: "Estrategia integral: voz + captaci\u00f3n" },
-  { company: "Programa Formativo", result: "48K\u20AC", description: "en ventas primera semana", metric: "Leads a <3\u20AC", detail: "Llamadas autom\u00e1ticas + campa\u00f1a digital" },
-  { company: "Empresa Solar", result: "<10\u20AC/lead", description: "cualificados con cita", metric: "Citas a <50\u20AC", detail: "Leads consistentes bajo coste" },
-  { company: "Ecommerce Cosm\u00e9tica", result: "Sold out", description: "primer mes de campa\u00f1a", metric: "Leads a 7,12\u20AC", detail: "Voz IA + marketing integrado" },
-];
 
-const stats = [
-  { value: "2M+", label: "Llamadas gestionadas" },
-  { value: "5M+", label: "Usuarios finales" },
-  { value: "4.9/5", label: "Valoración media" },
-  { value: "3 años", label: "En el mercado" },
-];
 
 const avatarGradients = [
   "from-brand-teal/40 to-brand-emerald/30",
@@ -107,25 +88,6 @@ const Results = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* Stats — simplified 4 numbers */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto">
-          <SectionFade>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-              {stats.map((s, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-foreground">
-                    {s.value}
-                  </div>
-                  <p className="text-sm text-foreground/60 mt-2 font-light">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </SectionFade>
-        </div>
-      </section>
-
-      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Testimonials */}
       <section className="py-12 md:py-20 px-5 md:px-6">
@@ -221,39 +183,6 @@ const Results = () => {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
-
-      {/* Case Studies */}
-      <section className="py-12 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto">
-          <SectionFade>
-            <div className="bg-card/40 rounded-2xl border border-border/30 p-5 md:p-10">
-              <div className="flex items-center gap-2 mb-8">
-                <TrendingUp className="h-5 w-5 text-primary" />
-                <h3 className="font-display font-bold text-lg text-foreground">Resultados probados en +20 industrias</h3>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {caseStudies.map((cs, i) => (
-                  <motion.div key={cs.company + cs.result} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="bg-secondary/30 rounded-xl border border-border/20 p-4 hover:border-primary/20 hover:-translate-y-0.5 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Building2 className="h-4 w-4 text-foreground/30" />
-                      <span className="text-xs text-foreground/60 font-medium">{cs.company}</span>
-                    </div>
-                    <div className="text-2xl font-display font-bold text-foreground mb-1">{cs.result}</div>
-                    <div className="text-sm text-foreground/70 font-medium mb-1">{cs.description}</div>
-                    <div className="text-xs text-foreground/65 mb-1">{cs.metric}</div>
-                    <div className="text-xs text-foreground/70 italic">{cs.detail}</div>
-                  </motion.div>
-                ))}
-              </div>
-              <div className="mt-8 pt-6 border-t border-border/20 flex flex-wrap items-center gap-6 text-sm text-foreground/60">
-                <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-brand-emerald animate-pulse" />Datos verificados</span>
-                <span className="flex items-center gap-1.5"><ArrowRight className="h-3 w-3 text-primary" />Campañas gestionadas por Guillermo y equipo</span>
-              </div>
-            </div>
-          </SectionFade>
-        </div>
-      </section>
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
@@ -271,7 +200,7 @@ const Results = () => {
               onClick={() => setContactOpen(true)}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
             >
-              Solicitar demo
+              Solicitar información
               <ArrowRight className="w-4 h-4" />
             </button>
           </SectionFade>
