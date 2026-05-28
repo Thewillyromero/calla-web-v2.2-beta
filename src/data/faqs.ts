@@ -5,7 +5,7 @@ export const faqs = [
   },
   {
     q: "¿Cuánto cuesta CALLA?",
-    a: "Tenemos tres planes: Starter desde 299 €/mes (1 agente inbound, hasta 200 llamadas), Pro desde 699 €/mes (inbound y outbound, hasta 750 llamadas, CRM y analítica incluidos) y Enterprise con precio a medida para grandes volúmenes. Todos los planes son mensuales sin permanencia.",
+    a: "Tenemos tres planes: Starter desde 299€/mes (1 agente inbound, hasta 200 llamadas), Pro desde 699€/mes (inbound y outbound, hasta 750 llamadas, CRM y analítica incluidos) y Enterprise con precio a medida para grandes volúmenes. Todos los planes son mensuales sin permanencia.",
   },
   {
     q: "¿Puedo usar CALLA para llamadas entrantes y salientes?",

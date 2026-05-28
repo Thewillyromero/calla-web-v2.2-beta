@@ -251,7 +251,7 @@ const Pricing = () => {
                               <span className="text-2xl sm:text-3xl font-display font-extrabold text-gradient">A medida</span>
                             ) : (
                               <div className="flex items-baseline gap-1.5">
-                                <span className="text-2xl sm:text-3xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                                <span className="text-2xl sm:text-3xl font-display font-extrabold text-foreground">{displayPrice}€</span>
                                 <span className="text-muted-foreground text-sm">{tier.period}</span>
                                 {annual && discount > 0 && (
                                   <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full">-{discount}%</span>
@@ -274,7 +274,7 @@ const Pricing = () => {
                         </span>
                       ) : (
                         <div className="flex items-baseline gap-1.5">
-                          <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">€{displayPrice}</span>
+                          <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-foreground">{displayPrice}€</span>
                           <span className="text-muted-foreground text-sm">{tier.period}</span>
                           {annual && discount > 0 && (
                             <span className="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-1.5 py-0.5 rounded-full ml-1">-{discount}%</span>
