@@ -257,50 +257,67 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 </div>
               </div>
 
-              {/* CALLA cost breakdown */}
-              <div className="flex flex-col gap-2 mb-4">
-                {/* Setup */}
+              {/* Ecuación: Setup + Cuota = Ahorro */}
+              {/* Móvil: columna (A) · Desktop: fila (B) */}
+              <div className="flex flex-col sm:flex-row sm:items-stretch gap-2 mb-4">
+
+                {/* Setup card */}
                 <div
-                  className="rounded-xl p-3"
+                  className="flex-1 rounded-xl p-3"
                   style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
                 >
                   <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
-                    Setup - Puesta en marcha
+                    Setup
                   </span>
-                  <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
+                  <span className="text-sm font-semibold text-foreground leading-tight block">Puesta en marcha</span>
+                  <span className="text-xs text-foreground/55">Presupuesto a medida</span>
                 </div>
-                {/* Separator */}
-                <div className="flex justify-center text-lg font-bold leading-none select-none" style={{ color: `hsl(${plan.hsl})` }}>+</div>
-                {/* Cuota mensual */}
+
+                {/* + */}
+                <div className="flex sm:flex-col items-center justify-center text-base font-bold leading-none select-none px-1" style={{ color: `hsl(${plan.hsl})` }}>+</div>
+
+                {/* Cuota card */}
                 <div
-                  className="rounded-xl p-3"
+                  className="flex-1 rounded-xl p-3"
                   style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
                 >
                   <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
                     Cuota mensual
                   </span>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl font-display font-extrabold text-foreground">€{plan.price.toLocaleString("es-ES")}</span>
-                    <span className="text-muted-foreground text-sm">/mes</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-xl font-display font-extrabold text-foreground">€{plan.price.toLocaleString("es-ES")}</span>
+                    <span className="text-muted-foreground text-xs">/mes</span>
                   </div>
+                </div>
+
+                {/* = */}
+                <div className="flex sm:flex-col items-center justify-center text-base font-bold leading-none select-none px-1 text-brand-emerald">=</div>
+
+                {/* Resultado */}
+                <div className="flex-1 bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-3">
+                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5 text-brand-emerald/75">
+                    Ahorras
+                  </span>
+                  {result.monthlySaving > 0 ? (
+                    <>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-xl font-display font-extrabold text-brand-emerald">
+                          €{result.monthlySaving.toLocaleString("es-ES")}
+                        </span>
+                        <span className="text-xs text-muted-foreground/60">/mes</span>
+                      </div>
+                      <span className="text-xs text-muted-foreground/60">€{result.annualSaving.toLocaleString("es-ES")} al año</span>
+                    </>
+                  ) : (
+                    <span className="text-sm text-foreground/50">Introduce tus datos</span>
+                  )}
                 </div>
               </div>
 
-              {/* Savings + breakeven fusionados */}
+              {/* Breakeven */}
               {result.monthlySaving > 0 && (
-                <div className="bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-4 mb-4">
-                  <p className="text-[10px] text-brand-emerald/75 uppercase tracking-wider font-semibold mb-1">
-                    Ahorras cada mes
-                  </p>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl font-display font-extrabold text-brand-emerald">
-                      €{result.monthlySaving.toLocaleString("es-ES")}
-                    </span>
-                    <span className="text-sm text-muted-foreground/60">
-                      · €{result.annualSaving.toLocaleString("es-ES")} al año
-                    </span>
-                  </div>
-                  <p className="text-xs text-foreground/55 leading-relaxed border-t border-brand-emerald/15 pt-2 mt-2">
+                <div className="rounded-xl border border-border/15 bg-card/25 p-3 mb-4">
+                  <p className="text-xs text-foreground/55 leading-relaxed">
                     Y piensa en esto: {breakevenText}
                   </p>
                 </div>
