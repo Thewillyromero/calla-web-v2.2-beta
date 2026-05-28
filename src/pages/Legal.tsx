@@ -327,26 +327,12 @@ const Cookies = () => (
       determinado, mejorando su experiencia de navegación.
     </P>
 
-    <SectionTitle>2. Base legal y consentimiento</SectionTitle>
+    <SectionTitle>2. Cookies que utilizamos</SectionTitle>
     <P>
-      El uso de cookies no esenciales requiere su consentimiento previo, libre, específico,
-      informado e inequívoco, conforme al artículo 22.2 de la LSSICE y el artículo 6.1.a del RGPD.
-      Puede aceptar o rechazar las cookies no esenciales mediante el panel de preferencias que
-      se muestra al acceder al sitio por primera vez. El consentimiento otorgado tendrá una
-      validez máxima de <strong className="text-foreground/80">24 meses</strong>, transcurridos los cuales se le solicitará de nuevo.
-    </P>
-    <P>
-      Puede revocar su consentimiento en cualquier momento accediendo al enlace
-      «Gestionar preferencias de cookies» disponible en el pie de página, o configurando
-      su navegador conforme a lo indicado en el apartado 4.
-    </P>
-
-    <SectionTitle>3. Cookies que utilizamos</SectionTitle>
-
-    <SubTitle>Cookies técnicas (necesarias)</SubTitle>
-    <P>
-      Son imprescindibles para el funcionamiento del sitio web. Permiten la navegación y el
-      uso de las funcionalidades básicas. No requieren consentimiento conforme al art. 22.2 LSSICE.
+      Este sitio web utiliza únicamente cookies técnicas propias, necesarias para el correcto
+      funcionamiento de sus funcionalidades. No se utilizan cookies analíticas, publicitarias
+      ni de terceros. Por este motivo, conforme al artículo 22.2 de la LSSICE, no es necesario
+      el consentimiento previo del usuario.
     </P>
     <div className="overflow-x-auto mb-4">
       <table className="w-full text-sm text-muted-foreground border border-border/20 rounded-lg overflow-hidden">
@@ -359,64 +345,29 @@ const Cookies = () => (
         </thead>
         <tbody>
           <tr className="border-t border-border/10">
-            <td className="p-3 font-mono text-xs">session_id</td>
-            <td className="p-3 text-xs">Mantener la sesión del usuario</td>
-            <td className="p-3 text-xs">Sesión</td>
+            <td className="p-3 font-mono text-xs">calla_demo_calls</td>
+            <td className="p-3 text-xs">Limitar el número de demos de llamada por día para garantizar la calidad del servicio</td>
+            <td className="p-3 text-xs">24 horas</td>
           </tr>
           <tr className="border-t border-border/10">
-            <td className="p-3 font-mono text-xs">cookie_consent</td>
-            <td className="p-3 text-xs">Recordar las preferencias de cookies del usuario</td>
-            <td className="p-3 text-xs">24 meses</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <SubTitle>Cookies analíticas (opcionales — requieren consentimiento)</SubTitle>
-    <P>
-      Nos permiten analizar el uso del sitio web de forma agregada y anónima para mejorar
-      su funcionamiento. Solo se activan si usted otorga su consentimiento.
-    </P>
-    <div className="overflow-x-auto mb-4">
-      <table className="w-full text-sm text-muted-foreground border border-border/20 rounded-lg overflow-hidden">
-        <thead>
-          <tr className="bg-secondary/30">
-            <th className="text-left p-3 font-display font-semibold text-foreground/80 text-xs">Cookie</th>
-            <th className="text-left p-3 font-display font-semibold text-foreground/80 text-xs">Proveedor</th>
-            <th className="text-left p-3 font-display font-semibold text-foreground/80 text-xs">Finalidad</th>
-            <th className="text-left p-3 font-display font-semibold text-foreground/80 text-xs">Duración</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-t border-border/10">
-            <td className="p-3 font-mono text-xs">_ga</td>
-            <td className="p-3 text-xs">Google Analytics (Google LLC, EE.UU.)</td>
-            <td className="p-3 text-xs">Distinguir usuarios únicos</td>
-            <td className="p-3 text-xs">2 años</td>
-          </tr>
-          <tr className="border-t border-border/10">
-            <td className="p-3 font-mono text-xs">_ga_*</td>
-            <td className="p-3 text-xs">Google Analytics (Google LLC, EE.UU.)</td>
-            <td className="p-3 text-xs">Mantener estado de sesión de análisis</td>
-            <td className="p-3 text-xs">2 años</td>
+            <td className="p-3 font-mono text-xs">sidebar:state</td>
+            <td className="p-3 text-xs">Recordar el estado del menú de navegación lateral</td>
+            <td className="p-3 text-xs">7 días</td>
           </tr>
         </tbody>
       </table>
     </div>
     <P>
-      Google LLC tiene su sede en Estados Unidos. La transferencia internacional de datos se
-      ampara en las Cláusulas Contractuales Tipo (CCT) aprobadas por la Comisión Europea.
-      Puede consultar la política de privacidad de Google en{" "}
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-        policies.google.com/privacy
-      </a>.
+      Adicionalmente, el sitio utiliza <strong className="text-foreground/80">localStorage</strong> del navegador
+      para almacenar la sesión del chat y la autenticación de usuario. Esta tecnología no instala
+      cookies y no está sujeta a la normativa de cookies, si bien los datos permanecen en su
+      dispositivo hasta que borre los datos de navegación.
     </P>
 
-    <SectionTitle>4. Cómo gestionar y revocar las cookies</SectionTitle>
+    <SectionTitle>3. Cómo gestionar las cookies</SectionTitle>
     <P>
-      Además del panel de preferencias del sitio, puede configurar su navegador para bloquear
-      o eliminar las cookies en cualquier momento. La retirada del consentimiento no afectará
-      a la licitud del tratamiento previo. Instrucciones por navegador:
+      Puede configurar su navegador para bloquear o eliminar las cookies en cualquier momento.
+      Instrucciones por navegador:
     </P>
     <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li>
@@ -445,11 +396,11 @@ const Cookies = () => (
       del sitio web.
     </P>
 
-    <SectionTitle>5. Actualización de la política</SectionTitle>
+    <SectionTitle>5. Incorporación de nuevas cookies en el futuro</SectionTitle>
     <P>
-      Esta política puede actualizarse para adaptarse a cambios normativos o en los servicios
-      prestados. Le recomendamos revisarla periódicamente. Los cambios relevantes se comunicarán
-      mediante aviso visible en el sitio web.
+      Si en el futuro se incorporan cookies analíticas, publicitarias o de terceros, esta política
+      se actualizará y se implementará un banner de consentimiento conforme a la Guía de la AEPD.
+      Le recomendamos revisar esta política periódicamente.
     </P>
   </div>
 );
