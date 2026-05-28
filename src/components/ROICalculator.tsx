@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   Calculator, ArrowRight, Sparkles, ChevronDown,
-  UserX, Check,
+  UserX, Check, Zap, Crown,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -26,30 +26,59 @@ const sectors = [
 
 const hourOptions = [0, 1, 2, 3, 4];
 
+const PLANS = {
+  starter: {
+    name: "Starter",
+    Icon: Zap,
+    price: 299,
+    color: "text-brand-teal",
+    borderActive: "border-brand-teal/40",
+    bgActive: "bg-brand-teal/10",
+    breakeven: { clients: 1, value: 300 },
+  },
+  pro: {
+    name: "Pro",
+    Icon: Crown,
+    price: 699,
+    color: "text-brand-lavender",
+    borderActive: "border-brand-lavender/40",
+    bgActive: "bg-brand-lavender/10",
+    breakeven: { clients: 3, value: 340 },
+  },
+} as const;
+
+type PlanKey = keyof typeof PLANS;
+
 const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
   const [sectorId, setSectorId] = useState("dental");
   const [dropOpen, setDropOpen] = useState(false);
   const [staffCost, setStaffCost] = useState(1500);
   const [ownHours, setOwnHours] = useState(2);
+  const [selectedPlan, setSelectedPlan] = useState<PlanKey>("starter");
 
   const currentSector = sectors.find((s) => s.id === sectorId);
-  const clientValue = currentSector?.hint || 300;
+  const plan = PLANS[selectedPlan];
 
   const result = useMemo(() => {
     const ownTimeCost = ownHours * 50 * 22;
     const totalToday = staffCost + ownTimeCost;
-    const callaTotal = 505; // 299 plan + 206 estimated usage
+    const callaTotal = plan.price;
     const monthlySaving = totalToday - callaTotal;
     const annualSaving = monthlySaving * 12;
 
     return { ownTimeCost, totalToday, callaTotal, monthlySaving, annualSaving };
-  }, [staffCost, ownHours]);
+  }, [staffCost, ownHours, plan.price]);
+
+  const { clients, value } = plan.breakeven;
+  const breakevenText =
+    clients === 1
+      ? `si solo 1 llamada extra al mes se convierte en un cliente de €${value.toLocaleString("es-ES")}… CALLA se paga sola.`
+      : `si solo ${clients} nuevos clientes al mes a €${value.toLocaleString("es-ES")} cada uno… CALLA se paga sola.`;
 
   return (
     <section id="calculadora" className="px-5 md:px-6 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border/10 to-transparent" />
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-brand-emerald/[0.03] blur-[180px] pointer-events-none" />
-
 
       <div className="container mx-auto max-w-4xl relative z-10">
         {/* Header */}
@@ -219,20 +248,43 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 ))}
               </div>
 
+              {/* Plan selector */}
+              <div className="flex gap-2 mb-3">
+                {(Object.entries(PLANS) as [PlanKey, typeof PLANS[PlanKey]][]).map(([key, p]) => {
+                  const isActive = selectedPlan === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedPlan(key)}
+                      className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-sm font-semibold transition-all duration-200 ${
+                        isActive
+                          ? `${p.borderActive} ${p.bgActive} ${p.color}`
+                          : "border-border/20 bg-secondary/20 text-muted-foreground hover:border-border/35 hover:bg-secondary/30"
+                      }`}
+                    >
+                      <p.Icon className="w-3.5 h-3.5" />
+                      {p.name}
+                    </button>
+                  );
+                })}
+              </div>
+
               {/* CALLA cost breakdown */}
               <div className="bg-card/40 rounded-xl p-4 mb-4">
-                <div className="flex items-baseline justify-between mb-1">
-                  <span className="text-sm text-muted-foreground/60">Plan Starter</span>
-                  <span className="text-sm font-display font-bold text-foreground">€299/mes</span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Setup · Puesta en marcha</span>
+                  <span className="text-sm font-display font-semibold text-foreground/70">Presupuesto a medida</span>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground/60">Consumo estimado</span>
-                  <span className="text-sm font-display font-bold text-foreground">~€206/mes</span>
+                  <span className="text-sm text-muted-foreground/60">Cuota mensual</span>
+                  <span className={`text-sm font-display font-bold ${plan.color}`}>
+                    €{plan.price.toLocaleString("es-ES")}/mes
+                  </span>
                 </div>
                 <div className="border-t border-border/15 mt-3 pt-3 flex items-baseline justify-between">
                   <span className="text-sm font-medium text-foreground">Total CALLA</span>
                   <span className="text-xl font-display font-extrabold text-brand-emerald">
-                    €505<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
+                    €{plan.price.toLocaleString("es-ES")}<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
                   </span>
                 </div>
               </div>
@@ -255,11 +307,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Cherry on top */}
               <div className="rounded-xl border border-border/15 bg-card/25 p-4 mb-5">
                 <p className="text-sm text-foreground/70 leading-relaxed">
-                  Y piensa en esto: si solo 1 llamada extra al mes se convierte en un cliente de{" "}
-                  <span className="font-display font-bold text-foreground">
-                    €{clientValue.toLocaleString("es-ES")}
-                  </span>
-                  … CALLA se paga sola.
+                  Y piensa en esto: {breakevenText}
                 </p>
               </div>
 
