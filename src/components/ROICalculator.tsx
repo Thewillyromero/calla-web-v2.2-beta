@@ -324,7 +324,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Breakeven */}
               {result.monthlySaving > 0 && (
                 <div className="rounded-xl border border-border/15 bg-card/25 p-3 mb-4">
-                  <p className="text-xs text-foreground/55 leading-relaxed">
+                  <p className="text-sm text-foreground/55 leading-relaxed">
                     Y piensa en esto: {breakevenText}
                   </p>
                 </div>
