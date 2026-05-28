@@ -120,7 +120,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 Lo que gastas hoy
               </h3>
 
-              <div className="space-y-5 flex-1">
+              <div className="space-y-5">
                 {/* Sector dropdown */}
                 <div>
                   <label className="text-sm text-foreground/80 font-semibold block mb-1.5">Tu sector</label>
@@ -195,7 +195,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               </div>
 
               {/* Total today */}
-              <div className="mt-6">
+              <div className="mt-5">
                 <div className="bg-brand-rose/10 border border-brand-rose/20 rounded-xl p-5 text-center">
                   <p className="text-[10px] text-brand-rose/70 uppercase tracking-wider font-semibold mb-2">
                     Tu gasto total hoy
@@ -229,46 +229,32 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="rounded-2xl border border-brand-emerald/20 bg-brand-emerald/[0.02] p-5 sm:p-7 h-full flex flex-col">
-              <h3 className="font-display font-bold text-foreground flex items-center gap-2 mb-6">
-                <Sparkles className="w-4 h-4 text-brand-emerald" />
-                Con CALLA
-              </h3>
 
-              {/* Benefits */}
-              <div className="space-y-3 mb-6">
-                {[
-                  "Toda tu comunicación telefónica atendida 24/7",
-                  "Tu agenda siempre llena, sin errores ni huecos",
-                  "Seguimiento automático de cada lead y oportunidad",
-                  "Panel de control unificado con todo tu negocio",
-                  "Fidelización y recuperación de clientes automática",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2.5">
-                    <Check className="w-4 h-4 text-brand-emerald shrink-0" />
-                    <span className="text-sm text-foreground/70">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Plan selector */}
-              <div className="flex gap-2 mb-3">
-                {(Object.entries(PLANS) as [PlanKey, typeof PLANS[PlanKey]][]).map(([key, p]) => {
-                  const isActive = selectedPlan === key;
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => setSelectedPlan(key)}
-                      className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border text-sm font-semibold transition-all duration-200 ${
-                        isActive
-                          ? `${p.borderActive} ${p.bgActive} ${p.color}`
-                          : "border-border/20 bg-secondary/20 text-muted-foreground hover:border-border/35 hover:bg-secondary/30"
-                      }`}
-                    >
-                      <p.Icon className="w-3.5 h-3.5" />
-                      {p.name}
-                    </button>
-                  );
-                })}
+              {/* Header + plan toggle */}
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="font-display font-bold text-foreground flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-brand-emerald" />
+                  Con CALLA
+                </h3>
+                <div className="flex gap-1.5">
+                  {(Object.entries(PLANS) as [PlanKey, typeof PLANS[PlanKey]][]).map(([key, p]) => {
+                    const isActive = selectedPlan === key;
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setSelectedPlan(key)}
+                        className={`flex items-center gap-1 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all duration-200 ${
+                          isActive
+                            ? `${p.borderActive} ${p.bgActive} ${p.color}`
+                            : "border-border/20 bg-secondary/20 text-muted-foreground hover:border-border/35 hover:bg-secondary/30"
+                        }`}
+                      >
+                        <p.Icon className="w-3 h-3" />
+                        {p.name}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* CALLA cost breakdown */}
@@ -300,27 +286,25 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 </div>
               </div>
 
-              {/* Savings box */}
+              {/* Savings + breakeven fusionados */}
               {result.monthlySaving > 0 && (
-                <div className="bg-brand-emerald/10 rounded-xl p-5 text-center mb-4">
+                <div className="bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-4 mb-4">
                   <p className="text-[10px] text-brand-emerald/75 uppercase tracking-wider font-semibold mb-1">
                     Ahorras cada mes
                   </p>
-                  <p className="text-3xl font-display font-extrabold text-brand-emerald">
-                    €{result.monthlySaving.toLocaleString("es-ES")}
-                  </p>
-                  <p className="text-xs text-muted-foreground/60 mt-1">
-                    €{result.annualSaving.toLocaleString("es-ES")} al año
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-3xl font-display font-extrabold text-brand-emerald">
+                      €{result.monthlySaving.toLocaleString("es-ES")}
+                    </span>
+                    <span className="text-sm text-muted-foreground/60">
+                      · €{result.annualSaving.toLocaleString("es-ES")} al año
+                    </span>
+                  </div>
+                  <p className="text-xs text-foreground/55 leading-relaxed border-t border-brand-emerald/15 pt-2 mt-2">
+                    Y piensa en esto: {breakevenText}
                   </p>
                 </div>
               )}
-
-              {/* Cherry on top */}
-              <div className="rounded-xl border border-border/15 bg-card/25 p-4 mb-5">
-                <p className="text-sm text-foreground/70 leading-relaxed">
-                  Y piensa en esto: {breakevenText}
-                </p>
-              </div>
 
               {/* CTA */}
               <div className="mt-auto">
