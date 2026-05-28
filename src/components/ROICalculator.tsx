@@ -272,17 +272,17 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* CALLA cost breakdown */}
               <div className="bg-card/40 rounded-xl p-4 mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Setup · Puesta en marcha</span>
-                  <span className={`text-sm font-display font-bold ${plan.color}`}>Presupuesto a medida</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-foreground">Setup · Puesta en marcha</span>
+                  <span className="text-sm font-display font-bold text-foreground">Presupuesto a medida</span>
                 </div>
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground/60">Cuota mensual</span>
+                  <span className="text-sm text-foreground font-medium">Cuota mensual</span>
                   <span className={`text-sm font-display font-bold ${plan.color}`}>
                     €{plan.price.toLocaleString("es-ES")}/mes
                   </span>
                 </div>
                 <div className="border-t border-border/15 mt-3 pt-3 flex items-baseline justify-between">
-                  <span className="text-sm font-medium text-foreground">Total CALLA</span>
+                  <span className="text-base font-display font-extrabold text-foreground">Total CALLA</span>
                   <span className="text-xl font-display font-extrabold text-brand-emerald">
                     €{plan.price.toLocaleString("es-ES")}<span className="text-sm font-normal text-brand-emerald/50">/mes</span>
                   </span>
