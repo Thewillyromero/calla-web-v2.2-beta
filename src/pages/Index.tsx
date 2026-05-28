@@ -890,7 +890,7 @@ const Index = () => {
                       </Link>
                     </div>
                     {/* Competidores */}
-                    {["~2.500€/mes", "~5.000€+/mes", "~200€/mes"].map((cost) => (
+                    {["~2.500 €/mes", "~5.000 €+/mes", "~200 €/mes"].map((cost) => (
                       <div key={cost} className="border-l border-border/25 py-5 flex items-center justify-center">
                         <span className="text-base font-bold text-foreground tabular-nums">{cost}</span>
                       </div>

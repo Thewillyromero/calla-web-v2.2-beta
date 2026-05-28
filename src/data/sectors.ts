@@ -92,7 +92,7 @@ export const sectors: Sector[] = [
       },
       {
         time: "Seguimiento",
-        title: "Presupuesto de 800€ sin respuesta",
+        title: "Presupuesto de 800 € sin respuesta",
         scenario: "Un cliente solicitó un presupuesto de cambio de embrague hace cuatro días. No ha llamado ni ha respondido al correo enviado manualmente.",
         result: "NOVA le llama, le recuerda el presupuesto, resuelve su duda sobre el plazo de entrega y cierra la cita para el lunes siguiente."
       },
@@ -872,7 +872,7 @@ export const sectors: Sector[] = [
       },
       {
         time: "Presupuesto",
-        title: "Propuesta de 3.500€ sin respuesta en una semana",
+        title: "Propuesta de 3.500 € sin respuesta en una semana",
         scenario: "Se visitó a una empresa para presupuestar la instalación de aire acondicionado industrial. El presupuesto se envió hace siete días y no hay respuesta.",
         result: "NOVA llama al responsable, detecta que la duda era sobre el plazo de ejecución, lo resuelve y cierra el trabajo para el mes siguiente."
       },
