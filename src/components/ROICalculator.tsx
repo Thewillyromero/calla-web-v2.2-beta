@@ -317,9 +317,6 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                   Solicitar información
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <p className="text-xs text-muted-foreground/55 text-center mt-2">
-                  30 min · Sin compromiso · Te contamos cómo funciona para tu sector
-                </p>
               </div>
             </div>
           </motion.div>
