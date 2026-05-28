@@ -77,7 +77,7 @@ const Questions = () => {
         <div className="container mx-auto text-center">
           <SectionFade>
             <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">
-              ¿Tienes más preguntas?
+              ¿Tienes <span className="text-gradient">más preguntas?</span>
             </h2>
             <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
               Habla con nuestro equipo y resuelve cualquier duda sobre cómo CALLA puede ayudar a tu negocio.
@@ -86,7 +86,7 @@ const Questions = () => {
               onClick={() => setContactOpen(true)}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
             >
-              Solicitar demo
+              Solicitar información
               <ArrowRight className="w-4 h-4" />
             </button>
           </SectionFade>
