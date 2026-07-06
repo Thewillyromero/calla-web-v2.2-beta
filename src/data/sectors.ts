@@ -284,7 +284,7 @@ export const sectors: Sector[] = [
     painPoints: [
       {
         title: "No-shows que vacían la sala",
-        description: "Una mesa para cuatro que no aparece un sábado noche son 150 euros que no entran. Sin recordatorio automático, el 15-20% de las reservas no se presentan."
+        description: "Una mesa para cuatro que no aparece un sábado noche son 150 € que no entran. Sin recordatorio automático, el 15-20% de las reservas no se presentan."
       },
       {
         title: "El teléfono suena pero nadie puede cogerlo",
@@ -411,7 +411,7 @@ export const sectors: Sector[] = [
       {
         time: "Post-visita",
         title: "Comprador que duda después de ver el piso",
-        scenario: "Una pareja visita un piso de 280.000 euros y queda bien. Pero no llaman. Sin seguimiento, la duda se convierte en olvido y buscan otras opciones.",
+        scenario: "Una pareja visita un piso de 280.000 € y queda bien. Pero no llaman. Sin seguimiento, la duda se convierte en olvido y buscan otras opciones.",
         result: "CARE les llama 48 horas después, recoge sus dudas sobre la hipoteca y el estado del inmueble, y coordina una segunda visita con el agente para cerrar la operación."
       }
     ],
@@ -451,7 +451,7 @@ export const sectors: Sector[] = [
         description: "La falta de comunicación proactiva genera ansiedad en el cliente y llamadas innecesarias al despacho. Un cliente bien informado llama menos y confía más."
       },
       {
-        title: "Captación dependiente de referidos sin control",
+        title: "Captación dependiente de recomendaciones, sin control",
         description: "La mayoría de los despachos medianos dependen del boca a boca. Sin un sistema de seguimiento de consultas entrantes, muchos casos se pierden antes de la primera reunión."
       }
     ],
@@ -499,7 +499,7 @@ export const sectors: Sector[] = [
       { value: "25%", label: "más encargos cerrados", context: "con seguimiento sistemático de NOVA" }
     ],
     testimonial: {
-      quote: "En un despacho pequeño, cuando estás en juicio el teléfono no se atiende. Perdíamos clientes buenos por eso. Con CALLA, todos los que llaman reciben atención inmediata y los que dudan en contratar nos llaman nosotros antes. Este año hemos crecido un 20% en facturación.",
+      quote: "En un despacho pequeño, cuando estás en juicio el teléfono no se atiende. Perdíamos clientes buenos por eso. Con CALLA, todos los que llaman reciben atención inmediata y a los que dudan en contratar los llamamos nosotros antes. Este año hemos crecido un 20% en facturación.",
       author: "Cristina Mendoza",
       role: "Socia directora",
       company: "Despacho de abogados, Bilbao"
@@ -573,7 +573,7 @@ export const sectors: Sector[] = [
     ],
     stats: [
       { value: "80%", label: "consultas de seguimiento resueltas sin agente", context: "gracias a ARIA" },
-      { value: "15%", label: "de reducción en entregas fallidas", context: "con confirmación proactiva de NOVA" },
+      { value: "20% → 5%", label: "en entregas fallidas", context: "con confirmación proactiva de NOVA" },
       { value: "40%", label: "menos coste en atención al cliente", context: "al automatizar consultas repetitivas" }
     ],
     testimonial: {
@@ -595,7 +595,7 @@ export const sectors: Sector[] = [
     chips: ["Criba automática", "Citas sin llamadas manuales", "Cero ausencias a entrevista", "Proceso más rápido"],
     painPoints: [
       {
-        title: "Cientos de candidatos que no se puede llamar a todos",
+        title: "Cientos de candidatos a los que es imposible llamar uno a uno",
         description: "Una oferta de operario de almacén recibe 180 CVs. El equipo puede llamar a 30. Los 150 restantes quedan en el limbo y alguno de ellos era el candidato ideal."
       },
       {
@@ -745,7 +745,7 @@ export const sectors: Sector[] = [
     name: "Seguros",
     icon: ShieldCheck,
     tagline: "Más pólizas vendidas, sin más agentes contratados",
-    description: "CALLA gestiona llamadas de clientes, agenda citas de asesoramiento y ejecuta campañas de renovación y cross-selling para agencias de seguros y mediadores. Con un sistema predecible de generación de negocio.",
+    description: "CALLA gestiona llamadas de clientes, agenda citas de asesoramiento y ejecuta campañas de renovación y venta cruzada para agencias de seguros y mediadores. Con un sistema predecible de generación de negocio.",
     heroTitle: "Más pólizas y renovaciones para tu",
     heroHighlight: "agencia de seguros",
     chips: ["Citas de asesoramiento 24/7", "Renovaciones automáticas", "Cross-selling estructurado", "Sin leads perdidos"],
@@ -778,7 +778,7 @@ export const sectors: Sector[] = [
       },
       {
         key: "NOVA",
-        use: "Llama a clientes con pólizas próximas a vencer para iniciar el proceso de renovación, y a la cartera activa para explorar oportunidades de cross-selling."
+        use: "Llama a clientes con pólizas próximas a vencer para iniciar el proceso de renovación, y a la cartera activa para explorar oportunidades de venta cruzada."
       },
       {
         key: "CARE",
@@ -808,7 +808,7 @@ export const sectors: Sector[] = [
     stats: [
       { value: "85%", label: "tasa de renovación de pólizas", context: "con seguimiento proactivo de NOVA" },
       { value: "3x", label: "más citas de asesoramiento por agente", context: "sin aumentar la jornada laboral" },
-      { value: "20%", label: "de la cartera con cross-selling activo", context: "identificado y gestionado automáticamente" }
+      { value: "20%", label: "de la cartera con venta cruzada activa", context: "identificado y gestionado automáticamente" }
     ],
     testimonial: {
       quote: "Mis agentes pasaban la mitad del día llamando para renovaciones y no daban abasto. Con CALLA, NOVA se encarga de toda la fase previa de contacto y renovación, y mis agentes solo hablan con quien ya está listo para firmar. Hemos subido el porcentaje de renovaciones del 72% al 88% en seis meses.",
@@ -952,7 +952,7 @@ export const sectors: Sector[] = [
         time: "Cambio",
         title: "Cancelación masiva por condiciones meteorológicas",
         scenario: "Un operador cancela 15 viajes por condiciones climáticas adversas. Hay que contactar a todos los clientes afectados, informarles y gestionar el rebooking o la devolución.",
-        result: "LUMI y ARIA contactan a los 15 clientes en dos horas, les informan de la cancelación, recogen su preferencia entre rebooking y devolución, y gestionan el proceso sin colapsar al equipo."
+        result: "LUMI y ARIA contactan a los 15 clientes en dos horas, les informan de la cancelación, recogen su preferencia entre nueva reserva y devolución, y gestionan el proceso sin colapsar al equipo."
       },
       {
         time: "Post-viaje",

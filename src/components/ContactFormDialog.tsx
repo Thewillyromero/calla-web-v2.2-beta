@@ -88,7 +88,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
               <div className="space-y-1.5">
-                <Label htmlFor="name">Nombre y Apellidos *</Label>
+                <Label htmlFor="name">Nombre y apellidos *</Label>
                 <Input id="name" placeholder="Tu nombre y apellidos" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required className="bg-secondary/50 border-border/40" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     slug: "coste-llamadas-perdidas",
     title: "El coste real de las llamadas perdidas: por qué tu negocio pierde dinero cada día",
     excerpt: "El 85% de los clientes que no logran comunicarse por teléfono nunca vuelven a llamar. Descubre cuánto dinero pierdes realmente y cómo solucionarlo.",
-    date: "27 abril 2026",
+    date: "27 de abril de 2026",
     readTime: "5 min",
     category: "Negocio",
     categoryColor: "brand-amber",
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
         <ul>
           <li><strong>Reputación dañada:</strong> Un cliente que no puede contactarte asume que no eres profesional o que no te importa su consulta.</li>
           <li><strong>Reseñas negativas:</strong> La frustración de no ser atendido se convierte en valoraciones de 1 estrella en Google.</li>
-          <li><strong>Pérdida del valor de vida del cliente:</strong> No pierdes una venta, pierdes todas las compras futuras de ese cliente y sus referidos.</li>
+          <li><strong>Pérdida del valor de vida del cliente:</strong> No pierdes una venta, pierdes todas las compras futuras de ese cliente y de quienes él recomiende.</li>
           <li><strong>Dinero en marketing desperdiciado:</strong> Si inviertes en publicidad para que llamen a tu negocio y luego no contestas, estás tirando ese dinero a la basura.</li>
         </ul>
 
@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
           La tecnología ha avanzado hasta un punto donde un <strong>asistente de voz con IA</strong> puede atender llamadas de forma natural, resolver dudas frecuentes, agendar citas y transferir llamadas importantes, todo ello <strong>24 horas al día, 7 días a la semana</strong>, sin descanso.
         </p>
         <p>
-          A diferencia de un buzón de voz o un IVR tradicional ("pulse 1 para ventas, pulse 2 para..."), un asistente IA mantiene una conversación real. El cliente ni siquiera nota que habla con una máquina.
+          A diferencia de un buzón de voz o un IVR (menú de voz) tradicional ("pulse 1 para ventas, pulse 2 para..."), un asistente IA mantiene una conversación real. El cliente ni siquiera nota que habla con una máquina.
         </p>
 
         <h2>Deja de perder dinero hoy</h2>
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
           En <strong>CALLA</strong> ayudamos a negocios como el tuyo a no perder ni una sola llamada. Nuestros agentes IA contestan el teléfono, agendan citas y cualifican leads automáticamente. Sin permanencia, sin inversión inicial elevada y con resultados desde el primer día.
         </p>
         <p>
-          <strong>¿Quieres saber cuánto dinero estás perdiendo en llamadas sin contestar?</strong> Reserva una consulta gratuita y te lo calculamos en 10 minutos.
+          <strong>¿Quieres saber cuánto dinero estás perdiendo en llamadas sin contestar?</strong> Solicita una demo y te lo calculamos en 10 minutos.
         </p>
       </>
     ),
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     slug: "asistentes-voz-ia",
     title: "Asistentes de voz con IA: qué son, cómo funcionan y por qué están revolucionando la atención al cliente",
     excerpt: "La inteligencia artificial ya puede mantener conversaciones telefónicas naturales. Descubre cómo funciona esta tecnología y por qué las empresas la están adoptando masivamente.",
-    date: "25 abril 2026",
+    date: "25 de abril de 2026",
     readTime: "6 min",
     category: "Tecnología",
     categoryColor: "brand-teal",
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Cualificar leads:</strong> hacer preguntas clave para determinar si el cliente potencial es adecuado antes de pasarlo al equipo comercial.</li>
           <li><strong>Realizar llamadas salientes:</strong> confirmar citas, hacer seguimiento post-venta o recuperar leads fríos.</li>
           <li><strong>Transferir llamadas</strong> a un humano cuando la situación lo requiere.</li>
-          <li><strong>Integrarse con CRMs</strong> y herramientas de gestión para actualizar datos automáticamente.</li>
+          <li><strong>Integrarse con los CRM</strong> y herramientas de gestión para actualizar datos automáticamente.</li>
         </ul>
 
         <h2>¿Por qué las empresas están adoptando esta tecnología?</h2>
@@ -123,10 +123,10 @@ export const blogPosts: BlogPost[] = [
 
         <h2>El futuro ya está aquí</h2>
         <p>
-          En <strong>CALLA</strong> diseñamos e implementamos asistentes de voz con IA personalizados para cada negocio. Nuestros agentes hablan como tú quieres, siguen tus protocolos y se integran con tus herramientas. Y lo mejor: están listos en menos de 48 horas.
+          En <strong>CALLA</strong> diseñamos e implementamos asistentes de voz con IA personalizados para cada negocio. Nuestros agentes hablan como tú quieres, siguen tus protocolos y se integran con tus herramientas. Y lo mejor: están listos en la primera semana.
         </p>
         <p>
-          <strong>¿Quieres ver cómo suena un asistente IA atendiendo llamadas de tu sector?</strong> Reserva una demo gratuita y te lo mostramos en directo.
+          <strong>¿Quieres ver cómo suena un asistente IA atendiendo llamadas de tu sector?</strong> Solicita una demo y te lo mostramos en directo.
         </p>
       </>
     ),
@@ -135,7 +135,7 @@ export const blogPosts: BlogPost[] = [
     slug: "clinica-dental-200-llamadas",
     title: "Cómo una clínica dental automatizó 200 llamadas al día sin contratar personal",
     excerpt: "Esta clínica dental recibía más de 200 llamadas diarias y perdía el 40%. Con un asistente de voz IA, redujo las llamadas perdidas a cero y aumentó sus citas un 35%.",
-    date: "22 abril 2026",
+    date: "22 de abril de 2026",
     readTime: "5 min",
     category: "Casos de éxito",
     categoryColor: "brand-emerald",
@@ -182,9 +182,9 @@ export const blogPosts: BlogPost[] = [
           <li><strong>Llamadas perdidas: de 80/día a prácticamente 0.</strong></li>
           <li><strong>Citas agendadas por IA: 68% del total</strong> (las recepcionistas solo gestionaban el 32% restante).</li>
           <li><strong>Incremento en citas totales: +35%</strong> al capturar pacientes que antes colgaban.</li>
-          <li><strong>Tiempo medio de atención: 47 segundos</strong> (vs. 3:20 anteriores).</li>
+          <li><strong>Tiempo medio de atención: 47 segundos</strong> (frente a los 3:20 min anteriores).</li>
           <li><strong>Ahorro mensual: 4.200 euros</strong> al reasignar a dos recepcionistas a tareas de mayor valor.</li>
-          <li><strong>Satisfacción de pacientes: 4.8/5</strong> en encuesta post-llamada.</li>
+          <li><strong>Satisfacción de pacientes: 4,8/5</strong> en encuesta post-llamada.</li>
         </ul>
 
         <h2>Lo que más sorprendió al equipo</h2>
@@ -200,7 +200,7 @@ export const blogPosts: BlogPost[] = [
           Si tu clínica, consultorio o centro médico pierde llamadas o tiene tiempos de espera altos, <strong>CALLA</strong> puede ayudarte a resolver el problema en menos de una semana. Nuestros agentes IA se adaptan a tu especialidad, tu software de gestión y tu forma de trabajar.
         </p>
         <p>
-          <strong>¿Quieres ver resultados como estos en tu clínica?</strong> Reserva una consulta gratuita y te diseñamos una solución a medida.
+          <strong>¿Quieres ver resultados como estos en tu clínica?</strong> Solicita una demo y te diseñamos una solución a medida.
         </p>
       </>
     ),

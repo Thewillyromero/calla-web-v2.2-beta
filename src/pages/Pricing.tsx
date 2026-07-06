@@ -23,7 +23,7 @@ const tiers = [
     hsl: "190 60% 55%",
     badge: null,
     features: [
-      "1 agente IA (Inbound)",
+      "1 agente de IA (llamadas entrantes)",
       "Hasta 200 llamadas/mes",
       "Agenda de citas automática",
       "Horario personalizado",
@@ -51,14 +51,14 @@ const tiers = [
     badge: "Más popular",
     setupNote: "Puesta en marcha · presupuesto a medida",
     features: [
-      "Agentes de IA (Inbound y Outbound)",
+      "Agentes de IA (entrantes y salientes)",
       "Hasta 750 llamadas/mes",
       "CRM integrado",
       "Analítica avanzada con BYTE",
       "Soporte prioritario",
       "Personalización de voz y tono",
       "Webhook e integraciones API",
-      "Campañas outbound automatizadas (Opcional)",
+      "Campañas outbound automatizadas (opcional)",
     ],
     cta: "Solicitar demo",
     popular: true,
@@ -82,11 +82,11 @@ const tiers = [
       "Agentes IA a medida",
       "Llamadas ilimitadas",
       "Squad completo personalizado",
-      "Onboarding dedicado",
+      "Puesta en marcha acompañada",
       "Disponibilidad objetivo del 99%",
-      "Manager de cuenta dedicado",
-      "Integraciones custom",
-      "Multi-idioma y multi-sede",
+      "Gestor de cuenta dedicado",
+      "Integraciones a medida",
+      "Multilingüe y multisede",
       "Facturación personalizada",
     ],
     cta: "Contacta con el equipo",
@@ -99,7 +99,7 @@ const faqs = [
   { q: "¿Puedo cambiar de plan en cualquier momento?", a: "Sí, puedes subir o bajar de plan cuando quieras. Los cambios se aplican en el siguiente ciclo de facturación." },
   { q: "¿Qué pasa si supero el límite de llamadas?", a: "Te avisamos antes de llegar al límite. Las llamadas extra se facturan a tarifa reducida, sin cortes de servicio." },
   { q: "¿Hay periodo de permanencia?", a: "No. Todos los planes son mensuales sin permanencia. Cancela cuando quieras avisando con 30 días de antelación." },
-  { q: "¿Cuánto tarda el setup?", a: "Tu agente queda operativo en la primera semana: lo configuramos por ti y lo validamos con más de 50 llamadas de prueba supervisadas antes de arrancar." },
+  { q: "¿Cuánto tarda la puesta en marcha?", a: "Tu agente queda operativo en la primera semana: lo configuramos por ti y lo validamos con más de 50 llamadas de prueba supervisadas antes de arrancar." },
 ];
 
 const cardVariants = (i: number) => ({
@@ -240,7 +240,7 @@ const Pricing = () => {
                         <div className="flex flex-col gap-2">
                           {/* Paso 1 — Setup */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
-                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Setup - Puesta en marcha</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Puesta en marcha</span>
                             <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                           </div>
                           {/* Separador */}

@@ -157,7 +157,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 <div>
                   <label className="text-sm text-foreground/80 font-semibold block mb-1.5">
                     ¿Cuánto pagas al mes a quien contesta las llamadas?
-                    <span className="block text-xs text-muted-foreground/50 font-normal mt-0.5">(Salario Bruto + Seguridad Social)</span>
+                    <span className="block text-xs text-muted-foreground/50 font-normal mt-0.5">(salario bruto + Seguridad Social)</span>
                   </label>
                   <div className="relative">
                     <Input
@@ -191,7 +191,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                     ))}
                   </div>
                   <p className="text-sm text-muted-foreground/70 mt-2 font-medium">
-                    Tu tiempo como CEO vale mínimo 50 €/h
+                    Tu tiempo como CEO vale como mínimo 50 €/h
                   </p>
                 </div>
               </div>

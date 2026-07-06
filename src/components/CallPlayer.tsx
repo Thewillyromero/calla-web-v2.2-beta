@@ -34,7 +34,7 @@ const callSamples: CallSample[] = [
     agent: "NOVA",
     agentImage: agentOutbound,
     agentColor: "brand-lavender",
-    description: "NOVA llama a un lead interesado en una vivienda, califica su presupuesto y agenda visita con el agente comercial.",
+    description: "NOVA llama a un lead interesado en una vivienda, cualifica su presupuesto y agenda visita con el agente comercial.",
   },
   {
     id: "3",

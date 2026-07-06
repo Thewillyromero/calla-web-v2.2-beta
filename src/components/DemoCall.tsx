@@ -283,7 +283,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
               </span>
               <span className="text-xs font-display font-bold tracking-widest uppercase" style={{ color: "hsl(155 70% 55%)" }}>
-                Live
+                En directo
               </span>
               <span className="w-px h-3 bg-brand-teal/25" />
               <Sparkles className="w-3.5 h-3.5 text-brand-teal" />
@@ -305,7 +305,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
             <div className="space-y-4 mb-8">
               {[
                 { icon: Mic, text: "Conversación en tiempo real desde tu navegador" },
-                { icon: Volume2, text: "Voz natural en español — Pregunta lo que quieras" },
+                { icon: Volume2, text: "Voz natural en español — pregunta lo que quieras" },
                 { icon: Phone, text: "Llamada sin coste, solo activa tu micrófono" },
               ].map((item, i) => (
                 <motion.div
@@ -331,7 +331,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                 </span>
                 <span>
-                  <span className="font-display font-semibold text-foreground/70 tabular-nums">{testCount}</span> tests con ARIA este mes
+                  <span className="font-display font-semibold text-foreground/70 tabular-nums">{testCount}</span> pruebas con ARIA este mes
                 </span>
               </div>
               <span className="text-muted-foreground/20">·</span>
@@ -447,7 +447,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           </Label>
                           <Input
                             id="demo-name"
-                            placeholder="Ej: Carlos García"
+                            placeholder="Ej.: Carlos García"
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
                             maxLength={100}
@@ -633,7 +633,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                               ¡Gracias por probar CALLA!
                             </h3>
                             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
-                              {form.name}, nuestro equipo te contactará pronto para una demo
+                              {form.name}, nuestro equipo se pondrá en contacto contigo pronto para una demo
                               personalizada de tu sector.
                             </p>
                             <div className="flex gap-3">

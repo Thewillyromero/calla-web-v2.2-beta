@@ -33,15 +33,15 @@ const features = [
     image: agentOutbound,
     agent: "NOVA",
     icon: PhoneOutgoing,
-    title: "Campañas Outbound",
+    title: "Campañas de llamadas salientes",
     description:
-      "Lanza campañas de llamadas salientes para appointment setting y generación de leads cualificados.",
+      "Lanza campañas de llamadas salientes para concertación de citas comerciales y generación de leads cualificados.",
     personality: "La que no para de llamar",
     color: "brand-lavender",
     hsl: "260 50% 65%",
     gradient: "linear-gradient(135deg, hsl(245 100% 70%), hsl(285 100% 65%), hsl(325 100% 65%))",
     expandedDetails: [
-      "Campañas de appointment setting automatizadas",
+      "Campañas de concertación de citas automatizadas",
       "Marca hasta 3 llamadas simultáneas por línea",
       "Detecta contestador automático y reintenta",
       "Captura datos estructurados de cada conversación",
@@ -54,12 +54,12 @@ const features = [
     title: "Agenda citas automáticamente",
     description:
       "Recoge pedidos y agenda citas directamente en tu calendario sin intervención humana.",
-    personality: "La organizadora perfecta",
+    personality: "El organizador perfecto",
     color: "brand-emerald",
     hsl: "160 50% 48%",
     gradient: "linear-gradient(135deg, hsl(170 100% 55%), hsl(150 100% 55%), hsl(95 100% 60%))",
     expandedDetails: [
-      "Sincroniza con Google Calendar, Calendly y CRMs",
+      "Sincroniza con Google Calendar, Calendly y tu CRM",
       "Confirma citas y envía recordatorios automáticos",
       "Reagenda no-shows sin intervención humana",
       "Evita solapamientos y dobles reservas",
@@ -87,7 +87,7 @@ const features = [
     image: agentSupport,
     agent: "CARE",
     icon: HeartHandshake,
-    title: "Cuida la relación post-venta",
+    title: "Cuida la relación posventa",
     description:
       "Hace seguimiento, mide satisfacción y detecta clientes en riesgo antes de que se vayan.",
     personality: "La que fideliza",
@@ -95,10 +95,10 @@ const features = [
     hsl: "340 55% 60%",
     gradient: "linear-gradient(135deg, hsl(340 100% 65%), hsl(355 100% 65%), hsl(20 100% 65%))",
     expandedDetails: [
-      "Seguimiento post-venta automatizado por voz y WhatsApp",
+      "Seguimiento posventa automatizado por voz y WhatsApp",
       "Encuestas NPS y de satisfacción tras cada interacción",
-      "Detecta señales de churn y avisa a tu equipo",
-      "Recordatorios de renovación y cross-sell",
+      "Detecta señales de abandono y avisa a tu equipo",
+      "Recordatorios de renovación y venta cruzada",
     ],
   },
   {

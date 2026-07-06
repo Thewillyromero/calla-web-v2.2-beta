@@ -49,7 +49,7 @@ const Results = () => {
               Resultados <span className="text-gradient">probados</span>
             </h1>
             <p className="text-foreground/80 max-w-2xl mx-auto text-base md:text-lg font-light">
-              Más de 200 empresas en +20 industrias confían en CALLA para gestionar sus comunicaciones.
+              Empresas de más de 20 sectores confían en CALLA para gestionar sus comunicaciones.
             </p>
           </SectionFade>
         </div>
@@ -141,7 +141,7 @@ const Results = () => {
           {/* Expand/Collapse */}
           <div className="flex justify-center mb-16">
             <button onClick={() => setExpanded(!expanded)} className="flex items-center gap-3 bg-card/80 backdrop-blur-md border border-border/30 rounded-full px-6 py-3 hover:border-border/50 transition-all duration-300">
-              <span className="text-sm text-foreground/70 font-medium">+200 empresas confían en CALLA</span>
+              <span className="text-sm text-foreground/70 font-medium">Empresas de toda España confían en CALLA</span>
               <span className="flex items-center gap-1.5 text-sm font-semibold text-foreground/90 hover:text-foreground transition-colors">
                 {expanded ? "Ver menos" : "Ver más"}
                 <svg className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

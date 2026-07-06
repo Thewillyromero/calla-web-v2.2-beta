@@ -51,7 +51,7 @@ const comparisonRows: { label: string; values: (boolean | "partial")[] }[] = [
   { label: "Agentes IA a medida para tu operativa",values: [false,     true,      "partial", true] },
   { label: "Integración con tus herramientas",     values: ["partial", true,      "partial", true] },
   { label: "Analítica de cada conversación",       values: [false,     false,     false,     true] },
-  { label: "Operativo en menos de 48h",            values: [true,      false,     "partial", true] },
+  { label: "Operativo en la primera semana",            values: [true,      false,     "partial", true] },
   { label: "Escalable sin contratar más personal", values: [false,     false,     true,      true] },
 ];
 
@@ -86,8 +86,8 @@ const capabilities = [
   },
   {
     title: "Fidelizamos y recuperamos a tus clientes automáticamente",
-    description: "Seguimiento post-venta, detección de clientes en riesgo y reactivación de inactivos. Tu negocio fideliza solo.",
-    chips: ["Post-venta", "Reactivación", "NPS", "Alertas"],
+    description: "Seguimiento posventa, detección de clientes en riesgo y reactivación de inactivos. Tu negocio fideliza solo.",
+    chips: ["Posventa", "Reactivación", "NPS", "Alertas"],
     hsl: "340 55% 60%",
     Icon: Users,
   },
@@ -207,7 +207,7 @@ const Index = () => {
                   </span>
                 </h1>
                 <p className="text-base md:text-xl text-foreground/70 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
-                  Despreocúpate de las llamadas y tareas manuales. Creamos Agentes IA a medida para tu negocio.
+                  Despreocúpate de las llamadas y tareas manuales. Creamos agentes IA a medida para tu negocio.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                   <Button
@@ -366,7 +366,7 @@ const Index = () => {
                                 initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
                                 <span className="text-[9px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
                                 <div className="rounded-2xl rounded-bl-sm px-3 py-1.5 text-xs text-foreground/85 leading-snug" style={{ background: "hsl(190 60% 55% / 0.18)" }}>
-                                  Buenos días, Calla S.L. ¿En qué puedo ayudarle?
+                                  Buenos días, CALLA. ¿En qué puedo ayudarle?
                                 </div>
                               </motion.div>
                               {/* Caller */}
@@ -427,7 +427,7 @@ const Index = () => {
                             </div>
                             <div className="flex flex-col justify-around flex-1 px-3 py-2">
                               {[
-                                { initials: "SR", name: "Sara Ruiz",    phone: "658 XXX XXX", label: "siguiente" },
+                                { initials: "SR", name: "Sara Ruiz",    phone: "658 XXX XXX", label: "Siguiente" },
                                 { initials: "PM", name: "Pablo Moreno", phone: "691 XXX XXX", label: "En cola"   },
                               ].map((c, i) => (
                                 <motion.div key={c.name} className="flex items-center gap-2.5 rounded-lg px-2.5 py-2.5"
@@ -629,9 +629,9 @@ const Index = () => {
                           {[
                             { label: "Llamadas hoy", val: "247", trend: "↑12%" },
                             { label: "Citas agendadas", val: "12", trend: "↑" },
-                            { label: "Flujos ejecutados", val: "1.2K", trend: "↑" },
+                            { label: "Flujos ejecutados", val: "1.200", trend: "↑" },
                             { label: "Resolución", val: "94%", trend: "↑" },
-                            { label: "NPS score", val: "72", trend: "→" },
+                            { label: "NPS (satisfacción)", val: "72", trend: "→" },
                             { label: "Agentes activos", val: "5/5", trend: "✓" },
                           ].map(({ label, val, trend }) => (
                             <div key={label} className="rounded-xl p-2.5 flex flex-col"
@@ -729,7 +729,7 @@ const Index = () => {
                     {[
                       { name: "María García", status: "Recuperada", sc: "214 80% 55%", info: "8 meses inactiva" },
                       { name: "Luis Pérez", status: "En riesgo", sc: "35 90% 58%", info: "Sin actividad 6 sem." },
-                      { name: "Ana Torres", status: "Activa", sc: "160 60% 45%", info: "Post-venta ✓" },
+                      { name: "Ana Torres", status: "Activa", sc: "160 60% 45%", info: "Posventa ✓" },
                     ].map((c) => (
                       <div key={c.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5"
                         style={{ background: "hsl(340 55% 60% / 0.06)", border: "1px solid hsl(340 55% 60% / 0.12)" }}>
@@ -803,7 +803,7 @@ const Index = () => {
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Comparativa</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
-                ¿Qué diferencia a <span className="text-gradient">Calla</span>?
+                ¿Qué diferencia a <span className="text-gradient">CALLA</span>?
               </h2>
               <p className="text-foreground/85 font-light max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
@@ -887,7 +887,7 @@ const Index = () => {
                       </Link>
                     </div>
                     {/* Competidores */}
-                    {["~2.500 €/mes", "~5.000 €+/mes", "~200 €/mes"].map((cost) => (
+                    {["~2.500 €/mes", "desde ~5.000 €/mes", "~200 €/mes"].map((cost) => (
                       <div key={cost} className="border-l border-border/25 py-5 flex items-center justify-center">
                         <span className="text-base font-bold text-foreground tabular-nums">{cost}</span>
                       </div>
@@ -1132,7 +1132,7 @@ const Index = () => {
                                 <motion.span className="text-base font-black font-mono" style={{ color: `hsl(${step.hsl})` }}
                                   animate={{ opacity: [0.7, 1, 0.7] }}
                                   transition={{ duration: 2.5, repeat: Infinity }}>
-                                  99.8%
+                                  99,8 %
                                 </motion.span>
                               </div>
                               <svg width="100%" height="28" viewBox="0 0 200 28" preserveAspectRatio="none">
@@ -1219,7 +1219,7 @@ const Index = () => {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 shadow-lg shadow-primary/20 text-base w-full sm:w-auto"
                   onClick={() => setContactOpen(true)}
                 >
-                  Solicitar demo gratuita <ArrowRight className="ml-2 h-4 w-4" />
+                  Solicitar demo <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <div className="flex items-center gap-4 mt-7">
                   {/* Avatares apilados */}

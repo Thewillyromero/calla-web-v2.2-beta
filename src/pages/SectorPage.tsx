@@ -800,7 +800,7 @@ const SectorPage = () => {
               ¿Listo para transformar tu {sector.name.toLowerCase()}?
             </h2>
             <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-2 relative z-10">
-              Contacta con nosotros y te informamos cómo CALLA te ayudaría en tu sector.
+              Contacta con nosotros y te informamos de cómo CALLA te ayudaría en tu sector.
             </p>
             <p className="text-foreground/45 max-w-xl mx-auto text-sm font-light mb-8 relative z-10">
               Solicita información sin compromiso.

@@ -27,7 +27,7 @@ const pillars = [
     hsl: "260 50% 65%",
     items: [
       "Cifrado TLS en toda la cadena de comunicación de voz",
-      "En operación normal no se graba el audio; si el cliente activa la grabación, se almacena cifrada (AES-256) durante 1 mes",
+      "En operación normal no se graba el audio; si el cliente activa la grabación, se almacena cifrada (AES-256) durante 30 días",
       "Acceso restringido por roles — solo tu equipo autorizado",
       "Retención de datos con plazos definidos: transcripciones 30 días",
     ],
@@ -153,7 +153,7 @@ const Security = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-2.5"
           >
-            {["RGPD Compliant", "Marco de Privacidad UE-EE. UU.", "Cifrado TLS", "Monitorización 24/7"].map((chip) => (
+            {["Cumplimiento RGPD", "Marco de Privacidad de Datos UE-EE. UU.", "Cifrado TLS", "Monitorización 24/7"].map((chip) => (
               <div key={chip} className="flex items-center gap-1.5 bg-card/50 border border-border/30 rounded-full px-4 py-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-brand-teal shrink-0" />
                 <span className="text-xs font-medium text-foreground/80">{chip}</span>

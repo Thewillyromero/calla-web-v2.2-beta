@@ -97,14 +97,14 @@ const agentData: Record<string, AgentData> = {
     ],
     scenarios: [
       { time: "22:45h", title: "Un paciente llama fuera de horario", scenario: "La clínica está cerrada. Un paciente angustiado llama por un dolor agudo. Nadie del equipo puede atender.", result: "ARIA atiende, evalúa la urgencia, tranquiliza al paciente y agenda la primera cita disponible para las 8:30h del día siguiente." },
-      { time: "13:15h", title: "El teléfono suena y el equipo está ocupado", scenario: "Todo el personal está atendiendo clientes presenciales. El teléfono lleva tres llamadas perdidas en 20 minutos.", result: "ARIA gestionó las tres llamadas: dos agendaron cita y una dejó disponibilidad para que el equipo devuelva la llamada." },
+      { time: "13:15h", title: "El teléfono suena y el equipo está ocupado", scenario: "Todo el personal está atendiendo clientes presenciales. El teléfono lleva tres llamadas perdidas en 20 minutos.", result: "ARIA gestiona las tres llamadas: dos agendan cita y una deja su disponibilidad para que el equipo devuelva la llamada." },
       { time: "Campaña", title: "150 llamadas tras un envío de newsletter", scenario: "Acabas de enviar una oferta a tu base de datos. El teléfono explota. El equipo no puede asumir ese volumen.", result: "ARIA atiende todas en paralelo, responde dudas sobre la oferta y agenda citas para los interesados sin colas ni esperas." },
     ],
     useCases: [
       { title: "Clínicas y consultas médicas", description: "Atiende pacientes, agenda citas y gestiona cancelaciones sin intervención humana." },
       { title: "Despachos profesionales", description: "Filtra llamadas por urgencia y conecta con el profesional adecuado." },
       { title: "Restaurantes y hostelería", description: "Gestiona reservas, informa sobre menú y horarios." },
-      { title: "Comercio y retail", description: "Resuelve dudas sobre productos, horarios y disponibilidad." },
+      { title: "Comercio minorista", description: "Resuelve dudas sobre productos, horarios y disponibilidad." },
     ],
     features: [
       "Voz natural indistinguible de una persona real",
@@ -134,24 +134,24 @@ const agentData: Record<string, AgentData> = {
     howItWorks: [
       { step: "01", title: "Recibe la lista de contactos", description: "NOVA importa los prospectos desde tu CRM o un fichero, verifica los datos y prioriza los contactos con mayor probabilidad de conversión." },
       { step: "02", title: "Llama y cualifica", description: "Presenta la oferta, responde objeciones, detecta el nivel de interés y clasifica cada contacto: listo para cerrar, en seguimiento o descartado." },
-      { step: "03", title: "Tu equipo cierra", description: "Los leads cualificados llegan a tu equipo con el contexto completo. Solo tienen que aparecer a la reunión y firmar." },
+      { step: "03", title: "Tu equipo cierra", description: "Los leads cualificados llegan a tu equipo con el contexto completo. Solo tienen que presentarse en la reunión y firmar." },
     ],
     featureCards: [
-      { title: "Llamadas a escala", description: "NOVA puede realizar cientos de llamadas al día sin pausas, sin descansos y sin bajones de motivación. Tu pipeline siempre activo." },
+      { title: "Llamadas a escala", description: "NOVA puede realizar cientos de llamadas al día sin pausas, sin descansos y sin bajones de motivación. Tu embudo de ventas siempre activo." },
       { title: "Cualificación BANT", description: "Detecta presupuesto, autoridad, necesidad y tiempo antes de pasar el lead a tu equipo. Solo llegan oportunidades reales." },
-      { title: "Scripts dinámicos", description: "Se adapta en tiempo real a cada respuesta del interlocutor. No sigue un guión rígido, gestiona la conversación con criterio." },
+      { title: "Scripts dinámicos", description: "Se adapta en tiempo real a cada respuesta del interlocutor. No sigue un guion rígido, gestiona la conversación con criterio." },
       { title: "Seguimiento automático", description: "Si no contesta, NOVA reintenta en el momento óptimo. Si dice 'llámame la semana que viene', NOVA lo hace. Sin excepciones." },
       { title: "Integración CRM", description: "Sincroniza resultados directamente con tu CRM: estado del lead, notas de la llamada, próxima acción. Tu equipo ve todo actualizado." },
-      { title: "Reportes de conversión", description: "Métricas de contactados, cualificados, descartados y cerrados. Sabes exactamente qué está funcionando y qué no." },
+      { title: "Informes de conversión", description: "Métricas de contactados, cualificados, descartados y cerrados. Sabes exactamente qué está funcionando y qué no." },
     ],
     scenarios: [
-      { time: "09:00h", title: "100 leads fríos de una feria", scenario: "Tu equipo recogió 100 tarjetas en una feria. Llevan dos semanas sin contactar porque no hay tiempo. Los leads se enfrían.", result: "NOVA llama a los 100 en la mañana. 34 muestran interés, 12 aceptan una reunión con tu equipo. El pipeline se llena solo." },
+      { time: "09:00h", title: "100 leads fríos de una feria", scenario: "Tu equipo recogió 100 tarjetas en una feria. Llevan dos semanas sin contactar porque no hay tiempo. Los leads se enfrían.", result: "NOVA llama a los 100 en la mañana. 34 muestran interés, 12 aceptan una reunión con tu equipo. El embudo se llena solo." },
       { time: "Campaña", title: "Reactivación de clientes inactivos", scenario: "Tienes 300 clientes que no han comprado en más de 6 meses. Tu equipo no puede dedicarles tiempo, pero tampoco quieres perderlos.", result: "NOVA lanza la campaña: detecta a los 40 con mayor probabilidad de reactivación, les llama con una oferta personalizada y cierra 18 ventas." },
       { time: "15:30h", title: "Lead entra pero el comercial está ocupado", scenario: "Un prospecto rellena el formulario web a las 3 de la tarde. Tu comercial está en reunión hasta las 6. Para entonces, el lead ya está frío.", result: "NOVA llama en menos de 2 minutos, cualifica el interés, resuelve las primeras dudas y agenda la reunión con el comercial para el día siguiente." },
     ],
     useCases: [
       { title: "Generación de leads", description: "Llama a listas de prospectos, cualifica y agenda reuniones con tu equipo comercial." },
-      { title: "Seguimiento post-venta", description: "Contacta clientes tras la compra para asegurar satisfacción y detectar oportunidades de upsell." },
+      { title: "Seguimiento posventa", description: "Contacta clientes tras la compra para asegurar satisfacción y detectar oportunidades de venta adicional." },
       { title: "Recuperación de carritos", description: "Llama a clientes que abandonaron el proceso de compra y cierra la venta." },
       { title: "Campañas de reactivación", description: "Contacta clientes inactivos con ofertas personalizadas." },
     ],
@@ -161,7 +161,7 @@ const agentData: Record<string, AgentData> = {
       "Seguimiento multicontacto con cadencias",
       "Integración CRM bidireccional",
       "Scripts dinámicos según respuesta",
-      "Reportes de conversión en tiempo real",
+      "Informes de conversión en tiempo real",
     ],
     testimonials: [
       { quote: "Teníamos 400 leads en el CRM sin contactar desde hacía meses. En una semana NOVA llamó a todos, cualificó 87 y mi equipo cerró 19 contratos. No me lo creía.", name: "Carlos Vega", role: "Director Comercial, SolarTech España", company: "SolarTech España", result: "19 contratos en una semana" },
@@ -226,21 +226,21 @@ const agentData: Record<string, AgentData> = {
     taglineHighlight2: "decisiones",
     taglineBreakBefore: true,
     description:
-      "BYTE analiza cada llamada y genera reportes accionables.\n\nDetecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
+      "BYTE analiza cada llamada y genera informes accionables.\n\nDetecta patrones, mide satisfacción y te dice exactamente qué mejorar. Inteligencia de negocio en tiempo real.",
     image: agentAnalytics,
     icon: BarChart3,
     howItWorks: [
       { step: "01", title: "Escucha cada conversación", description: "BYTE transcribe y analiza cada llamada en tiempo real. Detecta el tono, las objeciones y los patrones que tu equipo no ve a simple vista." },
-      { step: "02", title: "Convierte datos en insights", description: "Cruza información de todas las interacciones, identifica tendencias y genera alertas cuando algo sale de lo normal: satisfacción baja, picos de incidencias, objeciones que se repiten." },
+      { step: "02", title: "Convierte datos en conclusiones útiles", description: "Cruza información de todas las interacciones, identifica tendencias y genera alertas cuando algo sale de lo normal: satisfacción baja, picos de incidencias, objeciones que se repiten." },
       { step: "03", title: "Tu equipo decide mejor", description: "Cada mañana tienes un informe con lo que pasó ayer, qué mejorar y qué está funcionando. Sin hojas de cálculo, sin escuchar llamadas manualmente." },
     ],
     featureCards: [
       { title: "Transcripción automática", description: "Cada llamada queda transcrita y etiquetada al instante. Búsqueda por palabra clave, fecha o resultado. Toda la información accesible en segundos." },
       { title: "Análisis de motivos", description: "Clasifica el motivo y el resultado de cada conversación. Detecta llamadas no resueltas o con incidencia y alerta a tu equipo a tiempo." },
       { title: "Detección de patrones", description: "Identifica qué preguntas se repiten, qué objeciones frenan ventas y en qué momentos del día se concentran las incidencias o las llamadas sin resolver." },
-      { title: "Reportes ejecutivos", description: "Dashboards diarios, semanales y mensuales adaptados a tu negocio. Exportables a PDF, CSV o integrados directamente con tu herramienta de BI." },
+      { title: "Informes ejecutivos", description: "Dashboards diarios, semanales y mensuales adaptados a tu negocio. Exportables a PDF, CSV o integrados directamente con tu herramienta de BI." },
       { title: "Alertas configurables", description: "Define umbrales: si la satisfacción baja del 80%, si hay llamadas sin atender acumuladas, o si un patrón inusual aparece. BYTE te avisa antes de que escale." },
-      { title: "Control de calidad", description: "Scoring automático de cada interacción. Detecta qué llamadas merecen revisión y qué agentes necesitan apoyo sin que nadie tenga que escucharlas todas." },
+      { title: "Control de calidad", description: "Puntuación automática de cada interacción. Detecta qué llamadas merecen revisión y qué agentes necesitan apoyo sin que nadie tenga que escucharlas todas." },
     ],
     scenarios: [
       { time: "08:30h", title: "El informe del lunes", scenario: "Empieza la semana y nadie sabe cómo fue la anterior. El equipo dedica la primera hora a revisar Excel y escuchar llamadas al azar sin llegar a ninguna conclusión.", result: "BYTE tiene el informe listo desde el domingo: llamadas atendidas, tasa de resolución, satisfacción media y las 3 conversaciones que merecen atención. La reunión dura 10 minutos." },
@@ -249,9 +249,9 @@ const agentData: Record<string, AgentData> = {
     ],
     useCases: [
       { title: "Análisis de motivos", description: "Clasifica motivo y resultado de cada llamada y alerta sobre incidencias no resueltas." },
-      { title: "Reportes ejecutivos", description: "Genera dashboards diarios, semanales y mensuales con métricas clave." },
+      { title: "Informes ejecutivos", description: "Genera dashboards diarios, semanales y mensuales con métricas clave." },
       { title: "Detección de oportunidades", description: "Identifica patrones de compra y sugiere acciones comerciales." },
-      { title: "Control de calidad", description: "Evalúa cada interacción y genera scoring de satisfacción." },
+      { title: "Control de calidad", description: "Evalúa cada interacción y genera puntuación de satisfacción." },
     ],
     features: [
       "Dashboard en tiempo real personalizable",
@@ -276,16 +276,16 @@ const agentData: Record<string, AgentData> = {
     taglineBreakBefore: true,
     taglineBreakAfter: "Convierte",
     description:
-      "CARE se encarga del post-venta: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza.\n\nDetecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
+      "CARE se encarga del posventa: hace seguimiento, mide satisfacción, gestiona reclamaciones y fideliza.\n\nDetecta a los clientes en riesgo antes de que se vayan y convierte una venta puntual en una relación de años.",
     image: agentSupport,
     icon: HeartHandshake,
     howItWorks: [
-      { step: "01", title: "Contacto post-venta", description: "CARE contacta al cliente automáticamente tras el servicio o compra. Confirma que todo ha ido bien y detecta cualquier señal de insatisfacción antes de que se convierta en un problema." },
+      { step: "01", title: "Contacto posventa", description: "CARE contacta al cliente automáticamente tras el servicio o compra. Confirma que todo ha ido bien y detecta cualquier señal de insatisfacción antes de que se convierta en un problema." },
       { step: "02", title: "Mide y actúa", description: "Procesa cada respuesta, asigna un score de satisfacción y clasifica al cliente: promotor, neutral o en riesgo. Los casos urgentes llegan a tu equipo con todo el contexto ya preparado." },
       { step: "03", title: "Fideliza sin esfuerzo", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y reactivación de inactivos. CARE mantiene viva la relación con cada cliente sin que tu equipo tenga que acordarse de nada." },
     ],
     featureCards: [
-      { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien. El cliente siente que importa. Tu equipo no tiene que hacer nada." },
+      { title: "Seguimiento posventa", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien. El cliente siente que importa. Tu equipo no tiene que hacer nada." },
       { title: "Encuestas NPS", description: "Mide la satisfacción tras cada interacción. Detecta promotores y detractores antes de que los segundos publiquen una reseña negativa que no puedes borrar." },
       { title: "Clientes en riesgo", description: "Identifica patrones de abandono: clientes que no responden, con incidencias sin resolver o que llevan meses sin comprar. CARE actúa antes de que se vayan." },
       { title: "Gestión de reclamaciones", description: "Recoge la incidencia, la clasifica por urgencia y la escala al responsable adecuado con todo el contexto. Ninguna queja queda sin respuesta." },
@@ -295,10 +295,10 @@ const agentData: Record<string, AgentData> = {
     scenarios: [
       { time: "3 días después", title: "La venta cerrada, ¿y ahora qué?", scenario: "El cliente compró, el equipo pasa al siguiente. Nadie sabe si quedó satisfecho. Si hay un problema, se enterarán cuando llegue la reseña negativa en Google.", result: "CARE llama a los 3 días. El cliente menciona un pequeño detalle que no le cuadró. El equipo lo resuelve ese mismo día. El cliente deja una reseña de 5 estrellas." },
       { time: "6 semanas sin señal", title: "Un cliente que dejó de aparecer", scenario: "Un cliente que compraba cada mes lleva 6 semanas sin dar señales. Tu equipo no ha notado nada. Para cuando lo hagan puede ser demasiado tarde.", result: "CARE detecta el patrón y lanza una llamada de reactivación con una oferta personalizada. El cliente vuelve. Una venta recuperada con coste cero en publicidad." },
-      { time: "09:15h", title: "Reclamación antes de abrir", scenario: "Un cliente envió un mensaje fuera de horario muy molesto por un pedido que llegó mal. Nadie lo vio. Si nadie actúa antes del mediodía, puede convertirse en una reseña pública.", result: "CARE recogió la incidencia, la clasificó como urgente y a las 9:15h el responsable ya tenía la alerta con todo el contexto. El cliente fue contactado y resuelto antes del mediodía." },
+      { time: "09:15h", title: "Reclamación antes de abrir", scenario: "Un cliente envió un mensaje fuera de horario muy molesto por un pedido que llegó mal. Nadie lo vio. Si nadie actúa antes del mediodía, puede convertirse en una reseña pública.", result: "CARE recogió la incidencia, la clasificó como urgente y a las 9:15h el responsable ya tenía la alerta con todo el contexto. Se contactó con el cliente y su caso quedó resuelto antes del mediodía." },
     ],
     useCases: [
-      { title: "Seguimiento post-venta", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien y resolver dudas." },
+      { title: "Seguimiento posventa", description: "Llama o escribe por WhatsApp tras cada servicio para confirmar que todo ha ido bien y resolver dudas." },
       { title: "Encuestas de satisfacción (NPS)", description: "Mide la satisfacción de cada cliente y te alerta cuando alguien puntúa bajo, antes de que se queje públicamente." },
       { title: "Gestión de reclamaciones", description: "Recoge la incidencia, la clasifica por urgencia y la escala al responsable adecuado con todo el contexto." },
       { title: "Fidelización y reactivación", description: "Felicitaciones, recordatorios de revisión, ofertas personalizadas y campañas para recuperar clientes inactivos." },

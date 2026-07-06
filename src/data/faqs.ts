@@ -25,7 +25,7 @@ export const faqs = [
   },
   {
     q: "¿Cómo se integra CALLA con mis herramientas actuales?",
-    a: "El plan Pro incluye integración con CRM, API y webhooks para conectar con tus herramientas de gestión. El plan Enterprise ofrece integraciones personalizadas, soporte multi-idioma y multi-sede. Si tienes dudas sobre compatibilidad con tus sistemas actuales, consúltanos.",
+    a: "El plan Pro incluye integración con CRM, API y webhooks para conectar con tus herramientas de gestión. El plan Enterprise ofrece integraciones personalizadas, soporte multilingüe y multisede. Si tienes dudas sobre compatibilidad con tus sistemas actuales, consúltanos.",
   },
   {
     q: "¿Qué métricas puedo ver sobre las llamadas?",

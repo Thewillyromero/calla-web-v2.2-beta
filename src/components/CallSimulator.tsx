@@ -30,7 +30,7 @@ const scenarios: Scenario[] = [
       { role: "client", text: "Carmen López García" },
       { role: "aria", text: "Listo, Carmen. Tienes cita el jueves 3 de abril a las 10:00 para limpieza dental. Te llegará confirmación por SMS. ¿Algo más?" },
       { role: "client", text: "No, eso es todo. ¡Gracias!" },
-      { role: "aria", text: "¡A ti, Carmen! Nos vemos el jueves. ¡Buen día!" },
+      { role: "aria", text: "¡A ti, Carmen! Nos vemos el jueves. ¡Buenos días!" },
       { role: "system", text: "Cita agendada automáticamente en el calendario" },
     ],
   },
@@ -43,7 +43,7 @@ const scenarios: Scenario[] = [
       { role: "client", text: "Hola, he visto un piso en vuestra web en el centro de Valencia y quería más información" },
       { role: "aria", text: "¡Qué bien! ¿Recuerdas la referencia del piso o la calle?" },
       { role: "client", text: "Creo que era en la calle Colón, un ático de 3 habitaciones" },
-      { role: "aria", text: "¡Sí, lo tengo! Es un ático reformado de 120m² con terraza. ¿Te gustaría agendar una visita para verlo?" },
+      { role: "aria", text: "¡Sí, lo tengo! Es un ático reformado de 120 m² con terraza. ¿Te gustaría agendar una visita para verlo?" },
       { role: "client", text: "Sí, ¿puede ser esta semana?" },
       { role: "aria", text: "Claro, tenemos disponibilidad el miércoles a las 17:00 o el jueves a las 11:00. ¿Cuál te viene mejor?" },
       { role: "client", text: "El miércoles a las 17:00" },
@@ -243,7 +243,7 @@ const CallSimulator = () => {
             {!isPlaying && step === 0 && !hasPlayed && (
               <div className="flex flex-col items-center justify-center py-10">
                 <Phone className="w-12 h-12 text-brand-teal/30 mb-4" />
-                <p className="text-sm text-muted-foreground mb-6">Pulsa play para ver una simulación</p>
+                <p className="text-sm text-muted-foreground mb-6">Pulsa el botón para ver una simulación</p>
                 <Button onClick={handleStart} className="rounded-full px-6" style={{ background: "linear-gradient(135deg, hsl(190 60% 50%), hsl(190 60% 42%))" }}>
                   <Play className="w-4 h-4 mr-2" /> Ver simulación
                 </Button>

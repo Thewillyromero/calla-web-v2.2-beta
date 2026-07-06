@@ -212,7 +212,7 @@ const Privacidad = () => (
     </ul>
     <P>
       Esta política de privacidad se ha redactado conforme al Reglamento (UE) 2016/679 del
-      Parlamento Europeo (RGPD), la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de
+      Parlamento Europeo y del Consejo (RGPD), la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de
       Datos Personales y garantía de los derechos digitales (LOPDGDD), y demás normativa
       vigente aplicable.
     </P>
@@ -401,7 +401,7 @@ const Cookies = () => (
       del sitio web.
     </P>
 
-    <SectionTitle>5. Incorporación de nuevas cookies en el futuro</SectionTitle>
+    <SectionTitle>4. Incorporación de nuevas cookies en el futuro</SectionTitle>
     <P>
       Si en el futuro se incorporan cookies analíticas, publicitarias o de terceros, esta política
       se actualizará y se implementará un banner de consentimiento conforme a la Guía de la AEPD.

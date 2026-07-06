@@ -14,10 +14,10 @@ const metrics = [
 
 const dashboardCards = [
   {
-    title: "Leads Overview",
+    title: "Resumen de leads",
     items: [
       { label: "Leads con actividad", value: "662", change: "+100%" },
-      { label: "Lead Connect Rate", value: "84,7%", change: "+100%" },
+      { label: "Tasa de conexión", value: "84,7%", change: "+100%" },
       { label: "Leads llamados", value: "662", change: "+100%" },
       { label: "Leads contestados", value: "561", change: "+100%" },
     ],
@@ -25,7 +25,7 @@ const dashboardCards = [
   {
     title: "Distribución de llamadas",
     items: [
-      { label: "Mejor hora", value: "11 AM", change: "" },
+      { label: "Mejor hora", value: "11:00", change: "" },
       { label: "Mejor día", value: "Miércoles", change: "" },
       { label: "Media por hora", value: "3,3", change: "llamadas" },
       { label: "Pico diario", value: "490", change: "leads" },
@@ -126,12 +126,12 @@ const CampaignResults = () => {
                 <img loading="lazy" src={agentAnalytics} alt="BYTE" className="w-8 h-8 object-contain" width={512} height={512} />
                 <div>
                   <span className="text-sm font-display font-bold text-brand-amber">BYTE</span>
-                  <span className="text-xs text-muted-foreground ml-2">Campaign Analytics</span>
+                  <span className="text-xs text-muted-foreground ml-2">Analítica de campaña</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-xs text-muted-foreground/50">
                 <span className="bg-secondary/60 px-3 py-1 rounded-full border border-border/20">
-                  27 Feb — 29 Mar, 2026
+                  27 feb – 29 mar 2026
                 </span>
               </div>
             </div>

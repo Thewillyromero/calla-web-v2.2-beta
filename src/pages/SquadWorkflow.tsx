@@ -59,7 +59,7 @@ const scenarios = [
   },
   {
     time: "13:00h — 13:18h",
-    title: "Un cliente habitual cambia su cita y reporta una incidencia",
+    title: "Un cliente habitual cambia su cita y comunica una incidencia",
     description: "Es cliente desde hace dos años. Llama para adelantar su cita del día siguiente y, de paso, comenta que el último servicio no fue lo esperado.",
     result: "LUMI reorganiza la agenda sin conflictos en segundos. CARE registra la incidencia y programa el seguimiento. El cliente cuelga satisfecho en menos de 4 minutos.",
   },
@@ -130,7 +130,7 @@ const SquadWorkflow = () => {
                 </span>
               </h1>
               <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-8 whitespace-pre-line">
-                {"Halo mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nCon HALO, cada pieza encaja."}
+                {"HALO mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nCon HALO, cada pieza encaja."}
               </p>
               <div
                 className="inline-block rounded-full p-[2px] hover:opacity-90 transition-opacity shadow-lg"

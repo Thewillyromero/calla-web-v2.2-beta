@@ -102,14 +102,14 @@ const BlogPost = () => {
               ¿Listo para no perder <span className="text-gradient">ni una llamada más</span>?
             </h3>
             <p className="text-muted-foreground text-sm sm:text-base font-light mb-6 max-w-md mx-auto">
-              Reserva una consulta gratuita de 15 minutos y descubre cómo CALLA puede transformar la atención telefónica de tu negocio.
+              Solicita una demo de 15 minutos y descubre cómo CALLA puede transformar la atención telefónica de tu negocio.
             </p>
             <Button
               size="lg"
               className="rounded-xl glow-box text-sm sm:text-base"
               onClick={() => setContactOpen(true)}
             >
-              Reservar consulta gratuita
+              Solicitar demo
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

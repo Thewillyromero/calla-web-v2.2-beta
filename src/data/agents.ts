@@ -62,7 +62,7 @@ export const agents: Agent[] = [
     image: agentOutbound,
     personality: "Tu equipo comercial automatizado",
     title: "Llama a tus clientes potenciales por ti",
-    description: "NOVA realiza campañas de llamadas salientes de forma automática. Contacta leads, cualifica prospectos, agenda reuniones con tu equipo comercial y hace seguimiento. Como tener 10 comerciales trabajando a la vez.",
+    description: "NOVA realiza campañas de llamadas salientes de forma automática. Contacta con los leads, cualifica prospectos, agenda reuniones con tu equipo comercial y hace seguimiento. Como tener 10 comerciales trabajando a la vez.",
     color: "brand-lavender",
     hsl: "260 50% 65%",
     features: [
@@ -80,7 +80,7 @@ export const agents: Agent[] = [
     ],
     useCases: [
       { sector: "Energía solar", example: "NOVA llama a 500 empresas para ofrecer un estudio de ahorro energético. Agenda 40 visitas en una semana." },
-      { sector: "Seguros", example: "NOVA contacta clientes con pólizas por renovar. Confirma datos y agenda cita con el agente." },
+      { sector: "Seguros", example: "NOVA contacta con clientes con pólizas por renovar. Confirma datos y agenda cita con el agente." },
       { sector: "Formación", example: "NOVA llama a leads interesados en un curso. Cualifica por presupuesto y disponibilidad." },
       { sector: "Servicios B2B", example: "NOVA hace seguimiento de propuestas enviadas. Detecta interés y agenda cierre con el comercial." },
     ],
@@ -98,7 +98,7 @@ export const agents: Agent[] = [
     color: "brand-emerald",
     hsl: "160 50% 48%",
     features: [
-      "Sincroniza con Google Calendar, Outlook y los principales CRMs",
+      "Sincroniza con Google Calendar, Outlook y los principales CRM",
       "Agenda citas comprobando disponibilidad en tiempo real",
       "Envía confirmación automática por WhatsApp o email",
       "Recordatorios 24h y 1h antes de cada cita",
@@ -107,14 +107,14 @@ export const agents: Agent[] = [
     ],
     howItWorks: [
       { step: "Conectamos tu calendario", description: "Vinculamos Google Calendar, Outlook o el sistema que uses. Sin cambiar tu forma de trabajar." },
-      { step: "Definimos reglas", description: "Horarios disponibles, duración de citas, buffer entre citas, tipos de servicio." },
+      { step: "Definimos reglas", description: "Horarios disponibles, duración de citas, margen entre citas, tipos de servicio." },
       { step: "LUMI se encarga", description: "Cada vez que alguien quiere cita, LUMI la agenda, confirma y recuerda. Tú solo apareces." },
     ],
     useCases: [
       { sector: "Salud", example: "Un paciente llama pidiendo cita. LUMI comprueba huecos, agenda y envía confirmación por WhatsApp." },
       { sector: "Estética", example: "LUMI gestiona 50 citas al día entre 3 profesionales sin un solo solapamiento." },
       { sector: "Talleres", example: "Un cliente llama para dejar el coche. LUMI encuentra hueco, lo apunta y envía recordatorio." },
-      { sector: "Consultoría", example: "LUMI agenda reuniones de 1 hora con buffer de 15 min, sincronizadas con tu equipo." },
+      { sector: "Consultoría", example: "LUMI agenda reuniones de 1 hora con margen de 15 min, sincronizadas con tu equipo." },
     ],
     cta: "Ver cómo funciona LUMI",
     hasDemo: false,
@@ -144,7 +144,7 @@ export const agents: Agent[] = [
     ],
     useCases: [
       { sector: "Call centers", example: "BYTE detecta que los martes a las 11h hay un pico de llamadas. Ajustas recursos." },
-      { sector: "Comercial", example: "BYTE identifica que el 60% de las objeciones son por precio. Cambias el guión." },
+      { sector: "Comercial", example: "BYTE identifica que el 60% de las objeciones son por precio. Cambias el guion." },
       { sector: "Dirección", example: "El CEO ve en su móvil cuántas llamadas se atendieron hoy sin preguntar a nadie." },
       { sector: "Calidad", example: "BYTE marca las llamadas no resueltas o con incidencia para que el equipo las revise." },
     ],
@@ -156,7 +156,7 @@ export const agents: Agent[] = [
     name: "CARE",
     icon: HeartHandshake,
     image: agentSupport,
-    personality: "Tu servicio post-venta",
+    personality: "Tu servicio posventa",
     title: "Cuida a tus clientes después de la venta",
     description: "CARE gestiona el seguimiento post-venta, encuestas de satisfacción, recordatorios y fidelización. Convierte clientes puntuales en clientes de por vida.",
     color: "brand-rose",

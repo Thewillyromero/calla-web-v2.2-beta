@@ -24,9 +24,9 @@ const challenges = [
 
 const solutions = [
   { title: "ARIA (Inbound)", desc: "Desplegado para atender todas las llamadas entrantes 24/7" },
-  { title: "Routing inteligente", desc: "Identifica la intención del llamante y conecta con la oficina correcta" },
+  { title: "Enrutado inteligente", desc: "Identifica la intención del llamante y conecta con la oficina correcta" },
   { title: "Agenda automática", desc: "Citas sincronizadas con los calendarios del equipo en tiempo real" },
-  { title: "BYTE Analytics", desc: "Métricas de llamadas en tiempo real e insights accionables" },
+  { title: "BYTE (analítica)", desc: "Métricas de llamadas en tiempo real e conclusiones accionables" },
 ];
 
 const results = [
@@ -122,7 +122,7 @@ const CaseStudy = () => {
           <FadeIn delay={300}>
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
               <span className="glass rounded-full px-3 py-1">Energía</span>
-              <span className="glass rounded-full px-3 py-1">Marzo — Abril 2026</span>
+              <span className="glass rounded-full px-3 py-1">marzo – abril de 2026</span>
               <span className="glass rounded-full px-3 py-1">Edommo Energía</span>
             </div>
           </FadeIn>
@@ -206,7 +206,7 @@ const CaseStudy = () => {
             <div className="text-center mb-12">
               <p className="text-primary font-display text-xs tracking-[0.25em] uppercase mb-3 font-semibold">Resultados</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold tracking-tight">
-                Numeros que <span className="text-gradient">hablan solos</span>
+                Números que <span className="text-gradient">hablan solos</span>
               </h2>
             </div>
           </FadeIn>
@@ -265,18 +265,18 @@ const CaseStudy = () => {
               <div className="relative z-10">
                 <BarChart3 className="h-8 w-8 text-primary mx-auto mb-4" />
                 <h2 className="text-2xl md:text-4xl font-display font-extrabold mb-4 tracking-tight">
-                  Quieres resultados como{" "}
+                  ¿Quieres resultados como{" "}
                   <span className="text-gradient">Edommo</span>?
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-                  Agenda una consulta gratuita y te mostramos cómo CALLA puede transformar tu atención telefónica.
+                  Solicita una demo y te mostramos cómo CALLA puede transformar tu atención telefónica.
                 </p>
                 <Button
                   size="lg"
                   className="glow-box text-base px-8"
                   onClick={() => setContactOpen(true)}
                 >
-                  Reservar consulta gratuita <ArrowRight className="ml-2 h-4 w-4" />
+                  Solicitar demo <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>

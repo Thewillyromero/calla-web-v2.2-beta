@@ -259,7 +259,7 @@ const Chatbot = () => {
             </div>
             <div className="ml-auto flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-brand-emerald animate-pulse" />
-              <span className="text-[10px] text-muted-foreground">Online</span>
+              <span className="text-[10px] text-muted-foreground">En línea</span>
             </div>
           </div>
 
@@ -302,7 +302,7 @@ const Chatbot = () => {
             {showEmailCapture && !emailCaptured && (
               <div className="bg-secondary/60 rounded-2xl p-4 border border-border/30">
                 <p className="text-xs font-display font-bold text-foreground mb-2">
-                  📧 ¿Quieres que te contactemos?
+                  📧 ¿Quieres que contactemos contigo?
                 </p>
                 <form onSubmit={handleEmailSubmit} className="space-y-2">
                   <Input
