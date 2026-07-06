@@ -323,7 +323,7 @@ const Privacidad = () => (
 /* ------------------------------------------------------------------ */
 const Cookies = () => (
   <div>
-    <P>Última actualización: mayo de 2026. Redactada conforme a la Guía sobre el uso de las cookies de la AEPD (mayo 2024) y las Directrices 03/2022 del Comité Europeo de Protección de Datos.</P>
+    <P>Última actualización: julio de 2026. Redactada conforme a la Guía sobre el uso de las cookies de la AEPD (mayo 2024) y las Directrices 03/2022 del Comité Europeo de Protección de Datos.</P>
 
     <SectionTitle>1. ¿Qué son las cookies?</SectionTitle>
     <P>
@@ -355,18 +355,19 @@ const Cookies = () => (
             <td className="p-3 text-xs">24 horas</td>
           </tr>
           <tr className="border-t border-border/10">
-            <td className="p-3 font-mono text-xs">sidebar:state</td>
-            <td className="p-3 text-xs">Recordar el estado del menú de navegación lateral</td>
-            <td className="p-3 text-xs">7 días</td>
+            <td className="p-3 font-mono text-xs">Cloudflare Turnstile</td>
+            <td className="p-3 text-xs">Cookie de seguridad que verifica que el formulario de contacto es enviado por una persona y no por un robot (protección anti-spam)</td>
+            <td className="p-3 text-xs">Sesión</td>
           </tr>
         </tbody>
       </table>
     </div>
     <P>
       Adicionalmente, el sitio utiliza <strong className="text-foreground/80">localStorage</strong> del navegador
-      para almacenar la sesión del chat y la autenticación de usuario. Esta tecnología no instala
-      cookies y no está sujeta a la normativa de cookies, si bien los datos permanecen en su
-      dispositivo hasta que borre los datos de navegación.
+      para almacenar el identificador de la sesión del chat de asistencia y la sesión técnica de
+      conexión con nuestros servicios. Esta tecnología no instala cookies y no está sujeta a la
+      normativa de cookies, si bien los datos permanecen en su dispositivo hasta que borre los datos
+      de navegación.
     </P>
 
     <SectionTitle>3. Cómo gestionar las cookies</SectionTitle>
