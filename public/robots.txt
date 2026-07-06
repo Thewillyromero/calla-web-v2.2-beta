@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://callao.app/sitemap.xml
+
+Sitemap: https://appcalla.com/sitemap.xml
