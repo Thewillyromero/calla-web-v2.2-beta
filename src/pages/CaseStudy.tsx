@@ -97,7 +97,7 @@ const CaseStudy = () => {
 
         <div className="container mx-auto relative z-10 max-w-4xl text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2.5 md:py-1.5 mb-6">
               <TrendingUp className="h-4 w-4 text-primary" />
               <span className="text-xs font-display font-medium text-primary uppercase tracking-[0.2em]">
                 Caso de éxito

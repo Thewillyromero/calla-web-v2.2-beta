@@ -283,7 +283,7 @@ const Index = () => {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="mb-12"
             >
-              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-2.5 md:py-1.5 mb-5">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Cobertura total</span>
               </div>
@@ -798,7 +798,7 @@ const Index = () => {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-6">
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
                 <Check className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Comparativa</span>
               </div>
@@ -817,9 +817,10 @@ const Index = () => {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-5xl mx-auto"
             >
-              <div className="relative overflow-x-auto rounded-2xl border border-border/40 bg-card/20">
-                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background/80 to-transparent pointer-events-none z-10 md:hidden rounded-r-2xl" />
-
+              <p className="md:hidden text-sm text-muted-foreground text-center mb-2">Desliza la tabla para ver más →</p>
+              <div className="relative rounded-2xl border border-border/40 bg-card/20">
+              <div className="md:hidden absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-background/90 to-transparent z-10 pointer-events-none rounded-r-2xl" />
+              <div className="overflow-x-auto">
                 <div className="min-w-[660px]">
 
                   {/* ── Column headers ── */}
@@ -896,6 +897,7 @@ const Index = () => {
 
                 </div>
               </div>
+              </div>
 
               {/* Legend */}
               <div className="flex items-center justify-center gap-5 mt-5 flex-wrap">
@@ -934,7 +936,7 @@ const Index = () => {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-5">
+              <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-2.5 md:py-1.5 mb-5">
                 <ArrowRight className="w-3.5 h-3.5 text-primary" />
                 <span className="text-xs text-primary font-display font-semibold tracking-wide">Manos a la obra</span>
               </div>

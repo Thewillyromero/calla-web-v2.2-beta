@@ -73,7 +73,7 @@ const Hero = ({ onContact }: { onContact?: () => void }) => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex-1 max-w-2xl"
         >
-          <div className="shimmer-border inline-flex items-center gap-2 bg-primary/[0.08] border border-primary/20 rounded-full px-4 py-1.5 mb-6">
+          <div className="shimmer-border inline-flex items-center gap-2 bg-primary/[0.08] border border-primary/20 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="text-xs text-primary font-medium">Atención telefónica inteligente</span>
           </div>

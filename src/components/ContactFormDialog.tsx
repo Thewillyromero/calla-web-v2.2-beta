@@ -91,7 +91,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl font-display font-extrabold">
-                Empieza con <span className="text-gradient-blue">CALLA</span>
+                Solicita tu <span className="text-gradient-blue">demo</span>
               </DialogTitle>
               <DialogDescription className="text-muted-foreground">
                 Contacta con nosotros y analizamos tu caso de forma personalizada.
@@ -129,7 +129,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 </span>
               </label>
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar información <ArrowRight className="ml-2 h-5 w-5" /></>}
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar demo <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
               <p className="text-sm text-muted-foreground/75 text-center">Sin compromiso · Respuesta en &lt;24h</p>
             </form>

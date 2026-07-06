@@ -1,11 +1,11 @@
 import { motion, type Variants } from "framer-motion";
 
 const fadeInVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -25,7 +25,7 @@ export const FadeIn = ({
       variants={fadeInVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: threshold }}
+      viewport={{ once: true, amount: threshold }}
       transition={{ delay: delay / 1000 }}
       className={className}
     >

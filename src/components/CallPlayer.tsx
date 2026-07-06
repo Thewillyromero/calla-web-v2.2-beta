@@ -149,7 +149,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="text-center mb-16 md:mb-20"
       >
-        <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-1.5 mb-6">
+        <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
           <Headphones className="w-3.5 h-3.5 text-primary" />
           <span className="text-xs text-primary font-display font-semibold tracking-wide">
             Escucha llamadas reales

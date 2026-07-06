@@ -277,7 +277,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex items-center gap-2 bg-brand-teal/[0.08] border border-brand-teal/20 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-brand-teal/[0.08] border border-brand-teal/20 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" style={{ animation: "live-pulse 1.5s ease-in-out infinite" }} />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
@@ -324,21 +324,6 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground/70">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-                </span>
-                <span>
-                  <span className="font-display font-semibold text-foreground/70 tabular-nums">{testCount}</span> pruebas con ARIA este mes
-                </span>
-              </div>
-              <span className="text-muted-foreground/20">·</span>
-              <span>
-                <span className="font-semibold text-foreground/75 tabular-nums">{viewers}</span> personas en la web
-              </span>
-            </div>
           </motion.div>
 
           {/* Right side — card */}

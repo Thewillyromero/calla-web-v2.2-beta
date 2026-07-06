@@ -67,7 +67,7 @@ const CampaignResults = () => {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16 md:mb-20"
         >
-          <div className="inline-flex items-center gap-2 bg-brand-amber/[0.08] border border-brand-amber/20 rounded-full px-4 py-1.5 mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-amber/[0.08] border border-brand-amber/20 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
             <BarChart3 className="w-3.5 h-3.5 text-brand-amber" />
             <span className="text-xs text-brand-amber font-display font-semibold tracking-wide">
               Resultados reales

@@ -28,7 +28,7 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
             </a>
             <Link
               to="/seguridad"
-              className="inline-flex items-center gap-1.5 mt-4 text-xs text-muted-foreground/70 hover:text-muted-foreground border border-border/30 rounded-full px-3 py-1.5 transition-colors"
+              className="inline-flex items-center gap-1.5 mt-4 text-xs text-muted-foreground/70 hover:text-muted-foreground border border-border/30 rounded-full px-3 py-2.5 md:py-1.5 transition-colors"
             >
               <Shield className="h-3 w-3" />
               Datos protegidos · RGPD
@@ -68,7 +68,7 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
           </div>
         </div>
 
-        <div className="border-t border-border/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border/20 pt-6 pr-0 md:pr-20 pb-16 md:pb-0 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground/70">
             © 2026 App Calla, S.L. · CIF B88969308 · Todos los derechos reservados.
           </p>

@@ -558,7 +558,7 @@ const SectorPage = () => {
         <div className="container mx-auto max-w-4xl text-center relative z-10">
 
           <motion.div {...fade}
-            className="inline-flex items-center gap-2 bg-card/60 border border-border/30 rounded-full px-4 py-1.5 mb-6">
+            className="inline-flex items-center gap-2 bg-card/60 border border-border/30 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
             <Icon className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs font-display font-semibold tracking-wider text-foreground/70 uppercase">
               {sector.name}
@@ -582,7 +582,7 @@ const SectorPage = () => {
             {...fade} transition={{ ...fade.transition, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-2 mb-10">
             {sector.chips.map((chip) => (
-              <div key={chip} className="flex items-center gap-1.5 bg-card/50 border border-border/30 rounded-full px-4 py-1.5">
+              <div key={chip} className="flex items-center gap-1.5 bg-card/50 border border-border/30 rounded-full px-4 py-2.5 md:py-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
                 <span className="text-xs font-medium text-foreground/80">{chip}</span>
               </div>

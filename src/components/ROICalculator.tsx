@@ -94,7 +94,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-brand-emerald/[0.08] border border-brand-emerald/20 rounded-full px-4 py-1.5 mb-6">
+          <div className="inline-flex items-center gap-2 bg-brand-emerald/[0.08] border border-brand-emerald/20 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
             <Calculator className="w-3.5 h-3.5 text-brand-emerald" />
             <span className="text-xs text-brand-emerald font-display font-semibold tracking-wide">
               Calculadora

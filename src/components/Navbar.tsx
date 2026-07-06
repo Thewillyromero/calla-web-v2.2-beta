@@ -180,11 +180,11 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-2xl border-t border-border/30 px-6 py-5 flex flex-col gap-1">
+        <div className="md:hidden bg-background border-t border-border/30 px-6 py-5 flex flex-col gap-1">
           {/* Nuestro equipo */}
           <button
             onClick={() => setMobileTeamOpen(!mobileTeamOpen)}
-            className="flex items-center justify-between py-2.5 text-sm font-medium text-white"
+            className="flex items-center justify-between py-3 min-h-[44px] text-sm font-medium text-white"
           >
             Nuestro equipo
             <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileTeamOpen ? "rotate-180" : ""}`} />
@@ -211,7 +211,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
           {/* Sectores */}
           <button
             onClick={() => setMobileSectorsOpen(!mobileSectorsOpen)}
-            className="flex items-center justify-between py-2.5 text-sm font-medium text-white"
+            className="flex items-center justify-between py-3 min-h-[44px] text-sm font-medium text-white"
           >
             Sectores
             <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${mobileSectorsOpen ? "rotate-180" : ""}`} />
@@ -235,13 +235,13 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
             </div>
           )}
 
-          <Link to="/resultados" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
+          <Link to="/resultados" className="py-3 min-h-[44px] text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Resultados
           </Link>
-          <Link to="/precios" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
+          <Link to="/precios" className="py-3 min-h-[44px] text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Precios
           </Link>
-          <Link to="/seguridad" className="py-2.5 text-sm font-medium text-white" onClick={() => setOpen(false)}>
+          <Link to="/seguridad" className="py-3 min-h-[44px] text-sm font-medium text-white" onClick={() => setOpen(false)}>
             Seguridad
           </Link>
           <Button
