@@ -85,10 +85,6 @@ export default async function handler(req: any, res: any) {
       console.error("Email notification failed:", mailError);
     }
 
-    if (body.debug === "cl4v3-interna") {
-      return res.status(200).json({ success: true, saved, mailed, mailError });
-    }
-
     if (!saved && !mailed) {
       return res.status(500).json({ error: "Error al procesar la solicitud." });
     }
