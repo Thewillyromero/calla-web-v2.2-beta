@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import avatarMiguel from "@/assets/avatars/miguel-santos.webp";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Quote, ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
@@ -38,7 +39,7 @@ const Results = () => {
       <Navbar onContact={() => setContactOpen(true)} />
 
       {/* Hero */}
-      <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6">
+      <section className="pt-28 sm:pt-32 pb-8 md:pb-10 px-5 md:px-6">
         <div className="container mx-auto text-center">
           <SectionFade>
             <p className="text-primary font-display text-xs tracking-[0.25em] uppercase mb-4 font-semibold">
@@ -57,35 +58,51 @@ const Results = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Caso real destacado — Edommo */}
-      <section className="py-14 md:py-20 px-5 md:px-6">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-12 md:py-16 px-5 md:px-6">
+        <div className="container mx-auto max-w-5xl">
           <SectionFade>
-            <div className="bg-card/40 border border-border/30 rounded-3xl p-8 md:p-12 text-center hover:border-border/50 transition-colors">
-              <p className="text-[11px] sm:text-xs font-display font-semibold tracking-[0.28em] uppercase text-white mb-8">
-                Caso real · Edommo Energía
-              </p>
-              <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8">
+            <div className="grid md:grid-cols-5 gap-4 md:gap-5">
+
+              {/* Tarjeta caso — cita grande */}
+              <div className="md:col-span-3 bg-card/40 border border-border/30 rounded-3xl p-8 md:p-10 flex flex-col hover:border-border/50 transition-colors duration-500 relative overflow-hidden">
+                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-brand-teal/[0.05] blur-[80px] pointer-events-none" />
+                <p className="text-[11px] font-display font-semibold tracking-[0.28em] uppercase text-white mb-6">
+                  Caso real · Edommo Energía
+                </p>
+                <blockquote className="font-display text-xl md:text-2xl font-semibold text-foreground leading-snug tracking-tight mb-8 flex-1">
+                  &ldquo;CALLA unificó todo: atiende, deriva a la sede correcta y agenda.&rdquo;
+                </blockquote>
+                <div className="flex items-center justify-between gap-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <img src={avatarMiguel} alt="Miguel Santos" className="w-11 h-11 rounded-full object-cover ring-1 ring-border/30" loading="lazy" />
+                    <div>
+                      <div className="text-base font-medium text-foreground">Miguel Santos</div>
+                      <div className="text-sm text-foreground/70">Director de Operaciones</div>
+                    </div>
+                  </div>
+                  <Link
+                    to="/caso/edommo"
+                    className="inline-flex items-center gap-2 text-sm font-display font-semibold text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Ver caso completo <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Tarjeta métricas — números grandes */}
+              <div className="md:col-span-2 bg-card/40 border border-border/30 rounded-3xl p-8 md:p-10 flex flex-col justify-between gap-6 hover:border-border/50 transition-colors duration-500">
                 {[
                   { value: "3", label: "sedes unificadas" },
-                  { value: "200", label: "llamadas al día" },
+                  { value: "200", label: "llamadas gestionadas al día" },
                   { value: "2", label: "puestos de recepción ahorrados" },
-                ].map((m) => (
-                  <div key={m.label}>
-                    <div className="font-display text-3xl md:text-5xl font-extrabold text-foreground tracking-tight mb-1.5">{m.value}</div>
-                    <div className="text-sm text-foreground/70 leading-snug">{m.label}</div>
+                ].map((m, i) => (
+                  <div key={m.label} className={i > 0 ? "pt-6 border-t border-border/20" : ""}>
+                    <div className="font-display text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-none mb-1.5">{m.value}</div>
+                    <div className="text-sm text-foreground/70">{m.label}</div>
                   </div>
                 ))}
               </div>
-              <blockquote className="text-base md:text-lg text-foreground/80 font-normal leading-relaxed max-w-2xl mx-auto mb-8">
-                &ldquo;CALLA unificó todo: atiende, deriva a la sede correcta y agenda.&rdquo;
-                <span className="block mt-2 text-sm text-foreground/60">— Miguel Santos, Director de Operaciones</span>
-              </blockquote>
-              <Link
-                to="/caso/edommo"
-                className="inline-flex items-center gap-2 text-sm font-display font-semibold text-primary hover:text-primary/80 transition-colors"
-              >
-                Ver caso completo <ArrowRight className="h-4 w-4" />
-              </Link>
+
             </div>
           </SectionFade>
         </div>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import ContactFormDialog from "@/components/ContactFormDialog";
 import { Volume2, Headphones, Clock, Lock, ArrowRight } from "lucide-react";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
 import agentOutbound from "@/assets/characters/agent-outbound.webp";
@@ -135,7 +137,9 @@ interface CallPlayerProps {
   onContact?: () => void;
 }
 
-const CallPlayer = ({ onContact }: CallPlayerProps) => (
+const CallPlayer = ({ onContact }: CallPlayerProps) => {
+  const [accessOpen, setAccessOpen] = useState(false);
+  return (
   <section className="py-20 md:py-32 px-5 md:px-6 relative overflow-hidden">
     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-border/10 to-transparent" />
     <div className="absolute bottom-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-brand-teal/[0.03] blur-[160px] pointer-events-none" />
@@ -152,7 +156,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
         <div className="inline-flex items-center gap-2 bg-primary/[0.06] border border-primary/15 rounded-full px-4 py-2.5 md:py-1.5 mb-6">
           <Headphones className="w-3.5 h-3.5 text-primary" />
           <span className="text-xs text-primary font-display font-semibold tracking-wide">
-            Escucha llamadas reales
+            Escucha a nuestros agentes
           </span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-5 tracking-tight leading-[1.1]">
@@ -160,7 +164,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
           <span className="text-gradient">escúchalo</span>
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-normal leading-relaxed">
-          Llamadas reales de clientes en España. Sin filtros, sin edición.
+          Grabaciones de demostración hechas por nuestro equipo con los agentes de CALLA. Sin edición.
           <br />
           <span className="text-foreground/70 text-sm">Acceso disponible bajo solicitud.</span>
         </p>
@@ -169,7 +173,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
       {/* Cards */}
       <div className="grid md:grid-cols-3 gap-4 md:gap-5 max-w-5xl mx-auto mb-10">
         {callSamples.map((call, i) => (
-          <CallCard key={call.id} call={call} onContact={() => onContact?.()} index={i} />
+          <CallCard key={call.id} call={call} onContact={() => setAccessOpen(true)} index={i} />
         ))}
       </div>
 
@@ -182,7 +186,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
         className="flex flex-col items-center gap-3"
       >
         <button
-          onClick={() => onContact?.()}
+          onClick={() => setAccessOpen(true)}
           className="inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-display font-semibold px-7 py-3.5 rounded-full text-sm transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5"
         >
           Solicitar acceso a las grabaciones
@@ -202,10 +206,20 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
         className="text-center text-sm text-muted-foreground/70 mt-8"
       >
         <Volume2 className="w-3 h-3 inline mr-1" />
-        Nombres de clientes anonimizados por privacidad · Grabaciones de campañas reales en España
+        Grabaciones de demostración realizadas por nuestro equipo con los agentes de CALLA
       </motion.p>
     </div>
+
+    <ContactFormDialog
+      open={accessOpen}
+      onOpenChange={setAccessOpen}
+      source="grabaciones"
+      title={<>Acceso a las <span className="text-gradient-blue">grabaciones</span></>}
+      description="Déjanos tus datos y te enviamos las grabaciones de demostración de nuestros agentes."
+      submitLabel="Solicitar acceso"
+    />
   </section>
-);
+  );
+};
 
 export default CallPlayer;

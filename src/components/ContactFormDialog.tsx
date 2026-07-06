@@ -13,9 +13,12 @@ interface ContactFormDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   source?: string;
+  title?: React.ReactNode;
+  description?: string;
+  submitLabel?: string;
 }
 
-const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFormDialogProps) => {
+const ContactFormDialog = ({ open, onOpenChange, source = "general", title, description, submitLabel }: ContactFormDialogProps) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
@@ -91,10 +94,10 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl font-display font-extrabold">
-                Solicita tu <span className="text-gradient-blue">demo</span>
+                {title ?? (<>Solicita tu <span className="text-gradient-blue">demo</span></>)}
               </DialogTitle>
               <DialogDescription className="text-muted-foreground">
-                Contacta con nosotros y analizamos tu caso de forma personalizada.
+                {description ?? "Contacta con nosotros y analizamos tu caso de forma personalizada."}
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
@@ -129,7 +132,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 </span>
               </label>
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar demo <ArrowRight className="ml-2 h-5 w-5" /></>}
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>{submitLabel ?? "Solicitar demo"} <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
               <p className="text-sm text-muted-foreground/75 text-center">Sin compromiso · Respuesta en &lt;24h</p>
             </form>
