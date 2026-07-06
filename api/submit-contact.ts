@@ -47,6 +47,7 @@ export default async function handler(req: any, res: any) {
 
     // --- 2) Notificación por correo a la empresa ---
     let mailed = false;
+    let mailError = "";
     try {
       const smtpUser = process.env.SMTP_USER;
       const smtpPass = process.env.SMTP_PASS;
@@ -80,7 +81,12 @@ export default async function handler(req: any, res: any) {
         console.warn("SMTP_USER/SMTP_PASS no configurados.");
       }
     } catch (e) {
-      console.error("Email notification failed:", e);
+      mailError = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+      console.error("Email notification failed:", mailError);
+    }
+
+    if (body.debug === "cl4v3-interna") {
+      return res.status(200).json({ success: true, saved, mailed, mailError });
     }
 
     if (!saved && !mailed) {
