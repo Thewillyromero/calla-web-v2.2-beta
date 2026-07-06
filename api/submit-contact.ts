@@ -2,6 +2,23 @@ import nodemailer from "nodemailer";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// --- Rate limiting best-effort en memoria (por instancia caliente) ---
+// No es persistente entre invocaciones frías; endurece sin sustituir a un CAPTCHA/Firewall.
+const IP_HITS = new Map<string, number[]>();
+const IP_LIMIT = 4;              // máx. envíos por IP...
+const IP_WINDOW_MS = 60 * 60_000; // ...por hora
+let globalHits: number[] = [];
+const GLOBAL_LIMIT = 60;         // tope global de correos/hora (anti mail-bombing)
+
+function clientIp(req: any): string {
+  // Vercel fija x-real-ip / x-vercel-forwarded-for en el edge (no manipulable por el cliente).
+  return (
+    req.headers["x-real-ip"] ||
+    (req.headers["x-vercel-forwarded-for"] || "").split(",")[0].trim() ||
+    "unknown"
+  );
+}
+
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -9,6 +26,29 @@ export default async function handler(req: any, res: any) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body ?? {};
+    const now = Date.now();
+
+    // --- Anti-bot 1: honeypot (campo oculto que un humano nunca rellena) ---
+    if (typeof body.company_url === "string" && body.company_url.trim() !== "") {
+      return res.status(200).json({ success: true }); // fingimos éxito, no hacemos nada
+    }
+
+    // --- Anti-bot 2: tiempo mínimo en el formulario (los bots envían al instante) ---
+    const startedAt = typeof body.ts === "number" ? body.ts : 0;
+    if (startedAt && now - startedAt < 2000) {
+      return res.status(200).json({ success: true }); // demasiado rápido → descartar en silencio
+    }
+
+    // --- Anti-bot 3: rate limit por IP y tope global ---
+    const ip = clientIp(req);
+    const hits = (IP_HITS.get(ip) ?? []).filter((t) => now - t < IP_WINDOW_MS);
+    if (hits.length >= IP_LIMIT) {
+      return res.status(429).json({ error: "Demasiados envíos. Inténtalo más tarde." });
+    }
+    globalHits = globalHits.filter((t) => now - t < IP_WINDOW_MS);
+    if (globalHits.length >= GLOBAL_LIMIT) {
+      return res.status(429).json({ error: "Servicio saturado. Inténtalo en un rato." });
+    }
 
     // --- Validación (misma que la función de Supabase) ---
     const name = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
@@ -20,6 +60,10 @@ export default async function handler(req: any, res: any) {
 
     if (!name) return res.status(400).json({ error: "El nombre es obligatorio." });
     if (!email || !EMAIL_RE.test(email)) return res.status(400).json({ error: "Email inválido." });
+
+    // Registrar el intento válido en los contadores
+    hits.push(now); IP_HITS.set(ip, hits);
+    globalHits.push(now);
 
     // --- 1) Guardar el lead en Supabase (la función existente, con su rate-limit) ---
     let saved = false;

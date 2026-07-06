@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,9 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [honeypot, setHoneypot] = useState("");
+  const openedAt = useRef<number>(Date.now());
+  useEffect(() => { if (open) openedAt.current = Date.now(); }, [open]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,6 +45,8 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       company: form.company.trim() || null,
       message: form.message.trim() || null,
       source,
+      company_url: honeypot,      // honeypot anti-bot (debe ir vacío)
+      ts: openedAt.current,       // marca de tiempo de apertura del formulario
     };
     try {
       // Producción: función de Vercel (guarda el lead y avisa por correo a la empresa)
@@ -101,6 +106,17 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-2">
+              {/* Honeypot anti-bot: oculto para humanos, invisible a lectores de pantalla */}
+              <input
+                type="text"
+                name="company_url"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+              />
               <div className="space-y-1.5">
                 <Label htmlFor="name">Nombre y apellidos *</Label>
                 <Input id="name" placeholder="Tu nombre y apellidos" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required className="bg-secondary/50 border-border/40" />
