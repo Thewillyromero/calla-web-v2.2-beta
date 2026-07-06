@@ -489,6 +489,15 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           </div>
                         </div>
 
+                        <label className="flex items-start gap-2.5 cursor-pointer">
+                          <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
+                          <span className="text-xs text-muted-foreground leading-relaxed text-left">
+                            He leído y acepto la{" "}
+                            <a href="/legal#privacidad" target="_blank" rel="noopener" className="text-primary hover:underline">política de privacidad</a>{" "}
+                            y consiento el tratamiento de mis datos para realizar la llamada de demostración. *
+                          </span>
+                        </label>
+
                         <Button
                           type="submit"
                           size="lg"

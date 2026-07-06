@@ -7,10 +7,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
-import LogoMarquee from "@/components/LogoMarquee";
+import SectorStrip from "@/components/SectorStrip";
 const CampaignResults = lazy(() => import("@/components/CampaignResults"));
 const CallPlayer = lazy(() => import("@/components/CallPlayer"));
-const Stats = lazy(() => import("@/components/Stats"));
 
 import { testimonials } from "@/data/testimonials";
 
@@ -59,16 +58,7 @@ const Results = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Logo Marquee */}
-      <LogoMarquee />
-
-      <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
-
-      {/* Animated Stats */}
-      <div className="bg-white/[0.03]">
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando estadísticas...</div>}>
-          <Stats />
-        </Suspense>
-      </div>
+      <SectorStrip />
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
@@ -97,26 +87,6 @@ const Results = () => {
               <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-4 tracking-tight text-foreground">
                 Lo que dicen <span className="text-gradient">nuestros clientes</span>
               </h2>
-              <div className="flex flex-wrap items-center justify-center gap-2.5 md:gap-4 mt-6">
-                {[{ label: "Google Reviews", rating: 4.9 }, { label: "Trustpilot", rating: 4.8 }, { label: "Clutch.co", rating: 5.0 }].map((b) => (
-                  <div key={b.label} className="bg-card/50 rounded-xl border border-border/30 px-3.5 md:px-5 py-2.5 md:py-3 flex items-center gap-2.5 md:gap-3">
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-sm font-bold text-foreground">{b.rating}</span>
-                        <TrustpilotStars rating={b.rating} size={14} />
-                      </div>
-                      <span className="text-[10px] text-foreground/65">{b.label}</span>
-                    </div>
-                  </div>
-                ))}
-                <div className="bg-card/50 rounded-xl border border-border/30 px-3.5 md:px-5 py-2.5 md:py-3 flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5" style={{ color: '#00b67a' }} />
-                  <div>
-                    <span className="text-xs font-semibold text-foreground block leading-tight">Verificado</span>
-                    <span className="text-[10px] text-foreground/65">Opiniones reales</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </SectionFade>
 

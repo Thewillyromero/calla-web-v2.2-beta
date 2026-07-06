@@ -102,7 +102,7 @@ const InboundTree = memo(() => (
     </div>
 
     <FooterNodes
-      byteDesc="Transcribe · Sentimiento · Métricas"
+      byteDesc="Transcribe · Motivos · Métricas"
       careDesc="Seguimiento post-interacción"
     />
   </div>

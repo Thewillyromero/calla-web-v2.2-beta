@@ -667,10 +667,10 @@ export const sectors: Sector[] = [
     name: "Salud",
     icon: Heart,
     tagline: "Tu clínica, siempre disponible para tus pacientes",
-    description: "CALLA gestiona citas, confirmaciones y seguimiento para clínicas, centros médicos y consultas. Sin perder una llamada, sin un no-show.",
+    description: "CALLA gestiona citas, confirmaciones y seguimiento para clínicas, centros médicos y consultas. En el sector sanitario, la activación incluye un protocolo reforzado de protección de datos (art. 9 RGPD).",
     heroTitle: "Tu clínica, sin llamadas perdidas ni",
     heroHighlight: "no-shows",
-    chips: ["Citas 24/7", "Cero no-shows", "Seguimiento post-consulta", "RGPD compliant"],
+    chips: ["Citas 24/7", "Menos no-shows", "Seguimiento post-consulta", "Protocolo sanitario RGPD"],
     painPoints: [
       {
         title: "No-shows que vacían la agenda",

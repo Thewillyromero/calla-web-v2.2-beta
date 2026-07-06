@@ -109,6 +109,14 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
                 <Label htmlFor="message">Mensaje *</Label>
                 <Textarea id="message" placeholder="Cuéntanos qué necesitas..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={3} required className="bg-secondary/50 border-border/40 resize-none" />
               </div>
+              <label className="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
+                <span className="text-xs text-muted-foreground leading-relaxed">
+                  He leído y acepto la{" "}
+                  <a href="/legal#privacidad" target="_blank" rel="noopener" className="text-primary hover:underline">política de privacidad</a>{" "}
+                  y consiento el tratamiento de mis datos para atender mi solicitud. *
+                </span>
+              </label>
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar información <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>

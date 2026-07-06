@@ -83,7 +83,7 @@ const tiers = [
       "Llamadas ilimitadas",
       "Squad completo personalizado",
       "Onboarding dedicado",
-      "SLA garantizado 99.9%",
+      "Disponibilidad objetivo del 99%",
       "Manager de cuenta dedicado",
       "Integraciones custom",
       "Multi-idioma y multi-sede",
@@ -98,8 +98,8 @@ const tiers = [
 const faqs = [
   { q: "¿Puedo cambiar de plan en cualquier momento?", a: "Sí, puedes subir o bajar de plan cuando quieras. Los cambios se aplican en el siguiente ciclo de facturación." },
   { q: "¿Qué pasa si supero el límite de llamadas?", a: "Te avisamos antes de llegar al límite. Las llamadas extra se facturan a tarifa reducida, sin cortes de servicio." },
-  { q: "¿Hay periodo de permanencia?", a: "No. Todos los planes son mensuales sin permanencia. Cancela cuando quieras." },
-  { q: "¿Cuánto tarda el setup?", a: "Menos de 30 minutos. Nuestro equipo configura todo por ti y te entrega tu agente listo para funcionar." },
+  { q: "¿Hay periodo de permanencia?", a: "No. Todos los planes son mensuales sin permanencia. Cancela cuando quieras avisando con 30 días de antelación." },
+  { q: "¿Cuánto tarda el setup?", a: "Tu agente queda operativo en la primera semana: lo configuramos por ti y lo validamos con más de 50 llamadas de prueba supervisadas antes de arrancar." },
 ];
 
 const cardVariants = (i: number) => ({

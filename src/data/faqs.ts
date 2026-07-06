@@ -21,7 +21,7 @@ export const faqs = [
   },
   {
     q: "¿Hay periodo de permanencia o compromiso?",
-    a: "No. Todos los planes son mensuales sin permanencia. Puedes cancelar, cambiar de plan o pausar en cualquier momento. Los cambios se aplican en el siguiente ciclo de facturación.",
+    a: "No. Todos los planes son mensuales sin permanencia. Puedes cancelar o cambiar de plan cuando quieras, avisando con 30 días de antelación. Los cambios se aplican en el siguiente ciclo de facturación.",
   },
   {
     q: "¿Cómo se integra CALLA con mis herramientas actuales?",
@@ -29,6 +29,6 @@ export const faqs = [
   },
   {
     q: "¿Qué métricas puedo ver sobre las llamadas?",
-    a: "Desde el plan Pro tienes acceso a BYTE, nuestro agente de analítica, que muestra en tiempo real: duración de llamadas, tasa de resolución, citas agendadas, sentimiento del cliente y horas pico. En Enterprise, los informes son totalmente personalizables.",
+    a: "Desde el plan Pro tienes acceso a BYTE, nuestro agente de analítica, que muestra en tiempo real: duración de llamadas, tasa de resolución, citas agendadas, motivos de llamada y horas pico. En Enterprise, los informes son totalmente personalizables.",
   },
 ];

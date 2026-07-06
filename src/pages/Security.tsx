@@ -16,7 +16,7 @@ const pillars = [
     hsl: "190 60% 55%",
     items: [
       "Cumplimiento total del Reglamento General de Protección de Datos",
-      "Acuerdo de procesamiento de datos (DPA) disponible para clientes Enterprise",
+      "Acuerdo de procesamiento de datos (DPA) incluido para todos los clientes",
       "Responsable del tratamiento identificado y documentado",
       "Registro de actividades de tratamiento siempre actualizado",
     ],
@@ -26,10 +26,10 @@ const pillars = [
     title: "Cifrado & Privacidad",
     hsl: "260 50% 65%",
     items: [
-      "Cifrado extremo a extremo en todas las comunicaciones de voz",
-      "Grabaciones almacenadas con cifrado AES-256 en reposo",
+      "Cifrado TLS en toda la cadena de comunicación de voz",
+      "En operación normal no se graba el audio; si el cliente activa la grabación, se almacena cifrada (AES-256) durante 1 mes",
       "Acceso restringido por roles — solo tu equipo autorizado",
-      "Retención de datos configurable según tus necesidades legales",
+      "Retención de datos con plazos definidos: transcripciones 30 días",
     ],
   },
   {
@@ -37,7 +37,7 @@ const pillars = [
     title: "Infraestructura",
     hsl: "35 70% 58%",
     items: [
-      "Servidores en Oracle Cloud, región Frankfurt (Alemania)",
+      "Servidores en Oracle Cloud, región de Madrid (España)",
       "SSL/TLS en todas las conexiones sin excepción",
       "Backups diarios automatizados con verificación de integridad",
       "Monitorización 24/7 con alertas automáticas en tiempo real",
@@ -55,10 +55,10 @@ const callFlow = [
 
 
 const metrics = [
-  { value: "2M+",  label: "Llamadas procesadas de forma segura" },
-  { value: "99.9%", label: "Uptime garantizado" },
-  { value: "0",    label: "Brechas de seguridad" },
-  { value: "100%", label: "Datos en servidores europeos" },
+  { value: "24/7", label: "Monitorización con alertas en tiempo real" },
+  { value: "99%",  label: "Disponibilidad objetivo del servicio" },
+  { value: "TLS",  label: "Cifrado en toda la cadena de comunicación" },
+  { value: "UE",   label: "Base de datos y automatizaciones en Europa" },
 ];
 
 const Security = () => {
@@ -153,7 +153,7 @@ const Security = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-2.5"
           >
-            {["RGPD Compliant", "Servidores en Europa", "Cifrado AES-256", "Monitorización 24/7"].map((chip) => (
+            {["RGPD Compliant", "Marco de Privacidad UE-EE. UU.", "Cifrado TLS", "Monitorización 24/7"].map((chip) => (
               <div key={chip} className="flex items-center gap-1.5 bg-card/50 border border-border/30 rounded-full px-4 py-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-brand-teal shrink-0" />
                 <span className="text-xs font-medium text-foreground/80">{chip}</span>
@@ -351,7 +351,7 @@ const Security = () => {
               {[
                 { text: "Vender los datos de tus clientes a terceros, bajo ningún concepto.", note: "Tu base de datos es solo tuya." },
                 { text: "Acceder a tus grabaciones sin autorización explícita y documentada.", note: "Acceso auditado y trazable." },
-                { text: "Procesar ni almacenar datos fuera de la Unión Europea.", note: "Frankfurt, Alemania. Sin excepciones." },
+                { text: "Tratar tus datos con proveedores que no estén en nuestra lista oficial de subencargados.", note: "Base de datos y automatizaciones en la UE; proveedores de voz e IA bajo el Marco de Privacidad de Datos UE-EE. UU. y acuerdos DPA." },
                 { text: "Conservar conversaciones más allá del período que tú configures.", note: "Retención bajo tu control." },
                 { text: "Compartir información con otras empresas sin un DPA firmado.", note: "Cumplimiento legal garantizado." },
               ].map((item, i) => (

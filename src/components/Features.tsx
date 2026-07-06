@@ -78,7 +78,7 @@ const features = [
     gradient: "linear-gradient(135deg, hsl(48 100% 62%), hsl(28 100% 60%), hsl(355 100% 65%))",
     expandedDetails: [
       "Dashboard de métricas en tiempo real",
-      "Transcripción y análisis de sentimiento de cada llamada",
+      "Transcripción y análisis de motivos de cada llamada",
       "Identifica patrones: horas pico, objeciones frecuentes, tasa de cierre",
       "Informes semanales automáticos",
     ],

@@ -236,7 +236,7 @@ const agentData: Record<string, AgentData> = {
     ],
     featureCards: [
       { title: "Transcripción automática", description: "Cada llamada queda transcrita y etiquetada al instante. Búsqueda por palabra clave, fecha o resultado. Toda la información accesible en segundos." },
-      { title: "Análisis de sentimiento", description: "Detecta el tono emocional de cada conversación. Sabe cuándo un cliente está insatisfecho antes de que lo diga y alerta a tu equipo a tiempo." },
+      { title: "Análisis de motivos", description: "Clasifica el motivo y el resultado de cada conversación. Detecta llamadas no resueltas o con incidencia y alerta a tu equipo a tiempo." },
       { title: "Detección de patrones", description: "Identifica qué preguntas se repiten, qué objeciones frenan ventas y en qué momentos del día se concentran las incidencias o las llamadas sin resolver." },
       { title: "Reportes ejecutivos", description: "Dashboards diarios, semanales y mensuales adaptados a tu negocio. Exportables a PDF, CSV o integrados directamente con tu herramienta de BI." },
       { title: "Alertas configurables", description: "Define umbrales: si la satisfacción baja del 80%, si hay llamadas sin atender acumuladas, o si un patrón inusual aparece. BYTE te avisa antes de que escale." },
@@ -248,14 +248,14 @@ const agentData: Record<string, AgentData> = {
       { time: "Campaña", title: "¿Por qué no convierte esta oferta?", scenario: "Lanzaste una campaña hace dos semanas. Hay llamadas, pero pocas ventas. No sabes si el problema es el precio, el mensaje o el perfil del cliente.", result: "BYTE analiza 200 conversaciones en minutos: el 67% menciona que el plazo de entrega es demasiado largo. Tienes la respuesta concreta para actuar." },
     ],
     useCases: [
-      { title: "Análisis de sentimiento", description: "Detecta el tono emocional de cada llamada y alerta sobre clientes insatisfechos." },
+      { title: "Análisis de motivos", description: "Clasifica motivo y resultado de cada llamada y alerta sobre incidencias no resueltas." },
       { title: "Reportes ejecutivos", description: "Genera dashboards diarios, semanales y mensuales con métricas clave." },
       { title: "Detección de oportunidades", description: "Identifica patrones de compra y sugiere acciones comerciales." },
       { title: "Control de calidad", description: "Evalúa cada interacción y genera scoring de satisfacción." },
     ],
     features: [
       "Dashboard en tiempo real personalizable",
-      "Análisis de sentimiento por IA",
+      "Análisis de motivos y resultados por IA",
       "Transcripción y resumen automático",
       "Alertas configurables por KPIs",
       "Exportación a CSV, PDF y API",

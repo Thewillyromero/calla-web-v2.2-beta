@@ -4,13 +4,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import Features from "@/components/Features";
-import LogoMarquee from "@/components/LogoMarquee";
-import { TrustpilotStars } from "@/components/TrustpilotStars";
+import SectorStrip from "@/components/SectorStrip";
 import SectionFade from "@/components/SectionFade";
 
 const DemoCall = lazy(() => import("@/components/DemoCall"));
-import FOMONotifications from "@/components/FOMONotifications";
-import LiveViewers from "@/components/LiveViewers";
 import { LiveMetricsProvider } from "@/contexts/LiveMetricsContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -76,7 +73,7 @@ const capabilities = [
   {
     title: "Agentes IA a medida y automatización de tus procesos",
     description: "Automatizamos los procesos internos de tu empresa y creamos agentes IA a medida para necesidades específicas.",
-    chips: ["CRM", "ERP", "Telegram", "Email", "API"],
+    chips: ["CRM", "ERP", "WhatsApp", "Telegram", "Email", "API"],
     hsl: "245 60% 62%",
     Icon: Network,
   },
@@ -269,7 +266,7 @@ const Index = () => {
         </section>
       </SectionFade>
 
-      <LogoMarquee />
+      <SectorStrip />
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
@@ -1238,11 +1235,7 @@ const Index = () => {
                     ))}
                   </div>
                   <div className="flex flex-col gap-0.5">
-                    <div className="flex items-center gap-2">
-                      <TrustpilotStars rating={4.9} size={16} />
-                      <span className="text-base font-semibold text-foreground">4.9</span>
-                    </div>
-                    <span className="text-sm text-foreground/70">+200 empresas confían en CALLA</span>
+                    <span className="text-sm text-foreground/70">Únete a las empresas que ya trabajan con CALLA</span>
                   </div>
                 </div>
               </motion.div>
@@ -1250,10 +1243,10 @@ const Index = () => {
               {/* Right — metrics */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "+200", label: "empresas activas" },
-                  { value: "2M+",  label: "llamadas gestionadas" },
-                  { value: "48h",  label: "hasta estar operativo" },
-                  { value: "4.9",  label: "valoración media" },
+                  { value: "24/7", label: "atención ininterrumpida" },
+                  { value: "1 sem.", label: "hasta estar operativo" },
+                  { value: "99%",  label: "disponibilidad objetivo" },
+                  { value: "RGPD", label: "cumplimiento europeo" },
                 ].map((m, i) => (
                   <motion.div
                     key={m.label}
@@ -1278,8 +1271,6 @@ const Index = () => {
 
       <Footer onContact={() => setContactOpen(true)} />
       <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="home" />
-      <FOMONotifications />
-      <LiveViewers />
     </div>
     </LiveMetricsProvider>
   );

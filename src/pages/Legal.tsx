@@ -259,7 +259,7 @@ const Privacidad = () => (
 
     <SectionTitle>6. Conservación de datos</SectionTitle>
     <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
-      <li><strong className="text-foreground/80">Datos de contacto sin relación contractual:</strong> 3 años desde el último contacto.</li>
+      <li><strong className="text-foreground/80">Solicitudes recibidas a través de la web:</strong> 1 año desde la solicitud. <strong className="text-foreground/80">Datos de contactos comerciales sin conversión:</strong> 24 meses desde el último contacto.</li>
       <li><strong className="text-foreground/80">Datos contractuales:</strong> durante la vigencia del contrato y, posteriormente, 6 años conforme al Código de Comercio y 4 años conforme a la normativa fiscal (Ley General Tributaria).</li>
       <li><strong className="text-foreground/80">Datos tratados por consentimiento:</strong> hasta que el interesado revoque su consentimiento.</li>
       <li><strong className="text-foreground/80">Grabaciones de llamadas:</strong> el plazo aplicable se indicará en el contrato de servicio correspondiente.</li>
