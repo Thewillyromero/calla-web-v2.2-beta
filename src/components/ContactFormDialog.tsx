@@ -8,6 +8,24 @@ import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import heroRobot from "@/assets/hero-robot.webp";
+import { TURNSTILE_SITE_KEY } from "@/lib/constants";
+
+// Carga el script de Turnstile una sola vez
+let turnstileScriptLoading: Promise<void> | null = null;
+function loadTurnstile(): Promise<void> {
+  if ((window as any).turnstile) return Promise.resolve();
+  if (turnstileScriptLoading) return turnstileScriptLoading;
+  turnstileScriptLoading = new Promise<void>((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    s.async = true;
+    s.defer = true;
+    s.onload = () => resolve();
+    s.onerror = () => reject(new Error("No se pudo cargar Turnstile"));
+    document.head.appendChild(s);
+  });
+  return turnstileScriptLoading;
+}
 
 interface ContactFormDialogProps {
   open: boolean;
@@ -24,7 +42,42 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
   const [honeypot, setHoneypot] = useState("");
   const openedAt = useRef<number>(Date.now());
+  const [captchaToken, setCaptchaToken] = useState("");
+  const captchaRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
+
   useEffect(() => { if (open) openedAt.current = Date.now(); }, [open]);
+
+  // Renderiza el widget de Turnstile al abrir el diálogo
+  useEffect(() => {
+    if (!open) return;
+    let cancelled = false;
+    loadTurnstile()
+      .then(() => {
+        const ts = (window as any).turnstile;
+        if (cancelled || !ts || !captchaRef.current || widgetId.current) return;
+        widgetId.current = ts.render(captchaRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setCaptchaToken(token),
+          "expired-callback": () => setCaptchaToken(""),
+          "error-callback": () => setCaptchaToken(""),
+        });
+      })
+      .catch(() => {/* si no carga, el resto de defensas (honeypot/IP) siguen activas */});
+    return () => {
+      cancelled = true;
+      const ts = (window as any).turnstile;
+      if (ts && widgetId.current) { try { ts.remove(widgetId.current); } catch {} }
+      widgetId.current = null;
+      setCaptchaToken("");
+    };
+  }, [open]);
+
+  const resetCaptcha = () => {
+    const ts = (window as any).turnstile;
+    if (ts && widgetId.current) { try { ts.reset(widgetId.current); } catch {} }
+    setCaptchaToken("");
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +90,10 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       toast.error("Por favor, introduce un email válido.");
       return;
     }
+    if (!captchaToken) {
+      toast.error("Un momento, estamos verificando que no eres un robot…");
+      return;
+    }
     setLoading(true);
     const payload = {
       name: form.name.trim(),
@@ -47,6 +104,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       source,
       company_url: honeypot,      // honeypot anti-bot (debe ir vacío)
       ts: openedAt.current,       // marca de tiempo de apertura del formulario
+      turnstileToken: captchaToken,
     };
     try {
       // Producción: función de Vercel (guarda el lead y avisa por correo a la empresa)
@@ -68,6 +126,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       setForm({ name: "", email: "", phone: "", company: "", message: "" });
     } catch {
       toast.error("Ha ocurrido un error. Inténtalo de nuevo.");
+      resetCaptcha();
     } finally {
       setLoading(false);
     }
@@ -147,6 +206,8 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
                   y consiento el tratamiento de mis datos para atender mi solicitud. *
                 </span>
               </label>
+              {/* Cloudflare Turnstile — verificación anti-bot */}
+              <div ref={captchaRef} className="flex justify-center min-h-[65px]" />
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>{submitLabel ?? "Solicitar demo"} <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>

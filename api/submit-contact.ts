@@ -39,8 +39,33 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ success: true }); // demasiado rápido → descartar en silencio
     }
 
-    // --- Anti-bot 3: rate limit por IP y tope global ---
+    // --- Anti-bot 3: Cloudflare Turnstile (verificación server-side) ---
     const ip = clientIp(req);
+    const secret = process.env.TURNSTILE_SECRET;
+    if (secret) {
+      const token = typeof body.turnstileToken === "string" ? body.turnstileToken : "";
+      if (!token) return res.status(400).json({ error: "Verificación de seguridad requerida." });
+      try {
+        const form = new URLSearchParams();
+        form.append("secret", secret);
+        form.append("response", token);
+        if (ip && ip !== "unknown") form.append("remoteip", ip);
+        const vr = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: form.toString(),
+        });
+        const outcome = await vr.json();
+        if (!outcome.success) {
+          return res.status(403).json({ error: "No hemos podido verificar que eres humano. Recarga e inténtalo de nuevo." });
+        }
+      } catch (e) {
+        console.error("Turnstile verify error:", e);
+        return res.status(502).json({ error: "Error verificando la seguridad. Inténtalo de nuevo." });
+      }
+    }
+
+    // --- Anti-bot 4: rate limit por IP y tope global ---
     const hits = (IP_HITS.get(ip) ?? []).filter((t) => now - t < IP_WINDOW_MS);
     if (hits.length >= IP_LIMIT) {
       return res.status(429).json({ error: "Demasiados envíos. Inténtalo más tarde." });
