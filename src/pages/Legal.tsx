@@ -124,11 +124,14 @@ const AvisoLegal = () => (
       digitales (LOPDGDD), se facilitan los siguientes datos identificativos:
     </P>
     <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-none">
-      <li><strong className="text-foreground/80">Denominación:</strong> CALLA (nombre comercial)</li>
+      <li><strong className="text-foreground/80">Denominación social:</strong> App Calla, S.L.</li>
+      <li><strong className="text-foreground/80">Nombre comercial:</strong> CALLA</li>
+      <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
+      <li><strong className="text-foreground/80">Domicilio social:</strong> Avenida Pérez Galdós 62, Piso 2, Puerta 10, 46008 Valencia</li>
+      <li><strong className="text-foreground/80">Registro Mercantil:</strong> Sociedad constituida e inscrita en el Registro Mercantil de Valencia (datos de inscripción —tomo, folio y hoja— pendientes de asignación registral).</li>
       <li><strong className="text-foreground/80">Actividad:</strong> Plataforma de agentes de inteligencia artificial para la automatización de comunicaciones y procesos empresariales</li>
-      <li><strong className="text-foreground/80">Email:</strong> hola@callao.app</li>
-      <li><strong className="text-foreground/80">Web:</strong> callao.app</li>
-      <li><strong className="text-foreground/80">NIF/CIF y domicilio:</strong> Datos registrales en proceso de inscripción. Este aviso se actualizará con los datos mercantiles completos una vez finalizado el proceso de constitución.</li>
+      <li><strong className="text-foreground/80">Email:</strong> contacto@appcalla.com</li>
+      <li><strong className="text-foreground/80">Web:</strong> appcalla.com</li>
     </ul>
 
     <SectionTitle>2. Objeto y ámbito de aplicación</SectionTitle>
@@ -201,9 +204,11 @@ const Privacidad = () => (
 
     <SectionTitle>1. Responsable del tratamiento</SectionTitle>
     <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-none">
-      <li><strong className="text-foreground/80">Responsable:</strong> CALLA (nombre comercial)</li>
-      <li><strong className="text-foreground/80">Email de contacto:</strong> hola@callao.app</li>
-      <li><strong className="text-foreground/80">Web:</strong> callao.app</li>
+      <li><strong className="text-foreground/80">Responsable:</strong> App Calla, S.L. (nombre comercial «CALLA»)</li>
+      <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
+      <li><strong className="text-foreground/80">Domicilio social:</strong> Avenida Pérez Galdós 62, Piso 2, Puerta 10, 46008 Valencia</li>
+      <li><strong className="text-foreground/80">Email de contacto:</strong> contacto@appcalla.com</li>
+      <li><strong className="text-foreground/80">Web:</strong> appcalla.com</li>
     </ul>
     <P>
       Esta política de privacidad se ha redactado conforme al Reglamento (UE) 2016/679 del
@@ -249,7 +254,7 @@ const Privacidad = () => (
       las garantías previstas en el RGPD, en particular mediante Cláusulas Contractuales
       Tipo (CCT) aprobadas por la Comisión Europea, o en países con decisión de adecuación
       reconocida. Puede solicitar información sobre las garantías concretas aplicables
-      escribiendo a hola@callao.app.
+      escribiendo a contacto@appcalla.com.
     </P>
 
     <SectionTitle>6. Conservación de datos</SectionTitle>
@@ -268,13 +273,13 @@ const Privacidad = () => (
       significativos sobre el interesado sin intervención humana, salvo que sea necesario para la
       ejecución de un contrato o exista consentimiento expreso, conforme al artículo 22 del RGPD.
       El interesado puede solicitar revisión humana de cualquier decisión automatizada escribiendo
-      a hola@callao.app.
+      a contacto@appcalla.com.
     </P>
 
     <SectionTitle>8. Derechos del interesado</SectionTitle>
     <P>
       Puede ejercer los siguientes derechos dirigiéndose a{" "}
-      <a href="mailto:hola@callao.app" className="text-primary hover:underline">hola@callao.app</a>,
+      <a href="mailto:contacto@appcalla.com" className="text-primary hover:underline">contacto@appcalla.com</a>,
       acompañando copia de su documento de identidad:
     </P>
     <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">

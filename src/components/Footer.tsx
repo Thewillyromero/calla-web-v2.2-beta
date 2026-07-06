@@ -20,11 +20,11 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
               Automatizamos y digitalizamos la comunicación y procesos de tu empresa.
             </p>
             <a
-              href="mailto:hola@callao.app"
+              href="mailto:contacto@appcalla.com"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-4 w-4 shrink-0" />
-              hola@callao.app
+              contacto@appcalla.com
             </a>
             <Link
               to="/seguridad"
@@ -70,7 +70,7 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
 
         <div className="border-t border-border/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground/70">
-            © 2026 CALLA. Todos los derechos reservados.
+            © 2026 App Calla, S.L. · CIF B88969308 · Todos los derechos reservados.
           </p>
           <button
             onClick={() => onContact?.()}
