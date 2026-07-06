@@ -13,4 +13,3 @@ bun dev          # arranca Vite en local
 bun run build    # build de producción
 ```
 
-> Proyecto generado con Lovable: puede regenerar/pisar cambios hechos a mano.
