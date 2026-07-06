@@ -7,6 +7,22 @@ import {
   PhoneCall, FileCheck2, RotateCcw,
 } from "lucide-react";
 
+
+const CTA_TITLES: Record<string, string> = {
+  automocion: "¿Listo para no perder ni una llamada en tu concesionario o taller?",
+  salud: "¿Listo para una clínica sin llamadas perdidas ni no-shows?",
+  inmobiliaria: "¿Listo para responder a cada comprador al momento?",
+  hosteleria: "¿Listo para llenar mesas y habitaciones sin vivir pendiente del teléfono?",
+  legal: "¿Listo para que tu despacho atienda cada consulta sin interrumpirte?",
+  energia: "¿Listo para absorber cada pico de llamadas sin ampliar plantilla?",
+  logistica: "¿Listo para reducir las entregas fallidas desde la primera semana?",
+  seguros: "¿Listo para renovar más pólizas sin perseguir a nadie?",
+  educacion: "¿Listo para no perder ni una matrícula por no coger el teléfono?",
+  turismo: "¿Listo para gestionar cada reserva, también en temporada alta?",
+  rrhh: "¿Listo para cribar a cientos de candidatos en horas y no en semanas?",
+  servicios: "¿Listo para que cada aviso llegue al técnico adecuado al instante?",
+};
+
 const CAPABILITY_ICONS: Record<string, typeof PhoneCall> = {
   "phone-call": PhoneCall,
   "calendar-check": CalendarCheck,
@@ -797,7 +813,7 @@ const SectorPage = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] rounded-full bg-primary/[0.04] blur-[80px] pointer-events-none" />
             <Icon className="h-8 w-8 text-primary mx-auto mb-6 relative z-10" />
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
-              ¿Listo para transformar tu {sector.name.toLowerCase()}?
+              {CTA_TITLES[sector.slug] ?? "¿Listo para dejar de perder llamadas?"}
             </h2>
             <p className="text-foreground/75 max-w-xl mx-auto text-base font-normal mb-2 relative z-10">
               Contacta con nosotros y te informamos de cómo CALLA te ayudaría en tu sector.

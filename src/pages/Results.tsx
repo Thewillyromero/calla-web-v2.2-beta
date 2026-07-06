@@ -158,8 +158,8 @@ const Results = () => {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <div className="text-base font-medium text-foreground truncate">{t.name}</div>
-                        <div className="text-sm text-foreground/75 truncate">{t.role}, {t.company}</div>
+                        <div className="text-base font-medium text-foreground leading-snug">{t.name}</div>
+                        <div className="text-sm text-foreground/75 leading-snug line-clamp-2">{t.role}, {t.company}</div>
                       </div>
                       <span className="text-[11px] uppercase tracking-wider text-foreground/75 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
                     </div>
