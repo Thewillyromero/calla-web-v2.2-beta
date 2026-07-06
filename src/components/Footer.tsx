@@ -16,7 +16,7 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
                 CA<span className="text-gradient-blue">LLA</span>
               </span>
             </Link>
-            <p className="text-sm text-foreground/80 font-light leading-relaxed max-w-xs mb-5">
+            <p className="text-sm text-foreground/80 font-normal leading-relaxed max-w-xs mb-5">
               Automatizamos y digitalizamos la comunicación y procesos de tu empresa.
             </p>
             <a
@@ -69,12 +69,12 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
         </div>
 
         <div className="border-t border-border/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground/70">
+          <p className="text-sm text-muted-foreground/70">
             © 2026 App Calla, S.L. · CIF B88969308 · Todos los derechos reservados.
           </p>
           <button
             onClick={() => onContact?.()}
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
           >
             Contacto →
           </button>

@@ -140,7 +140,7 @@ const CaseStudy = () => {
                   <div className="text-2xl md:text-3xl font-display font-bold text-gradient mb-1">
                     {m.value}{m.suffix}
                   </div>
-                  <div className="text-xs md:text-sm text-muted-foreground">{m.label}</div>
+                  <div className="text-sm md:text-sm text-muted-foreground">{m.label}</div>
                 </div>
               </FadeIn>
             ))}
@@ -218,7 +218,7 @@ const CaseStudy = () => {
                   <AnimatedNumber value={r.value} suffix={r.suffix} />
                   <div className="text-sm text-foreground/80 mt-3 font-medium">{r.label}</div>
                   {r.before && (
-                    <div className="text-xs text-muted-foreground mt-1 italic">({r.before})</div>
+                    <div className="text-sm text-muted-foreground mt-1 italic">({r.before})</div>
                   )}
                 </div>
               </FadeIn>

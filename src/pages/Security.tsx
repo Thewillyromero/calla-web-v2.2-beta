@@ -141,7 +141,7 @@ const Security = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-10"
+            className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-normal leading-relaxed mb-10"
           >
             Protegemos los datos de tu empresa y de tus clientes con los más altos estándares europeos. Sin excepciones.
           </motion.p>
@@ -178,7 +178,7 @@ const Security = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Tres capas de protección
             </h2>
-            <p className="text-foreground/60 font-light">Cada dato cubierto desde múltiples frentes.</p>
+            <p className="text-foreground/75 font-normal">Cada dato cubierto desde múltiples frentes.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -216,7 +216,7 @@ const Security = () => {
                     {pillar.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" style={{ color: `hsl(${pillar.hsl})` }} />
-                        <span className="text-sm text-foreground/75 font-light leading-relaxed">{item}</span>
+                        <span className="text-sm text-foreground/75 font-normal leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -247,7 +247,7 @@ const Security = () => {
             <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Cómo protegemos cada llamada
             </h2>
-            <p className="text-foreground/60 font-light">El ciclo completo de seguridad, de principio a fin.</p>
+            <p className="text-foreground/75 font-normal">El ciclo completo de seguridad, de principio a fin.</p>
           </motion.div>
 
           <div className="flex flex-wrap md:flex-nowrap items-start justify-center gap-3 md:gap-0">
@@ -309,7 +309,7 @@ const Security = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
                   <div className="text-4xl md:text-5xl font-display font-extrabold text-foreground mb-2">{m.value}</div>
-                  <p className="text-xs text-foreground/70 font-light leading-tight">{m.label}</p>
+                  <p className="text-xs text-foreground/70 font-normal leading-tight">{m.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -342,7 +342,7 @@ const Security = () => {
                 <h2 className="text-xl md:text-2xl font-display font-extrabold text-foreground tracking-tight">
                   Lo que CALLA nunca hará
                 </h2>
-                <p className="text-sm text-foreground/70 font-light mt-0.5">Compromisos contractuales, no solo palabras.</p>
+                <p className="text-sm text-foreground/70 font-normal mt-0.5">Compromisos contractuales, no solo palabras.</p>
               </div>
             </div>
 
@@ -371,7 +371,7 @@ const Security = () => {
                   </span>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm md:text-base text-foreground/85 font-medium leading-relaxed">{item.text}</p>
-                    <p className="text-xs text-foreground/65 font-light mt-0.5">{item.note}</p>
+                    <p className="text-xs text-foreground/75 font-normal mt-0.5">{item.note}</p>
                   </div>
                 </motion.div>
               ))}
@@ -379,8 +379,8 @@ const Security = () => {
 
             {/* Footer note */}
             <div className="px-8 md:px-12 py-5 border-t border-border/10 flex items-center gap-2">
-              <FileText className="h-3.5 w-3.5 text-foreground/50 shrink-0" />
-              <p className="text-xs text-foreground/60 font-light">
+              <FileText className="h-3.5 w-3.5 text-foreground/70 shrink-0" />
+              <p className="text-xs text-foreground/75 font-normal">
                 Estos compromisos forman parte del Acuerdo de Procesamiento de Datos (DPA) disponible para todos los clientes.
               </p>
             </div>
@@ -415,7 +415,7 @@ const Security = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
               ¿Tienes preguntas sobre seguridad?
             </h2>
-            <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-8 relative z-10">
+            <p className="text-foreground/75 max-w-xl mx-auto text-base font-normal mb-8 relative z-10">
               Nuestro equipo resuelve cualquier duda sobre protección de datos y cumplimiento normativo.
             </p>
             <button

@@ -67,7 +67,7 @@ const BlogPost = () => {
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-4 text-sm text-muted-foreground/60">
+            <div className="flex items-center gap-4 text-sm text-muted-foreground/75">
               <span>{post.date}</span>
               <span className="flex items-center gap-1">
                 <Clock className="h-3.5 w-3.5" />
@@ -101,7 +101,7 @@ const BlogPost = () => {
             <h3 className="text-xl sm:text-2xl font-display font-extrabold mb-3 tracking-tight">
               ¿Listo para no perder <span className="text-gradient">ni una llamada más</span>?
             </h3>
-            <p className="text-muted-foreground text-sm sm:text-base font-light mb-6 max-w-md mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-base font-normal mb-6 max-w-md mx-auto">
               Solicita una demo de 15 minutos y descubre cómo CALLA puede transformar la atención telefónica de tu negocio.
             </p>
             <Button

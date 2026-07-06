@@ -140,7 +140,7 @@ const Pricing = () => {
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] rounded-full bg-brand-teal/[0.04] blur-[100px]" />
         <div className="container mx-auto relative z-10">
           <div id="calculadora" className="scroll-mt-24">
-            <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando calculadora...</div>}>
+            <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando calculadora...</div>}>
               <ROICalculator onContact={() => setContactOpen(true)} />
             </Suspense>
           </div>
@@ -163,7 +163,7 @@ const Pricing = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-5 tracking-tight leading-[1.1]">
               Elige tu <span className="text-gradient">plan perfecto</span>
             </h1>
-            <p className="text-muted-foreground text-base md:text-lg font-light">
+            <p className="text-muted-foreground text-base md:text-lg font-normal">
               Sin permanencia. Sin sorpresas. Escala cuando lo necesites.
             </p>
 
@@ -240,14 +240,14 @@ const Pricing = () => {
                         <div className="flex flex-col gap-2">
                           {/* Paso 1 — Setup */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
-                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Puesta en marcha</span>
+                            <span className="text-[11px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Puesta en marcha</span>
                             <span className="text-sm font-semibold text-foreground">Presupuesto a medida</span>
                           </div>
                           {/* Separador */}
                           <div className="flex justify-center text-lg font-bold leading-none select-none" style={{ color: `hsl(${tier.hsl})` }}>+</div>
                           {/* Paso 2 — Cuota mensual */}
                           <div className="rounded-xl p-3" style={{ border: `1px solid hsl(${tier.hsl} / 0.25)`, background: `hsl(${tier.hsl} / 0.06)` }}>
-                            <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Cuota mensual</span>
+                            <span className="text-[11px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${tier.hsl})` }}>Cuota mensual</span>
                             {displayPrice === "Custom" ? (
                               <span className="text-2xl sm:text-3xl font-display font-extrabold text-gradient">A medida</span>
                             ) : (
@@ -284,7 +284,7 @@ const Pricing = () => {
                       )}
                     </div>
 
-                    <p className="text-sm text-foreground/85 mb-5 sm:mb-6 font-light leading-relaxed">{tier.description}</p>
+                    <p className="text-sm text-foreground/85 mb-5 sm:mb-6 font-normal leading-relaxed">{tier.description}</p>
 
                     <Button
                       size="lg"
@@ -347,7 +347,7 @@ const Pricing = () => {
                   {faq.q}
                   <span className="text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl ml-4 shrink-0">+</span>
                 </summary>
-                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-muted-foreground font-light leading-relaxed">
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-muted-foreground font-normal leading-relaxed">
                   {faq.a}
                 </div>
               </motion.details>

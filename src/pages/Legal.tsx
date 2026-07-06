@@ -98,7 +98,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 const P = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-sm text-muted-foreground font-light leading-relaxed mb-3">
+  <p className="text-base text-foreground/80 font-normal leading-relaxed mb-3">
     {children}
   </p>
 );
@@ -123,7 +123,7 @@ const AvisoLegal = () => (
       3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos
       digitales (LOPDGDD), se facilitan los siguientes datos identificativos:
     </P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-none">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-none">
       <li><strong className="text-foreground/80">Denominación social:</strong> App Calla, S.L.</li>
       <li><strong className="text-foreground/80">Nombre comercial:</strong> CALLA</li>
       <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
@@ -157,7 +157,7 @@ const AvisoLegal = () => (
       El usuario se compromete a utilizar este sitio web de conformidad con la ley, el presente
       aviso legal, las buenas costumbres y el orden público. En particular, queda prohibido:
     </P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li>Utilizar el sitio con fines ilícitos o contrarios a las presentes condiciones.</li>
       <li>Reproducir, copiar o explotar comercialmente los contenidos sin autorización.</li>
       <li>Introducir virus, malware o cualquier código dañino.</li>
@@ -203,7 +203,7 @@ const Privacidad = () => (
     <P>Última actualización: mayo de 2026</P>
 
     <SectionTitle>1. Responsable del tratamiento</SectionTitle>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-none">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-none">
       <li><strong className="text-foreground/80">Responsable:</strong> App Calla, S.L. (nombre comercial «CALLA»)</li>
       <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
       <li><strong className="text-foreground/80">Domicilio social:</strong> Avenida Pérez Galdós 62, Piso 2, Puerta 10, 46008 Valencia</li>
@@ -219,7 +219,7 @@ const Privacidad = () => (
 
     <SectionTitle>2. Datos recabados y finalidad del tratamiento</SectionTitle>
     <P>Los datos personales recabados a través de este sitio web se tratan con las siguientes finalidades:</P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li>Gestión de consultas, solicitudes de información y contacto comercial.</li>
       <li>Prestación, gestión y facturación de los servicios contratados.</li>
       <li>Envío de comunicaciones comerciales sobre nuestros productos y servicios (solo con consentimiento previo y expreso).</li>
@@ -227,7 +227,7 @@ const Privacidad = () => (
     </ul>
 
     <SectionTitle>3. Base legal del tratamiento</SectionTitle>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li><strong className="text-foreground/80">Consentimiento del interesado</strong> — art. 6.1.a RGPD: para el envío de comunicaciones comerciales y el uso de cookies no esenciales.</li>
       <li><strong className="text-foreground/80">Ejecución de un contrato</strong> — art. 6.1.b RGPD: para la prestación de los servicios contratados y medidas precontractuales.</li>
       <li><strong className="text-foreground/80">Cumplimiento de obligación legal</strong> — art. 6.1.c RGPD: cuando la normativa fiscal, laboral o mercantil así lo exija.</li>
@@ -240,7 +240,7 @@ const Privacidad = () => (
       encargados del tratamiento que actúan bajo nuestras instrucciones y con las garantías
       adecuadas, en particular:
     </P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li>Proveedores de infraestructura cloud y bases de datos (alojamiento de la plataforma).</li>
       <li>Herramientas de comunicación y CRM para la gestión de clientes.</li>
       <li>Proveedores de servicios de inteligencia artificial para el procesamiento de conversaciones.</li>
@@ -258,7 +258,7 @@ const Privacidad = () => (
     </P>
 
     <SectionTitle>6. Conservación de datos</SectionTitle>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li><strong className="text-foreground/80">Solicitudes recibidas a través de la web:</strong> 1 año desde la solicitud. <strong className="text-foreground/80">Datos de contactos comerciales sin conversión:</strong> 24 meses desde el último contacto.</li>
       <li><strong className="text-foreground/80">Datos contractuales:</strong> durante la vigencia del contrato y, posteriormente, 6 años conforme al Código de Comercio y 4 años conforme a la normativa fiscal (Ley General Tributaria).</li>
       <li><strong className="text-foreground/80">Datos tratados por consentimiento:</strong> hasta que el interesado revoque su consentimiento.</li>
@@ -282,7 +282,7 @@ const Privacidad = () => (
       <a href="mailto:contacto@appcalla.com" className="text-primary hover:underline">contacto@appcalla.com</a>,
       acompañando copia de su documento de identidad:
     </P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li><strong className="text-foreground/80">Acceso:</strong> conocer qué datos personales tratamos sobre usted.</li>
       <li><strong className="text-foreground/80">Rectificación:</strong> corregir datos inexactos o completar los incompletos.</li>
       <li><strong className="text-foreground/80">Supresión («derecho al olvido»):</strong> solicitar la eliminación de sus datos cuando ya no sean necesarios.</li>
@@ -374,7 +374,7 @@ const Cookies = () => (
       Puede configurar su navegador para bloquear o eliminar las cookies en cualquier momento.
       Instrucciones por navegador:
     </P>
-    <ul className="text-sm text-muted-foreground font-light leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
+    <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-disc list-inside">
       <li>
         <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
           Google Chrome

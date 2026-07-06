@@ -32,7 +32,7 @@ const CTA = ({ onContact }: { onContact?: () => void }) => {
                     <TextReveal delay={0.1}>hoy mismo</TextReveal>
                   </span>
                 </h2>
-                <p className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8 font-light max-w-md">
+                <p className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8 font-normal max-w-md">
                   En menos de 30 minutos, puedes tener un asistente virtual gestionando todas tus llamadas y citas.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">

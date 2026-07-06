@@ -110,7 +110,7 @@ const Navbar = ({ onContact }: NavbarProps = {}) => {
                       <Icon className="h-4 w-4 shrink-0" style={{ color: `hsl(${a.hsl})` }} />
                       <div>
                         <span className="font-semibold text-white">{a.name}</span>
-                        <span className="text-foreground/60 ml-1.5">{a.subtitle}</span>
+                        <span className="text-foreground/75 ml-1.5">{a.subtitle}</span>
                       </div>
                     </Link>
                   );

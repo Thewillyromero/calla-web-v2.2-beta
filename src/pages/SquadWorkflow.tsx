@@ -129,7 +129,7 @@ const SquadWorkflow = () => {
                   sincronía
                 </span>
               </h1>
-              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-8 whitespace-pre-line">
+              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-normal mb-8 whitespace-pre-line">
                 {"HALO mantiene al equipo unido: coordina los 5 agentes base y sincroniza cualquier agente personalizado que desarrollemos específicamente para tu empresa.\n\nCon HALO, cada pieza encaja."}
               </p>
               <div
@@ -190,7 +190,7 @@ const SquadWorkflow = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight tracking-tight">
                   Todo coordinado.<br />En tiempo real.
                 </h2>
-                <p className="text-foreground/60 font-light leading-relaxed max-w-md mx-auto">
+                <p className="text-foreground/75 font-normal leading-relaxed max-w-md mx-auto">
                   Cinco agentes trabajando como uno solo. HALO decide en cada momento qué agente actúa y con qué información. El cliente no percibe ninguna transición.
                 </p>
               </div>
@@ -209,7 +209,7 @@ const SquadWorkflow = () => {
                       <span className="font-display font-extrabold text-base" style={{ color: `hsl(${haloHsl})` }}>{s.step}</span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{s.description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{s.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -307,7 +307,7 @@ const SquadWorkflow = () => {
                     <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                     <div>
                       <h3 className="font-display font-semibold text-lg text-foreground mb-2">{fc.title}</h3>
-                      <p className="text-base text-foreground/60 font-light leading-relaxed">{fc.description}</p>
+                      <p className="text-base text-foreground/75 font-normal leading-relaxed">{fc.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -328,7 +328,7 @@ const SquadWorkflow = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
                 Un día con HALO
               </h2>
-              <p className="text-foreground/55 font-light max-w-md mx-auto">
+              <p className="text-foreground/70 font-normal max-w-md mx-auto">
                 HALO no es un agente que ves: es el sistema que hace que todos los demás funcionen sin fisuras.
               </p>
             </motion.div>
@@ -348,7 +348,7 @@ const SquadWorkflow = () => {
                   <h3 className="font-display font-bold text-base md:text-lg text-foreground mb-3 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-foreground/60 font-light leading-relaxed mb-5 text-sm flex-1">
+                  <p className="text-foreground/75 font-normal leading-relaxed mb-5 text-sm flex-1">
                     {s.description}
                   </p>
                   <div className="rounded-2xl p-4 flex items-start gap-3"
@@ -397,7 +397,7 @@ const SquadWorkflow = () => {
                     <TrustpilotStars rating={5} size={16} />
                     <CheckCircle2 className="w-4 h-4" style={{ color: `hsl(${haloHsl} / 0.45)` }} />
                   </div>
-                  <blockquote className="text-sm text-foreground/80 leading-relaxed mb-4 flex-1 font-light">
+                  <blockquote className="text-sm text-foreground/80 leading-relaxed mb-4 flex-1 font-normal">
                     <Quote className="inline h-3.5 w-3.5 mr-1 -mt-1" style={{ color: `hsl(${haloHsl} / 0.35)` }} />
                     {t.quote}
                   </blockquote>
@@ -407,7 +407,7 @@ const SquadWorkflow = () => {
                   </span>
                   <div className="h-px bg-border/20 mb-3" />
                   <p className="text-sm font-medium text-foreground">{t.name}</p>
-                  <p className="text-xs text-foreground/55">{t.role}</p>
+                  <p className="text-xs text-foreground/70">{t.role}</p>
                 </motion.div>
               ))}
             </div>

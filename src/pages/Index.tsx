@@ -291,7 +291,7 @@ const Index = () => {
                 Todo lo que hacemos{" "}
                 <span className="text-gradient">por tu empresa</span>
               </h2>
-              <p className="text-foreground/70 max-w-lg text-base font-light">
+              <p className="text-foreground/70 max-w-lg text-base font-normal">
                 Un ecosistema completo. Cinco líneas de acción, un solo sistema.
               </p>
             </motion.div>
@@ -308,7 +308,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(190 60% 55% / 0.25)", background: "hsl(190 60% 55% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[0].description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[0].description}</p>
                   </div>
                   <div className="flex gap-2 px-5 pb-3">
                     {(["entrante", "saliente", "campana"] as const).map((tab) => {
@@ -335,13 +335,13 @@ const Index = () => {
                           <div className="flex items-center gap-2 mb-3">
                             <motion.div className="w-2.5 h-2.5 rounded-full bg-red-500" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
                             <span className="text-xs font-bold tracking-wider" style={{ color: "hsl(190 60% 55%)" }}>EN LLAMADA · ARIA</span>
-                            <motion.span className="ml-auto text-xs font-mono font-bold text-foreground/50" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2.2, repeat: Infinity }}>00:02:34</motion.span>
+                            <motion.span className="ml-auto text-xs font-mono font-bold text-foreground/70" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2.2, repeat: Infinity }}>00:02:34</motion.span>
                           </div>
                           <div className="flex items-center gap-3 mb-3">
                             <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0" style={{ background: "hsl(190 60% 55% / 0.2)", color: "hsl(190 60% 55%)" }}>CM</div>
                             <div>
                               <p className="text-sm font-semibold text-foreground">Carlos Martínez</p>
-                              <p className="text-xs text-foreground/50">647 XXX XXX · Entrante</p>
+                              <p className="text-xs text-foreground/70">647 XXX XXX · Entrante</p>
                             </div>
                           </div>
                           <div className="flex items-end gap-[3px] h-[30px] mb-3">
@@ -358,13 +358,13 @@ const Index = () => {
                             <div className="flex items-center gap-1.5 px-3 py-1.5 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.12)" }}>
                               <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
                                 animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }} />
-                              <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Transcripción en vivo</span>
+                              <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Transcripción en vivo</span>
                             </div>
                             <div className="flex flex-col gap-2 p-2.5 flex-1 justify-end">
                               {/* ARIA */}
                               <motion.div className="flex gap-2 items-end"
                                 initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-                                <span className="text-[9px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
+                                <span className="text-[11px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
                                 <div className="rounded-2xl rounded-bl-sm px-3 py-1.5 text-xs text-foreground/85 leading-snug" style={{ background: "hsl(190 60% 55% / 0.18)" }}>
                                   Buenos días, CALLA. ¿En qué puedo ayudarle?
                                 </div>
@@ -375,12 +375,12 @@ const Index = () => {
                                 <div className="rounded-2xl rounded-br-sm px-3 py-1.5 text-xs text-foreground/75 leading-snug" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.2)" }}>
                                   Buenas, me gustaría implementar vuestros servicios en mi empresa.
                                 </div>
-                                <span className="text-[9px] font-extrabold shrink-0 mb-1 text-foreground/35">CM</span>
+                                <span className="text-[11px] font-extrabold shrink-0 mb-1 text-foreground/70">CM</span>
                               </motion.div>
                               {/* ARIA typing */}
                               <motion.div className="flex gap-2 items-end"
                                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
-                                <span className="text-[9px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
+                                <span className="text-[11px] font-extrabold shrink-0 mb-1" style={{ color: "hsl(190 60% 65%)" }}>ARIA</span>
                                 <div className="rounded-2xl rounded-bl-sm px-3 py-2 flex gap-1 items-center" style={{ background: "hsl(190 60% 55% / 0.18)" }}>
                                   {[0, 0.18, 0.36].map((d, i) => (
                                     <motion.div key={i} className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 65%)" }}
@@ -404,7 +404,7 @@ const Index = () => {
                             <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0" style={{ background: "hsl(190 60% 55% / 0.2)", color: "hsl(190 60% 55%)" }}>MP</div>
                             <div>
                               <p className="text-sm font-semibold text-foreground">María Pérez</p>
-                              <p className="text-xs text-foreground/50">612 XXX XXX · Saliente</p>
+                              <p className="text-xs text-foreground/70">612 XXX XXX · Saliente</p>
                             </div>
                             <div className="flex-1 flex items-center justify-center gap-2.5">
                               {[0, 0.2, 0.4, 0.6].map((d, i) => (
@@ -421,9 +421,9 @@ const Index = () => {
                               <div className="flex items-center gap-1.5">
                                 <motion.div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(190 60% 55%)" }}
                                   animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
-                                <span className="text-[9px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Próximas llamadas</span>
+                                <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: "hsl(190 60% 55% / 0.8)" }}>Próximas llamadas</span>
                               </div>
-                              <span className="text-[9px] text-foreground/40 font-mono">2 pendientes</span>
+                              <span className="text-[11px] text-foreground/70 font-mono">2 pendientes</span>
                             </div>
                             <div className="flex flex-col justify-around flex-1 px-3 py-2">
                               {[
@@ -433,12 +433,12 @@ const Index = () => {
                                 <motion.div key={c.name} className="flex items-center gap-2.5 rounded-lg px-2.5 py-2.5"
                                   style={{ background: i === 0 ? "hsl(190 60% 55% / 0.12)" : "transparent", border: `1px solid hsl(190 60% 55% / ${i === 0 ? "0.25" : "0.08"})` }}
                                   initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}>
-                                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0" style={{ background: "hsl(190 60% 55% / 0.15)", color: "hsl(190 60% 55%)" }}>{c.initials}</div>
+                                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0" style={{ background: "hsl(190 60% 55% / 0.15)", color: "hsl(190 60% 55%)" }}>{c.initials}</div>
                                   <div className="flex-1 min-w-0">
                                     <p className="text-xs font-semibold text-foreground truncate">{c.name}</p>
-                                    <p className="text-[9px] text-foreground/40">{c.phone}</p>
+                                    <p className="text-[11px] text-foreground/70">{c.phone}</p>
                                   </div>
-                                  <span className="text-[9px] font-semibold shrink-0" style={{ color: i === 0 ? "hsl(145 60% 50%)" : "hsl(190 60% 55% / 0.5)" }}>{c.label}</span>
+                                  <span className="text-[11px] font-semibold shrink-0" style={{ color: i === 0 ? "hsl(145 60% 50%)" : "hsl(190 60% 55% / 0.5)" }}>{c.label}</span>
                                 </motion.div>
                               ))}
                             </div>
@@ -459,7 +459,7 @@ const Index = () => {
                           {/* Progress */}
                           <div className="px-4 py-2.5 border-b" style={{ borderColor: "hsl(190 60% 55% / 0.1)" }}>
                             <div className="flex justify-between mb-1.5">
-                              <span className="text-xs text-foreground/50">47 de 150 leads</span>
+                              <span className="text-xs text-foreground/70">47 de 150 leads</span>
                               <span className="text-xs font-bold" style={{ color: "hsl(190 60% 55%)" }}>31%</span>
                             </div>
                             <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: "hsl(190 60% 55% / 0.15)" }}>
@@ -490,7 +490,7 @@ const Index = () => {
                             {[{ label: "Contactados", val: "47" }, { label: "Interesados", val: "18" }, { label: "Cerrados", val: "6" }].map(({ label, val }) => (
                               <div key={label} className="rounded-xl p-2.5 text-center" style={{ background: "hsl(190 60% 55% / 0.08)", border: "1px solid hsl(190 60% 55% / 0.18)" }}>
                                 <p className="text-base font-bold text-foreground">{val}</p>
-                                <p className="text-[9px] text-foreground/45">{label}</p>
+                                <p className="text-[11px] text-foreground/70">{label}</p>
                               </div>
                             ))}
                           </div>
@@ -506,7 +506,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(160 50% 48% / 0.25)", background: "hsl(160 50% 48% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[1].description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[1].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col h-[240px]"
                     style={{ background: "hsl(160 50% 48% / 0.08)", border: "1px solid hsl(160 50% 48% / 0.15)" }}>
@@ -543,7 +543,7 @@ const Index = () => {
                           <p className="text-xs font-semibold flex-1 truncate" style={{ color: appt.done ? "hsl(0 0% 50%)" : "hsl(0 0% 95%)" }}>{appt.name}</p>
                           {appt.done && <span className="text-xs font-bold shrink-0" style={{ color: "hsl(160 50% 48% / 0.5)" }}>✓</span>}
                           {appt.next && (
-                            <motion.span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
+                            <motion.span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full shrink-0"
                               style={{ background: "hsl(160 50% 48% / 0.2)", color: "hsl(160 50% 48%)" }}
                               animate={{ opacity: [0.7, 1, 0.7] }} transition={{ duration: 1.8, repeat: Infinity }}>
                               PRÓXIMA
@@ -560,12 +560,12 @@ const Index = () => {
                         <span className="text-base shrink-0">📅</span>
                         <div>
                           <p className="text-sm font-bold text-foreground">Cita agendada automáticamente</p>
-                          <p className="text-xs text-foreground/50">Mañana · 10:30 · Recordatorio enviado</p>
+                          <p className="text-xs text-foreground/70">Mañana · 10:30 · Recordatorio enviado</p>
                         </div>
                       </motion.div>
                       <div className="flex gap-2 justify-center">
                         {["Google Calendar", "Calendly", "Apple Calendar"].map(chip => (
-                          <span key={chip} className="px-2.5 py-1 rounded-full text-[10px] font-semibold"
+                          <span key={chip} className="px-2.5 py-1 rounded-full text-[11px] font-semibold"
                             style={{ background: "hsl(160 50% 48% / 0.1)", color: "hsl(160 50% 48%)", border: "1px solid hsl(160 50% 48% / 0.25)" }}>
                             {chip}
                           </span>
@@ -584,7 +584,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(35 70% 58% / 0.25)", background: "hsl(35 70% 58% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[3].description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[3].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl overflow-hidden flex flex-col"
                     style={{ background: "hsl(35 70% 58% / 0.05)", border: "1px solid hsl(35 70% 58% / 0.18)", minHeight: "200px" }}>
@@ -595,13 +595,13 @@ const Index = () => {
                           animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
                         <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "hsl(35 70% 58%)" }}>Panel CALLA · En vivo</span>
                       </div>
-                      <span className="text-xs text-foreground/35 font-mono">09:41</span>
+                      <span className="text-xs text-foreground/70 font-mono">09:41</span>
                     </div>
                     {/* Body: 2 columns */}
                     <div className="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: "hsl(35 70% 58% / 0.12)" }}>
                       {/* Left: activity feed */}
                       <div className="flex flex-col gap-1.5 px-4 py-3">
-                        <p className="text-[9px] font-bold text-foreground/40 uppercase tracking-widest mb-0.5">Actividad reciente</p>
+                        <p className="text-[11px] font-bold text-foreground/70 uppercase tracking-widest mb-0.5">Actividad reciente</p>
                         {[
                           { icon: "📞", text: "Llamada entrante resuelta", sub: "hace 1 min · ARIA", ok: true },
                           { icon: "📅", text: "Cita agendada · Clínica Norte", sub: "hace 3 min · LUMI", ok: true },
@@ -616,7 +616,7 @@ const Index = () => {
                             <span className="text-sm shrink-0">{item.icon}</span>
                             <div className="flex-1 min-w-0">
                               <p className="text-xs font-semibold text-foreground truncate">{item.text}</p>
-                              <p className="text-[10px] text-foreground/40 truncate">{item.sub}</p>
+                              <p className="text-[11px] text-foreground/70 truncate">{item.sub}</p>
                             </div>
                             <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: item.ok ? "hsl(145 60% 50%)" : "hsl(35 90% 60%)" }} />
                           </motion.div>
@@ -624,7 +624,7 @@ const Index = () => {
                       </div>
                       {/* Right: KPIs grid */}
                       <div className="flex flex-col px-4 py-3 gap-3">
-                        <p className="text-[9px] font-bold text-foreground/40 uppercase tracking-widest">Métricas clave</p>
+                        <p className="text-[11px] font-bold text-foreground/70 uppercase tracking-widest">Métricas clave</p>
                         <div className="grid grid-cols-3 gap-2">
                           {[
                             { label: "Llamadas hoy", val: "247", trend: "↑12%" },
@@ -637,8 +637,8 @@ const Index = () => {
                             <div key={label} className="rounded-xl p-2.5 flex flex-col"
                               style={{ background: "hsl(35 70% 58% / 0.08)", border: "1px solid hsl(35 70% 58% / 0.18)" }}>
                               <p className="text-base font-bold text-foreground leading-none">{val}</p>
-                              <p className="text-[9px] text-foreground/45 mt-1 leading-tight">{label}</p>
-                              <span className="text-[9px] font-bold mt-0.5" style={{ color: "hsl(35 70% 58%)" }}>{trend}</span>
+                              <p className="text-[11px] text-foreground/70 mt-1 leading-tight">{label}</p>
+                              <span className="text-[11px] font-bold mt-0.5" style={{ color: "hsl(35 70% 58%)" }}>{trend}</span>
                             </div>
                           ))}
                         </div>
@@ -657,7 +657,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(245 60% 62% / 0.25)", background: "hsl(245 60% 62% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[2].description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[2].description}</p>
                   </div>
                   <div className="flex-1 px-3 pb-4 min-h-[220px] flex items-center justify-center">
                     <svg viewBox="0 0 280 220" className="w-full h-full">
@@ -723,7 +723,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(340 55% 60% / 0.25)", background: "hsl(340 55% 60% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed">{capabilities[4].description}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[4].description}</p>
                   </div>
                   <div className="flex-1 px-4 pb-4 flex flex-col gap-2 min-h-[200px]">
                     {[
@@ -733,15 +733,15 @@ const Index = () => {
                     ].map((c) => (
                       <div key={c.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5"
                         style={{ background: "hsl(340 55% 60% / 0.06)", border: "1px solid hsl(340 55% 60% / 0.12)" }}>
-                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0"
+                        <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0"
                           style={{ background: `hsl(${c.sc} / 0.15)`, color: `hsl(${c.sc})` }}>
                           {c.name.split(" ").map(n => n[0]).join("")}
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-semibold text-foreground truncate">{c.name}</p>
-                          <p className="text-[10px] text-foreground/50 truncate">{c.info}</p>
+                          <p className="text-[11px] text-foreground/70 truncate">{c.info}</p>
                         </div>
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0"
+                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full shrink-0"
                           style={{ background: `hsl(${c.sc} / 0.12)`, color: `hsl(${c.sc})`, border: `1px solid hsl(${c.sc} / 0.3)` }}>
                           {c.status}
                         </span>
@@ -757,18 +757,18 @@ const Index = () => {
                         </div>
                       </div>
                       <div className="rounded-xl p-2.5" style={{ background: "hsl(340 55% 60% / 0.08)", border: "1px solid hsl(340 55% 60% / 0.2)" }}>
-                        <p className="text-[10px] text-foreground/50">Activos</p>
+                        <p className="text-[11px] text-foreground/70">Activos</p>
                         <p className="text-base font-bold text-foreground">124</p>
                       </div>
                       <div className="rounded-xl p-2.5" style={{ background: "hsl(340 55% 60% / 0.08)", border: "1px solid hsl(340 55% 60% / 0.2)" }}>
-                        <p className="text-[10px] text-foreground/50">Satisfacción</p>
+                        <p className="text-[11px] text-foreground/70">Satisfacción</p>
                         <div className="flex gap-0.5 mt-0.5">
                           {[1,2,3,4].map(s => <span key={s} className="text-xs" style={{ color: "hsl(340 55% 60%)" }}>★</span>)}
                           <span className="text-xs text-foreground/25">☆</span>
                         </div>
                       </div>
                       <div className="rounded-xl p-2.5" style={{ background: "hsl(340 55% 60% / 0.08)", border: "1px solid hsl(340 55% 60% / 0.2)" }}>
-                        <p className="text-[10px] text-foreground/50">Recuperados</p>
+                        <p className="text-[11px] text-foreground/70">Recuperados</p>
                         <p className="text-sm font-bold" style={{ color: "hsl(340 55% 60%)" }}>+23</p>
                       </div>
                     </div>
@@ -805,7 +805,7 @@ const Index = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold tracking-tight text-foreground mb-4">
                 ¿Qué diferencia a <span className="text-gradient">CALLA</span>?
               </h2>
-              <p className="text-foreground/85 font-light max-w-lg mx-auto">
+              <p className="text-foreground/85 font-normal max-w-lg mx-auto">
                 Compara lo que incluye cada opción. La diferencia habla por sí sola.
               </p>
             </motion.div>
@@ -845,7 +845,7 @@ const Index = () => {
                       <div key={col.name} className="px-4 py-5 text-center bg-card/60 border-b border-l border-border/30 flex flex-col items-center justify-center gap-2">
                         <col.Icon className="h-5 w-5 text-foreground/70" />
                         <p className="text-base font-display font-semibold text-foreground leading-tight">{col.name}</p>
-                        <p className="text-xs text-foreground/80 font-light">{col.sub}</p>
+                        <p className="text-xs text-foreground/80 font-normal">{col.sub}</p>
                       </div>
                     ))}
                   </div>
@@ -942,7 +942,7 @@ const Index = () => {
                 Así de fácil es{" "}
                 <span className="text-gradient">empezar</span>
               </h2>
-              <p className="text-foreground/75 max-w-lg mx-auto text-base font-light">
+              <p className="text-foreground/75 max-w-lg mx-auto text-base font-normal">
                 Cuatro fases claras. Sin tecnicismos, sin sorpresas.
               </p>
             </motion.div>
@@ -997,12 +997,12 @@ const Index = () => {
                               {step.title}
                             </h3>
                           </div>
-                          <p className="text-sm text-foreground/60 font-light leading-relaxed mb-4">
+                          <p className="text-sm text-foreground/75 font-normal leading-relaxed mb-4">
                             {step.description}
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {step.chips.map(chip => (
-                              <span key={chip} className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                              <span key={chip} className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
                                 style={{ background: `hsl(${step.hsl} / 0.1)`, color: `hsl(${step.hsl} / 0.9)`, border: `1px solid hsl(${step.hsl} / 0.25)` }}>
                                 {chip}
                               </span>
@@ -1028,8 +1028,8 @@ const Index = () => {
                               ].map((item, j) => (
                                 <div key={item.label}>
                                   <div className="flex justify-between mb-1">
-                                    <span className="text-[9px] text-foreground/50">{item.label}</span>
-                                    <motion.span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}
+                                    <span className="text-[11px] text-foreground/70">{item.label}</span>
+                                    <motion.span className="text-[11px] font-mono" style={{ color: `hsl(${step.hsl})` }}
                                       animate={{ opacity: [0.5, 1, 0.5] }}
                                       transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.45 }}>
                                       {item.status}
@@ -1074,8 +1074,8 @@ const Index = () => {
                               ))}
                               <div className="mt-0.5">
                                 <div className="flex justify-between mb-1">
-                                  <span className="text-[9px] text-foreground/40">Integraciones validadas</span>
-                                  <span className="text-[9px] font-mono" style={{ color: `hsl(${step.hsl})` }}>8 / 8</span>
+                                  <span className="text-[11px] text-foreground/70">Integraciones validadas</span>
+                                  <span className="text-[11px] font-mono" style={{ color: `hsl(${step.hsl})` }}>8 / 8</span>
                                 </div>
                                 <div className="h-1 rounded-full" style={{ background: `hsl(${step.hsl} / 0.15)` }}>
                                   <motion.div className="h-full rounded-full" style={{ background: `hsl(${step.hsl})` }}
@@ -1102,7 +1102,7 @@ const Index = () => {
                                       transition={{ duration: 2.2, repeat: Infinity, delay: j * 0.65 }}>
                                       <Check className="w-2.5 h-2.5" style={{ color: `hsl(${step.hsl})` }} />
                                     </motion.div>
-                                    <span className="text-[10px] text-foreground/70">{label}</span>
+                                    <span className="text-[11px] text-foreground/70">{label}</span>
                                   </div>
                                   <motion.span className="text-[8px] font-bold font-mono px-1.5 py-0.5 rounded"
                                     style={{ background: `hsl(${step.hsl} / 0.12)`, color: `hsl(${step.hsl})` }}
@@ -1117,7 +1117,7 @@ const Index = () => {
                                 animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.02, 1] }}
                                 transition={{ duration: 2.2, repeat: Infinity }}>
                                 <Rocket className="w-3.5 h-3.5" style={{ color: `hsl(${step.hsl})` }} />
-                                <span className="text-[10px] font-extrabold uppercase tracking-widest" style={{ color: `hsl(${step.hsl})` }}>
+                                <span className="text-[11px] font-extrabold uppercase tracking-widest" style={{ color: `hsl(${step.hsl})` }}>
                                   Puesta en marcha
                                 </span>
                               </motion.div>
@@ -1128,7 +1128,7 @@ const Index = () => {
                           {i === 3 && (
                             <div className="p-4 flex flex-col justify-around h-full gap-2">
                               <div className="flex items-center justify-between">
-                                <span className="text-[9px] uppercase tracking-widest text-foreground/40">Rendimiento</span>
+                                <span className="text-[11px] uppercase tracking-widest text-foreground/70">Rendimiento</span>
                                 <motion.span className="text-base font-black font-mono" style={{ color: `hsl(${step.hsl})` }}
                                   animate={{ opacity: [0.7, 1, 0.7] }}
                                   transition={{ duration: 2.5, repeat: Infinity }}>
@@ -1147,12 +1147,12 @@ const Index = () => {
                                 <div className="flex items-center gap-1.5">
                                   <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "hsl(145 60% 50%)" }}
                                     animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.2, repeat: Infinity }} />
-                                  <span className="text-[9px] text-foreground/45">Monitorización continua · v2.1.4</span>
+                                  <span className="text-[11px] text-foreground/70">Monitorización continua · v2.1.4</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                   <motion.div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `hsl(${step.hsl})` }}
                                     animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.6 }} />
-                                  <span className="text-[9px] text-foreground/45">Nueva capacidad incorporada hoy</span>
+                                  <span className="text-[11px] text-foreground/70">Nueva capacidad incorporada hoy</span>
                                 </div>
                               </div>
                             </div>
@@ -1211,7 +1211,7 @@ const Index = () => {
                   Tu competencia ya{" "}
                   <span className="text-gradient">no descansa.</span>
                 </h2>
-                <p className="text-foreground/75 text-base font-light leading-relaxed mb-8">
+                <p className="text-foreground/75 text-base font-normal leading-relaxed mb-8">
                   Un equipo de IA trabajando por tu empresa los 365 días del año. Sin descansos, sin bajas, sin errores.
                 </p>
                 <Button
@@ -1259,7 +1259,7 @@ const Index = () => {
                     <div className="text-3xl md:text-4xl font-display font-extrabold text-gradient mb-1">
                       {m.value}
                     </div>
-                    <div className="text-xs text-foreground/70 font-light leading-snug">{m.label}</div>
+                    <div className="text-xs text-foreground/70 font-normal leading-snug">{m.label}</div>
                   </motion.div>
                 ))}
               </div>

@@ -80,7 +80,7 @@ const Blog = () => {
                   <img src={item.icon} alt="" className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md" width={512} height={512} loading="lazy" />
                 </div>
                 <h3 className="font-display font-bold text-lg mb-2 text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed font-light">{item.description}</p>
+                <p className="text-sm text-muted-foreground mb-5 flex-1 leading-relaxed font-normal">{item.description}</p>
                 <div className={`flex items-center gap-1.5 text-sm font-medium ${item.color} group-hover:gap-2.5 transition-all duration-300`}>
                   {item.cta}
                   <ArrowUpRight className="h-4 w-4" />

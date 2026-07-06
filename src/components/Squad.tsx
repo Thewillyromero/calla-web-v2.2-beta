@@ -60,7 +60,7 @@ const Squad = () => {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-extrabold mb-4 md:mb-5 tracking-tight text-glow">
             Así <span className="text-gradient text-glow-teal">trabajan juntos</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light">
+          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-normal">
             Cada agente sabe cuándo actuar y a quién pasar el testigo. Tú no haces nada.
           </p>
         </motion.div>
@@ -105,7 +105,7 @@ const Squad = () => {
                     />
                   </div>
                   <span className={`text-[11px] font-display font-bold ${agent.accentColor} tracking-wider`}>{agent.name}</span>
-                  <span className="text-[10px] text-muted-foreground/60">{agent.role}</span>
+                  <span className="text-[11px] text-muted-foreground/75">{agent.role}</span>
                 </Link>
               </motion.div>
             );
@@ -143,10 +143,10 @@ const Squad = () => {
                             </div>
                           </div>
                           <span className={`text-xs font-display font-bold ${agent.accentColor}`}>{agent.name}</span>
-                          <p className="text-xs text-muted-foreground mt-1 max-w-[120px]">{workflow.descriptions[stepIdx]}</p>
+                          <p className="text-sm text-muted-foreground mt-1 max-w-[120px]">{workflow.descriptions[stepIdx]}</p>
                         </div>
                         {stepIdx < workflow.steps.length - 1 && (
-                          <div className="flex items-center gap-1 text-muted-foreground/30 self-start mt-10">
+                          <div className="flex items-center gap-1 text-muted-foreground/70 self-start mt-10">
                             <div className="w-8 lg:w-12 h-px bg-gradient-to-r from-border to-transparent" />
                             <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                           </div>
@@ -167,7 +167,7 @@ const Squad = () => {
                             <div className="w-12 h-12 rounded-xl bg-secondary/60 border border-border/20 flex items-center justify-center">
                               <img src={agent.image} alt={agent.name} className="w-9 h-9 object-contain" width={512} height={512} loading="lazy" />
                             </div>
-                            <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full bg-card border border-border flex items-center justify-center text-[10px] font-bold ${agent.accentColor}`}>
+                            <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full bg-card border border-border flex items-center justify-center text-[11px] font-bold ${agent.accentColor}`}>
                               {stepIdx + 1}
                             </div>
                           </div>

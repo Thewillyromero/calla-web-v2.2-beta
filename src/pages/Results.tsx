@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import SectionFade from "@/components/SectionFade";
-import SectorStrip from "@/components/SectorStrip";
 const CampaignResults = lazy(() => import("@/components/CampaignResults"));
 const CallPlayer = lazy(() => import("@/components/CallPlayer"));
 
@@ -48,7 +47,7 @@ const Results = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight text-foreground">
               Resultados <span className="text-gradient">probados</span>
             </h1>
-            <p className="text-foreground/80 max-w-2xl mx-auto text-base md:text-lg font-light">
+            <p className="text-foreground/85 max-w-2xl mx-auto text-lg md:text-xl font-normal">
               Empresas de más de 20 sectores confían en CALLA para gestionar sus comunicaciones.
             </p>
           </SectionFade>
@@ -57,13 +56,45 @@ const Results = () => {
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
-      {/* Logo Marquee */}
-      <SectorStrip />
+      {/* Caso real destacado — Edommo */}
+      <section className="py-14 md:py-20 px-5 md:px-6">
+        <div className="container mx-auto max-w-4xl">
+          <SectionFade>
+            <div className="bg-card/40 border border-border/30 rounded-3xl p-8 md:p-12 text-center hover:border-border/50 transition-colors">
+              <p className="text-[11px] sm:text-xs font-display font-semibold tracking-[0.28em] uppercase text-white mb-8">
+                Caso real · Edommo Energía
+              </p>
+              <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8">
+                {[
+                  { value: "3", label: "sedes unificadas" },
+                  { value: "200", label: "llamadas al día" },
+                  { value: "2", label: "puestos de recepción ahorrados" },
+                ].map((m) => (
+                  <div key={m.label}>
+                    <div className="font-display text-3xl md:text-5xl font-extrabold text-foreground tracking-tight mb-1.5">{m.value}</div>
+                    <div className="text-sm text-foreground/70 leading-snug">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+              <blockquote className="text-base md:text-lg text-foreground/80 font-normal leading-relaxed max-w-2xl mx-auto mb-8">
+                &ldquo;CALLA unificó todo: atiende, deriva a la sede correcta y agenda.&rdquo;
+                <span className="block mt-2 text-sm text-foreground/60">— Miguel Santos, Director de Operaciones</span>
+              </blockquote>
+              <Link
+                to="/caso/edommo"
+                className="inline-flex items-center gap-2 text-sm font-display font-semibold text-primary hover:text-primary/80 transition-colors"
+              >
+                Ver caso completo <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </SectionFade>
+        </div>
+      </section>
 
       <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
 
       {/* Campaign Results Dashboard */}
-      <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando resultados...</div>}>
+      <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando resultados...</div>}>
         <CampaignResults />
       </Suspense>
 
@@ -71,7 +102,7 @@ const Results = () => {
 
       {/* Call Recordings */}
       <div className="bg-white/[0.03]">
-        <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando llamadas...</div>}>
+        <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando llamadas...</div>}>
           <CallPlayer onContact={() => setContactOpen(true)} />
         </Suspense>
       </div>
@@ -106,7 +137,7 @@ const Results = () => {
                       <TrustpilotStars rating={5} size={18} />
                       <CheckCircle2 className="w-4 h-4" style={{ color: '#00b67a40' }} />
                     </div>
-                    <blockquote className="text-sm text-foreground/85 leading-relaxed mb-5 flex-1 font-light">
+                    <blockquote className="text-base text-foreground/90 leading-relaxed mb-5 flex-1 font-normal">
                       <Quote className="inline h-3.5 w-3.5 text-primary/25 mr-1 -mt-1" />{t.quote}
                     </blockquote>
                     <div className="mb-4 flex items-center gap-2 flex-wrap">
@@ -127,10 +158,10 @@ const Results = () => {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <div className="text-sm font-medium text-foreground truncate">{t.name}</div>
-                        <div className="text-xs text-foreground/65 truncate">{t.role}, {t.company}</div>
+                        <div className="text-base font-medium text-foreground truncate">{t.name}</div>
+                        <div className="text-sm text-foreground/75 truncate">{t.role}, {t.company}</div>
                       </div>
-                      <span className="text-[10px] uppercase tracking-wider text-foreground/60 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
+                      <span className="text-[11px] uppercase tracking-wider text-foreground/75 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -163,7 +194,7 @@ const Results = () => {
             <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">
               ¿Listo para obtener <span className="text-gradient">estos resultados?</span>
             </h2>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
+            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-normal mb-8">
               Agenda una demo y descubre cómo CALLA puede transformar las comunicaciones de tu empresa.
             </p>
             <button

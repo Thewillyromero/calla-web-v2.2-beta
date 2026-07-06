@@ -64,7 +64,7 @@ const FAQ = () => {
               <TextReveal delay={0.1}>frecuentes</TextReveal>
             </span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light">
+          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-normal">
             Resolvemos las dudas para impulsarte a dar el paso.
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ const FAQ = () => {
                   <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary hover:no-underline py-5 text-[15px]">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground font-light leading-relaxed pb-5 text-sm">
+                  <AccordionContent className="text-foreground/80 font-normal leading-relaxed pb-5 text-base">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

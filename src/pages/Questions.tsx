@@ -36,7 +36,7 @@ const Questions = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 tracking-tight text-foreground">
               Preguntas <span className="text-gradient">frecuentes</span>
             </h1>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light">
+            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-normal">
               Resolvemos las dudas para impulsarte a dar el paso.
             </p>
           </SectionFade>
@@ -62,7 +62,7 @@ const Questions = () => {
                   <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary hover:no-underline py-5 text-[15px]">
                     {faq.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-foreground/70 font-light leading-relaxed pb-5 text-sm">
+                  <AccordionContent className="text-foreground/70 font-normal leading-relaxed pb-5 text-sm">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -79,7 +79,7 @@ const Questions = () => {
             <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-5 tracking-tight text-foreground">
               ¿Tienes <span className="text-gradient">más preguntas?</span>
             </h2>
-            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-light mb-8">
+            <p className="text-foreground/80 max-w-xl mx-auto text-base md:text-lg font-normal mb-8">
               Contacta con nuestro equipo y resuelve cualquier duda sobre cómo CALLA puede ayudar a tu negocio.
             </p>
             <button

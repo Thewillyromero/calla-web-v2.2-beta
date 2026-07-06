@@ -297,7 +297,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
               <span className="text-gradient text-glow-teal">ARIA ahora mismo</span>
             </h2>
 
-            <p className="text-muted-foreground text-base md:text-lg font-light leading-relaxed mb-8 max-w-lg">
+            <p className="text-muted-foreground text-base md:text-lg font-normal leading-relaxed mb-8 max-w-lg">
               No te lo contamos, te lo demostramos. Escribe tu nombre y habla
               directamente con nuestra IA desde tu navegador. Sin descargas, sin esperas.
             </p>
@@ -324,7 +324,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground/50">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground/70">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400" style={{ animation: "pulse-dot 2s ease-in-out infinite" }} />
@@ -336,7 +336,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
               </div>
               <span className="text-muted-foreground/20">·</span>
               <span>
-                <span className="font-semibold text-foreground/60 tabular-nums">{viewers}</span> personas en la web
+                <span className="font-semibold text-foreground/75 tabular-nums">{viewers}</span> personas en la web
               </span>
             </div>
           </motion.div>
@@ -380,8 +380,8 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                         }`}
                       />
                       <span
-                        className={`text-[10px] font-medium ${
-                          callState === "active" ? "text-emerald-400" : callState === "connecting" ? "text-amber-400" : "text-muted-foreground/50"
+                        className={`text-[11px] font-medium ${
+                          callState === "active" ? "text-emerald-400" : callState === "connecting" ? "text-amber-400" : "text-muted-foreground/70"
                         }`}
                       >
                         {callState === "active"
@@ -393,7 +393,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           : "Disponible"}
                       </span>
                     </div>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       Asistente de demostración CALLA
                     </p>
                   </div>
@@ -442,7 +442,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                       >
                         <div className="space-y-1.5">
                           <Label htmlFor="demo-name" className="text-sm text-foreground/80 font-medium">
-                            <User className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/60" />
+                            <User className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/75" />
                             Tu nombre *
                           </Label>
                           <Input
@@ -459,7 +459,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="space-y-1.5">
                             <Label htmlFor="demo-phone" className="text-sm text-foreground/80 font-medium">
-                              <Phone className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/60" />
+                              <Phone className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/75" />
                               Teléfono
                             </Label>
                             <Input
@@ -474,7 +474,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           </div>
                           <div className="space-y-1.5">
                             <Label htmlFor="demo-email" className="text-sm text-foreground/80 font-medium">
-                              <Mail className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/60" />
+                              <Mail className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/75" />
                               Email
                             </Label>
                             <Input
@@ -491,7 +491,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
 
                         <label className="flex items-start gap-2.5 cursor-pointer">
                           <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
-                          <span className="text-xs text-muted-foreground leading-relaxed text-left">
+                          <span className="text-sm text-muted-foreground leading-relaxed text-left">
                             He leído y acepto la{" "}
                             <a href="/legal#privacidad" target="_blank" rel="noopener" className="text-primary hover:underline">política de privacidad</a>{" "}
                             y consiento el tratamiento de mis datos para realizar la llamada de demostración. *
@@ -518,7 +518,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           )}
                         </Button>
 
-                        <p className="text-[11px] text-muted-foreground/35 text-center leading-relaxed">
+                        <p className="text-[11px] text-muted-foreground/70 text-center leading-relaxed">
                           Conversación de hasta 3 min · Sin coste · Tu navegador pedirá permiso de micrófono
                         </p>
                       </motion.form>
@@ -568,7 +568,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                         <p className="text-sm text-muted-foreground mb-1">
                           {isSpeaking ? "ARIA está hablando..." : "Escuchando..."}
                         </p>
-                        <p className="text-xs text-muted-foreground/40 mb-8">
+                        <p className="text-sm text-muted-foreground/70 mb-8">
                           {form.name}, habla con naturalidad
                         </p>
 
@@ -593,7 +593,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           </button>
 
                           <div className="w-14 h-14 rounded-full bg-secondary/40 border border-border/20 flex items-center justify-center">
-                            <Volume2 className="w-5 h-5 text-muted-foreground/50" />
+                            <Volume2 className="w-5 h-5 text-muted-foreground/70" />
                           </div>
                         </div>
                       </motion.div>

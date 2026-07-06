@@ -32,19 +32,30 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
       return;
     }
     setLoading(true);
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim().toLowerCase(),
+      phone: form.phone.trim() || null,
+      company: form.company.trim() || null,
+      message: form.message.trim() || null,
+      source,
+    };
     try {
-      const { data, error } = await supabase.functions.invoke("submit-contact", {
-        body: {
-          name: form.name.trim(),
-          email: form.email.trim().toLowerCase(),
-          phone: form.phone.trim() || null,
-          company: form.company.trim() || null,
-          message: form.message.trim() || null,
-          source,
-        },
+      // Producción: función de Vercel (guarda el lead y avisa por correo a la empresa)
+      const res = await fetch("/api/submit-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      if (res.status === 404) {
+        // Entorno local sin funciones de Vercel: vía directa a Supabase
+        const { data, error } = await supabase.functions.invoke("submit-contact", { body: payload });
+        if (error) throw error;
+        if (data?.error) throw new Error(data.error);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data?.error) throw new Error(data?.error || "Error");
+      }
       setSuccess(true);
       setForm({ name: "", email: "", phone: "", company: "", message: "" });
     } catch {
@@ -111,7 +122,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
               </div>
               <label className="flex items-start gap-2.5 cursor-pointer">
                 <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
-                <span className="text-xs text-muted-foreground leading-relaxed">
+                <span className="text-sm text-muted-foreground leading-relaxed">
                   He leído y acepto la{" "}
                   <a href="/legal#privacidad" target="_blank" rel="noopener" className="text-primary hover:underline">política de privacidad</a>{" "}
                   y consiento el tratamiento de mis datos para atender mi solicitud. *
@@ -120,7 +131,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general" }: ContactFo
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Solicitar información <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
-              <p className="text-xs text-muted-foreground/65 text-center">Sin compromiso · Respuesta en &lt;24h</p>
+              <p className="text-sm text-muted-foreground/75 text-center">Sin compromiso · Respuesta en &lt;24h</p>
             </form>
           </>
         )}

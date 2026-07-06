@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const sectors = [
@@ -16,37 +16,40 @@ const sectors = [
   { slug: "servicios", label: "Servicios" },
 ];
 
-const SectorStrip = () => (
-  <section className="py-12 md:py-16 px-5 md:px-6">
-    <div className="container mx-auto max-w-4xl text-center">
-      <motion.p
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-sm text-muted-foreground mb-6"
-      >
-        Soluciones adaptadas a tu sector
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.55, delay: 0.1 }}
-        className="flex flex-wrap items-center justify-center gap-2.5"
-      >
-        {sectors.map((s) => (
-          <Link
-            key={s.slug}
-            to={`/sectores/${s.slug}`}
-            className="bg-card/50 border border-border/30 rounded-full px-4 py-1.5 text-sm font-medium text-foreground/80 hover:text-foreground hover:border-border/60 transition-colors"
-          >
-            {s.label}
-          </Link>
-        ))}
-      </motion.div>
-    </div>
-  </section>
+const SectorItem = ({ slug, label }: (typeof sectors)[number]) => (
+  <span className="marquee-item !px-0 flex items-center">
+    <Link
+      to={`/sectores/${slug}`}
+      className="font-display text-xl md:text-2xl font-semibold tracking-tight text-foreground/30 hover:text-foreground/90 transition-colors duration-500 whitespace-nowrap px-8 md:px-10"
+    >
+      {label}
+    </Link>
+    <span aria-hidden="true" className="h-1 w-1 rounded-full bg-foreground/15 shrink-0" />
+  </span>
 );
 
+const SectorStrip = memo(() => (
+  <section className="border-y border-white/[0.04] overflow-hidden relative py-10 md:py-14">
+    <p className="text-center text-[11px] sm:text-xs font-display font-semibold tracking-[0.28em] uppercase text-white mb-8 md:mb-10">
+      Especialistas en tu sector
+    </p>
+    <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+    <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+    <div className="marquee-container">
+      <div className="marquee-track" style={{ animationDuration: "55s" }}>
+        {sectors.map((s) => (
+          <SectorItem key={`a-${s.slug}`} {...s} />
+        ))}
+        <div aria-hidden="true" className="contents">
+          {sectors.map((s) => (
+            <SectorItem key={`b-${s.slug}`} {...s} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+));
+
+SectorStrip.displayName = "SectorStrip";
 export default SectorStrip;

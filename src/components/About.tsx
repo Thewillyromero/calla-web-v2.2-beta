@@ -66,10 +66,10 @@ const About = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-extrabold mb-5 md:mb-6 tracking-tight text-glow">
             <TextReveal>Conócenos</TextReveal>
           </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4 text-base md:text-lg font-light">
+          <p className="text-muted-foreground leading-relaxed mb-4 text-base md:text-lg font-normal">
             Contamos con un equipo de profesionales especializados en IA conversacional. Entrenamos y adaptamos tu asistente virtual para que tus clientes reciban la mejor experiencia posible.
           </p>
-          <p className="text-muted-foreground/70 leading-relaxed mb-8 font-light">
+          <p className="text-muted-foreground/70 leading-relaxed mb-8 font-normal">
             Tanto en llamadas entrantes como en campañas outbound, nuestros agentes trabajan 24/7 para que tú puedas centrarte en lo que importa.
           </p>
           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 shadow-lg shadow-primary/20" onClick={() => document.getElementById("squad")?.scrollIntoView({ behavior: "smooth" })}>

@@ -199,7 +199,7 @@ const Features = () => {
             <span className="text-gradient text-glow-lavender">nunca duerme</span>
           </h2>
 
-          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light leading-relaxed">
+          <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-normal leading-relaxed">
             Cada agente está diseñado para un rol específico. Delega y escala
             sin añadir personal.
           </p>

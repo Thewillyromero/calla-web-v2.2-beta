@@ -574,7 +574,7 @@ const SectorPage = () => {
 
           <motion.p
             {...fade} transition={{ ...fade.transition, delay: 0.2 }}
-            className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-8">
+            className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg font-normal leading-relaxed mb-8">
             {sector.description}
           </motion.p>
 
@@ -614,7 +614,7 @@ const SectorPage = () => {
                 </div>
                 <div className="text-sm text-foreground/70 font-medium leading-snug">{stat.label}</div>
                 {stat.context && (
-                  <div className="text-xs text-foreground/45 font-light mt-1">{stat.context}</div>
+                  <div className="text-xs text-foreground/70 font-normal mt-1">{stat.context}</div>
                 )}
               </motion.div>
             ))}
@@ -631,7 +631,7 @@ const SectorPage = () => {
             <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Lo que frena tu negocio
             </h2>
-            <p className="text-foreground/60 font-light max-w-xl">
+            <p className="text-foreground/75 font-normal max-w-xl">
               Problemas reales del sector que CALLA resuelve desde el primer día.
             </p>
           </motion.div>
@@ -646,7 +646,7 @@ const SectorPage = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-sm text-foreground mb-1.5">{point.title}</h3>
-                  <p className="text-sm text-foreground/65 font-light leading-relaxed">{point.description}</p>
+                  <p className="text-sm text-foreground/75 font-normal leading-relaxed">{point.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -669,7 +669,7 @@ const SectorPage = () => {
               <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
                 {sector.capabilitiesTitle ?? `Qué hace CALLA en tu ${sector.name.toLowerCase()}`}
               </h2>
-              <p className="text-foreground/60 font-light max-w-xl">
+              <p className="text-foreground/75 font-normal max-w-xl">
                 {sector.capabilitiesSubtitle ?? "Cubierto desde el primer día."}
               </p>
             </motion.div>
@@ -699,7 +699,7 @@ const SectorPage = () => {
                       <h3 className="font-display font-bold text-xl text-foreground mb-2 leading-tight">
                         {cap.title}
                       </h3>
-                      <p className="text-base text-foreground/65 font-light leading-relaxed">
+                      <p className="text-base text-foreground/75 font-normal leading-relaxed">
                         {cap.description}
                       </p>
                     </div>
@@ -720,7 +720,7 @@ const SectorPage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight mb-3">
               Un día con CALLA en {sector.name.toLowerCase()}
             </h2>
-            <p className="text-foreground/60 font-light">
+            <p className="text-foreground/75 font-normal">
               Situaciones reales del sector, resueltas automáticamente.
             </p>
           </motion.div>
@@ -739,7 +739,7 @@ const SectorPage = () => {
                 <h3 className="font-display font-bold text-lg text-foreground leading-snug">
                   {uc.title}
                 </h3>
-                <p className="text-base text-foreground/65 font-light leading-relaxed flex-1">
+                <p className="text-base text-foreground/75 font-normal leading-relaxed flex-1">
                   {uc.scenario}
                 </p>
                 <div
@@ -777,7 +777,7 @@ const SectorPage = () => {
                 <div className="font-display font-semibold text-sm text-foreground">
                   {sector.testimonial.author}
                 </div>
-                <div className="text-xs text-foreground/55">
+                <div className="text-xs text-foreground/70">
                   {sector.testimonial.role} · {sector.testimonial.company}
                 </div>
               </div>
@@ -799,10 +799,10 @@ const SectorPage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
               ¿Listo para transformar tu {sector.name.toLowerCase()}?
             </h2>
-            <p className="text-foreground/65 max-w-xl mx-auto text-base font-light mb-2 relative z-10">
+            <p className="text-foreground/75 max-w-xl mx-auto text-base font-normal mb-2 relative z-10">
               Contacta con nosotros y te informamos de cómo CALLA te ayudaría en tu sector.
             </p>
-            <p className="text-foreground/45 max-w-xl mx-auto text-sm font-light mb-8 relative z-10">
+            <p className="text-foreground/70 max-w-xl mx-auto text-sm font-normal mb-8 relative z-10">
               Solicita información sin compromiso.
             </p>
             <button

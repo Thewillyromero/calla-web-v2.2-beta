@@ -255,11 +255,11 @@ const Chatbot = () => {
             <img loading="lazy" src={heroRobot} alt="ARIA" className="w-8 h-8 object-contain" width={64} height={64} />
             <div>
               <p className="text-sm font-display font-bold text-foreground">ARIA</p>
-              <p className="text-[10px] text-muted-foreground">Asistente virtual de CALLA</p>
+              <p className="text-[11px] text-muted-foreground">Asistente virtual de CALLA</p>
             </div>
             <div className="ml-auto flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-brand-emerald animate-pulse" />
-              <span className="text-[10px] text-muted-foreground">En línea</span>
+              <span className="text-[11px] text-muted-foreground">En línea</span>
             </div>
           </div>
 
@@ -338,7 +338,7 @@ const Chatbot = () => {
                       type="button"
                       variant="ghost"
                       size="sm"
-                      className="h-8 text-xs text-muted-foreground"
+                      className="h-8 text-sm text-muted-foreground"
                       onClick={() => setShowEmailCapture(false)}
                     >
                       Ahora no
@@ -364,7 +364,7 @@ const Chatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu mensaje..."
-                className="flex-1 bg-secondary/50 border border-border/30 rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:ring-1 focus:ring-primary/50"
+                className="flex-1 bg-secondary/50 border border-border/30 rounded-xl px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none focus:ring-1 focus:ring-primary/50"
                 disabled={isLoading}
               />
               <Button

@@ -214,7 +214,7 @@ const CallSimulator = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold mb-4 tracking-tight leading-[1.1] text-glow">
             Así atiende <span className="text-gradient text-glow-teal">ARIA tus llamadas</span>
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg font-light">
+          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg font-normal">
             Sin filtros. Simulaciones reales de cómo tu recepcionista IA gestiona cada llamada.
           </p>
         </motion.div>
@@ -225,7 +225,7 @@ const CallSimulator = () => {
             <img src={agentInbound} alt="ARIA" className="w-8 h-8 object-contain" loading="lazy" />
             <div className="flex-1">
               <span className="text-sm font-display font-bold text-brand-teal">ARIA</span>
-              <span className="text-[10px] text-muted-foreground ml-2">
+              <span className="text-[11px] text-muted-foreground ml-2">
                 {currentTitle ? `Simulación · ${currentTitle}` : "Simulación de llamada real"}
               </span>
             </div>

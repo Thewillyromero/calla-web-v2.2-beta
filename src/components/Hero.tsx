@@ -81,10 +81,10 @@ const Hero = ({ onContact }: { onContact?: () => void }) => {
             Tus llamadas,{" "}
             <span className="text-gradient text-glow-teal">resueltas por IA</span>
           </h1>
-          <p className="text-base md:text-xl text-muted-foreground/80 mb-3 md:mb-4 leading-relaxed font-light max-w-xl">
+          <p className="text-base md:text-xl text-foreground/85 mb-3 md:mb-4 leading-relaxed font-normal max-w-xl">
             CALLA atiende tus llamadas, agenda citas y responde a tus clientes con una voz natural. Lanza campañas de llamadas salientes para concertar citas comerciales.
           </p>
-          <p className="text-sm md:text-base text-muted-foreground/60 mb-6 md:mb-8">
+          <p className="text-sm md:text-base text-muted-foreground/75 mb-6 md:mb-8">
             Inbound + Outbound. Todo en una sola plataforma.
           </p>
           <motion.div
@@ -108,7 +108,7 @@ const Hero = ({ onContact }: { onContact?: () => void }) => {
             className="flex items-center gap-2.5 mt-6"
           >
             <ShieldCheck className="w-4 h-4 text-primary/60" />
-            <span className="text-xs text-muted-foreground/60">
+            <span className="text-sm text-muted-foreground/75">
               Atención telefónica con IA, 24/7, en toda España
             </span>
           </motion.div>

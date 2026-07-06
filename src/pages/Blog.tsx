@@ -45,7 +45,7 @@ const Blog = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-5 tracking-tight leading-[1.1]">
               Ideas para <span className="text-gradient">crecer</span>
             </h1>
-            <p className="text-muted-foreground text-base md:text-lg font-light">
+            <p className="text-muted-foreground text-base md:text-lg font-normal">
               Artículos sobre IA conversacional, automatización y estrategias para no perder ni una llamada.
             </p>
           </motion.div>
@@ -74,12 +74,12 @@ const Blog = () => {
                     {post.title}
                   </h2>
 
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed mb-5">
+                  <p className="text-sm text-muted-foreground font-normal leading-relaxed mb-5">
                     {post.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between mt-auto">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground/60">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground/75">
                       <span>{post.date}</span>
                       <span className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />

@@ -98,13 +98,13 @@ const SideNav = ({ onContact }: { onContact?: () => void } = {}) => {
       >
         <span className="relative shrink-0">
           <CreditCard className="h-5 w-5" />
-          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-primary-foreground leading-none shadow-sm shadow-primary/40">
+          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground leading-none shadow-sm shadow-primary/40">
             *
           </span>
         </span>
         <span className="truncate">
           Precios
-          <span className="ml-1 text-[10px] text-primary font-bold">*</span>
+          <span className="ml-1 text-[11px] text-primary font-bold">*</span>
         </span>
       </Link>
       <Link to="/seguridad" className={itemClass(isActive("/seguridad"))}>

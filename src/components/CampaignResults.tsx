@@ -77,7 +77,7 @@ const CampaignResults = () => {
             Datos de una{" "}
             <span className="text-gradient">campaña real</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg font-normal leading-relaxed">
             Sin capturas retocadas ni promesas vacías. Estos son los números reales de una campaña de 662 leads ejecutada con CALLA.
           </p>
         </motion.div>
@@ -107,7 +107,7 @@ const CampaignResults = () => {
                 {m.value}
                 <span className={`text-${m.color} text-lg`}>{m.suffix}</span>
               </div>
-              <p className="text-[11px] text-muted-foreground/60 leading-tight">{m.label}</p>
+              <p className="text-[11px] text-muted-foreground/75 leading-tight">{m.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -126,10 +126,10 @@ const CampaignResults = () => {
                 <img loading="lazy" src={agentAnalytics} alt="BYTE" className="w-8 h-8 object-contain" width={512} height={512} />
                 <div>
                   <span className="text-sm font-display font-bold text-brand-amber">BYTE</span>
-                  <span className="text-xs text-muted-foreground ml-2">Analítica de campaña</span>
+                  <span className="text-sm text-muted-foreground ml-2">Analítica de campaña</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground/50">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground/70">
                 <span className="bg-secondary/60 px-3 py-1 rounded-full border border-border/20">
                   27 feb – 29 mar 2026
                 </span>
@@ -151,15 +151,15 @@ const CampaignResults = () => {
                   >
                     <h4 className="font-display font-bold text-sm text-foreground mb-4 flex items-center justify-between">
                       {card.title}
-                      <ChevronRight className={`w-4 h-4 transition-transform ${activeCard === ci ? "rotate-90 text-brand-amber" : "text-muted-foreground/30"}`} />
+                      <ChevronRight className={`w-4 h-4 transition-transform ${activeCard === ci ? "rotate-90 text-brand-amber" : "text-muted-foreground/70"}`} />
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       {card.items.map((item, ii) => (
                         <div key={ii} className="space-y-0.5">
-                          <p className="text-[10px] text-muted-foreground/50 uppercase tracking-wider">{item.label}</p>
+                          <p className="text-[11px] text-muted-foreground/70 uppercase tracking-wider">{item.label}</p>
                           <p className="text-lg font-display font-bold text-foreground">{item.value}</p>
                           {item.change && (
-                            <p className="text-[10px] text-emerald-400">{item.change}</p>
+                            <p className="text-[11px] text-emerald-400">{item.change}</p>
                           )}
                         </div>
                       ))}
@@ -181,27 +181,27 @@ const CampaignResults = () => {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-xl font-display font-extrabold text-foreground">84,7%</span>
-                    <span className="text-[10px] text-muted-foreground">conectados</span>
+                    <span className="text-[11px] text-muted-foreground">conectados</span>
                   </div>
                 </div>
                 <div className="flex-1 grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="w-2 h-2 rounded-full bg-brand-teal mx-auto mb-1" />
                     <p className="text-lg font-display font-bold text-brand-teal">561</p>
-                    <p className="text-[10px] text-muted-foreground">Contestadas</p>
-                    <p className="text-[10px] text-muted-foreground/65">84,7%</p>
+                    <p className="text-[11px] text-muted-foreground">Contestadas</p>
+                    <p className="text-[11px] text-muted-foreground/75">84,7%</p>
                   </div>
                   <div>
                     <div className="w-2 h-2 rounded-full bg-brand-lavender mx-auto mb-1" />
                     <p className="text-lg font-display font-bold text-brand-lavender">101</p>
-                    <p className="text-[10px] text-muted-foreground">No contestadas</p>
-                    <p className="text-[10px] text-muted-foreground/65">15,3%</p>
+                    <p className="text-[11px] text-muted-foreground">No contestadas</p>
+                    <p className="text-[11px] text-muted-foreground/75">15,3%</p>
                   </div>
                   <div>
                     <div className="w-2 h-2 rounded-full bg-muted-foreground/30 mx-auto mb-1" />
-                    <p className="text-lg font-display font-bold text-muted-foreground/60">0</p>
-                    <p className="text-[10px] text-muted-foreground">Sin llamar</p>
-                    <p className="text-[10px] text-muted-foreground/65">0%</p>
+                    <p className="text-lg font-display font-bold text-muted-foreground/75">0</p>
+                    <p className="text-[11px] text-muted-foreground">Sin llamar</p>
+                    <p className="text-[11px] text-muted-foreground/75">0%</p>
                   </div>
                 </div>
               </div>

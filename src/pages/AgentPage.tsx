@@ -439,7 +439,7 @@ const AgentPage = () => {
                   </span>
                 ) : taglineAfter}
               </h1>
-              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-light mb-6 whitespace-pre-line">
+              <p className="text-foreground/80 max-w-xl text-base md:text-lg font-normal mb-6 whitespace-pre-line">
                 {agent.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
@@ -522,7 +522,7 @@ const AgentPage = () => {
                       <span className="font-display font-extrabold text-lg" style={{ color: `hsl(${agentHsl})` }}>{s.step}</span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
-                    <p className="text-base text-foreground/70 font-light leading-relaxed">{s.description}</p>
+                    <p className="text-base text-foreground/70 font-normal leading-relaxed">{s.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -537,7 +537,7 @@ const AgentPage = () => {
                       <CircleDot className="h-4 w-4 text-primary shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
                       <div>
                         <h3 className="font-display font-semibold text-base text-foreground mb-1.5">{fc.title}</h3>
-                        <p className="text-sm text-foreground/70 font-light leading-relaxed">{fc.description}</p>
+                        <p className="text-sm text-foreground/70 font-normal leading-relaxed">{fc.description}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -576,7 +576,7 @@ const AgentPage = () => {
       {/* DemoCall */}
       {agent.showDemoCall && (
         <div className="bg-white/[0.03]">
-          <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando demo...</div>}>
+          <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando demo...</div>}>
             <DemoCall onContact={() => setContactOpen(true)} />
           </Suspense>
         </div>
@@ -599,7 +599,7 @@ const AgentPage = () => {
                       <span className="text-xs font-mono font-bold" style={{ color: `hsl(${agentHsl})` }}>{sc.time}</span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground leading-snug">{sc.title}</h3>
-                    <p className="text-base text-foreground/65 font-light leading-relaxed flex-1">{sc.scenario}</p>
+                    <p className="text-base text-foreground/75 font-normal leading-relaxed flex-1">{sc.scenario}</p>
                     <div className="rounded-xl p-4 flex items-start gap-3 mt-1" style={{ background: `hsl(${agentHsl} / 0.10)`, border: `1px solid hsl(${agentHsl} / 0.20)` }}>
                       <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: `hsl(${agentHsl})` }} />
                       <span className="text-sm font-medium leading-snug text-foreground">{sc.result}</span>
@@ -622,7 +622,7 @@ const AgentPage = () => {
                   <motion.div key={i} className="bg-card/40 rounded-2xl p-6 transition-all" style={{ border: `1px solid hsl(${agentHsl} / 0.28)` }}
                     whileHover={{ borderColor: `hsl(${agentHsl} / 0.6)` }} {...fade} transition={{ duration: 0.5, delay: i * 0.1 }}>
                     <h3 className="text-lg font-bold text-foreground mb-2">{uc.title}</h3>
-                    <p className="text-sm text-foreground/70 font-light">{uc.description}</p>
+                    <p className="text-sm text-foreground/70 font-normal">{uc.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -634,7 +634,7 @@ const AgentPage = () => {
       {agent.showCallSimulator && (
         <>
           <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
-          <Suspense fallback={<div className="py-20 text-center text-foreground/50">Cargando simulador...</div>}>
+          <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando simulador...</div>}>
             <CallSimulator />
           </Suspense>
         </>
@@ -673,7 +673,7 @@ const AgentPage = () => {
                     <TrustpilotStars rating={5} size={16} />
                     <CheckCircle2 className="w-4 h-4" style={{ color: `hsl(${agentHsl} / 0.5)` }} />
                   </div>
-                  <blockquote className="text-sm text-foreground/85 leading-relaxed mb-4 flex-1 font-light">
+                  <blockquote className="text-sm text-foreground/85 leading-relaxed mb-4 flex-1 font-normal">
                     <Quote className="inline h-3.5 w-3.5 mr-1 -mt-1" style={{ color: `hsl(${agentHsl} / 0.4)` }} />
                     {t.quote}
                   </blockquote>
@@ -687,7 +687,7 @@ const AgentPage = () => {
                   </div>
                   <div className="h-px bg-border/20 mb-3" />
                   <div className="text-sm font-medium text-foreground">{t.name}</div>
-                  <div className="text-xs text-foreground/65">{t.role}</div>
+                  <div className="text-xs text-foreground/75">{t.role}</div>
                 </motion.div>
               ))}
             </div>

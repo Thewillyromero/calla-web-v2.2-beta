@@ -77,10 +77,10 @@ const CallCard = ({ call, onContact, index }: CallCardProps) => {
               <span className={`text-xs font-display font-bold text-${call.agentColor} tracking-wider uppercase`}>
                 {call.agent}
               </span>
-              <span className="text-xs text-muted-foreground/60 ml-2">{call.sector}</span>
+              <span className="text-sm text-muted-foreground/75 ml-2">{call.sector}</span>
             </div>
           </div>
-          <div className="flex items-center gap-1 text-xs text-muted-foreground/60 bg-secondary/30 px-2 py-0.5 rounded-full">
+          <div className="flex items-center gap-1 text-xs text-muted-foreground/75 bg-secondary/30 px-2 py-0.5 rounded-full">
             <Clock className="w-3 h-3" />
             {call.duration}
           </div>
@@ -88,7 +88,7 @@ const CallCard = ({ call, onContact, index }: CallCardProps) => {
 
         {/* Title & description */}
         <h4 className="font-display font-bold text-base text-foreground mb-1.5">{call.title}</h4>
-        <p className="text-xs text-muted-foreground/70 leading-relaxed mb-5">{call.description}</p>
+        <p className="text-sm text-muted-foreground/70 leading-relaxed mb-5">{call.description}</p>
 
         {/* Waveform — blurred and locked */}
         <div className="relative">
@@ -119,7 +119,7 @@ const CallCard = ({ call, onContact, index }: CallCardProps) => {
                 Escuchar <ArrowRight className="w-3 h-3" />
               </motion.div>
             ) : (
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground/70">
+              <div className="flex items-center gap-1.5 text-sm text-muted-foreground/70">
                 <Lock className="w-3.5 h-3.5" />
                 <span>Acceso bajo solicitud</span>
               </div>
@@ -159,10 +159,10 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
           No te lo contamos,{" "}
           <span className="text-gradient">escúchalo</span>
         </h2>
-        <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-light leading-relaxed">
+        <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg font-normal leading-relaxed">
           Llamadas reales de clientes en España. Sin filtros, sin edición.
           <br />
-          <span className="text-foreground/50 text-sm">Acceso disponible bajo solicitud.</span>
+          <span className="text-foreground/70 text-sm">Acceso disponible bajo solicitud.</span>
         </p>
       </motion.div>
 
@@ -188,7 +188,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
           Solicitar acceso a las grabaciones
           <ArrowRight className="w-4 h-4" />
         </button>
-        <p className="text-xs text-muted-foreground/50 flex items-center gap-1.5">
+        <p className="text-sm text-muted-foreground/70 flex items-center gap-1.5">
           <Lock className="w-3 h-3" />
           Solo para empresas en fase de evaluación
         </p>
@@ -199,7 +199,7 @@ const CallPlayer = ({ onContact }: CallPlayerProps) => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.6 }}
-        className="text-center text-xs text-muted-foreground/40 mt-8"
+        className="text-center text-sm text-muted-foreground/70 mt-8"
       >
         <Volume2 className="w-3 h-3 inline mr-1" />
         Nombres de clientes anonimizados por privacidad · Grabaciones de campañas reales en España

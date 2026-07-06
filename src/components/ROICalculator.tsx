@@ -104,7 +104,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
             ¿Cuánto te cuesta{" "}
             <span className="text-gradient">gestionar el teléfono</span>?
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg font-light">
+          <p className="text-muted-foreground max-w-lg mx-auto text-base md:text-lg font-normal">
             3 datos. 10 segundos. La respuesta te sorprenderá.
           </p>
         </motion.div>
@@ -157,7 +157,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                 <div>
                   <label className="text-sm text-foreground/80 font-semibold block mb-1.5">
                     ¿Cuánto pagas al mes a quien contesta las llamadas?
-                    <span className="block text-xs text-muted-foreground/50 font-normal mt-0.5">(salario bruto + Seguridad Social)</span>
+                    <span className="block text-sm text-muted-foreground/70 font-normal mt-0.5">(salario bruto + Seguridad Social)</span>
                   </label>
                   <div className="relative">
                     <Input
@@ -166,7 +166,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                       onChange={(e) => setStaffCost(Math.max(0, Number(e.target.value)))}
                       className="bg-secondary/30 border-border/25 h-11 text-base font-display font-bold rounded-xl focus:border-primary/40 pl-4 pr-20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground/60">€/mes</span>
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground/75">€/mes</span>
                   </div>
                 </div>
 
@@ -199,7 +199,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Total today */}
               <div className="mt-5">
                 <div className="bg-brand-rose/10 border border-brand-rose/20 rounded-xl p-5 text-center">
-                  <p className="text-[10px] text-brand-rose/70 uppercase tracking-wider font-semibold mb-2">
+                  <p className="text-[11px] text-brand-rose/70 uppercase tracking-wider font-semibold mb-2">
                     Tu gasto total hoy
                   </p>
                   <p className="text-4xl font-display font-extrabold text-brand-rose leading-none">
@@ -208,12 +208,12 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                   </p>
                   <div className="flex justify-between mt-4 pt-4 border-t border-brand-rose/15 text-sm">
                     <div className="text-left">
-                      <span className="block text-xs text-muted-foreground/55 mb-0.5">Personal</span>
+                      <span className="block text-sm text-muted-foreground/70 mb-0.5">Personal</span>
                       <span className="font-display font-bold text-foreground/80">{fmt(staffCost)} €</span>
                     </div>
                     {ownHours > 0 && (
                       <div className="text-right">
-                        <span className="block text-xs text-muted-foreground/55 mb-0.5">Tu tiempo ({ownHours}h/día)</span>
+                        <span className="block text-sm text-muted-foreground/70 mb-0.5">Tu tiempo ({ownHours}h/día)</span>
                         <span className="font-display font-bold text-foreground/80">{fmt(result.ownTimeCost)} €</span>
                       </div>
                     )}
@@ -268,11 +268,11 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                   className="flex-1 rounded-xl p-3"
                   style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
+                  <span className="text-[11px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
                     Setup
                   </span>
                   <span className="text-sm font-semibold text-foreground leading-tight block">Puesta en marcha</span>
-                  <span className="text-xs text-foreground/55">Presupuesto a medida</span>
+                  <span className="text-xs text-foreground/70">Presupuesto a medida</span>
                 </div>
 
                 {/* + */}
@@ -283,12 +283,12 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                   className="flex-1 rounded-xl p-3"
                   style={{ border: `1px solid hsl(${plan.hsl} / 0.25)`, background: `hsl(${plan.hsl} / 0.06)` }}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
+                  <span className="text-[11px] font-bold uppercase tracking-widest block mb-0.5" style={{ color: `hsl(${plan.hsl})` }}>
                     Cuota mensual
                   </span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-xl font-display font-extrabold text-foreground">{fmt(plan.price)} €</span>
-                    <span className="text-muted-foreground text-xs">/mes</span>
+                    <span className="text-muted-foreground text-sm">/mes</span>
                   </div>
                 </div>
 
@@ -297,7 +297,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
 
                 {/* Resultado */}
                 <div className="flex-1 bg-brand-emerald/10 border border-brand-emerald/20 rounded-xl p-3">
-                  <span className="text-[10px] font-bold uppercase tracking-widest block mb-1.5 text-brand-emerald/75">
+                  <span className="text-[11px] font-bold uppercase tracking-widest block mb-1.5 text-brand-emerald/75">
                     Ahorras
                   </span>
                   {result.monthlySaving > 0 ? (
@@ -309,14 +309,14 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
                         <span className="text-sm text-brand-emerald/60">/mes</span>
                       </div>
                       <div className="text-right shrink-0">
-                        <span className="text-xs text-muted-foreground/50 block leading-tight">al año</span>
+                        <span className="text-sm text-muted-foreground/70 block leading-tight">al año</span>
                         <span className="text-base font-display font-bold text-brand-emerald/70 leading-tight">
                           {fmt(result.annualSaving)} €
                         </span>
                       </div>
                     </div>
                   ) : (
-                    <span className="text-sm text-foreground/50">Introduce tus datos</span>
+                    <span className="text-sm text-foreground/70">Introduce tus datos</span>
                   )}
                 </div>
               </div>
@@ -324,7 +324,7 @@ const ROICalculator = ({ onContact }: { onContact?: () => void }) => {
               {/* Breakeven */}
               {result.monthlySaving > 0 && (
                 <div className="rounded-xl border border-border/15 bg-card/25 p-3 mb-4">
-                  <p className="text-sm text-foreground/55 leading-relaxed">
+                  <p className="text-sm text-foreground/70 leading-relaxed">
                     Y piensa en esto: {breakevenText}
                   </p>
                 </div>
