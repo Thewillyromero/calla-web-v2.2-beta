@@ -25,17 +25,49 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CALLA",
-      "description": "Atención telefónica automatizada con IA. Asistentes de voz que atienden llamadas, agendan citas y gestionan campañas outbound 24/7.",
-      "url": "https://appcalla.com",
-      "logo": "https://appcalla.com/og-image.png",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "availableLanguage": ["Spanish", "English"]
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://appcalla.com/#organization",
+          "name": "CALLA",
+          "legalName": "App Calla, S.L.",
+          "description": "Atención telefónica automatizada con IA. Agentes de voz que atienden llamadas, agendan citas y gestionan la comunicación de tu empresa 24/7.",
+          "url": "https://appcalla.com",
+          "logo": "https://appcalla.com/og-image.png",
+          "email": "contacto@appcalla.com",
+          "vatID": "B88969308",
+          "sameAs": [],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Pérez Galdós 62, Piso 2, Puerta 10",
+            "postalCode": "46008",
+            "addressLocality": "Valencia",
+            "addressCountry": "ES"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "contacto@appcalla.com",
+            "availableLanguage": ["Spanish", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://appcalla.com/#website",
+          "url": "https://appcalla.com",
+          "name": "CALLA",
+          "inLanguage": "es-ES",
+          "publisher": { "@id": "https://appcalla.com/#organization" }
+        },
+        {
+          "@type": "Service",
+          "name": "Atención telefónica automatizada con IA",
+          "serviceType": "Agentes de voz con inteligencia artificial para empresas",
+          "provider": { "@id": "https://appcalla.com/#organization" },
+          "areaServed": { "@type": "Country", "name": "España" },
+          "description": "CALLA automatiza la atención telefónica de empresas: sus agentes de IA (ARIA, NOVA, LUMI, BYTE, CARE, HALO) atienden llamadas, agendan citas, hacen seguimiento y ofrecen analítica, 24/7."
+        }
+      ]
     }
     </script>
     
