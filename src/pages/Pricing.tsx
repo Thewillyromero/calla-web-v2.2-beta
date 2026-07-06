@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -334,24 +335,22 @@ const Pricing = () => {
             Preguntas <span className="text-gradient">frecuentes</span>
           </motion.h2>
           <div className="space-y-3 sm:space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.details
-                key={faq.q}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="glass rounded-xl group"
-              >
-                <summary className="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none font-display font-semibold text-foreground hover:text-primary transition-colors text-sm sm:text-base">
-                  {faq.q}
-                  <span className="text-muted-foreground group-open:rotate-45 transition-transform duration-200 text-xl ml-4 shrink-0">+</span>
-                </summary>
-                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-muted-foreground font-normal leading-relaxed">
-                  {faq.a}
-                </div>
-              </motion.details>
-            ))}
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq, i) => (
+                <AccordionItem
+                  key={faq.q}
+                  value={`pricing-faq-${i}`}
+                  className="bg-card/40 rounded-2xl border border-border/30 px-6 hover:border-primary/20 transition-colors duration-300 data-[state=open]:border-primary/30 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/5"
+                >
+                  <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary hover:no-underline py-5 text-[15px]">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/80 font-normal leading-relaxed pb-5 text-base">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
