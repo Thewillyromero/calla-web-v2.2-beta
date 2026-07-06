@@ -41,6 +41,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
   const [honeypot, setHoneypot] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const openedAt = useRef<number>(Date.now());
   const [captchaToken, setCaptchaToken] = useState("");
   const captchaRef = useRef<HTMLDivElement>(null);
@@ -90,6 +91,10 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       toast.error("Por favor, introduce un email válido.");
       return;
     }
+    if (!accepted) {
+      toast.error("Debes aceptar la política de privacidad para continuar.");
+      return;
+    }
     if (!captchaToken) {
       toast.error("Un momento, estamos verificando que no eres un robot…");
       return;
@@ -124,6 +129,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
       }
       setSuccess(true);
       setForm({ name: "", email: "", phone: "", company: "", message: "" });
+      setAccepted(false);
     } catch {
       toast.error("Ha ocurrido un error. Inténtalo de nuevo.");
       resetCaptcha();
@@ -199,7 +205,13 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
                 <Textarea id="message" placeholder="Cuéntanos qué necesitas..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={3} required className="bg-secondary/50 border-border/40 resize-none" />
               </div>
               <label className="flex items-start gap-2.5 cursor-pointer">
-                <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
+                <input
+                  type="checkbox"
+                  required
+                  checked={accepted}
+                  onChange={(e) => setAccepted(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary"
+                />
                 <span className="text-sm text-muted-foreground leading-relaxed">
                   He leído y acepto la{" "}
                   <a href="/legal#privacidad" target="_blank" rel="noopener" className="text-primary hover:underline">política de privacidad</a>{" "}
@@ -208,7 +220,7 @@ const ContactFormDialog = ({ open, onOpenChange, source = "general", title, desc
               </label>
               {/* Cloudflare Turnstile — verificación anti-bot */}
               <div ref={captchaRef} className="flex justify-center min-h-[65px]" />
-              <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20" disabled={loading}>
+              <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full text-base shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed" disabled={loading || !accepted}>
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>{submitLabel ?? "Solicitar demo"} <ArrowRight className="ml-2 h-5 w-5" /></>}
               </Button>
               <p className="text-sm text-muted-foreground/75 text-center">Sin compromiso · Respuesta en &lt;24h</p>
