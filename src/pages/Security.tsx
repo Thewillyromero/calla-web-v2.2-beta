@@ -432,7 +432,14 @@ const Security = () => {
       </section>
 
       <Footer onContact={() => setContactOpen(true)} />
-      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="seguridad" />
+      <ContactFormDialog
+        open={contactOpen}
+        onOpenChange={setContactOpen}
+        source="seguridad"
+        title={<>Habla con un experto en <span className="text-gradient-blue">seguridad</span></>}
+        description="Cuéntanos tus necesidades de seguridad y cumplimiento (RGPD) y te asesoramos sin compromiso."
+        submitLabel="Hablar con un experto"
+      />
     </div>
   );
 };
