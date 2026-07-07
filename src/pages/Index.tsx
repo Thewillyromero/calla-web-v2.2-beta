@@ -308,7 +308,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(190 60% 55% / 0.25)", background: "hsl(190 60% 55% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[0].title}</h3>
-                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[0].description}</p>
+                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{capabilities[0].description}</p>
                   </div>
                   <div className="flex gap-2 px-5 pb-3">
                     {(["entrante", "saliente", "campana"] as const).map((tab) => {
@@ -506,7 +506,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(160 50% 48% / 0.25)", background: "hsl(160 50% 48% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[1].title}</h3>
-                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[1].description}</p>
+                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{capabilities[1].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl flex flex-col h-[240px]"
                     style={{ background: "hsl(160 50% 48% / 0.08)", border: "1px solid hsl(160 50% 48% / 0.15)" }}>
@@ -584,7 +584,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(35 70% 58% / 0.25)", background: "hsl(35 70% 58% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[3].title}</h3>
-                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[3].description}</p>
+                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{capabilities[3].description}</p>
                   </div>
                   <div className="flex-1 mx-4 mb-4 rounded-2xl overflow-hidden flex flex-col"
                     style={{ background: "hsl(35 70% 58% / 0.05)", border: "1px solid hsl(35 70% 58% / 0.18)", minHeight: "200px" }}>
@@ -657,7 +657,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(245 60% 62% / 0.25)", background: "hsl(245 60% 62% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[2].title}</h3>
-                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[2].description}</p>
+                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{capabilities[2].description}</p>
                   </div>
                   <div className="flex-1 px-3 pb-4 min-h-[220px] flex items-center justify-center">
                     <svg viewBox="0 0 280 220" className="w-full h-full">
@@ -723,7 +723,7 @@ const Index = () => {
                   style={{ borderColor: "hsl(340 55% 60% / 0.25)", background: "hsl(340 55% 60% / 0.04)" }}>
                   <div className="p-5 md:p-6">
                     <h3 className="text-base font-display font-extrabold text-foreground mb-2 leading-tight uppercase tracking-widest">{capabilities[4].title}</h3>
-                    <p className="text-base text-foreground/75 font-normal leading-relaxed">{capabilities[4].description}</p>
+                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{capabilities[4].description}</p>
                   </div>
                   <div className="flex-1 px-4 pb-4 flex flex-col gap-2 min-h-[200px]">
                     {[
@@ -944,7 +944,7 @@ const Index = () => {
                 Así de fácil es{" "}
                 <span className="text-gradient">empezar</span>
               </h2>
-              <p className="text-foreground/75 max-w-lg mx-auto text-base font-normal">
+              <p className="text-foreground/86 max-w-lg mx-auto text-base font-normal">
                 Cuatro fases claras. Sin tecnicismos, sin sorpresas.
               </p>
             </motion.div>
@@ -999,7 +999,7 @@ const Index = () => {
                               {step.title}
                             </h3>
                           </div>
-                          <p className="text-sm text-foreground/75 font-normal leading-relaxed mb-4">
+                          <p className="text-sm text-foreground/86 font-normal leading-relaxed mb-4">
                             {step.description}
                           </p>
                           <div className="flex flex-wrap gap-1.5">
@@ -1213,7 +1213,7 @@ const Index = () => {
                   Tu competencia ya{" "}
                   <span className="text-gradient">no descansa.</span>
                 </h2>
-                <p className="text-foreground/75 text-base font-normal leading-relaxed mb-8">
+                <p className="text-foreground/86 text-base font-normal leading-relaxed mb-8">
                   Un equipo de IA trabajando por tu empresa los 365 días del año. Sin descansos, sin bajas, sin errores.
                 </p>
                 <Button
