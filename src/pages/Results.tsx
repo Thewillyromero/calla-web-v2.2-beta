@@ -176,9 +176,9 @@ const Results = () => {
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="text-base font-medium text-foreground leading-snug">{t.name}</div>
-                        <div className="text-sm text-foreground/86 leading-snug line-clamp-2">{t.role}, {t.company}</div>
+                        <div className="text-sm text-foreground/85 leading-snug line-clamp-2">{t.role}, {t.company}</div>
                       </div>
-                      <span className="text-[11px] uppercase tracking-wider text-foreground/86 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
+                      <span className="text-[11px] uppercase tracking-wider text-foreground/85 bg-secondary/40 px-2 py-0.5 rounded-full shrink-0">{t.context}</span>
                     </div>
                   </div>
                 </motion.div>

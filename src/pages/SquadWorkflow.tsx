@@ -190,7 +190,7 @@ const SquadWorkflow = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4 leading-tight tracking-tight">
                   Todo coordinado.<br />En tiempo real.
                 </h2>
-                <p className="text-foreground/86 font-normal leading-relaxed max-w-md mx-auto">
+                <p className="text-foreground/85 font-normal leading-relaxed max-w-md mx-auto">
                   Cinco agentes trabajando como uno solo. HALO decide en cada momento qué agente actúa y con qué información. El cliente no percibe ninguna transición.
                 </p>
               </div>
@@ -209,7 +209,7 @@ const SquadWorkflow = () => {
                       <span className="font-display font-extrabold text-base" style={{ color: `hsl(${haloHsl})` }}>{s.step}</span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground">{s.title}</h3>
-                    <p className="text-base text-foreground/86 font-normal leading-relaxed">{s.description}</p>
+                    <p className="text-base text-foreground/85 font-normal leading-relaxed">{s.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -307,7 +307,7 @@ const SquadWorkflow = () => {
                     <CircleDot className="h-4 w-4 shrink-0 mt-0.5" style={{ color: `hsl(${haloHsl})` }} />
                     <div>
                       <h3 className="font-display font-semibold text-lg text-foreground mb-2">{fc.title}</h3>
-                      <p className="text-base text-foreground/86 font-normal leading-relaxed">{fc.description}</p>
+                      <p className="text-base text-foreground/85 font-normal leading-relaxed">{fc.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -348,7 +348,7 @@ const SquadWorkflow = () => {
                   <h3 className="font-display font-bold text-base md:text-lg text-foreground mb-3 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-foreground/86 font-normal leading-relaxed mb-5 text-sm flex-1">
+                  <p className="text-foreground/85 font-normal leading-relaxed mb-5 text-sm flex-1">
                     {s.description}
                   </p>
                   <div className="rounded-2xl p-4 flex items-start gap-3"

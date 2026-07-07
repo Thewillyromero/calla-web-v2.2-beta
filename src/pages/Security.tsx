@@ -178,7 +178,7 @@ const Security = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Tres capas de protección
             </h2>
-            <p className="text-foreground/86 font-normal">Cada dato cubierto desde múltiples frentes.</p>
+            <p className="text-foreground/85 font-normal">Cada dato cubierto desde múltiples frentes.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -216,7 +216,7 @@ const Security = () => {
                     {pillar.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" style={{ color: `hsl(${pillar.hsl})` }} />
-                        <span className="text-sm text-foreground/86 font-normal leading-relaxed">{item}</span>
+                        <span className="text-sm text-foreground/85 font-normal leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -247,7 +247,7 @@ const Security = () => {
             <h2 className="text-2xl md:text-3xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Cómo protegemos cada llamada
             </h2>
-            <p className="text-foreground/86 font-normal">El ciclo completo de seguridad, de principio a fin.</p>
+            <p className="text-foreground/85 font-normal">El ciclo completo de seguridad, de principio a fin.</p>
           </motion.div>
 
           <div className="flex flex-wrap md:flex-nowrap items-start justify-center gap-3 md:gap-0">
@@ -415,7 +415,7 @@ const Security = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
               ¿Tienes preguntas sobre seguridad?
             </h2>
-            <p className="text-foreground/86 max-w-xl mx-auto text-base font-normal mb-8 relative z-10">
+            <p className="text-foreground/85 max-w-xl mx-auto text-base font-normal mb-8 relative z-10">
               Nuestro equipo resuelve cualquier duda sobre protección de datos y cumplimiento normativo.
             </p>
             <button

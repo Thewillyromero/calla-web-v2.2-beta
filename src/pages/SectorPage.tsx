@@ -647,7 +647,7 @@ const SectorPage = () => {
             <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
               Lo que frena tu negocio
             </h2>
-            <p className="text-foreground/86 font-normal max-w-xl">
+            <p className="text-foreground/85 font-normal max-w-xl">
               Problemas reales del sector que CALLA resuelve desde el primer día.
             </p>
           </motion.div>
@@ -662,7 +662,7 @@ const SectorPage = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-sm text-foreground mb-1.5">{point.title}</h3>
-                  <p className="text-sm text-foreground/86 font-normal leading-relaxed">{point.description}</p>
+                  <p className="text-sm text-foreground/85 font-normal leading-relaxed">{point.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -685,7 +685,7 @@ const SectorPage = () => {
               <h2 className="text-2xl md:text-4xl font-display font-extrabold text-foreground tracking-tight mb-3">
                 {sector.capabilitiesTitle ?? `Qué hace CALLA en tu ${sector.name.toLowerCase()}`}
               </h2>
-              <p className="text-foreground/86 font-normal max-w-xl">
+              <p className="text-foreground/85 font-normal max-w-xl">
                 {sector.capabilitiesSubtitle ?? "Cubierto desde el primer día."}
               </p>
             </motion.div>
@@ -715,7 +715,7 @@ const SectorPage = () => {
                       <h3 className="font-display font-bold text-xl text-foreground mb-2 leading-tight">
                         {cap.title}
                       </h3>
-                      <p className="text-base text-foreground/86 font-normal leading-relaxed">
+                      <p className="text-base text-foreground/85 font-normal leading-relaxed">
                         {cap.description}
                       </p>
                     </div>
@@ -736,7 +736,7 @@ const SectorPage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight mb-3">
               Un día con CALLA en {sector.name.toLowerCase()}
             </h2>
-            <p className="text-foreground/86 font-normal">
+            <p className="text-foreground/85 font-normal">
               Situaciones reales del sector, resueltas automáticamente.
             </p>
           </motion.div>
@@ -755,7 +755,7 @@ const SectorPage = () => {
                 <h3 className="font-display font-bold text-lg text-foreground leading-snug">
                   {uc.title}
                 </h3>
-                <p className="text-base text-foreground/86 font-normal leading-relaxed flex-1">
+                <p className="text-base text-foreground/85 font-normal leading-relaxed flex-1">
                   {uc.scenario}
                 </p>
                 <div
@@ -815,7 +815,7 @@ const SectorPage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-extrabold mb-4 tracking-tight text-foreground relative z-10">
               {CTA_TITLES[sector.slug] ?? "¿Listo para dejar de perder llamadas?"}
             </h2>
-            <p className="text-foreground/86 max-w-xl mx-auto text-base font-normal mb-2 relative z-10">
+            <p className="text-foreground/85 max-w-xl mx-auto text-base font-normal mb-2 relative z-10">
               Contacta con nosotros y te informamos de cómo CALLA te ayudaría en tu sector.
             </p>
             <p className="text-foreground/70 max-w-xl mx-auto text-sm font-normal mb-8 relative z-10">
