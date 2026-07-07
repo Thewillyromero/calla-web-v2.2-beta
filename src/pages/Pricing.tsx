@@ -361,8 +361,8 @@ const Pricing = () => {
       <ContactFormDialog
         open={contactOpen} onOpenChange={setContactOpen}
         source={variant === "enterprise" ? "pricing-enterprise" : variant === "roi" ? "pricing-roi" : "pricing"}
-        {...(variant === "enterprise" ? { title: "Una solución a tu medida", description: "Diseñamos una solución personalizada para tu empresa.", submitLabel: "Hablar con el equipo" }
-           : variant === "roi" ? { title: "Tu propuesta personalizada", description: "Preparamos un cálculo de ahorro real para tu empresa.", submitLabel: "Solicitar propuesta" }
+        {...(variant === "enterprise" ? { title: <>Una solución a tu <span className="text-gradient-blue">medida</span></>, description: "Diseñamos una solución personalizada para tu empresa.", submitLabel: "Hablar con el equipo" }
+           : variant === "roi" ? { title: <>Tu propuesta <span className="text-gradient-blue">personalizada</span></>, description: "Preparamos un cálculo de ahorro real para tu empresa.", submitLabel: "Solicitar propuesta" }
            : {})}
       />
     </div>

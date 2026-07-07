@@ -231,7 +231,7 @@ const Results = () => {
       <ContactFormDialog
         open={contactOpen} onOpenChange={setContactOpen}
         source={variant === "resultados" ? "resultados" : "resultados-demo"}
-        {...(variant === "resultados" ? { title: "Resultados para tu empresa", description: "Analizamos tu caso y te mostramos el impacto real de CALLA.", submitLabel: "Solicitar información" } : {})}
+        {...(variant === "resultados" ? { title: <>Resultados para tu <span className="text-gradient-blue">empresa</span></>, description: "Analizamos tu caso y te mostramos el impacto real de CALLA.", submitLabel: "Solicitar información" } : {})}
       />
     </div>
   );

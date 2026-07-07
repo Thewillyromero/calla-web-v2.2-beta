@@ -89,7 +89,7 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
         open={contactOpen}
         onOpenChange={setContactOpen}
         source="footer"
-        title="Contacta con nosotros"
+        title={<>Contacta con <span className="text-gradient-blue">nosotros</span></>}
         description="¿Tienes alguna pregunta? Escríbenos y te responderemos a la mayor brevedad posible."
         submitLabel="Contacto"
       />

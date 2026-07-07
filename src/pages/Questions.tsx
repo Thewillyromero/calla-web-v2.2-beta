@@ -99,7 +99,7 @@ const Questions = () => {
       <ContactFormDialog
         open={contactOpen} onOpenChange={setContactOpen}
         source={variant === "preguntas" ? "preguntas" : "preguntas-demo"}
-        {...(variant === "preguntas" ? { title: "Estamos para ayudarte", description: "Un especialista de CALLA responderá a tus preguntas.", submitLabel: "Contactar" } : {})}
+        {...(variant === "preguntas" ? { title: <>Estamos para <span className="text-gradient-blue">ayudarte</span></>, description: "Un especialista de CALLA responderá a tus preguntas.", submitLabel: "Contactar" } : {})}
       />
     </div>
   );
