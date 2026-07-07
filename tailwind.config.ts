@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Fredoka"', '"Outfit"', 'system-ui', 'sans-serif'],
+        display: ['"Outfit"', 'system-ui', 'sans-serif'],
         body: ['"DM Sans"', 'system-ui', 'sans-serif'],
         editorial: ['"Playfair Display"', 'Georgia', '"Times New Roman"', 'serif'],
       },
