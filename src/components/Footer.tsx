@@ -1,9 +1,11 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Mail, Shield } from "lucide-react";
 import heroRobot from "@/assets/hero-robot.webp";
+import ContactFormDialog from "@/components/ContactFormDialog";
 
 const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
+  const [contactOpen, setContactOpen] = useState(false);
   return (
     <footer className="border-t border-border/20 pt-12 md:pt-16 pb-8 px-5 md:px-6">
       <div className="container mx-auto">
@@ -54,6 +56,14 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
               <li><Link to="/preguntas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Preguntas frecuentes</Link></li>
               <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link></li>
               <li><Link to="/caso/edommo" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Casos de éxito</Link></li>
+              <li>
+                <button
+                  onClick={() => setContactOpen(true)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Contacto
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -68,18 +78,21 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
           </div>
         </div>
 
-        <div className="border-t border-border/20 pt-6 pr-0 md:pr-20 pb-16 md:pb-0 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground/70">
+        <div className="border-t border-border/20 pt-6 pb-16 md:pb-0">
+          <p className="text-sm text-muted-foreground/70 text-center md:text-left">
             © 2026 App Calla, S.L. · CIF B88969308 · Todos los derechos reservados.
           </p>
-          <button
-            onClick={() => onContact?.()}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
-          >
-            Contacto →
-          </button>
         </div>
       </div>
+
+      <ContactFormDialog
+        open={contactOpen}
+        onOpenChange={setContactOpen}
+        source="footer"
+        title="Contacta con nosotros"
+        description="¿Tienes alguna pregunta? Escríbenos y te responderemos a la mayor brevedad posible."
+        submitLabel="Contacto"
+      />
     </footer>
   );
 });

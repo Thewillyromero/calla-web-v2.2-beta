@@ -63,12 +63,14 @@ const metrics = [
 
 const Security = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [variant, setVariant] = useState<"demo" | "experto">("demo");
+  const openForm = (v: "demo" | "experto") => { setVariant(v); setContactOpen(true); };
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-background noise-overlay">
-      <Navbar onContact={() => setContactOpen(true)} />
+      <Navbar onContact={() => openForm("demo")} />
 
       {/* ── Hero ── */}
       <section className="pt-28 sm:pt-36 pb-20 md:pb-28 px-5 md:px-6 relative overflow-hidden">
@@ -419,7 +421,7 @@ const Security = () => {
               Nuestro equipo resuelve cualquier duda sobre protección de datos y cumplimiento normativo.
             </p>
             <button
-              onClick={() => setContactOpen(true)}
+              onClick={() => openForm("experto")}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 relative z-10"
             >
               Hablar con un experto
@@ -435,10 +437,12 @@ const Security = () => {
       <ContactFormDialog
         open={contactOpen}
         onOpenChange={setContactOpen}
-        source="seguridad"
-        title={<>Habla con un experto en <span className="text-gradient-blue">seguridad</span></>}
-        description="Cuéntanos tus necesidades de seguridad y cumplimiento (RGPD) y te asesoramos sin compromiso."
-        submitLabel="Hablar con un experto"
+        source={variant === "experto" ? "seguridad" : "seguridad-demo"}
+        {...(variant === "experto" ? {
+          title: <>Habla con un experto en <span className="text-gradient-blue">seguridad</span></>,
+          description: "Cuéntanos tus necesidades de seguridad y cumplimiento (RGPD) y te asesoramos sin compromiso.",
+          submitLabel: "Hablar con un experto",
+        } : {})}
       />
     </div>
   );

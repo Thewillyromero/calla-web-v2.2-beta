@@ -114,6 +114,8 @@ const cardVariants = (i: number) => ({
 
 const Pricing = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [variant, setVariant] = useState<"demo" | "enterprise" | "roi">("demo");
+  const openForm = (v: "demo" | "enterprise" | "roi") => { setVariant(v); setContactOpen(true); };
   const [annual, setAnnual] = useState(false);
   const [hoveredBtn, setHoveredBtn] = useState<number | null>(null);
 
@@ -133,7 +135,7 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-background noise-overlay">
-      <Navbar onContact={() => setContactOpen(true)} />
+      <Navbar onContact={() => openForm("demo")} />
 
       {/* ── Calculadora ── */}
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6 relative overflow-hidden">
@@ -142,7 +144,7 @@ const Pricing = () => {
         <div className="container mx-auto relative z-10">
           <div id="calculadora" className="scroll-mt-24">
             <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando calculadora...</div>}>
-              <ROICalculator onContact={() => setContactOpen(true)} />
+              <ROICalculator onContact={() => openForm("roi")} />
             </Suspense>
           </div>
         </div>
@@ -298,7 +300,7 @@ const Pricing = () => {
                         borderColor: `hsl(${tier.hsl} / 0.6)`,
                         color: `hsl(${tier.hsl})`,
                       } : {}}
-                      onClick={() => setContactOpen(true)}
+                      onClick={() => openForm(tier.cta === "Contacta con el equipo" ? "enterprise" : "demo")}
                     >
                       {tier.cta}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -355,8 +357,14 @@ const Pricing = () => {
         </div>
       </section>
 
-      <Footer onContact={() => setContactOpen(true)} />
-      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="pricing" />
+      <Footer onContact={() => openForm("demo")} />
+      <ContactFormDialog
+        open={contactOpen} onOpenChange={setContactOpen}
+        source={variant === "enterprise" ? "pricing-enterprise" : variant === "roi" ? "pricing-roi" : "pricing"}
+        {...(variant === "enterprise" ? { title: "Una solución a tu medida", description: "Diseñamos una solución personalizada para tu empresa.", submitLabel: "Hablar con el equipo" }
+           : variant === "roi" ? { title: "Tu propuesta personalizada", description: "Preparamos un cálculo de ahorro real para tu empresa.", submitLabel: "Solicitar propuesta" }
+           : {})}
+      />
     </div>
   );
 };

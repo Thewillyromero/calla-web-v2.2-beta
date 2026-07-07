@@ -27,6 +27,8 @@ const avatarGradients = [
 
 const Results = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [variant, setVariant] = useState<"demo" | "resultados">("demo");
+  const openForm = (v: "demo" | "resultados") => { setVariant(v); openForm("demo"); };
   const [expanded, setExpanded] = useState(false);
   const visibleTestimonials = expanded ? testimonials : testimonials.slice(0, 6);
 
@@ -36,7 +38,7 @@ const Results = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar onContact={() => setContactOpen(true)} />
+      <Navbar onContact={() => openForm("demo")} />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-32 pb-8 md:pb-10 px-5 md:px-6">
@@ -120,7 +122,7 @@ const Results = () => {
       {/* Call Recordings */}
       <div className="bg-white/[0.03]">
         <Suspense fallback={<div className="py-20 text-center text-foreground/70">Cargando llamadas...</div>}>
-          <CallPlayer onContact={() => setContactOpen(true)} />
+          <CallPlayer onContact={() => openForm("demo")} />
         </Suspense>
       </div>
 
@@ -215,7 +217,7 @@ const Results = () => {
               Agenda una demo y descubre cómo CALLA puede transformar las comunicaciones de tu empresa.
             </p>
             <button
-              onClick={() => setContactOpen(true)}
+              onClick={() => openForm("resultados")}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
             >
               Solicitar información
@@ -225,8 +227,12 @@ const Results = () => {
         </div>
       </section>
 
-      <Footer onContact={() => setContactOpen(true)} />
-      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="resultados" />
+      <Footer onContact={() => openForm("demo")} />
+      <ContactFormDialog
+        open={contactOpen} onOpenChange={setContactOpen}
+        source={variant === "resultados" ? "resultados" : "resultados-demo"}
+        {...(variant === "resultados" ? { title: "Resultados para tu empresa", description: "Analizamos tu caso y te mostramos el impacto real de CALLA.", submitLabel: "Solicitar información" } : {})}
+      />
     </div>
   );
 };

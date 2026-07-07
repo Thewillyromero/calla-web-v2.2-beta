@@ -17,6 +17,8 @@ import { faqs } from "@/data/faqs";
 
 const Questions = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [variant, setVariant] = useState<"demo" | "preguntas">("demo");
+  const openForm = (v: "demo" | "preguntas") => { setVariant(v); openForm("demo"); };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,7 +26,7 @@ const Questions = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar onContact={() => setContactOpen(true)} />
+      <Navbar onContact={() => openForm("demo")} />
 
       {/* Hero */}
       <section className="pt-28 sm:pt-32 pb-16 md:pb-20 px-5 md:px-6">
@@ -83,7 +85,7 @@ const Questions = () => {
               Contacta con nuestro equipo y resuelve cualquier duda sobre cómo CALLA puede ayudar a tu negocio.
             </p>
             <button
-              onClick={() => setContactOpen(true)}
+              onClick={() => openForm("preguntas")}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-semibold px-8 py-4 rounded-full text-base hover:opacity-90 transition-opacity"
             >
               Solicitar información
@@ -93,8 +95,12 @@ const Questions = () => {
         </div>
       </section>
 
-      <Footer onContact={() => setContactOpen(true)} />
-      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} source="preguntas" />
+      <Footer onContact={() => openForm("demo")} />
+      <ContactFormDialog
+        open={contactOpen} onOpenChange={setContactOpen}
+        source={variant === "preguntas" ? "preguntas" : "preguntas-demo"}
+        {...(variant === "preguntas" ? { title: "Estamos para ayudarte", description: "Un especialista de CALLA responderá a tus preguntas.", submitLabel: "Contactar" } : {})}
+      />
     </div>
   );
 };
