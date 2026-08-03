@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone, User, Loader2, Sparkles, Mic, MicOff,
-  PhoneOff, Volume2, Mail,
+  PhoneOff, Volume2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -74,7 +74,7 @@ const CallTimer = ({ startTime }: { startTime: number }) => {
 };
 
 const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
-  const [form, setForm] = useState({ name: "", phone: "", email: "" });
+  const [form, setForm] = useState({ name: "" });
   const [loading, setLoading] = useState(false);
   const [callState, setCallState] = useState<CallState>("idle");
   const [muted, setMuted] = useState(false);
@@ -115,7 +115,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
     };
   }, []);
 
-  const startWebCall = useCallback(async () => {
+  const startWebCall = useCallback(async (userName: string) => {
     if (getTodayCalls() >= CALL_LIMIT) {
       toast.error("Has alcanzado el límite de demos por hoy. ¡Agenda una llamada con el equipo!");
       onContact?.();
@@ -189,8 +189,10 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         vapiRef.current = null;
       });
 
-      /* STEP 5: Start the call — browser already has mic permission from step 1 */
-      vapi.start(ASSISTANT_ID);
+      /* STEP 5: Start the call — browser already has mic permission from step 1.
+         Se pasa el nombre como variable para que ARIA salude de forma personalizada:
+         en el panel de VAPI, el First Message del asistente debe usar {{name}}. */
+      vapi.start(ASSISTANT_ID, { variableValues: { name: userName } });
     } catch (err) {
       console.error("Failed to start call:", err);
       toast.error("No pudimos conectar la llamada. Inténtalo de nuevo en unos segundos.");
@@ -219,7 +221,6 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
       e.preventDefault();
 
       const name = form.name.trim();
-      const phone = form.phone.trim();
 
       if (!name || name.length < 2) {
         toast.error("Introduce tu nombre (mín. 2 caracteres).");
@@ -229,11 +230,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
       setLoading(true);
       try {
         const { data, error } = await supabase.functions.invoke("demo-call", {
-          body: {
-            name,
-            phone: phone || "web-call",
-            email: form.email.trim() || undefined,
-          },
+          body: { name, phone: "web-call" },
         });
         if (error) throw error;
         if (data?.error) throw new Error(data.error);
@@ -242,16 +239,11 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         fetch("/api/notify-lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            phone: phone || null,
-            email: form.email.trim() || null,
-            source: "demo-call",
-          }),
+          body: JSON.stringify({ name, source: "demo-call" }),
         }).catch(() => {});
 
         /* Lead saved — now start web call */
-        startWebCall();
+        startWebCall(name);
       } catch (err: unknown) {
         const message =
           err instanceof Error ? err.message : "Error al procesar.";
@@ -265,7 +257,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
 
   const handleReset = () => {
     setCallState("idle");
-    setForm({ name: "", phone: "", email: "" });
+    setForm({ name: "" });
     setVolume(0);
     setMuted(false);
     setIsSpeaking(false);
@@ -453,39 +445,6 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                           />
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <Label htmlFor="demo-phone" className="text-sm text-foreground/80 font-medium">
-                              <Phone className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/75" />
-                              Teléfono
-                            </Label>
-                            <Input
-                              id="demo-phone"
-                              type="tel"
-                              placeholder="+34 600 000 000"
-                              value={form.phone}
-                              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                              maxLength={20}
-                              className="bg-secondary/40 border-border/30 h-12 text-base rounded-xl focus:border-brand-teal/50 focus:ring-brand-teal/20"
-                            />
-                          </div>
-                          <div className="space-y-1.5">
-                            <Label htmlFor="demo-email" className="text-sm text-foreground/80 font-medium">
-                              <Mail className="inline h-3.5 w-3.5 mr-1.5 text-muted-foreground/75" />
-                              Email
-                            </Label>
-                            <Input
-                              id="demo-email"
-                              type="email"
-                              placeholder="tu@empresa.com"
-                              value={form.email}
-                              onChange={(e) => setForm({ ...form, email: e.target.value })}
-                              maxLength={100}
-                              className="bg-secondary/40 border-border/30 h-12 text-base rounded-xl focus:border-brand-teal/50 focus:ring-brand-teal/20"
-                            />
-                          </div>
-                        </div>
-
                         <label className="flex items-start gap-2.5 cursor-pointer">
                           <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded border-border/60 accent-primary" />
                           <span className="text-sm text-muted-foreground leading-relaxed text-left">
@@ -630,8 +589,8 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                               ¡Gracias por probar CALLA!
                             </h3>
                             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
-                              {form.name}, nuestro equipo se pondrá en contacto contigo pronto para una demo
-                              personalizada de tu sector.
+                              {form.name}, ¿te ha gustado? Cuéntanos tu caso y te preparamos
+                              una demo personalizada para tu empresa.
                             </p>
                             <div className="flex gap-3">
                               <Button
@@ -648,7 +607,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
                                 style={{ background: "linear-gradient(135deg, hsl(190 60% 50%), hsl(190 60% 42%))" }}
                                 onClick={() => onContact?.()}
                               >
-                                Agendar demo personalizada
+                                Solicitar demo personalizada
                               </Button>
                             </div>
                           </>
