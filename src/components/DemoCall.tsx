@@ -238,6 +238,18 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         if (error) throw error;
         if (data?.error) throw new Error(data.error);
 
+        /* Aviso por correo a la empresa (no bloquea la llamada; en local no existe el endpoint) */
+        fetch("/api/notify-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            phone: phone || null,
+            email: form.email.trim() || null,
+            source: "demo-call",
+          }),
+        }).catch(() => {});
+
         /* Lead saved — now start web call */
         startWebCall();
       } catch (err: unknown) {

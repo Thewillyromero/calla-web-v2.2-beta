@@ -213,6 +213,16 @@ const Chatbot = () => {
           name: emailForm.name.trim(),
         },
       });
+      // Aviso por correo a la empresa (no bloquea; en local no existe el endpoint)
+      fetch("/api/notify-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: emailForm.name.trim() || "Visitante chatbot",
+          email: emailForm.email.trim(),
+          source: "chatbot",
+        }),
+      }).catch(() => {});
       setEmailCaptured(true);
       setShowEmailCapture(false);
       setMessages((prev) => [

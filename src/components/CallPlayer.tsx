@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import ContactFormDialog from "@/components/ContactFormDialog";
 import { Volume2, Headphones, Clock, Lock, ArrowRight } from "lucide-react";
 import agentInbound from "@/assets/characters/agent-inbound.webp";
