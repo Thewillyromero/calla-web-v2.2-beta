@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Shield } from "lucide-react";
+import { Mail, Phone, Shield } from "lucide-react";
 import heroRobot from "@/assets/hero-robot.webp";
 import ContactFormDialog from "@/components/ContactFormDialog";
 
@@ -27,6 +27,13 @@ const Footer = memo(({ onContact }: { onContact?: () => void } = {}) => {
             >
               <Mail className="h-4 w-4 shrink-0" />
               contacto@appcalla.com
+            </a>
+            <a
+              href="tel:+34613139734"
+              className="flex items-center gap-2 mt-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Phone className="h-4 w-4 shrink-0" />
+              +34 613 139 734
             </a>
             <Link
               to="/seguridad"
