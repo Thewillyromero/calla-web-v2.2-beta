@@ -114,7 +114,7 @@ const SubTitle = ({ children }: { children: React.ReactNode }) => (
 /* ------------------------------------------------------------------ */
 const AvisoLegal = () => (
   <div>
-    <P>Última actualización: mayo de 2026</P>
+    <P>Última actualización: agosto de 2026</P>
 
     <SectionTitle>1. Datos identificativos</SectionTitle>
     <P>
@@ -128,7 +128,7 @@ const AvisoLegal = () => (
       <li><strong className="text-foreground/80">Nombre comercial:</strong> CALLA</li>
       <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
       <li><strong className="text-foreground/80">Domicilio social:</strong> Avenida Pérez Galdós 62, Piso 2, Puerta 10, 46008 Valencia</li>
-      <li><strong className="text-foreground/80">Registro Mercantil:</strong> Sociedad constituida e inscrita en el Registro Mercantil de Valencia (datos de inscripción —tomo, folio y hoja— pendientes de asignación registral).</li>
+      <li><strong className="text-foreground/80">Registro Mercantil:</strong> Inscrita en el Registro Mercantil de Valencia, folio electrónico, hoja V-236751, inscripción 1ª (escritura de constitución nº 2026/1939, de 29 de junio de 2026, inscrita el 17 de julio de 2026).</li>
       <li><strong className="text-foreground/80">Actividad:</strong> Plataforma de agentes de inteligencia artificial para la automatización de comunicaciones y procesos empresariales</li>
       <li><strong className="text-foreground/80">Email:</strong> contacto@appcalla.com</li>
       <li><strong className="text-foreground/80">Teléfono:</strong> +34 613 139 734</li>
@@ -201,7 +201,7 @@ const CookiesLink = () => {
 /* ------------------------------------------------------------------ */
 const Privacidad = () => (
   <div>
-    <P>Última actualización: mayo de 2026</P>
+    <P>Última actualización: agosto de 2026</P>
 
     <SectionTitle>1. Responsable del tratamiento</SectionTitle>
     <ul className="text-base text-foreground/80 font-normal leading-relaxed mb-4 space-y-1.5 list-none">
