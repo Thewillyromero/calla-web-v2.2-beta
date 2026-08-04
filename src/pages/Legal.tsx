@@ -131,7 +131,7 @@ const AvisoLegal = () => (
       <li><strong className="text-foreground/80">Registro Mercantil:</strong> Inscrita en el Registro Mercantil de Valencia, folio electrónico, hoja V-236751, inscripción 1ª (escritura de constitución nº 2026/1939, de 29 de junio de 2026, inscrita el 17 de julio de 2026).</li>
       <li><strong className="text-foreground/80">Actividad:</strong> Plataforma de agentes de inteligencia artificial para la automatización de comunicaciones y procesos empresariales</li>
       <li><strong className="text-foreground/80">Email:</strong> contacto@appcalla.com</li>
-      <li><strong className="text-foreground/80">Teléfono:</strong> +34 613 139 734</li>
+      <li><strong className="text-foreground/80">Teléfono / WhatsApp:</strong> +34 613 139 734</li>
       <li><strong className="text-foreground/80">Web:</strong> appcalla.com</li>
     </ul>
 
@@ -209,7 +209,7 @@ const Privacidad = () => (
       <li><strong className="text-foreground/80">CIF:</strong> B88969308</li>
       <li><strong className="text-foreground/80">Domicilio social:</strong> Avenida Pérez Galdós 62, Piso 2, Puerta 10, 46008 Valencia</li>
       <li><strong className="text-foreground/80">Email de contacto:</strong> contacto@appcalla.com</li>
-      <li><strong className="text-foreground/80">Teléfono:</strong> +34 613 139 734</li>
+      <li><strong className="text-foreground/80">Teléfono / WhatsApp:</strong> +34 613 139 734</li>
       <li><strong className="text-foreground/80">Web:</strong> appcalla.com</li>
     </ul>
     <P>
