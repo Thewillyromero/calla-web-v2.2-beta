@@ -356,14 +356,13 @@ async function handleChat(body: any) {
       }),
     });
 
+  // Cualquier fallo del modelo principal (incluido su límite por minuto, 429)
+  // se desvía al modelo de respaldo, que tiene cuota independiente. Solo si
+  // ambos fallan devolvemos error al visitante.
   let response = await callGemini(GEMINI_MODEL);
-  if (!response.ok && response.status !== 429) {
-    console.warn(`Gemini ${GEMINI_MODEL} devolvió ${response.status}; reintentando…`);
-    response = await callGemini(GEMINI_MODEL);
-  }
-  if (!response.ok && response.status !== 429) {
-    const FALLBACK_MODEL = Deno.env.get("GEMINI_FALLBACK_MODEL") || "gemini-flash-latest";
-    console.warn(`Gemini ${GEMINI_MODEL} sigue fallando; usando ${FALLBACK_MODEL}`);
+  if (!response.ok) {
+    const FALLBACK_MODEL = Deno.env.get("GEMINI_FALLBACK_MODEL") || "gemini-flash-lite-latest";
+    console.warn(`Gemini ${GEMINI_MODEL} devolvió ${response.status}; desviando a ${FALLBACK_MODEL}`);
     response = await callGemini(FALLBACK_MODEL);
   }
 
