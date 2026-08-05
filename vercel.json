@@ -5,15 +5,15 @@
   "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "appcalla.es" }],
-      "destination": "https://appcalla.com/:path*",
+      "destination": "https://appcalla.com/$1",
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.appcalla.es" }],
-      "destination": "https://appcalla.com/:path*",
+      "destination": "https://appcalla.com/$1",
       "permanent": true
     }
   ],
