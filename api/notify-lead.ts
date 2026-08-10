@@ -11,7 +11,6 @@ let globalHits: number[] = [];
 const GLOBAL_LIMIT = 60;          // tope global de correos/hora (anti mail-bombing)
 
 const SOURCES: Record<string, string> = {
-  "demo-call": "Demo de voz (habló con ARIA)",
   chatbot: "Chatbot de la web",
 };
 

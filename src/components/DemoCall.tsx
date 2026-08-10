@@ -138,8 +138,11 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         return;
       }
 
-      /* STEP 2: Create Vapi instance AFTER we have mic permission */
-      const vapi = new Vapi(VAPI_PUBLIC_KEY);
+      /* STEP 2: Create Vapi instance AFTER we have mic permission.
+         avoidEval: por defecto Daily descarga su motor de llamada y lo ejecuta con
+         Function(), lo que exige 'unsafe-eval' en la CSP. Con avoidEval lo carga como
+         <script> desde c.daily.co (permitido en script-src) y la CSP sigue estricta. */
+      const vapi = new Vapi(VAPI_PUBLIC_KEY, undefined, { avoidEval: true });
       vapiRef.current = vapi;
 
       /* STEP 3: Fallback timer — if call doesn't start in 12s, redirect */
@@ -235,12 +238,8 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         if (error) throw error;
         if (data?.error) throw new Error(data.error);
 
-        /* Aviso por correo a la empresa (no bloquea la llamada; en local no existe el endpoint) */
-        fetch("/api/notify-lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, source: "demo-call" }),
-        }).catch(() => {});
+        /* Sin aviso por correo aquí: probar la demo no es un lead. El correo sale solo
+           si al colgar rellenan el formulario de contacto (/api/submit-contact). */
 
         /* Lead saved — now start web call */
         startWebCall(name);
