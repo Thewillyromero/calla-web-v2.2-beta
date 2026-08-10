@@ -165,9 +165,12 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         vapiRef.current = null;
       }, 30000);
 
+      let startedAt = 0;
+
       const markConnected = () => {
         if (connected) return;
         connected = true;
+        startedAt = Date.now();
         clearTimeout(fallbackTimer);
         setCallState("active");
         setCallStartTime(Date.now());
@@ -183,7 +186,11 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
       vapi.on("call-end", (reason?: unknown) => {
         clearTimeout(fallbackTimer);
         const r = typeof reason === "string" ? reason : (reason as Record<string, string>)?.reason || "";
-        setEndReason(r);
+        /* VAPI no dice por qué cuelga, así que el tope de tiempo se deduce de lo que
+           duró: sin esto, a quien agota los 3 minutos le salía "¿te ha gustado?"
+           en vez del cierre que le invita a seguir con el equipo. */
+        const seconds = startedAt ? (Date.now() - startedAt) / 1000 : 0;
+        setEndReason(r || (seconds >= CALL_MAX_SECONDS - 10 ? "max-duration-reached" : ""));
         setCallState("ended");
         micStream.getTracks().forEach(t => t.stop());
         vapiRef.current = null;
