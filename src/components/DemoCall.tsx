@@ -86,6 +86,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
   const { testCount, viewers, incrementTest } = useLiveMetricsContext();
 
   const CALL_LIMIT = 3;
+  const CALL_MAX_SECONDS = 180; // los 3 min que promete el texto bajo el botón
   const COOKIE_KEY = "calla_demo_calls";
 
   const getTodayCalls = (): number => {
@@ -145,8 +146,15 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
       const vapi = new Vapi(VAPI_PUBLIC_KEY, undefined, { avoidEval: true });
       vapiRef.current = vapi;
 
-      /* STEP 3: Fallback timer — if call doesn't start in 12s, redirect */
+      /* STEP 3: Red de seguridad — si no hay NINGUNA señal de vida, se abandona.
+         Cuenta como señal de vida cualquiera de estas, no solo "call-start": ese
+         evento puede tardar más que el saludo de ARIA y antes cortábamos llamadas
+         que ya estaban sonando. El margen es amplio porque en móvil con datos
+         tarda bastante más que en escritorio. */
+      let connected = false;
+
       const fallbackTimer = setTimeout(() => {
+        if (connected) return;
         if (vapiRef.current) {
           try { vapiRef.current.stop(); } catch {}
         }
@@ -155,17 +163,22 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         onContact?.();
         setCallState("idle");
         vapiRef.current = null;
-      }, 12000);
+      }, 30000);
 
-      /* STEP 4: Event handlers */
-      vapi.on("call-start", () => {
+      const markConnected = () => {
+        if (connected) return;
+        connected = true;
         clearTimeout(fallbackTimer);
         setCallState("active");
         setCallStartTime(Date.now());
         incrementTest();
         incrementCalls();
         toast.success("Conectado con ARIA");
-      });
+      };
+
+      /* STEP 4: Event handlers */
+      vapi.on("call-start", markConnected);
+      vapi.on("message", markConnected);
 
       vapi.on("call-end", (reason?: unknown) => {
         clearTimeout(fallbackTimer);
@@ -176,7 +189,7 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
         vapiRef.current = null;
       });
 
-      vapi.on("speech-start", () => setIsSpeaking(true));
+      vapi.on("speech-start", () => { markConnected(); setIsSpeaking(true); });
       vapi.on("speech-end", () => setIsSpeaking(false));
 
       vapi.on("volume-level", (level: number) => {
@@ -184,8 +197,11 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
       });
 
       vapi.on("error", (err: unknown) => {
-        clearTimeout(fallbackTimer);
         console.error("Web call error:", JSON.stringify(err, null, 2));
+        /* Con la llamada en marcha, VAPI emite errores que no la tumban (p. ej. el
+           filtro de ruido). Si de verdad se cae, llega "call-end" y ese sí corta. */
+        if (connected) return;
+        clearTimeout(fallbackTimer);
         micStream.getTracks().forEach(t => t.stop());
         toast.error("Se perdió la conexión con ARIA. Inténtalo de nuevo o agenda una demo personalizada.");
         setCallState("idle");
@@ -194,8 +210,13 @@ const DemoCall = ({ onContact }: { onContact?: () => void } = {}) => {
 
       /* STEP 5: Start the call — browser already has mic permission from step 1.
          Se pasa el nombre como variable para que ARIA salude de forma personalizada:
-         en el panel de VAPI, el First Message del asistente debe usar {{name}}. */
-      vapi.start(ASSISTANT_ID, { variableValues: { name: userName } });
+         en el panel de VAPI, el First Message del asistente debe usar {{name}}.
+         El tope de 3 minutos se fija aquí y no en el panel de VAPI: así la web
+         cumple lo que promete debajo del botón sin depender de ajustes ajenos. */
+      vapi.start(ASSISTANT_ID, {
+        variableValues: { name: userName },
+        maxDurationSeconds: CALL_MAX_SECONDS,
+      });
     } catch (err) {
       console.error("Failed to start call:", err);
       toast.error("No pudimos conectar la llamada. Inténtalo de nuevo en unos segundos.");
